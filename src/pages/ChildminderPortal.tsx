@@ -11,7 +11,7 @@ import { useRealtimeToasts } from "@/hooks/use-realtime-toasts";
 import logo from "@/assets/kinderstars-logo.png";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import {
-  User, Calendar, Clock, FileText, MessageSquare, Bell, Settings, LogOut, Home, Shield, Award, ClipboardList, TrendingUp, CreditCard, Heart, ScrollText, GraduationCap, Lock, BookOpen
+  User, Calendar, Clock, FileText, MessageSquare, Bell, Settings, LogOut, Home, Shield, Award, ClipboardList, TrendingUp, CreditCard, Heart, ScrollText, GraduationCap, Lock, BookOpen, ShieldCheck
 } from "lucide-react";
 
 const ChildminderPortal = () => {
@@ -42,6 +42,7 @@ const ChildminderPortal = () => {
     { to: "/childminder/training", icon: BookOpen, label: t("portal.sidebar.trainingCpd"), requiresVerified: false, key: "training" },
     { to: "/childminder/akademie", icon: GraduationCap, label: "Akademie", requiresVerified: false, key: "akademie" },
     { to: "/childminder/externe-kurse", icon: BookOpen, label: "Externe Kurse", requiresVerified: false, key: "externe-kurse" },
+    { to: "/childminder/jugendamt-ready", icon: ShieldCheck, label: "Jugendamt Ready", requiresVerified: false, key: "jugendamt-ready" },
     { to: "/childminder/messages", icon: MessageSquare, label: t("portal.sidebar.messages"), requiresVerified: false, key: "messages" },
     { to: "/childminder/notifications", icon: Bell, label: t("portal.sidebar.notifications"), requiresVerified: false, key: "notifications" },
     { to: "/childminder/subscription", icon: CreditCard, label: t("portal.sidebar.subscription"), requiresVerified: false, key: "subscription" },
@@ -101,6 +102,7 @@ const ChildminderPortal = () => {
       "/childminder/notifications", "/childminder/training", "/childminder/prospect",
       "/childminder/subscription", "/childminder/akademie", "/childminder/verifizierung",
       "/childminder/externe-kurse",
+      "/childminder/jugendamt-ready",
     ];
     const isOnAllowed = allowedPaths.some((p) => location.pathname.startsWith(p));
     const isOnDashboard = location.pathname === "/childminder";
