@@ -15,7 +15,7 @@
     "agencyTag": "Kinderbetreuung zu Hause",
     "ofstedPending": "⏳ Geprüft: Führungszeugnis, Referenzen, Erste Hilfe",
     "headline": "Kinderbetreuung zu Hause — verlässlich, geprüft, einfach.",
-    "description": "KinderStars vermittelt Familien in <strong>Berlin und NRW</strong> geprüfte Betreuungspersonen — Babysitter, Kinderfrauen, Nannies und (wo anerkannt) Kindertagespflegepersonen. Die Betreuung findet bei Ihnen zu Hause statt.",
+    "description": "KinderStars vermittelt Familien in <strong>ganz Deutschland</strong> geprüfte Betreuungspersonen — Babysitter, Kinderfrauen, Nannies und (wo anerkannt) Kindertagespflegepersonen. Die Betreuung findet bei Ihnen zu Hause statt.",
     "dbsChecked": "🛡️ Führungszeugnis geprüft",
     "qualityAssured": "📋 Qualität gesichert",
     "privacyFirst": "🔒 Datenschutz zuerst",
@@ -25,8 +25,8 @@
     "imageOverlay": "KinderStars • Kinderbetreuung zu Hause"
   },
   "stats": {
-    "ukWide": "Berlin & NRW",
-    "nationwideCoverage": "Regionaler Start, deutschlandweit im Aufbau",
+    "ukWide": "Deutschland",
+    "nationwideCoverage": "Jetzt in ganz Deutschland",
     "parentSatisfaction": "Elternzufriedenheit",
     "allChecksVerified": "Alle Prüfungen verifiziert",
     "assuredMonitored": "Gesichert & begleitet"
@@ -35,8 +35,8 @@
     "tag": "Für Eltern",
     "heading": "Kinderbetreuung, die zu Ihrer Familie passt",
     "description": "Nennen Sie uns das Alter Ihres Kindes, gewünschte Tage und Uhrzeiten sowie Ihre PLZ — wir schlagen eine passende Betreuungsperson vor und unterstützen bei Buchung, Zahlung und Rechnung.",
-    "nationwideTitle": "Kinderbetreuung in Berlin & NRW",
-    "nationwideDesc": "Wir verbinden Sie mit Betreuungspersonen in Berlin und NRW, die unser Prüf- und Onboarding-Verfahren durchlaufen haben.",
+    "nationwideTitle": "Kinderbetreuung in ganz Deutschland",
+    "nationwideDesc": "Wir verbinden Sie mit Betreuungspersonen in ganz Deutschland, die unser Prüf- und Onboarding-Verfahren durchlaufen haben.",
     "standardsTitle": "Klare Standards & Erwartungen",
     "standardsDesc": "Jede Betreuungsperson folgt unserem Qualitätsrahmen für Kinderschutz, Erste Hilfe und altersgerechte Betreuung.",
     "supportTitle": "Laufende Unterstützung",
@@ -124,11 +124,11 @@
   },
   "directory": {
     "heading": "Betreuungsperson finden",
-    "description": "Suche nach Stadt oder PLZ in Berlin und NRW. Filter nach Tagen, Altersgruppen, Verifikations-Badges und Sprachen.",
+    "description": "Suche nach Stadt oder PLZ in ganz Deutschland. Filter nach Tagen, Altersgruppen, Verifikations-Badges und Sprachen.",
     "reset": "Zurücksetzen",
     "cantFind": "Kein Treffer?",
     "searchLabel": "Suchen",
-    "searchPlaceholder": "z. B. Berlin-Mitte, Köln, 10115 oder Name",
+    "searchPlaceholder": "z. B. Hamburg, München, 10115 oder Name",
     "ageGroup": "Altersgruppe",
     "any": "Alle",
     "day": "Tag",
@@ -169,7 +169,7 @@
     "q6": "Can I choose my own childminder?",
     "a6": "Absolutely. You can browse our directory, filter by location, days, age groups, and language, then enquire about anyone who looks like a good fit. We'll facilitate the introduction.",
     "q7": "What areas do you cover?",
-    "a7": "KinderStars is a regional childcare marketplace supporting families across Berlin and NRW. Whether you're in Berlin, Cologne, Düsseldorf, or elsewhere in NRW — get in touch and we'll help you find a suitable childminder in your city.",
+    "a7": "KinderStars is a childcare marketplace supporting families across Germany. Whether you're in Berlin, Hamburg, Munich, or elsewhere in Germany — get in touch and we'll help you find a suitable childminder in your city.",
     "q8": "How do I become a KinderStars childminder?",
     "a8": "If you're a registered or aspiring childminder, get in touch via our contact form or email info@kinderstars.de. We'll walk you through the onboarding process including Führungszeugnis, training, and listing on our directory.",
     "q9": "Do I need to be recognised by the Jugendamt (where required) to join?",
@@ -188,7 +188,7 @@
     "email": "E-Mail:",
     "phone": "Telefon:",
     "address": "Adresse:",
-    "addressValue": "LoungeTech GmbH, Berlin — vollständige Anschrift im Impressum",
+    "addressValue": "LoungeTech GmbH, Deutschland — vollständige Anschrift im Impressum",
     "emailUs": "E-Mail schreiben",
     "call": "Anrufen",
     "quickMessage": "Kurze Nachricht",
@@ -201,7 +201,7 @@
     "formNotConnected": "Formular noch nicht angeschlossen — bitte an info@kinderstars.de schreiben."
   },
   "footer": {
-    "companyDesc": "KinderStars vermittelt Familien in Berlin und NRW geprüfte Betreuungspersonen für die Kinderbetreuung zu Hause. Betrieben von LoungeTech GmbH.",
+    "companyDesc": "KinderStars vermittelt Familien in ganz Deutschland geprüfte Betreuungspersonen für die Kinderbetreuung zu Hause. Betrieben von LoungeTech GmbH.",
     "navigate": "Navigation",
     "home": "Startseite",
     "forParents": "Für Eltern",
@@ -215,8 +215,8 @@
     "privacyPolicy": "Datenschutzerklärung",
     "termsOfService": "AGB",
     "complaintsProcedure": "Beschwerdeverfahren",
-    "copyright": "© {{year}} LoungeTech GmbH • KinderStars — Kinderbetreuung zu Hause, Berlin & NRW",
-    "builtWith": "Mit Sorgfalt gebaut für Familien in Berlin & NRW",
+    "copyright": "© {{year}} LoungeTech GmbH • KinderStars — Kinderbetreuung zu Hause, Deutschland",
+    "builtWith": "Mit Sorgfalt gebaut für Familien in Deutschland",
     "gdpr": "Datenschutz (DSGVO)",
     "impressum": "Impressum"
   },
@@ -261,7 +261,7 @@
     },
     "contact": {
       "heading": "Contact us",
-      "body": "If you have questions about this privacy policy or wish to exercise your data rights, please contact:\n\nKinderStars (a LoungeTech GmbH service)\nVictory House, Luton, 10115 3BS\nEmail: info@kinderstars.de\n\nYou also have the right to lodge a complaint with the your Landesdatenschutzbeauftragter (e.g. Berliner Beauftragte für Datenschutz und Informationsfreiheit — datenschutz-berlin.de)."
+      "body": "If you have questions about this privacy policy or wish to exercise your data rights, please contact:\n\nKinderStars (a LoungeTech GmbH service)\nVictory House, Luton, 10115 3BS\nEmail: info@kinderstars.de\n\nYou also have the right to lodge a complaint with your responsible Landesdatenschutzaufsichtsbehörde (state data protection authority)."
     }
   },
   "cookie": {
@@ -1107,8 +1107,8 @@
     "heading": "Wo wir aktiv sind",
     "activeLabel": "Jetzt verfügbar",
     "comingSoonLabel": "Bald verfügbar",
-    "berlin": "Berlin",
-    "nrw": "Nordrhein-Westfalen (NRW)",
-    "otherStates": "Weitere Bundesländer — bald verfügbar"
+    "berlin": "Deutschland",
+    "nrw": "",
+    "otherStates": ""
   }
 }

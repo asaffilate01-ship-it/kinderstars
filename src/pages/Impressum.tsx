@@ -25,7 +25,7 @@ const Impressum = () => (
           <p className="whitespace-pre-line">
             LoungeTech GmbH{"\n"}
             [Straße und Hausnummer]{"\n"}
-            [PLZ] Berlin{"\n"}
+            [PLZ] [Ort]{"\n"}
             Deutschland
           </p>
         </section>
@@ -46,7 +46,7 @@ const Impressum = () => (
         <section>
           <h2 className="text-base font-bold text-foreground mb-2">4. Registereintrag</h2>
           <p className="whitespace-pre-line">
-            Amtsgericht Berlin (Charlottenburg){"\n"}
+            [Amtsgericht]{"\n"}
             HRB: [Nummer]
           </p>
         </section>

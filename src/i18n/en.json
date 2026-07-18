@@ -14,8 +14,8 @@
   "hero": {
     "agencyTag": "In-home childcare",
     "ofstedPending": "⏳ Verified via Führungszeugnis, references & first aid",
-    "headline": "In-home childcare in Berlin & NRW — trusted, verified, made simple.",
-    "description": "KinderStars connects families in <strong>Berlin and NRW</strong> with verified in-home childcare professionals — Babysitter, Kinderfrauen, Nannies and (where recognised) Kindertagespflegepersonen. All care takes place in your home.",
+    "headline": "In-home childcare throughout Germany — trusted, verified, made simple.",
+    "description": "KinderStars connects families in <strong>Germany</strong> with verified in-home childcare professionals — Babysitter, Kinderfrauen, Nannies and (where recognised) Kindertagespflegepersonen. All care takes place in your home.",
     "dbsChecked": "🛡️ Führungszeugnis checked",
     "qualityAssured": "📋 Quality assured",
     "privacyFirst": "🔒 Privacy-first",
@@ -25,8 +25,8 @@
     "imageOverlay": "KinderStars • Childminder Agency"
   },
   "stats": {
-    "ukWide": "Berlin & NRW",
-    "nationwideCoverage": "Regional focus, growing across Germany",
+    "ukWide": "Germany",
+    "nationwideCoverage": "Now available throughout Germany",
     "parentSatisfaction": "Parent satisfaction",
     "allChecksVerified": "All checks verified",
     "assuredMonitored": "Assured & monitored"
@@ -35,8 +35,8 @@
     "tag": "For parents",
     "heading": "Childcare that fits your family",
     "description": "Tell us your child's age, the days and hours you need, and your PLZ — we'll match you with a suitable in-home Betreuungsperson and support booking, payment and invoicing.",
-    "nationwideTitle": "In-home childcare in Berlin & NRW",
-    "nationwideDesc": "We match you with childminders across Berlin and NRW who have been through our checks and onboarding process.",
+    "nationwideTitle": "In-home childcare throughout Germany",
+    "nationwideDesc": "We match you with childminders across Germany who have been through our checks and onboarding process.",
     "standardsTitle": "Clear standards & expectations",
     "standardsDesc": "Every childminder follows our quality framework covering safeguarding, first aid, and learning through play.",
     "supportTitle": "Ongoing agency support",
@@ -124,11 +124,11 @@
   },
   "directory": {
     "heading": "Find a childminder",
-    "description": "Search by city or PLZ across Berlin and NRW. Filter by days, ages, verification badges and languages spoken.",
+    "description": "Search by city or PLZ across Germany. Filter by days, ages, verification badges and languages spoken.",
     "reset": "Reset",
     "cantFind": "Can't find a match?",
     "searchLabel": "Search",
-    "searchPlaceholder": "e.g., Berlin-Mitte, Köln, 10115, or name",
+    "searchPlaceholder": "e.g., Hamburg, Munich, 10115, or name",
     "ageGroup": "Age group",
     "any": "Any",
     "day": "Day",
@@ -169,7 +169,7 @@
     "q6": "Can I choose my own childminder?",
     "a6": "Absolutely. You can browse our directory, filter by location, days, age groups, and language, then enquire about anyone who looks like a good fit. We'll facilitate the introduction.",
     "q7": "What areas do you cover?",
-    "a7": "KinderStars is a regional childcare marketplace supporting families across Berlin and NRW. Whether you're in Berlin, Cologne, Düsseldorf, or elsewhere in NRW — get in touch and we'll help you find a suitable childminder in your city.",
+    "a7": "KinderStars is a childcare marketplace supporting families across Germany. Whether you're in Berlin, Hamburg, Munich, or elsewhere in Germany — get in touch and we'll help you find a suitable childminder in your city.",
     "q8": "How do I become a KinderStars childminder?",
     "a8": "If you're a registered or aspiring childminder, get in touch via our contact form or email info@kinderstars.de. We'll walk you through the onboarding process including Führungszeugnis, training, and listing on our directory.",
     "q9": "Do I need to be recognised by the Jugendamt (where required) to join?",
@@ -188,7 +188,7 @@
     "email": "Email:",
     "phone": "Phone:",
     "address": "Address:",
-    "addressValue": "LoungeTech GmbH, Berlin — full address in Impressum",
+    "addressValue": "LoungeTech GmbH, Germany — full address in Impressum",
     "emailUs": "Email us",
     "call": "Call",
     "quickMessage": "Quick message",
@@ -201,7 +201,7 @@
     "formNotConnected": "Form not connected yet — please email info@kinderstars.de."
   },
   "footer": {
-    "companyDesc": "KinderStars connects families in Berlin and NRW with verified in-home childcare professionals. Operated by LoungeTech GmbH.",
+    "companyDesc": "KinderStars connects families across Germany with verified in-home childcare professionals. Operated by LoungeTech GmbH.",
     "navigate": "Navigate",
     "home": "Home",
     "forParents": "For parents",
@@ -215,8 +215,8 @@
     "privacyPolicy": "Datenschutzerklärung",
     "termsOfService": "AGB",
     "complaintsProcedure": "Beschwerdeverfahren",
-    "copyright": "© {{year}} LoungeTech GmbH • KinderStars — In-home childcare, Berlin & NRW",
-    "builtWith": "Built with care for families in Berlin & NRW",
+    "copyright": "© {{year}} LoungeTech GmbH • KinderStars — In-home childcare, Germany",
+    "builtWith": "Built with care for families across Germany",
     "gdpr": "Datenschutz (DSGVO)",
     "impressum": "Impressum"
   },
@@ -261,7 +261,7 @@
     },
     "contact": {
       "heading": "Contact us",
-      "body": "If you have questions about this privacy policy or wish to exercise your data rights, please contact:\n\nKinderStars (a LoungeTech GmbH service)\nVictory House, Luton, 10115 3BS\nEmail: info@kinderstars.de\n\nYou also have the right to lodge a complaint with the your Landesdatenschutzbeauftragter (e.g. Berliner Beauftragte für Datenschutz und Informationsfreiheit — datenschutz-berlin.de)."
+      "body": "If you have questions about this privacy policy or wish to exercise your data rights, please contact:\n\nKinderStars (a LoungeTech GmbH service)\nVictory House, Luton, 10115 3BS\nEmail: info@kinderstars.de\n\nYou also have the right to lodge a complaint with your responsible state data protection authority."
     }
   },
   "cookie": {
@@ -1107,8 +1107,8 @@
     "heading": "Where we operate",
     "activeLabel": "Live now",
     "comingSoonLabel": "Coming soon",
-    "berlin": "Berlin",
-    "nrw": "North Rhine-Westphalia (NRW)",
-    "otherStates": "Other Bundesländer — coming soon"
+    "berlin": "Germany",
+    "nrw": "",
+    "otherStates": ""
   }
 }
