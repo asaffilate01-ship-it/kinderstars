@@ -30,6 +30,7 @@ const ChildminderPortal = () => {
     { to: "/childminder/onboarding", icon: ClipboardList, label: t("portal.sidebar.onboarding"), requiresVerified: false, key: "onboarding" },
     { to: "/childminder/profile", icon: User, label: t("portal.sidebar.profile"), requiresVerified: false, key: "profile" },
     { to: "/childminder/compliance", icon: Shield, label: t("portal.sidebar.compliance"), requiresVerified: false, key: "compliance" },
+    { to: "/childminder/verifizierung", icon: Shield, label: "Verifizierung", requiresVerified: false, key: "verification" },
     { to: "/childminder/certificates", icon: Award, label: t("portal.sidebar.certificates"), requiresVerified: false, key: "certificates" },
     { to: "/childminder/performance", icon: TrendingUp, label: t("portal.sidebar.performance"), requiresVerified: true, key: "performance" },
     { to: "/childminder/availability", icon: Calendar, label: t("portal.sidebar.availability"), requiresVerified: true, key: "availability" },
