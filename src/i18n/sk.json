@@ -1,0 +1,420 @@
+{
+  "nav": {
+    "forParents": "Pre rodičov",
+    "howItWorks": "Ako to funguje",
+    "forChildminders": "Pre opatrovateľky",
+    "directory": "Adresár",
+    "faq": "Časté otázky",
+    "contact": "Kontakt",
+    "blog": "Blog",
+    "enquireNow": "Opýtajte sa",
+    "registerNow": "Zaregistrujte sa",
+    "language": "Jazyk"
+  },
+  "hero": {
+    "agencyTag": "Agentúra opatrovateliek detí",
+    "ofstedPending": "⏳ Registrácia Ofsted prebieha",
+    "headline": "Dôveryhodná starostlivosť o deti, jednoducho.",
+    "description": "KinderStars je <strong>celoštátna agentúra opatrovateliek detí</strong>, ktorá pomáha rodičom v celej Veľkej Británii nájsť dôveryhodnú starostlivosť — a podporuje opatrovateľky školeniami, ochranou a zabezpečením kvality.",
+    "dbsChecked": "🛡️ DBS overenie",
+    "qualityAssured": "📋 Zabezpečená kvalita",
+    "privacyFirst": "🔒 Súkromie na prvom mieste",
+    "searchChildminders": "Hľadať opatrovateľky",
+    "forParents": "Pre rodičov",
+    "privacyNote": "Súkromie: profily zobrazujú iba <strong>oblasť PSČ</strong> (napr. LU1), nie úplné adresy.",
+    "imageOverlay": "KinderStars • Agentúra opatrovateliek"
+  },
+  "stats": {
+    "ukWide": "Celá Veľká Británia",
+    "nationwideCoverage": "Celoštátne pokrytie",
+    "parentSatisfaction": "Spokojnosť rodičov",
+    "allChecksVerified": "Všetky kontroly overené",
+    "assuredMonitored": "Zabezpečené a monitorované"
+  },
+  "parents": {
+    "tag": "Pre rodičov",
+    "heading": "Starostlivosť prispôsobená vašej rodine",
+    "description": "Povedzte nám vek dieťaťa, potrebné dni a hodiny a oblasť PSČ — prevedieme vás ďalšími krokmi.",
+    "nationwideTitle": "Celoštátna starostlivosť",
+    "nationwideDesc": "Prepojíme vás s opatrovateľkami v celej Veľkej Británii, ktoré prešli našimi kontrolami.",
+    "standardsTitle": "Jasné štandardy",
+    "standardsDesc": "Každá opatrovateľka dodržiava náš rámec kvality.",
+    "supportTitle": "Priebežná podpora",
+    "supportDesc": "KinderStars zostáva vaším kontaktným bodom.",
+    "paymentTitle": "Flexibilné platobné možnosti",
+    "paymentDesc": "Prehliadajte a pýtajte sa zadarmo. Náklady môžu byť pokryté vládnymi hodinami alebo samoplatbou.",
+    "searchChildminders": "Hľadať opatrovateľky",
+    "askHelp": "Požiadajte KinderStars o pomoc"
+  },
+  "howItWorks": {
+    "tag": "Jednoduchý proces",
+    "heading": "Ako to funguje",
+    "description": "Hľadanie dôveryhodnej starostlivosti nemusí byť stresujúce. Náš trojkrokový proces je jednoduchý.",
+    "step1Title": "Hľadajte a filtrujte",
+    "step1Desc": "Prehliadajte náš adresár podľa oblasti PSČ, vekovej skupiny, dní a overenia.",
+    "step2Title": "Pošlite dopyt",
+    "step2Desc": "Odošlite požiadavky cez KinderStars. Komunikáciu zabezpečíme my.",
+    "step3Title": "Nájdite zhodu",
+    "step3Desc": "Predstavíme vám vhodnú opatrovateľku a podporíme proces zaradenia.",
+    "startSearch": "Začnite hľadať"
+  },
+  "whyUs": {
+    "tag": "Prečo my",
+    "heading": "Postavené na dôvere a kvalite",
+    "description": "Ideme nad rámec jednoduchého zoznamu. KinderStars aktívne podporuje opatrovateľky a dáva rodičom istotu.",
+    "safeguardingTitle": "Ochrana na prvom mieste",
+    "safeguardingDesc": "Každá opatrovateľka prechádza DBS kontrolou, prvou pomocou a školením o ochrane.",
+    "qualityTitle": "Agentúra so zabezpečenou kvalitou",
+    "qualityDesc": "KinderStars je oddaná vysokým štandardom kvality a blaha detí.",
+    "privacyTitle": "Súkromie v dizajne",
+    "privacyDesc": "Profily zobrazujú iba oblasti PSČ — nikdy úplné adresy.",
+    "multilingualTitle": "Viacjazyčná podpora",
+    "multilingualDesc": "Naše opatrovateľky hovoria viacerými jazykmi.",
+    "ongoingSupportTitle": "Priebežná podpora",
+    "ongoingSupportDesc": "Po zhode nezmizíme. Poskytujeme priebežné monitorovanie kvality.",
+    "fundingTitle": "Flexibilné financovanie",
+    "fundingDesc": "Prehliadajte a pýtajte sa zadarmo. Starostlivosť je možné financovať rôznymi programami."
+  },
+  "payment": {
+    "tag": "Platenie za starostlivosť",
+    "heading": "Spôsoby platenia",
+    "description": "Prehliadanie a dopyty sú zadarmo. Starostlivosť je platená služba, ale mnohé rodiny získavajú financovanie.",
+    "govTitle": "Vládou financované bezplatné hodiny",
+    "govDesc": "Oprávnené rodiny môžu získať 15–30 hodín bezplatnej starostlivosti týždenne.",
+    "govTag": "Najpopulárnejšie",
+    "studentTitle": "Grant na starostlivosť (študenti)",
+    "studentDesc": "Denní študenti môžu žiadať o grant pokrývajúci až 85 % nákladov.",
+    "studentTag": "Študenti",
+    "employerTitle": "Starostlivosť podporovaná zamestnávateľom",
+    "employerDesc": "Niektorí zamestnávatelia ponúkajú poukážky alebo Tax-Free Childcare.",
+    "employerTag": "Pracujúci rodičia",
+    "selfPayTitle": "Samoplatba",
+    "selfPayDesc": "Plaťte opatrovateľke priamo za dohodnutých podmienok.",
+    "selfPayTag": "Flexibilné",
+    "notSure": "Nie ste si istí, na čo máte nárok?",
+    "notSureDesc": "Kontaktujte nás a pomôžeme vám porozumieť možnostiam.",
+    "askFunding": "Opýtajte sa na financovanie",
+    "govGuide": "Sprievodca Gov.uk ↗"
+  },
+  "childminders": {
+    "tag": "Pre opatrovateľky",
+    "heading": "Rozvíjajte kariéru s KinderStars",
+    "description": "Bez ohľadu na skúsenosti vám KinderStars poskytne podporu, školenia a dopyty rodičov — zadarmo.",
+    "visibilityTitle": "Viditeľnosť a odporúčania",
+    "visibilityDesc": "Buďte v našom adresári, aby vás miestne rodiny našli.",
+    "trainingTitle": "Školenia a rozvoj",
+    "trainingDesc": "Prístup k školeniam o ochrane, prvej pomoci a profesionálnemu rozvoju.",
+    "complianceTitle": "Podpora súladu",
+    "complianceDesc": "Prevedieme vás registráciou a požiadavkami.",
+    "mentoringTitle": "Priebežné mentorovanie",
+    "mentoringDesc": "Získajte individuálnu podporu od nášho tímu.",
+    "joinUs": "Pridajte sa ku KinderStars",
+    "readFaq": "Prečítajte si FAQ"
+  },
+  "testimonials": {
+    "tag": "Referencie",
+    "heading": "Čo hovoria rodiny a opatrovateľky",
+    "description": "Skutočné ohlasy od rodičov a opatrovateliek, s ktorými pracujeme každý deň.",
+    "quote1": "KinderStars uľahčilo hľadanie opatrovateľky. Do týždňa sme mali skvelú zhodu pre naše dvojročné dieťa.",
+    "quote1Role": "Rodič 1 dieťaťa",
+    "quote2": "Bála som sa nechať dieťa s niekým novým, ale tím KinderStars ma uistil na každom kroku.",
+    "quote2Role": "Rodič 2 detí",
+    "quote3": "Ako opatrovateľka mi pridanie sa ku KinderStars dalo viditeľnosť, ktorú som nikdy nemala.",
+    "quote3Role": "Registrovaná opatrovateľka"
+  },
+  "directory": {
+    "heading": "Nájdite opatrovateľku",
+    "description": "Hľadajte podľa mesta alebo oblasti PSČ kdekoľvek vo Veľkej Británii.",
+    "reset": "Resetovať",
+    "cantFind": "Nemôžete nájsť zhodu?",
+    "searchLabel": "Hľadať",
+    "searchPlaceholder": "napr. mesto, oblasť PSČ alebo meno",
+    "ageGroup": "Veková skupina",
+    "any": "Akákoľvek",
+    "day": "Deň",
+    "verified": "Overená",
+    "verifiedOnly": "Iba overené",
+    "notVerified": "Neoverené",
+    "allLanguages": "Všetky jazyky",
+    "showing": "Zobrazuje sa",
+    "of": "z",
+    "searchBy": "Hľadať podľa",
+    "town": "mesto",
+    "or": "alebo",
+    "postcodeDistrict": "oblasť PSČ",
+    "ofstedPending": "Registrácia Ofsted prebieha",
+    "noMatches": "Žiadne výsledky",
+    "noMatchesDesc": "Skúste širšie vyhľadávanie alebo vymažte filtre.",
+    "resetFilters": "Resetovať filtre",
+    "askHelp": "Požiadajte KinderStars o pomoc",
+    "viewProfile": "Zobraziť profil",
+    "enquire": "Opýtať sa",
+    "ref": "Ref",
+    "loading": "Načítavajú sa opatrovateľky…"
+  },
+  "faq": {
+    "tag": "Časté otázky",
+    "heading": "Často kladené otázky",
+    "description": "Všetko, na čo sa rodičia a opatrovateľky pýtajú — jasne zodpovedané.",
+    "q1": "Čo je agentúra opatrovateliek detí?",
+    "a1": "Agentúra opatrovateliek detí získava, podporuje a zabezpečuje kvalitu opatrovateliek.",
+    "q2": "Koľko stojí starostlivosť cez KinderStars?",
+    "a2": "Prehliadanie a dopyty sú zadarmo. Starostlivosť je platená služba.",
+    "q3": "Ako sú opatrovateľky overované?",
+    "a3": "Všetky opatrovateľky prechádzajú DBS kontrolou, prvou pomocou a školením o ochrane.",
+    "q4": "Čo znamená 'Overená' na profile?",
+    "a4": "Odznak 'Overená' znamená, že opatrovateľka dokončila celý proces zaradenia KinderStars.",
+    "q5": "Ako rýchlo nájdem opatrovateľku?",
+    "a5": "Väčšina rodín dostane predstavenie do 1–2 týždňov.",
+    "q6": "Môžem si vybrať opatrovateľku sám/sama?",
+    "a6": "Samozrejme. Môžete prehliadať adresár a opýtať sa na kohokoľvek vhodného.",
+    "q7": "Aké oblasti pokrývate?",
+    "a7": "KinderStars je celoštátna agentúra podporujúca rodiny v celej Veľkej Británii.",
+    "q8": "Ako sa stanem opatrovateľkou KinderStars?",
+    "a8": "Ak ste registrovaná alebo budúca opatrovateľka, kontaktujte nás cez kontaktný formulár alebo e-mail info@kinderstars.co.uk. Prevedieme vás procesom zaradenia vrátane DBS, školenia a zaradenia do nášho adresára.",
+    "q9": "Musím byť registrovaná v Ofsted, aby som sa mohla pridať?",
+    "a9": "Ak ste už registrovaná v Ofsted (Anglicko), CIW (Wales), Care Inspectorate (Škótsko) alebo RQIA (Severné Írsko), môžete sa pridať ako opatrovateľka hneď. Ak ešte nie ste registrovaná, môžete sa pridať ako školenka a prevedieme vás každým krokom.",
+    "q10": "Aké školenie potrebujem na to, aby som sa stala opatrovateľkou?",
+    "a10": "Budete potrebovať rozšírenú kontrolu DBS, certifikát pediatrickej prvej pomoci, školenie o ochrane detí a registráciu u miestneho regulátora. KinderStars poskytuje kontrolný zoznam školení krok za krokom pre všetkých regulátorov v Spojenom kráľovstve.",
+    "q11": "Ako dlho trvá, kým sa stanem registrovanou opatrovateľkou?",
+    "a11": "Zvyčajne 3–6 mesiacov v závislosti od regulátora, ale môže to byť rýchlejšie, ak už máte kvalifikácie. KinderStars vás podporuje počas celého procesu s personalizovaným plánom školenia.",
+    "q12": "Je pridanie sa ku KinderStars spoplatnené?",
+    "a12": "Pridanie sa ku KinderStars je bezplatné. Neúčtujeme opatrovateľkám poplatky za zaradenie do adresára, podporu školenia ani prístup k nástrojom súladu."
+  },
+  "contact": {
+    "heading": "Kontakt",
+    "description": "Zvyčajne odpovedáme e-mailom. Pre naliehavé otázky zavolajte.",
+    "companyName": "KinderStars Ltd",
+    "email": "E-mail:",
+    "phone": "Telefón:",
+    "address": "Adresa:",
+    "addressValue": "Victory House, Luton, LU1 3BS",
+    "emailUs": "Napíšte nám",
+    "call": "Zavolajte",
+    "quickMessage": "Rýchla správa",
+    "quickMessageDesc": "Pošlite nám rýchlu správu a ozveme sa.",
+    "nameLabel": "Meno",
+    "emailLabel": "E-mail",
+    "messageLabel": "Správa",
+    "messagePlaceholder": "Povedzte nám, čo potrebujete + oblasť PSČ",
+    "send": "Odoslať",
+    "formNotConnected": "Formulár nie je pripojený — napíšte na info@kinderstars.co.uk."
+  },
+  "footer": {
+    "companyDesc": "KinderStars Ltd je celoštátna agentúra opatrovateliek pomáhajúca rodinám nájsť dôveryhodnú starostlivosť.",
+    "navigate": "Navigácia",
+    "home": "Domov",
+    "forParents": "Pre rodičov",
+    "howItWorks": "Ako to funguje",
+    "forChildminders": "Pre opatrovateľky",
+    "findChildminder": "Nájsť opatrovateľku",
+    "faq": "Časté otázky",
+    "contact": "Kontakt",
+    "contactHeading": "Kontakt",
+    "legal": "Právne",
+    "privacyPolicy": "Zásady ochrany súkromia",
+    "termsOfService": "Podmienky služby",
+    "complaintsProcedure": "Postup pre sťažnosti",
+    "copyright": "© {{year}} KinderStars Ltd • Agentúra opatrovateliek • Spoločnosť registrovaná v Anglicku a Walese",
+    "builtWith": "Vytvorené s láskou pre rodiny v celej Veľkej Británii",
+    "gdpr": "GDPR a súkromie"
+  },
+  "cookie": { "title": "Používame cookies", "description": "Používame nevyhnutné cookies na fungovanie tejto stránky. Radi by sme používali aj analytické cookies na pochopenie toho, ako používate naše stránky.", "accept": "Prijať všetky", "decline": "Len nevyhnutné" },
+  "profile": {
+    "about": "O opatrovateľke",
+    "details": "Podrobnosti",
+    "detailsOnRequest": "Podrobnosti dostupné na vyžiadanie.",
+    "privacyNote": "Poznámka o súkromí: iba lokácia na úrovni oblasti.",
+    "reference": "Referencia",
+    "postcodeDistrict": "Oblasť PSČ",
+    "town": "Mesto",
+    "ages": "Vek",
+    "days": "Dni",
+    "hours": "Hodiny",
+    "languages": "Jazyky",
+    "experience": "Skúsenosti",
+    "yearsExp": "{{count}} rokov",
+    "status": "Status",
+    "verified": "Overená",
+    "listed": "V zozname",
+    "sendEnquiry": "Poslať dopyt",
+    "copyReference": "Kopírovať referenciu",
+    "copied": "Skopírované!",
+    "enquiryNote": "Dopyty smerujú do KinderStars a sú preposlané opatrovateľke."
+  },
+  "terms": {
+    "title": "Podmienky služby",
+    "lastUpdated": "Posledná aktualizácia: február 2026",
+    "intro": {
+      "heading": "Úvod",
+      "body": "Tieto Podmienky služby (\"Podmienky\") upravujú vaše používanie webovej stránky a služieb KinderStars prevádzkovaných spoločnosťou KinderStars Ltd, registrovanou v Anglicku a Walese so sídlom na Victory House, Luton, LU1 3BS.\n\nPrístupom na našu webovú stránku alebo jej používaním súhlasíte s týmito Podmienkami. Ak nesúhlasíte, prosím nepoužívajte naše služby."
+    },
+    "services": {
+      "heading": "Naše služby",
+      "body": "KinderStars funguje ako Agentúra opatrovateliek. Poskytujeme:\n\n• Adresár opatrovateliek, ktoré prešli naším procesom zaradenia\n• Službu párovania spájajúcu rodičov s vhodnými opatrovateľkami\n• Priebežné zabezpečenie kvality, školenia a podporu pre opatrovateľky\n• Informácie a poradenstvo o možnostiach financovania starostlivosti o deti\n\nOpatrovateľky priamo nezamestnávame. Opatrovateľky registrované v KinderStars pôsobia ako samostatne zárobkovo činné osoby."
+    },
+    "eligibility": {
+      "heading": "Oprávnenosť",
+      "body": "Naše služby sú dostupné pre:\n\n• Rodičov a opatrovníkov hľadajúcich starostlivosť o deti v Spojenom kráľovstve\n• Opatrovateľky, ktoré sú registrované alebo sa uchádzajú o registráciu v KinderStars\n\nNa používanie našej webovej stránky a služieb musíte mať aspoň 18 rokov."
+    },
+    "obligations": {
+      "heading": "Vaše povinnosti",
+      "body": "Pri používaní našich služieb súhlasíte s tým, že budete:\n\n• Poskytovať presné a pravdivé informácie\n• Nezneužívať webovú stránku ani sa nepokúšať o neoprávnený prístup\n• Nekopírovať, nereprodukovat ani nešíriť obsah z našej webovej stránky bez povolenia\n• Zaobchádzať so všetkými opatrovateľkami, zamestnancami a ostatnými používateľmi s rešpektom\n• Okamžite hlásiť akékoľvek obavy týkajúce sa ochrany detí spoločnosti KinderStars"
+    },
+    "childminderTerms": {
+      "heading": "Podmienky pre opatrovateľky",
+      "body": "Opatrovateľky registrované v KinderStars súhlasia s tým, že budú:\n\n• Udržiavať platné kontroly DBS, pediatrickú prvú pomoc a školenie v oblasti ochrany detí\n• Dodržiavať náš rámec kvality a kódex správania\n• Informovať KinderStars o akýchkoľvek zmenách stavu registrácie, dostupnosti alebo okolností\n• Povoliť KinderStars zobrazovať obmedzené profilové informácie v našom adresári\n• Spolupracovať pri kontrolách zabezpečenia kvality a monitorovacích návštevách"
+    },
+    "fees": {
+      "heading": "Poplatky a platby",
+      "body": "Prehliadanie adresára KinderStars a odosielanie dopytov je bezplatné.\n\nStarostlivosť o deti je platená služba dohodnutá medzi rodičmi a opatrovateľkami. KinderStars nestanovuje sadzby opatrovateliek. Poplatky, platobné podmienky a harmonogramy sa dohadujú priamo medzi rodičom a opatrovateľkou.\n\nKinderStars môže účtovať poplatky za niektoré agentúrne služby. Akékoľvek príslušné poplatky budú jasne oznámené vopred."
+    },
+    "intellectualProperty": {
+      "heading": "Duševné vlastníctvo",
+      "body": "Všetok obsah na webovej stránke KinderStars — vrátane textu, grafiky, log, obrázkov a softvéru — je majetkom spoločnosti KinderStars Ltd alebo jej poskytovateľov licencií a je chránený autorským právom a zákonmi o duševnom vlastníctve.\n\nNesmiete reprodukovať, distribuovať ani vytvárať odvodené diela z nášho obsahu bez predchádzajúceho písomného súhlasu."
+    },
+    "liability": {
+      "heading": "Obmedzenie zodpovednosti",
+      "body": "KinderStars pôsobí ako agentúra spájajúca rodičov s opatrovateľkami. Aj keď vykonávame kontroly a zabezpečujeme kvalitu, nezaručujeme výkon, správanie ani vhodnosť žiadnej opatrovateľky.\n\nV maximálnom rozsahu povolenom zákonom nebude KinderStars Ltd zodpovedná za akékoľvek nepriame, náhodné alebo následné škody vyplývajúce z používania našich služieb.\n\nNič v týchto Podmienkach nevylučuje ani neobmedzuje našu zodpovednosť za smrť alebo zranenie spôsobené nedbanlivosťou, podvodom alebo akoukoľvek inou zodpovednosťou, ktorú nemožno vylúčiť zákonom."
+    },
+    "termination": {
+      "heading": "Ukončenie",
+      "body": "Vyhradzujeme si právo pozastaviť alebo ukončiť prístup k našim službám kedykoľvek, ak porušíte tieto Podmienky alebo sa dopustíte správania, ktoré považujeme za škodlivé pre iných používateľov, opatrovateľky alebo povesť KinderStars.\n\nOpatrovateľky môžu byť odstránené z adresára, ak nedodržia požadované štandardy, kvalifikácie alebo súlad s naším rámcom kvality."
+    },
+    "governing": {
+      "heading": "Rozhodné právo",
+      "body": "Tieto Podmienky sa riadia zákonmi Anglicka a Walesu. Akékoľvek spory vyplývajúce z týchto Podmienok alebo z vášho používania našich služieb podliehajú výlučnej jurisdikcii súdov Anglicka a Walesu."
+    },
+    "contact": {
+      "heading": "Kontaktujte nás",
+      "body": "Ak máte otázky k týmto Podmienkam, prosím kontaktujte:\n\nKinderStars Ltd\nVictory House, Luton, LU1 3BS\nE-mail: info@kinderstars.co.uk"
+    }
+  },
+  "complaints": {
+    "title": "Reklamačný poriadok",
+    "lastUpdated": "Posledná aktualizácia: február 2026",
+    "intro": {
+      "heading": "Úvod",
+      "body": "KinderStars Ltd sa zaväzuje poskytovať vysokokvalitné služby. Ak ste nespokojný s akýmkoľvek aspektom našej služby, chceme o tom vedieť, aby sme mohli veci napraviť a poučiť sa z vašej spätnej väzby.\n\nTento reklamačný poriadok sa vzťahuje na rodičov, opatrovateľky a všetkých, ktorí využívajú naše služby."
+    },
+    "scope": {
+      "heading": "Na čo sa môžete sťažovať",
+      "body": "Môžete podať sťažnosť týkajúcu sa:\n\n• Kvality služieb poskytovaných spoločnosťou KinderStars\n• Správania opatrovateľky v našej sieti\n• Komunikácie alebo odozvy nášho tímu\n• Spôsobu nakladania s vašimi osobnými údajmi\n• Akejkoľvek inej záležitosti súvisiacej s našimi službami\n\nV prípade obáv o bezpečnosť dieťaťa nás prosím okamžite kontaktujte na info@kinderstars.co.uk alebo zavolajte príslušnému miestnemu úradu."
+    },
+    "informal": {
+      "heading": "Fáza 1: Neformálne riešenie",
+      "body": "V prvom rade vás povzbudzujeme, aby ste nás priamo kontaktovali a prediskutovali váš problém. Mnohé záležitosti sa dajú rýchlo vyriešiť otvorenou komunikáciou.\n\nMôžete nás kontaktovať:\n• E-mail: info@kinderstars.co.uk\n• Adresa: Victory House, Luton, LU1 3BS\n\nNašim cieľom je potvrdiť prijatie vášho podnetu do 2 pracovných dní a vyriešiť ho do 10 pracovných dní."
+    },
+    "formal": {
+      "heading": "Fáza 2: Formálna sťažnosť",
+      "body": "Ak nie ste spokojný s neformálnym riešením alebo uprednostňujete podanie formálnej sťažnosti od začiatku, prosím podajte sťažnosť písomne.\n\nVaša písomná sťažnosť by mala obsahovať:\n\n• Vaše meno a kontaktné údaje\n• Jasný opis toho, čo sa stalo\n• Kedy sa to stalo\n• Aký výsledok hľadáte\n• Akékoľvek relevantné dôkazy alebo korešpondenciu\n\nPošlite formálnu sťažnosť na info@kinderstars.co.uk s predmetom \"Formálna sťažnosť\" alebo ju pošlite poštou na našu registrovanú adresu."
+    },
+    "investigation": {
+      "heading": "Fáza 3: Vyšetrovanie a odpoveď",
+      "body": "Po prijatí formálnej sťažnosti:\n\n• Potvrdíme prijatie do 3 pracovných dní\n• Poveríme vedúceho člena tímu vyšetrovaním\n• Zhromaždíme relevantné informácie od všetkých zúčastnených strán\n• Poskytneme písomnú odpoveď do 20 pracovných dní\n\nNaša odpoveď bude obsahovať zhrnutie našich zistení, opatrenia, ktoré máme v úmysle prijať, a informácie o ďalších krokoch, ak zostanete nespokojný."
+    },
+    "escalation": {
+      "heading": "Fáza 4: Eskalácia",
+      "body": "Ak nie ste spokojný s našou odpoveďou, môžete sťažnosť eskalovať na:\n\n• Ofsted — ak sa vaša sťažnosť týka štandardov starostlivosti o deti alebo ochrany (ofsted.gov.uk)\n• Úrad komisára pre informácie (ICO) — ak sa vaša sťažnosť týka ochrany údajov (ico.org.uk)\n• Tím pre prvé roky vášho miestneho úradu — pre obavy týkajúce sa registrácie alebo správania opatrovateľky\n\nBudeme plne spolupracovať s akýmkoľvek externým vyšetrovaním."
+    },
+    "recordKeeping": {
+      "heading": "Vedenie záznamov a poučenie",
+      "body": "Vedieme dôverné záznamy o všetkých prijatých sťažnostiach vrátane povahy sťažnosti, spôsobu jej vybavenia a výsledku. Záznamy o sťažnostiach sa uchovávajú 6 rokov.\n\nSťažnosti pravidelne preskúmavame s cieľom identifikovať vzorce a oblasti na zlepšenie. Vaša spätná väzba nám priamo pomáha zlepšovať naše služby."
+    },
+    "contact": {
+      "heading": "Kontaktujte nás",
+      "body": "Ak chcete podať sťažnosť alebo poskytnúť spätnú väzbu, prosím kontaktujte:\n\nKinderStars Ltd\nVictory House, Luton, LU1 3BS\nE-mail: info@kinderstars.co.uk\n\nVšetky sťažnosti berieme vážne a zaväzujeme sa ich riešiť spravodlivo a promptne."
+    }
+  },
+  "blog": {
+    "title": "Blog",
+    "heading": "Poznatky o Ranom Detstve a Starostlivosti o Deti",
+    "description": "Odborné články o opatrovateľkách, Ofsted, EYFS, financovaní a ranom detstve.",
+    "readMore": "Čítať",
+    "backToBlog": "Späť na Blog",
+    "relatedArticles": "Súvisiace Články",
+    "shareArticle": "Zdieľajte tento článok",
+    "categories": {
+      "all": "Všetky",
+      "earlyYears": "Raný Vek",
+      "ofsted": "Ofsted",
+      "childminding": "Opatrovanie Detí",
+      "parenting": "Rodičovstvo",
+      "funding": "Financovanie",
+      "healthSafety": "Zdravie a Bezpečnosť"
+    },
+    "posts": {
+      "eyfs": {
+        "title": "Pochopenie Rámca EYFS v 2025: Čo Potrebujú Vedieť Rodičia a Opatrovateľky",
+        "excerpt": "Základ Raných Rokov (EYFS) stanovuje štandardy pre vzdelávanie, rozvoj a starostlivosť o deti od narodenia do 5 rokov.",
+        "content": "## Čo Je EYFS?\n\n**Základ Raných Rokov (EYFS)** je rámec britskej vlády, ktorý stanovuje štandardy pre vzdelávanie, rozvoj a starostlivosť o deti od narodenia do 5 rokov. Všetky registrované opatrovateľky, jasle a školy ho musia dodržiavať.\n\n### Sedem Oblastí Vzdelávania\n\nEYFS pokrýva sedem kľúčových oblastí:\n\n**Primárne Oblasti:**\n1. **Komunikácia a Jazyk** — počúvanie, porozumenie a hovorenie\n2. **Fyzický Rozvoj** — pohyb, manipulácia, zdravie a sebaobsluha\n3. **Osobnostný, Sociálny a Emocionálny Rozvoj** — sebadôvera, riadenie pocitov, vzťahy\n\n**Špecifické Oblasti:**\n4. **Gramotnosť** — čítanie a písanie\n5. **Matematika** — čísla, tvary, priestor a miery\n6. **Porozumenie Svetu** — ľudia, komunity, technológia, príroda\n7. **Expresívne Umenie a Dizajn** — skúmanie materiálov, kreativita\n\n### Aktualizácie 2025\n\nVláda pokračuje v zjednodušovaní EYFS pri zachovaní vysokých štandardov:\n\n- **Zjednodušené hodnotenie** — menej byrokratických požiadaviek\n- **Dôraz na komunikáciu** — podpora raného jazykového rozvoja\n- **Dôraz na pohodu** — väčšie uznanie emocionálneho zdravia detí\n- **Vonkajšie vzdelávanie** — integrácia vonkajších skúseností\n\n### Čo To Znamená pre Rodičov\n\nAko rodič, EYFS vám dáva istotu, že vaše dieťa dostáva konzistentné, kvalitné vzdelávanie. Opýtajte sa svojej opatrovateľky, ako realizuje EYFS.\n\n### Čo To Znamená pre Opatrovateľky\n\nOpatrovateľky musia preukázať splnenie požiadaviek EYFS počas inšpekcií Ofsted. KinderStars poskytuje šablóny a nástroje na dokumentáciu pokroku detí.\n\n> **Tip:** Použite portál KinderStars na sledovanie vývojových míľnikov a zdieľanie pokroku s rodičmi."
+      },
+      "ofstedInspection": {
+        "title": "Vaša Prvá Inšpekcia Ofsted: Kompletný Sprievodca pre Opatrovateľky",
+        "excerpt": "Príprava na prvú inšpekciu Ofsted môže byť stresujúca. Tento sprievodca vysvetľuje, čo inšpektori hľadajú.",
+        "content": "## Čo Sa Deje Počas Inšpekcie Ofsted?\n\nInšpekcie pre opatrovateľky hodnotia kvalitu a štandardy starostlivosti.\n\n### Pred Inšpekciou\n\nOfsted zvyčajne zavolá s **krátkym varovaním** — ráno v deň inšpekcie alebo deň predtým:\n\n- Potvrdia registračné údaje\n- Opýtajú sa na deti v starostlivosti\n- Preberú zmeny od poslednej inšpekcie\n\n### Počas Návštevy\n\nInšpektor strávi približne **3-4 hodiny**:\n\n1. **Pozoruje prax** — interakciu s deťmi, rutiny, vzdelávacie aktivity\n2. **Hovorí s deťmi** — primerané rozhovory\n3. **Kontroluje dokumentáciu** — politiky, hodnotenia rizík, dochádzku, DBS\n4. **Diskutuje o sebahodnotení** — reflexiu a zlepšovanie\n5. **Overuje ochranu** — znalosti postupov a miestnych kontaktov\n\n### Stupnica Hodnotenia\n\n- **Vynikajúci** — výnimočne vysoká kvalita\n- **Dobrý** — efektívne plnenie požiadaviek\n- **Vyžaduje Zlepšenie** — niektoré oblasti potrebujú pozornosť\n- **Nedostatočný** — závažné obavy\n\n### Tipy na Úspech\n\n- ✅ Udržujte aktuálne **politiky a postupy**\n- ✅ Veďte jasné **vzdelávacie denníky** pre každé dieťa\n- ✅ Poznajte kontakty **Miestnej rady na ochranu detí**\n- ✅ Majte viditeľný **certifikát prvej pomoci** a DBS\n- ✅ Pripravte **formulár sebahodnotenia**\n- ✅ Buďte sami sebou\n\n### Ako KinderStars Pomáha\n\nNáš portál poskytuje šablóny pripravené pre Ofsted. Váš panel zhody sleduje všetky dátumy expirácie certifikátov."
+      },
+      "becomingChildminder": {
+        "title": "Ako sa Stať Registrovanou Opatrovateľkou v UK: Krok za Krokom",
+        "excerpt": "Uvažujete o tom, že sa stanete opatrovateľkou? Tu je váš kompletný plán od školenia po prijatie prvých rodín.",
+        "content": "## Vaša Cesta k Tomu, Aby Ste Sa Stali Opatrovateľkou\n\nOpatrovanie detí je jedna z najodmeňovanejších kariér — formujete mladé životy a prevádzkujete vlastný podnik z domu.\n\n### Krok 1: Výskum a Sebahodnotenie\n\n- Baví ma práca s malými deťmi?\n- Je môj domov vhodný na starostlivosť o deti?\n- Som pripravená na podnikateľskú stránku?\n- Podporuje moja rodina túto zmenu?\n\n### Krok 2: Absolvujte Požadované Školenia\n\n1. **Predregistračný kurz** — EYFS, ochrana, podnikateľské zručnosti\n2. **Pediatrická prvá pomoc** — 12-hodinový kurz (obnova každé 3 roky)\n3. **Školenie o ochrane detí** — minimálne Úroveň 2\n4. **Certifikát hygieny potravín** — ak poskytujete jedlá\n\n### Krok 3: DBS a Zdravotné Kontroly\n\n- Požiadajte o **Rozšírenú DBS kontrolu**\n- Vyplňte **zdravotné vyhlásenie** u lekára\n\n### Krok 4: Registrácia u Ofsted\n\n- Vyplnenie online formulára\n- Zaplatenie registračného poplatku\n- Prijatie registračnej návštevy\n- Získanie unikátneho URN\n\n### Krok 5: Poistenie a Politiky\n\n- **Poistenie zodpovednosti** (špecifické pre opatrovateľky)\n- **Písomné politiky** — ochrana, rovnosť, sťažnosti, GDPR\n- **Hodnotenia rizík** — domov, záhrada, výlety\n\n### Krok 6: Stanovte Sadzby\n\nPreskúmajte miestne sadzby. Použite šablóny zmlúv KinderStars.\n\n### Časový Rámec\n\nCelý proces trvá zvyčajne **3-6 mesiacov**.\n\n> **Prospektový Panel KinderStars** vás prevedie každým krokom s kontrolnými zoznamami prispôsobenými vášmu regulátorovi."
+      },
+      "fundedHours": {
+        "title": "Bezplatné Hodiny Starostlivosti: Vaše Nároky v 2026",
+        "excerpt": "Navigácia vo vládnom financovaní starostlivosti o deti môže byť mätúca. Vysvetľujeme schémy 15, 30 hodín.",
+        "content": "## Vládou Financovaná Starostlivosť — Vysvetlenie\n\nBritská vláda poskytuje niekoľko schém financovania.\n\n### Univerzálnych 15 Hodín (Všetky Deti 3-4 Roky)\n\n**Každé** 3 a 4-ročné dieťa v Anglicku má nárok na **15 hodín týždenne** bezplatného vzdelávania, 38 týždňov ročne, bez ohľadu na príjem.\n\n### Rozšírených 30 Hodín (Pracujúci Rodičia)\n\nAk obaja rodičia pracujú a zarábajú minimálne **národnú minimálnu mzdu za 16 hodín**, môžete mať nárok na **30 hodín**.\n\n**Kritériá:**\n- Každý rodič zarába menej ako 100 000 GBP ročne\n- Minimálne 16 hodín za minimálnu mzdu\n- Žiadosť cez Childcare Choices\n- Získanie **30-hodinového kódu oprávnenosti**\n\n### 15 Hodín pre Znevýhodnené 2-Ročné Deti\n\nNiektoré 2-ročné deti sa kvalifikujú ak rodina poberá:\n- Income Support alebo JSA\n- Universal Credit (príjem pod 15 400 GBP)\n- Dieťa je v starostlivosti miestnej autority\n- Disability Living Allowance\n\n### Tax-Free Childcare\n\nZa každých 8 GBP vláda pridá 2 GBP — do **2 000 GBP na dieťa ročne** (4 000 GBP pre postihnuté deti).\n\n### Ako Opatrovateľky Poskytujú Financované Hodiny\n\n- Registrácia u miestnej autority\n- Dodržiavanie EYFS\n- Vyplňovanie štvrťročných formulárov\n\n### Ako KinderStars Pomáha\n\nSekcia **Financovanie a Platby** pomáha rodičom sledovať kódy a opatrovateľkám spravovať financované vs. súkromné hodiny."
+      },
+      "childproofing": {
+        "title": "Zabezpečenie Domácnosti: Základný Bezpečnostný Kontrolný Zoznam pre Opatrovateľky",
+        "excerpt": "Bezpečné prostredie je nevyhnutné. Použite tento kontrolný zoznam na splnenie všetkých požiadaviek.",
+        "content": "## Kompletný Bezpečnostný Kontrolný Zoznam\n\nVytvorenie bezpečného prostredia je základom dobrej starostlivosti.\n\n### Kuchyňa\n\n- ☑️ Čistiace prostriedky zamknuté alebo uložené vysoko\n- ☑️ Bezpečnostné brány pri vstupe do kuchyne\n- ☑️ Chrániče rúry a varnej dosky namontované\n- ☑️ Ostré predmety mimo dosahu\n- ☑️ Pravidlá pre horúce nápoje\n- ☑️ Teplota chladničky kontrolovaná (pod 5°C)\n\n### Obývacie/Herné Priestory\n\n- ☑️ Kryty na nepoužívaných zásuvkách\n- ☑️ Nábytok pripevnený k stenám\n- ☑️ Obmedzovače okien na vyšších poschodiach\n- ☑️ Bezpečnostné zariadenia na šnúrach žalúzií\n- ☑️ Ochranné zábrany okolo radiátorov\n- ☑️ Malé predmety a nebezpečenstvo udusenia odstránené\n- ☑️ Hračky pravidelne kontrolované\n\n### Záhrada\n\n- ☑️ Plot zabezpečený s detskými bránkami\n- ☑️ Rybníky/vodné prvky zakryté\n- ☑️ Jedovaté rastliny identifikované a odstránené\n- ☑️ Vonkajšie vybavenie skontrolované\n- ☑️ Zvieracie exkrementy denne upratané\n- ☑️ Kôlňa/garáž zamknutá\n\n### Kúpeľňa\n\n- ☑️ Lieky a toaletné potreby zamknuté\n- ☑️ Protišmykové podložky vo vani/sprche\n- ☑️ Termostat horúcej vody na max 48°C\n- ☑️ Zámok na toalete (pre batoľatá)\n\n### Všeobecné\n\n- ☑️ Detektory dymu na každom poschodí (testované mesačne)\n- ☑️ Detektor oxidu uhoľnatého\n- ☑️ Hasiaca deka dostupná\n- ☑️ Lekárnička zásobená a aktuálna\n- ☑️ Evakuačný plán pravidelne precvičovaný\n- ☑️ Hodnotenie rizika domácich zvierat\n\n### Dokumentácia\n\nUchovávajte písomné **hodnotenia rizík** pre každú miestnosť, záhradu, výletné miesta a vozidlo.\n\n> **Tip:** Panel zhody KinderStars umožňuje nahrávať a sledovať všetky hodnotenia rizík s upozorneniami na expiráciu."
+      },
+      "speechDevelopment": {
+        "title": "10 Jednoduchých Spôsobov Podpory Rečového Vývoja Dieťaťa",
+        "excerpt": "Skoré jazykové zručnosti sú kľúčové pre neskoršie vzdelávanie. Objavte praktické stratégie.",
+        "content": "## Podpora Reči a Jazyka od Prvého Dňa\n\nKomunikácia a jazyk je **primárna oblasť** EYFS. Silné skoré jazykové zručnosti predpovedajú neskorší úspech v čítaní, písaní a sociálnych vzťahoch.\n\n### 1. Hovorte, Hovorte, Hovorte\n\nKomentujte svoj deň: \"Teraz si obliekame kabát. Ten modrý so zipsom.\" Tento priebežný komentár buduje slovnú zásobu.\n\n### 2. Nasledujte Vedenie Dieťaťa\n\nAk batoľa ukazuje na psa, hovorte o psoch. Záujmom vedený rozhovor udržiava deti zapojené.\n\n### 3. Čítajte Spolu Každý Deň\n\nAj 10 minút spoločného čítania robí obrovský rozdiel. Pýtajte sa otvorené otázky.\n\n### 4. Spievajte Pesničky a Riekanky\n\nRým a rytmus rozvíjajú **fonologické povedomie** — kľúčový základ čítania.\n\n### 5. Obmedzte Čas Pred Obrazovkou\n\nDeti do 2 rokov najviac profitujú z **kontaktu tvárou v tvár**.\n\n### 6. Rozširujte Ich Vety\n\nAk dieťa povie \"veľké auto\", odpovedzte: \"Áno! Veľké, červené auto, ktoré vezie drevo.\"\n\n### 7. Dajte Im Čas\n\nNiektoré deti potrebujú viac času na spracovanie. Počítajte do 10, než zasiahne.\n\n### 8. Hrajte Sa Tvorivo\n\nHra na role a miniatúrne svety povzbudzujú tvorivé používanie jazyka.\n\n### 9. Používajte Makaton alebo Vizuálnu Podporu\n\nZnaky a symboly podporujú komunikáciu **všetkých** detí.\n\n### 10. Vedzte, Kedy Hľadať Pomoc\n\nAk sa obávate o rečový vývoj dieťaťa, čím skôr hľadáte podporu, tým lepšie.\n\n> **Pamätajte:** Každé dieťa sa vyvíja vlastným tempom. Tieto stratégie vytvárajú bohaté jazykové prostredie prospešné pre všetkých."
+      },
+      "choosingChildminder": {
+        "title": "Ako Vybrať Správnu Opatrovateľku: Kontrolný Zoznam pre Rodičov",
+        "excerpt": "Nájsť ideálnu opatrovateľku pre vašu rodinu je jedno z najväčších rozhodnutí.",
+        "content": "## Nájdenie Ideálnej Opatrovateľky\n\nOpatrovateľka poskytuje **domáce** prostredie s malými skupinami a personalizovanou starostlivosťou.\n\n### Pred Návštevou\n\n- ✅ Skontrolujte **registráciu Ofsted** a posledný report online\n- ✅ Overte platnosť **poistenia**\n- ✅ Opýtajte sa na **dostupnosť**\n- ✅ Potvrďte **vekovú skupinu**\n- ✅ Skontrolujte **lokalitu** a vzdialenosť\n\n### Otázky na Návštevu\n\n**O Praxi:**\n- Ako realizujete EYFS? Môžem vidieť vzdelávacie denníky?\n- Ako vyzerá typický deň?\n- Ako riešite správanie?\n- Aké jedlá a desiaty poskytujete?\n\n**O Bezpečnosti:**\n- Môžem vidieť hodnotenia rizík?\n- Aká je vaša politika ochrany?\n- Kedy vyprší certifikát prvej pomoci?\n- Máte domáce zvieratá?\n\n**O Praktických Záležitostiach:**\n- Aké sú vaše sadzby? Ste financovaný poskytovateľ?\n- Politika dovolenky a choroby?\n- Aká je výpovedná lehota?\n- Robíte školské jazdy?\n\n### Červené Vlajky\n\n- 🚩 Neochota ukázať registráciu alebo DBS\n- 🚩 Žiadne písomné politiky alebo zmluvy\n- 🚩 Nečisté alebo preplnené prostredie\n- 🚩 Nezaujatá interakcia s deťmi\n- 🚩 Neochota poskytnúť referencie\n\n### Zelené Vlajky\n\n- 🟢 Teplá, responzívna interakcia s deťmi\n- 🟢 Organizované, stimulujúce prostredie\n- 🟢 Jasná komunikácia a profesionálna dokumentácia\n- 🟢 Pozitívny Ofsted report\n- 🟢 Šťastné, zapojené deti\n\n### Dôverujte Inštinktu\n\nOkrem kontrolných zoznamov venujte pozornosť tomu, ako sa **cítite** v ich domove. Vaše dieťa tam strávi veľa času.\n\n> **Funkcia Nájsť Opatrovateľku** na KinderStars umožňuje vyhľadávať overené opatrovateľky vo vašej oblasti."
+      },
+      "ofstedRatings": {
+        "title": "Hodnotenia Ofsted Vysvetlené: Čo Skutočne Znamenajú pre Vaše Dieťa?",
+        "excerpt": "Vynikajúci, Dobrý, Vyžaduje Zlepšenie, Nedostatočný — dekódujeme každé hodnotenie Ofsted.",
+        "content": "## Dekódovanie Hodnotení Ofsted\n\nPri výbere starostlivosti sa mnohí rodičia pozerajú na hodnotenie Ofsted. Čo tieto hodnotenia skutočne znamenajú?\n\n### Vynikajúci\n\nNajvyššie hodnotenie. Poskytovanie **presahuje očakávania** vo všetkých oblastiach.\n\n**Kľúčový fakt:** Len približne **15% opatrovateliek** dostane hodnotenie Vynikajúci.\n\n### Dobrý\n\nPoskytovanie je **efektívne** a spĺňa všetky požiadavky. Deti sú v bezpečí a robia dobrý pokrok.\n\n**Kľúčový fakt:** Približne **70% opatrovateliek** je hodnotených ako Dobré.\n\n### Vyžaduje Zlepšenie\n\nPoskytovanie má **niektoré slabiny**, ale deti sú v bezpečí. Ďalšia inšpekcia do 12 mesiacov.\n\n### Nedostatočný\n\n**Vážne obavy** o kvalitu alebo bezpečnosť.\n\n### Za Hodnotením\n\n- **Načasovanie je dôležité** — hodnotenie spred 3 rokov nemusí odrážať aktuálnu prax\n- **Kontext sa počíta** — opatrovateľka, ktorá prešla z VZ na Dobrú, ukazuje silné zlepšenie\n- **Navštívte osobne** — najlepší ukazovateľ\n- **Pýtajte sa otázky** — Dobrá opatrovateľka s dobrou komunikáciou môže vyhovovať lepšie\n\n### Ako Skontrolovať Hodnotenia\n\n1. Navštívte reports.ofsted.gov.uk\n2. Hľadajte podľa mena alebo URN\n3. Prečítajte celý report\n\n> **Na KinderStars** je hodnotenie Ofsted a URN každej opatrovateľky zobrazené na profile s priamym odkazom na report."
+      }
+    }
+  },
+  "portal": {
+    "common": {
+      "dashboard": "Ovládací panel", "messages": "Správy", "notifications": "Oznámenia", "settings": "Nastavenia", "security": "Bezpečnosť", "profile": "Profil", "logout": "Odhlásiť", "signOut": "Odhlásiť sa", "save": "Uložiť", "saving": "Ukladanie…", "cancel": "Zrušiť", "edit": "Upraviť", "delete": "Odstrániť", "close": "Zavrieť", "loading": "Načítavanie…", "noResults": "Žiadne výsledky", "welcomeBack": "Vitajte späť", "viewAll": "Zobraziť všetko", "search": "Hľadať", "filter": "Filtrovať", "status": "Stav", "date": "Dátum", "time": "Čas", "actions": "Akcie", "confirm": "Potvrdiť", "back": "Späť", "next": "Ďalej", "submit": "Odoslať", "go": "Ísť", "online": "Online", "offline": "Offline", "activeNow": "Aktívny teraz", "lastSeen": "Naposledy videný", "unread": "neprečítané", "markAllRead": "Označiť všetko ako prečítané", "clearRead": "Vyčistiť prečítané", "yes": "Áno", "no": "Nie", "select": "Vyberte…", "refresh": "Obnoviť", "manage": "Spravovať", "uploaded": "Nahrané", "expires": "Vyprší", "required": "Povinné", "optional": "Voliteľné", "accept": "Prijať", "decline": "Odmietnuť", "reason": "Dôvod", "noData": "Zatiaľ žiadne dáta", "error": "Chyba", "success": "Úspech", "available": "Dostupné", "booked": "Rezervované", "conversations": "Konverzácie"
+    },
+    "sidebar": {
+      "parentPortal": "Portál rodiča", "childminderPortal": "Portál opatrovateľa", "traineePortal": "Portál praktikanta", "dashboard": "Panel", "onboarding": "Registrácia", "myDetails": "Moje údaje", "documents": "Dokumenty", "children": "Deti", "findChildminder": "Nájsť opatrovateľa", "bookings": "Rezervácie", "fundingPayments": "Financovanie a platby", "invoices": "Faktúry", "contracts": "Zmluvy", "messages": "Správy", "notifications": "Oznámenia", "security": "Bezpečnosť", "profile": "Profil", "compliance": "Zhoda", "certificates": "Certifikáty", "performance": "Výkon", "availability": "Dostupnosť", "shifts": "Zmeny", "timesheets": "Výkazy", "trainingCpd": "Školenie a ďalšie vzdelávanie", "subscription": "Predplatné", "training": "Školenie", "cpdCourses": "Kurzy", "completeOnboarding": "Dokončite registráciu pre odomknutie"
+    },
+    "messages": { "title": "Správy", "subtitle": "Komunikujte s rodičmi, opatrovateľmi a tímom KinderStars.", "newMessage": "Nová správa", "typeMessage": "Napíšte správu…", "send": "Odoslať", "noMessages": "Zatiaľ žiadne správy", "noConversations": "Žiadne konverzácie", "selectConversation": "Vyberte konverzáciu", "sent": "Odoslané", "delivered": "Doručené", "read": "Prečítané", "you": "Vy", "searchPeople": "Hľadať ľudí…", "noMessagesYet": "Zatiaľ žiadne správy. Začnite konverzáciu!" },
+    "notifications": { "title": "Oznámenia", "empty": "Žiadne oznámenia", "booking": "Rezervácia", "message": "Správa", "alert": "Upozornenie", "system": "Systém", "deleteConfirm": "Odstrániť toto oznámenie?" },
+    "bookings": { "title": "Rezervácie", "manageRequests": "Spravujte požiadavky na rezerváciu od rodičov", "requestAndManage": "Požiadajte o rezervácie a spravujte ich", "upcoming": "Nadchádzajúce", "past": "Minulé", "pending": "Čakajúce", "confirmed": "Potvrdené", "accepted": "Prijaté", "cancelled": "Zrušené", "declined": "Odmietnuté", "completed": "Dokončené", "requestBooking": "Požiadať o rezerváciu", "newBooking": "Nová Rezervácia", "sendRequest": "Odoslať požiadavku", "bookingDate": "Dátum rezervácie", "startTime": "Čas začiatku", "endTime": "Čas konca", "childminder": "Opatrovateľ", "parent": "Rodič", "notes": "Poznámky", "noBookings": "Žiadne rezervácie", "calendar": "Kalendár", "list": "Zoznam", "bookingRequested": "Rezervácia odoslaná!", "bookingAccepted": "Rezervácia prijatá!", "bookingCancelled": "Rezervácia zrušená" },
+    "documents": { "title": "Dokumenty", "myDocuments": "Moje dokumenty", "identityDocs": "Doklady totožnosti a adresy", "parentDesc": "Nahrajte preukaz totožnosti a potvrdenie adresy.", "childminderDesc": "Nahrajte certifikáty a dokumenty zhody.", "upload": "Nahrať", "download": "Stiahnuť", "pending": "Čaká na kontrolu", "approved": "Schválené", "rejected": "Zamietnuté", "uploadDocument": "Nahrať dokument", "noDocuments": "Žiadne nahrané dokumenty", "pay": "Platiť" },
+    "contracts": { "title": "Zmluvy", "active": "Aktívne", "draft": "Koncept", "signed": "Podpísané", "expired": "Vypršané", "viewContract": "Zobraziť zmluvu", "signContract": "Podpísať zmluvu", "noContracts": "Žiadne zmluvy" },
+    "training": { "title": "Školenie a ďalšie vzdelávanie", "browseDesc": "Prehliadajte kurzy a sledujte svoj profesijný rozvoj.", "courses": "Kurzy", "myCourses": "Moje kurzy", "available": "Dostupné", "completed": "Dokončené", "inProgress": "Prebieha", "certificate": "Certifikát", "bookCourse": "Rezervovať kurz", "noCourses": "Žiadne dostupné kurzy" },
+    "childminder": { "dashboard": "Panel opatrovateľa", "availability": "Dostupnosť", "shifts": "Zmeny", "timesheets": "Výkazy", "performance": "Výkon", "onboarding": "Registrácia", "clockIn": "Príchod", "clockOut": "Odchod", "upcomingShifts": "Nadchádzajúce zmeny", "noShifts": "Žiadne naplánované zmeny", "welcomeFuture": "Vitajte, budúci opatrovateľ! 🌟", "welcomeBack": "Vitajte späť 👋", "completePath": "Dokončite školenie a staňte sa registrovaným opatrovateľom", "pendingShifts": "Čakajúce zmeny", "draftTimesheets": "Koncepty výkazov", "unreadMessages": "Neprečítané správy", "recentActivity": "Posledná aktivita", "quickLinks": "Rýchle odkazy" },
+    "cmQuickLinks": { "upcomingShifts": "Nadchádzajúce zmeny", "upcomingShiftsDesc": "Zobrazte a prijmite ponuky zmien", "myAvailability": "Moja dostupnosť", "myAvailabilityDesc": "Nastavte pracovné dni a hodiny", "timesheets": "Výkazy", "timesheetsDesc": "Zaznamenajte hodiny a odošlite na schválenie", "myContracts": "Moje zmluvy", "myContractsDesc": "Zobrazte pracovné zmluvy", "notifications": "Oznámenia", "notificationsDesc": "Upozornenia a aktualizácie", "trainingChecklist": "Zoznam školení", "trainingChecklistDesc": "Dokončite školiaci program", "myProfile": "Môj profil", "myProfileDesc": "Aktualizujte svoje údaje" },
+    "parent": { "dashboard": "Panel rodiča", "myChildren": "Moje deti", "findChildminder": "Nájsť opatrovateľa", "funding": "Financovanie", "addChild": "Pridať dieťa", "noChildren": "Zatiaľ žiadne deti", "welcomeBack": "Vitajte späť, {{name}} 👋", "upcomingBookings": "Nadchádzajúce rezervácie", "children": "Deti", "unreadMessages": "Neprečítané správy", "recentActivity": "Posledná aktivita", "quickLinks": "Rýchle odkazy" },
+    "parentQuickLinks": { "onboarding": "Registrácia", "onboardingDesc": "Dokončite overenie pre odomknutie funkcií", "findChildminder": "Nájsť opatrovateľa", "findChildminderDesc": "Hľadajte overených opatrovateľov", "myChildren": "Moje deti", "myChildrenDesc": "Spravujte profily detí", "bookings": "Rezervácie", "bookingsDesc": "Zobrazte nadchádzajúce a minulé rezervácie", "contracts": "Zmluvy", "contractsDesc": "Zobrazte zmluvy", "funding": "Financovanie a platby", "fundingDesc": "Spravujte platobné metódy", "notifications": "Oznámenia", "notificationsDesc": "Upozornenia a aktualizácie" },
+    "onboarding": { "title": "Registrácia", "progress": "Pokrok", "complete": "Dokončené", "incomplete": "Nedokončené", "step": "Krok", "of": "z", "steps": "krokov", "submitForVerification": "Odoslať na overenie", "submitForReview": "Odoslať na kontrolu", "taskCompleted": "Úloha dokončená ✓", "completeOnboarding": "Dokončite overenie pre odomknutie všetkých funkcií.", "completeChecklist": "Dokončite kontrolný zoznam pre prijímanie práce." },
+    "parentOnboarding": { "title": "Registrácia rodiča", "subtitle": "Dokončite všetky kroky overenia.", "verified": "✅ Overené — Môžete hľadať opatrovateľov!", "verifiedMessage": "🎉 Ste overení! Teraz môžete hľadať a rezervovať.", "personalDetails": "Osobné údaje", "identityChildren": "Totožnosť a deti", "policiesFunding": "Pravidlá a financovanie", "docApproved": "Dokument schválený ✅", "docRejected": "Dokument zamietnutý" },
+    "cmOnboarding": { "title": "Registrácia", "subtitle": "Dokončite všetky etapy pre prijímanie práce.", "verified": "✅ Overené — Môžete prijímať prácu!", "verifiedMessage": "🎉 Ste overení! Teraz môžete prijímať zmeny.", "docApproved": "Dokument schválený ✅", "docRejected": "Dokument zamietnutý" },
+    "parentProfile": { "title": "Moje údaje", "subtitle": "Osobné informácie a nehnuteľnosť.", "personalInfo": "Osobné informácie", "firstName": "Meno", "lastName": "Priezvisko", "phone": "Telefón", "addressProperty": "Adresa a nehnuteľnosť", "saveProfile": "Uložiť profil", "profileSaved": "Profil uložený" },
+    "cmProfile": { "title": "Môj profil", "subtitle": "Spravujte profil, kvalifikácie a údaje.", "profilePhoto": "Profilová fotka", "locationPrefs": "Poloha a preferencie", "ofstedDetails": "Údaje Ofsted", "dbsInsurance": "DBS a poistenie", "nextOfKin": "Najbližší príbuzný", "saveProfile": "Uložiť profil", "profileSaved": "Profil uložený" },
+    "childrenMgmt": { "title": "Deti", "subtitle": "Spravujte profily, zdravie a alergie detí.", "addChild": "Pridať dieťa", "editChild": "Upraviť dieťa", "noChildren": "Zatiaľ žiadne deti.", "addFirstChild": "Pridajte prvé dieťa", "childAdded": "Dieťa pridané", "childUpdated": "Dieťa aktualizované", "childRemoved": "Dieťa odstránené" },
+    "findCm": { "title": "Nájsť opatrovateľa", "subtitle": "Hľadajte overených opatrovateľov.", "postcodeArea": "Oblasť PSČ", "ageGroup": "Veková skupina", "language": "Jazyk", "any": "Akýkoľvek", "searching": "Hľadanie…", "noResults": "Žiadni overení opatrovatelia.", "viewAvailability": "Zobraziť dostupnosť a rezervovať", "bookChildminder": "Rezervovať opatrovateľa" },
+    "funding": { "title": "Financovanie a platby", "subtitle": "Nastavte financovanie starostlivosti o deti.", "fundingType": "Typ financovania", "paymentMethod": "Preferovaná platobná metóda", "saveConfig": "Uložiť nastavenie", "configSaved": "Nastavenie financovania uložené" },
+    "shifts": { "title": "Zmeny", "subtitle": "Zobrazte ponuky zmien, prijmite alebo odmietnite.", "upcoming": "Nadchádzajúce", "history": "História", "accept": "Prijať", "decline": "Odmietnuť", "startShift": "Začať zmenu", "completeShift": "Dokončiť", "getDirections": "Navigácia", "noUpcoming": "Žiadne nadchádzajúce zmeny.", "noHistory": "Žiadna história." },
+    "timesheets": { "title": "Výkazy", "subtitle": "Zaznamenajte príchody/odchody a odošlite hodiny.", "clockIn": "Príchod", "clockOut": "Odchod", "history": "História výkazov", "noTimesheets": "Zatiaľ žiadne výkazy." },
+    "availability": { "title": "Dostupnosť", "subtitle": "Nastavte týždennú dostupnosť.", "addSlot": "Pridať slot", "noAvailability": "Žiadna dostupnosť — voľný deň", "to": "do", "available": "Dostupný", "blocked": "Blokovaný", "saveAvailability": "Uložiť dostupnosť", "saved": "Dostupnosť uložená", "sunday": "Nedeľa", "monday": "Pondelok", "tuesday": "Utorok", "wednesday": "Streda", "thursday": "Štvrtok", "friday": "Piatok", "saturday": "Sobota" },
+    "invoices": { "title": "Faktúry", "paid": "Zaplatené", "unpaid": "Nezaplatené", "overdue": "Po splatnosti", "amount": "Suma", "dueDate": "Dátum splatnosti", "payNow": "Zaplatiť teraz", "downloadInvoice": "Stiahnuť faktúru", "noInvoices": "Žiadne faktúry" },
+    "subscription": { "title": "Predplatné", "subtitle": "Spravujte členstvo KinderStars.", "plan": "Plán", "trial": "Skúšobné", "freeTrial": "Bezplatné skúšobné", "active": "Aktívne", "expired": "Vypršané", "upgrade": "Vylepšiť", "manage": "Spravovať predplatné", "monthly": "Mesačne", "annual": "Ročne", "monthsFree": "2 mesiace zadarmo", "subscribe": "Predplatiť", "checkingSub": "Kontrola predplatného…" }
+  }
+}

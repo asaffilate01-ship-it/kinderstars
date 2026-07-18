@@ -1,0 +1,420 @@
+{
+  "nav": {
+    "forParents": "Pro rodiče",
+    "howItWorks": "Jak to funguje",
+    "forChildminders": "Pro chůvy",
+    "directory": "Adresář",
+    "faq": "Časté dotazy",
+    "contact": "Kontakt",
+    "blog": "Blog",
+    "enquireNow": "Zeptejte se",
+    "registerNow": "Zaregistrujte se",
+    "language": "Jazyk"
+  },
+  "hero": {
+    "agencyTag": "Agentura chův",
+    "ofstedPending": "⏳ Registrace Ofsted probíhá",
+    "headline": "Důvěryhodná péče o děti, jednoduše.",
+    "description": "KinderStars je <strong>celostátní agentura chův</strong>, která pomáhá rodičům v celé Velké Británii najít důvěryhodnou péči — a podporuje chůvy školením, ochranou a zajištěním kvality.",
+    "dbsChecked": "🛡️ DBS ověření",
+    "qualityAssured": "📋 Zajištěná kvalita",
+    "privacyFirst": "🔒 Soukromí na prvním místě",
+    "searchChildminders": "Hledat chůvy",
+    "forParents": "Pro rodiče",
+    "privacyNote": "Soukromí: profily zobrazují pouze <strong>oblast PSČ</strong> (např. LU1), nikoli úplné adresy.",
+    "imageOverlay": "KinderStars • Agentura chův"
+  },
+  "stats": {
+    "ukWide": "Celá Velká Británie",
+    "nationwideCoverage": "Celostátní pokrytí",
+    "parentSatisfaction": "Spokojenost rodičů",
+    "allChecksVerified": "Všechny kontroly ověřeny",
+    "assuredMonitored": "Zajištěno a monitorováno"
+  },
+  "parents": {
+    "tag": "Pro rodiče",
+    "heading": "Péče přizpůsobená vaší rodině",
+    "description": "Řekněte nám věk dítěte, potřebné dny a hodiny a oblast PSČ — provedeme vás dalšími kroky.",
+    "nationwideTitle": "Celostátní péče",
+    "nationwideDesc": "Propojíme vás s chůvami v celé Velké Británii, které prošly našimi kontrolami.",
+    "standardsTitle": "Jasné standardy",
+    "standardsDesc": "Každá chůva dodržuje náš rámec kvality.",
+    "supportTitle": "Průběžná podpora",
+    "supportDesc": "KinderStars zůstává vaším kontaktním bodem.",
+    "paymentTitle": "Flexibilní platební možnosti",
+    "paymentDesc": "Prohlížejte a ptejte se zdarma. Náklady mohou být pokryty vládními hodinami nebo samoplatbou.",
+    "searchChildminders": "Hledat chůvy",
+    "askHelp": "Požádejte KinderStars o pomoc"
+  },
+  "howItWorks": {
+    "tag": "Jednoduchý proces",
+    "heading": "Jak to funguje",
+    "description": "Hledání důvěryhodné péče nemusí být stresující. Náš třístupňový proces je jednoduchý.",
+    "step1Title": "Hledejte a filtrujte",
+    "step1Desc": "Prohlížejte náš adresář podle oblasti PSČ, věkové skupiny, dnů a ověření.",
+    "step2Title": "Pošlete dotaz",
+    "step2Desc": "Odešlete požadavky přes KinderStars. Komunikaci zajistíme my.",
+    "step3Title": "Najděte shodu",
+    "step3Desc": "Představíme vám vhodnou chůvu a podpoříme proces zařazení.",
+    "startSearch": "Začněte hledat"
+  },
+  "whyUs": {
+    "tag": "Proč my",
+    "heading": "Postaveno na důvěře a kvalitě",
+    "description": "Jdeme nad rámec jednoduchého seznamu. KinderStars aktivně podporuje chůvy a dává rodičům jistotu.",
+    "safeguardingTitle": "Ochrana na prvním místě",
+    "safeguardingDesc": "Každá chůva prochází DBS kontrolou, první pomocí a školením o ochraně.",
+    "qualityTitle": "Agentura se zajištěnou kvalitou",
+    "qualityDesc": "KinderStars je oddaná vysokým standardům kvality a blaha dětí.",
+    "privacyTitle": "Soukromí v designu",
+    "privacyDesc": "Profily zobrazují pouze oblasti PSČ — nikdy úplné adresy.",
+    "multilingualTitle": "Vícejazyčná podpora",
+    "multilingualDesc": "Naše chůvy mluví více jazyky.",
+    "ongoingSupportTitle": "Průběžná podpora",
+    "ongoingSupportDesc": "Po shodě nezmizíme. Poskytujeme průběžné monitorování kvality.",
+    "fundingTitle": "Flexibilní financování",
+    "fundingDesc": "Prohlížejte a ptejte se zdarma. Péči lze financovat různými programy."
+  },
+  "payment": {
+    "tag": "Platba za péči",
+    "heading": "Způsoby platby",
+    "description": "Prohlížení a dotazy jsou zdarma. Péče je placená služba, ale mnoho rodin získává financování.",
+    "govTitle": "Vládou financované hodiny zdarma",
+    "govDesc": "Oprávněné rodiny mohou získat 15–30 hodin péče zdarma týdně.",
+    "govTag": "Nejpopulárnější",
+    "studentTitle": "Grant na péči (studenti)",
+    "studentDesc": "Studenti denního studia mohou žádat o grant pokrývající až 85 % nákladů.",
+    "studentTag": "Studenti",
+    "employerTitle": "Péče podporovaná zaměstnavatelem",
+    "employerDesc": "Někteří zaměstnavatelé nabízejí poukázky nebo Tax-Free Childcare.",
+    "employerTag": "Pracující rodiče",
+    "selfPayTitle": "Samoplatba",
+    "selfPayDesc": "Plaťte chůvě přímo za dohodnutých podmínek.",
+    "selfPayTag": "Flexibilní",
+    "notSure": "Nejste si jisti, na co máte nárok?",
+    "notSureDesc": "Kontaktujte nás a pomůžeme vám porozumět možnostem.",
+    "askFunding": "Zeptejte se na financování",
+    "govGuide": "Průvodce Gov.uk ↗"
+  },
+  "childminders": {
+    "tag": "Pro chůvy",
+    "heading": "Rozvíjejte kariéru s KinderStars",
+    "description": "Bez ohledu na zkušenosti vám KinderStars poskytne podporu, školení a dotazy rodičů — zdarma.",
+    "visibilityTitle": "Viditelnost a doporučení",
+    "visibilityDesc": "Buďte v našem adresáři, aby vás místní rodiny našly.",
+    "trainingTitle": "Školení a rozvoj",
+    "trainingDesc": "Přístup ke školením o ochraně, první pomoci a profesnímu rozvoji.",
+    "complianceTitle": "Podpora souladu",
+    "complianceDesc": "Provedeme vás registrací a požadavky.",
+    "mentoringTitle": "Průběžné mentorování",
+    "mentoringDesc": "Získejte individuální podporu od našeho týmu.",
+    "joinUs": "Přidejte se ke KinderStars",
+    "readFaq": "Přečtěte si FAQ"
+  },
+  "testimonials": {
+    "tag": "Reference",
+    "heading": "Co říkají rodiny a chůvy",
+    "description": "Skutečné ohlasy od rodičů a chův, se kterými pracujeme každý den.",
+    "quote1": "KinderStars usnadnilo hledání chůvy. Do týdne jsme měli skvělou shodu pro naše dvouleté dítě.",
+    "quote1Role": "Rodič 1 dítěte",
+    "quote2": "Bála jsem se nechat dítě s někým novým, ale tým KinderStars mě ujistil na každém kroku.",
+    "quote2Role": "Rodič 2 dětí",
+    "quote3": "Jako chůva mi připojení ke KinderStars dalo viditelnost, kterou jsem nikdy neměla.",
+    "quote3Role": "Registrovaná chůva"
+  },
+  "directory": {
+    "heading": "Najděte chůvu",
+    "description": "Hledejte podle města nebo oblasti PSČ kdekoli ve Velké Británii.",
+    "reset": "Resetovat",
+    "cantFind": "Nemůžete najít shodu?",
+    "searchLabel": "Hledat",
+    "searchPlaceholder": "např. město, oblast PSČ nebo jméno",
+    "ageGroup": "Věková skupina",
+    "any": "Jakákoli",
+    "day": "Den",
+    "verified": "Ověřená",
+    "verifiedOnly": "Pouze ověřené",
+    "notVerified": "Neověřené",
+    "allLanguages": "Všechny jazyky",
+    "showing": "Zobrazeno",
+    "of": "z",
+    "searchBy": "Hledat podle",
+    "town": "město",
+    "or": "nebo",
+    "postcodeDistrict": "oblast PSČ",
+    "ofstedPending": "Registrace Ofsted probíhá",
+    "noMatches": "Žádné výsledky",
+    "noMatchesDesc": "Zkuste širší vyhledávání nebo vymažte filtry.",
+    "resetFilters": "Resetovat filtry",
+    "askHelp": "Požádejte KinderStars o pomoc",
+    "viewProfile": "Zobrazit profil",
+    "enquire": "Zeptat se",
+    "ref": "Ref",
+    "loading": "Načítání chův…"
+  },
+  "faq": {
+    "tag": "Časté dotazy",
+    "heading": "Často kladené otázky",
+    "description": "Vše, na co se rodiče a chůvy ptají — jasně zodpovězeno.",
+    "q1": "Co je agentura chův?",
+    "a1": "Agentura chův získává, podporuje a zajišťuje kvalitu chův.",
+    "q2": "Kolik stojí péče přes KinderStars?",
+    "a2": "Prohlížení a dotazy jsou zdarma. Péče je placená služba.",
+    "q3": "Jak jsou chůvy ověřovány?",
+    "a3": "Všechny chůvy procházejí DBS kontrolou, první pomocí a školením o ochraně.",
+    "q4": "Co znamená 'Ověřená' na profilu?",
+    "a4": "Odznak 'Ověřená' znamená, že chůva dokončila celý proces zařazení KinderStars.",
+    "q5": "Jak rychle najdu chůvu?",
+    "a5": "Většina rodin dostane představení do 1–2 týdnů.",
+    "q6": "Mohu si vybrat chůvu sám/sama?",
+    "a6": "Samozřejmě. Můžete prohlížet adresář a ptát se na kohokoli vhodného.",
+    "q7": "Jaké oblasti pokrýváte?",
+    "a7": "KinderStars je celostátní agentura podporující rodiny v celé Velké Británii.",
+    "q8": "Jak se stanu chůvou KinderStars?",
+    "a8": "Pokud jste registrovaná nebo budoucí chůva, kontaktujte nás přes kontaktní formulář nebo e-mail info@kinderstars.co.uk. Provedeme vás procesem zařazení včetně DBS, školení a zařazení do našeho adresáře.",
+    "q9": "Musím být registrovaná u Ofsted, abych se mohla přidat?",
+    "a9": "Pokud jste již registrovaná u Ofsted (Anglie), CIW (Wales), Care Inspectorate (Skotsko) nebo RQIA (Severní Irsko), můžete se přidat jako chůva ihned. Pokud ještě nejste registrovaná, můžete se přidat jako praktikantka a provedeme vás každým krokem.",
+    "q10": "Jaké školení potřebuji, abych se stala chůvou?",
+    "a10": "Budete potřebovat rozšířenou kontrolu DBS, certifikát pediatrické první pomoci, školení o ochraně dětí a registraci u místního regulátora. KinderStars poskytuje kontrolní seznam školení krok za krokem pro všechny regulátory ve Spojeném království.",
+    "q11": "Jak dlouho trvá, než se stanu registrovanou chůvou?",
+    "a11": "Obvykle 3–6 měsíců v závislosti na regulátorovi, ale může to být rychlejší, pokud již máte kvalifikace. KinderStars vás podporuje během celého procesu s personalizovaným plánem školení.",
+    "q12": "Je připojení ke KinderStars zpoplatněno?",
+    "a12": "Připojení ke KinderStars je zdarma. Neúčtujeme chůvám poplatky za zařazení do adresáře, podporu školení ani přístup k nástrojům souladu."
+  },
+  "contact": {
+    "heading": "Kontakt",
+    "description": "Obvykle odpovídáme e-mailem. Pro naléhavé dotazy volejte.",
+    "companyName": "KinderStars Ltd",
+    "email": "E-mail:",
+    "phone": "Telefon:",
+    "address": "Adresa:",
+    "addressValue": "Victory House, Luton, LU1 3BS",
+    "emailUs": "Napište nám",
+    "call": "Zavolejte",
+    "quickMessage": "Rychlá zpráva",
+    "quickMessageDesc": "Pošlete nám rychlou zprávu a ozveme se.",
+    "nameLabel": "Jméno",
+    "emailLabel": "E-mail",
+    "messageLabel": "Zpráva",
+    "messagePlaceholder": "Řekněte nám, co potřebujete + oblast PSČ",
+    "send": "Odeslat",
+    "formNotConnected": "Formulář není připojen — napište na info@kinderstars.co.uk."
+  },
+  "footer": {
+    "companyDesc": "KinderStars Ltd je celostátní agentura chův pomáhající rodinám najít důvěryhodnou péči.",
+    "navigate": "Navigace",
+    "home": "Domů",
+    "forParents": "Pro rodiče",
+    "howItWorks": "Jak to funguje",
+    "forChildminders": "Pro chůvy",
+    "findChildminder": "Najít chůvu",
+    "faq": "Časté dotazy",
+    "contact": "Kontakt",
+    "contactHeading": "Kontakt",
+    "legal": "Právní",
+    "privacyPolicy": "Zásady ochrany soukromí",
+    "termsOfService": "Podmínky služby",
+    "complaintsProcedure": "Postup pro stížnosti",
+    "copyright": "© {{year}} KinderStars Ltd • Agentura chův • Společnost registrovaná v Anglii a Walesu",
+    "builtWith": "Vytvořeno s láskou pro rodiny ve Velké Británii",
+    "gdpr": "GDPR a soukromí"
+  },
+  "cookie": { "title": "Používáme cookies", "description": "Používáme nezbytné cookies pro fungování webu. Rádi bychom také používali analytické cookies k pochopení toho, jak náš web používáte.", "accept": "Přijmout vše", "decline": "Pouze nezbytné" },
+  "profile": {
+    "about": "O chůvě",
+    "details": "Podrobnosti",
+    "detailsOnRequest": "Podrobnosti dostupné na vyžádání.",
+    "privacyNote": "Poznámka o soukromí: pouze lokace na úrovni oblasti.",
+    "reference": "Reference",
+    "postcodeDistrict": "Oblast PSČ",
+    "town": "Město",
+    "ages": "Věk",
+    "days": "Dny",
+    "hours": "Hodiny",
+    "languages": "Jazyky",
+    "experience": "Zkušenosti",
+    "yearsExp": "{{count}} let",
+    "status": "Status",
+    "verified": "Ověřená",
+    "listed": "V seznamu",
+    "sendEnquiry": "Poslat dotaz",
+    "copyReference": "Kopírovat referenci",
+    "copied": "Zkopírováno!",
+    "enquiryNote": "Dotazy směřují do KinderStars a jsou přeposlány chůvě."
+  },
+  "terms": {
+    "title": "Podmínky služby",
+    "lastUpdated": "Poslední aktualizace: únor 2026",
+    "intro": {
+      "heading": "Úvod",
+      "body": "Tyto Podmínky služby (\"Podmínky\") upravují vaše používání webových stránek a služeb KinderStars provozovaných společností KinderStars Ltd, registrovanou v Anglii a Walesu se sídlem na Victory House, Luton, LU1 3BS.\n\nPřístupem na naše webové stránky nebo jejich používáním souhlasíte s těmito Podmínkami. Pokud nesouhlasíte, prosím nepoužívejte naše služby."
+    },
+    "services": {
+      "heading": "Naše služby",
+      "body": "KinderStars funguje jako Agentura chův. Poskytujeme:\n\n• Adresář chův, které prošly naším procesem zařazení\n• Službu párování spojující rodiče s vhodnými chůvami\n• Průběžné zajištění kvality, školení a podporu pro chůvy\n• Informace a poradenství o možnostech financování péče o děti\n\nChůvy přímo nezaměstnáváme. Chůvy registrované u KinderStars působí jako osoby samostatně výdělečně činné."
+    },
+    "eligibility": {
+      "heading": "Způsobilost",
+      "body": "Naše služby jsou dostupné pro:\n\n• Rodiče a opatrovníky hledající péči o děti ve Spojeném království\n• Chůvy, které jsou registrované nebo se ucházejí o registraci u KinderStars\n\nPro používání našich webových stránek a služeb musíte být starší 18 let."
+    },
+    "obligations": {
+      "heading": "Vaše povinnosti",
+      "body": "Při používání našich služeb souhlasíte s tím, že budete:\n\n• Poskytovat přesné a pravdivé informace\n• Nezneužívat webové stránky ani se nepokoušet o neoprávněný přístup\n• Nekopírovat, nereprodukovat ani nešířit obsah z našich webových stránek bez povolení\n• Zacházet se všemi chůvami, zaměstnanci a ostatními uživateli s respektem\n• Okamžitě hlásit jakékoli obavy týkající se ochrany dětí společnosti KinderStars"
+    },
+    "childminderTerms": {
+      "heading": "Podmínky pro chůvy",
+      "body": "Chůvy registrované u KinderStars souhlasí s tím, že budou:\n\n• Udržovat platné kontroly DBS, pediatrickou první pomoc a školení v oblasti ochrany dětí\n• Dodržovat náš rámec kvality a kodex chování\n• Informovat KinderStars o jakýchkoli změnách stavu registrace, dostupnosti nebo okolností\n• Povolit KinderStars zobrazovat omezené profilové informace v našem adresáři\n• Spolupracovat při kontrolách zajištění kvality a monitorovacích návštěvách"
+    },
+    "fees": {
+      "heading": "Poplatky a platby",
+      "body": "Procházení adresáře KinderStars a odesílání dotazů je zdarma.\n\nPéče o děti je placená služba dohodnutá mezi rodiči a chůvami. KinderStars nestanovuje sazby chův. Poplatky, platební podmínky a harmonogramy se dohodnou přímo mezi rodičem a chůvou.\n\nKinderStars může účtovat poplatky za některé agenturní služby. Jakékoli příslušné poplatky budou jasně sděleny předem."
+    },
+    "intellectualProperty": {
+      "heading": "Duševní vlastnictví",
+      "body": "Veškerý obsah na webových stránkách KinderStars — včetně textu, grafiky, log, obrázků a softwaru — je majetkem společnosti KinderStars Ltd nebo jejích poskytovatelů licencí a je chráněn autorským právem a zákony o duševním vlastnictví.\n\nNesmíte reprodukovat, distribuovat ani vytvářet odvozená díla z našeho obsahu bez předchozího písemného souhlasu."
+    },
+    "liability": {
+      "heading": "Omezení odpovědnosti",
+      "body": "KinderStars působí jako agentura spojující rodiče s chůvami. Ačkoli provádíme kontroly a zajišťujeme kvalitu, nezaručujeme výkon, chování ani vhodnost žádné chůvy.\n\nV maximálním rozsahu povoleném zákonem nebude KinderStars Ltd odpovědná za jakékoli nepřímé, náhodné nebo následné škody vyplývající z používání našich služeb.\n\nNic v těchto Podmínkách nevylučuje ani neomezuje naši odpovědnost za smrt nebo zranění způsobené nedbalostí, podvodem nebo jakoukoli jinou odpovědností, kterou nelze vyloučit zákonem."
+    },
+    "termination": {
+      "heading": "Ukončení",
+      "body": "Vyhrazujeme si právo pozastavit nebo ukončit přístup k našim službám kdykoli, pokud porušíte tyto Podmínky nebo se dopustíte chování, které považujeme za škodlivé pro ostatní uživatele, chůvy nebo pověst KinderStars.\n\nChůvy mohou být odstraněny z adresáře, pokud nedodrží požadované standardy, kvalifikace nebo soulad s naším rámcem kvality."
+    },
+    "governing": {
+      "heading": "Rozhodné právo",
+      "body": "Tyto Podmínky se řídí zákony Anglie a Walesu. Jakékoli spory vyplývající z těchto Podmínek nebo z vašeho používání našich služeb podléhají výlučné jurisdikci soudů Anglie a Walesu."
+    },
+    "contact": {
+      "heading": "Kontaktujte nás",
+      "body": "Pokud máte dotazy k těmto Podmínkám, prosím kontaktujte:\n\nKinderStars Ltd\nVictory House, Luton, LU1 3BS\nE-mail: info@kinderstars.co.uk"
+    }
+  },
+  "complaints": {
+    "title": "Reklamační řád",
+    "lastUpdated": "Poslední aktualizace: únor 2026",
+    "intro": {
+      "heading": "Úvod",
+      "body": "KinderStars Ltd se zavazuje poskytovat vysoce kvalitní služby. Pokud jste nespokojeni s jakýmkoli aspektem naší služby, chceme o tom vědět, abychom mohli věci napravit a poučit se z vaší zpětné vazby.\n\nTento reklamační řád se vztahuje na rodiče, chůvy a všechny, kteří využívají naše služby."
+    },
+    "scope": {
+      "heading": "Na co si můžete stěžovat",
+      "body": "Můžete podat stížnost týkající se:\n\n• Kvality služeb poskytovaných společností KinderStars\n• Chování chůvy v naší síti\n• Komunikace nebo odezvy našeho týmu\n• Způsobu nakládání s vašimi osobními údaji\n• Jakékoli jiné záležitosti související s našimi službami\n\nV případě obav o bezpečnost dítěte nás prosím okamžitě kontaktujte na info@kinderstars.co.uk nebo zavolejte příslušnému místnímu úřadu."
+    },
+    "informal": {
+      "heading": "Fáze 1: Neformální řešení",
+      "body": "V první řadě vás povzbuzujeme, abyste nás přímo kontaktovali a prodiskutovali váš problém. Mnoho záležitostí lze rychle vyřešit otevřenou komunikací.\n\nMůžete nás kontaktovat:\n• E-mail: info@kinderstars.co.uk\n• Adresa: Victory House, Luton, LU1 3BS\n\nNaším cílem je potvrdit přijetí vašeho podnětu do 2 pracovních dnů a vyřešit ho do 10 pracovních dnů."
+    },
+    "formal": {
+      "heading": "Fáze 2: Formální stížnost",
+      "body": "Pokud nejste spokojeni s neformálním řešením nebo upřednostňujete podání formální stížnosti od začátku, prosím podejte stížnost písemně.\n\nVaše písemná stížnost by měla obsahovat:\n\n• Vaše jméno a kontaktní údaje\n• Jasný popis toho, co se stalo\n• Kdy se to stalo\n• Jaký výsledek hledáte\n• Jakékoli relevantní důkazy nebo korespondenci\n\nPošlete formální stížnost na info@kinderstars.co.uk s předmětem \"Formální stížnost\" nebo ji zašlete poštou na naši registrovanou adresu."
+    },
+    "investigation": {
+      "heading": "Fáze 3: Vyšetřování a odpověď",
+      "body": "Po přijetí formální stížnosti:\n\n• Potvrdíme přijetí do 3 pracovních dnů\n• Pověříme vedoucího člena týmu vyšetřováním\n• Shromáždíme relevantní informace od všech zúčastněných stran\n• Poskytneme písemnou odpověď do 20 pracovních dnů\n\nNaše odpověď bude obsahovat shrnutí našich zjištění, opatření, která máme v úmyslu přijmout, a informace o dalších krocích, pokud zůstanete nespokojeni."
+    },
+    "escalation": {
+      "heading": "Fáze 4: Eskalace",
+      "body": "Pokud nejste spokojeni s naší odpovědí, můžete stížnost eskalovat na:\n\n• Ofsted — pokud se vaše stížnost týká standardů péče o děti nebo ochrany (ofsted.gov.uk)\n• Úřad komisaře pro informace (ICO) — pokud se vaše stížnost týká ochrany údajů (ico.org.uk)\n• Tým pro první roky vašeho místního úřadu — pro obavy týkající se registrace nebo chování chůvy\n\nBudeme plně spolupracovat s jakýmkoli externím vyšetřováním."
+    },
+    "recordKeeping": {
+      "heading": "Vedení záznamů a poučení",
+      "body": "Vedeme důvěrné záznamy o všech přijatých stížnostech včetně povahy stížnosti, způsobu jejího vyřízení a výsledku. Záznamy o stížnostech se uchovávají 6 let.\n\nStížnosti pravidelně přezkoumáváme s cílem identifikovat vzorce a oblasti ke zlepšení. Vaše zpětná vazba nám přímo pomáhá zlepšovat naše služby."
+    },
+    "contact": {
+      "heading": "Kontaktujte nás",
+      "body": "Chcete-li podat stížnost nebo poskytnout zpětnou vazbu, prosím kontaktujte:\n\nKinderStars Ltd\nVictory House, Luton, LU1 3BS\nE-mail: info@kinderstars.co.uk\n\nVšechny stížnosti bereme vážně a zavazujeme se je řešit spravedlivě a promptně."
+    }
+  },
+  "blog": {
+    "title": "Blog",
+    "heading": "Poznatky o Raném Dětství a Péči o Děti",
+    "description": "Odborné články o chůvách, Ofsted, EYFS, financování a raném dětství.",
+    "readMore": "Číst",
+    "backToBlog": "Zpět na Blog",
+    "relatedArticles": "Související Články",
+    "shareArticle": "Sdílejte tento článek",
+    "categories": {
+      "all": "Všechny",
+      "earlyYears": "Raný Věk",
+      "ofsted": "Ofsted",
+      "childminding": "Péče o Děti",
+      "parenting": "Rodičovství",
+      "funding": "Financování",
+      "healthSafety": "Zdraví a Bezpečnost"
+    },
+    "posts": {
+      "eyfs": {
+        "title": "Porozumění Rámci EYFS v 2025: Co Potřebují Vědět Rodiče a Chůvy",
+        "excerpt": "Základ Raných Let (EYFS) stanovuje standardy pro vzdělávání, rozvoj a péči o děti od narození do 5 let.",
+        "content": "## Co Je EYFS?\n\n**Základ Raných Let (EYFS)** je rámec britské vlády stanovující standardy pro vzdělávání, rozvoj a péči o děti od narození do 5 let. Všechny registrované chůvy, jesle a školy jej musí dodržovat.\n\n### Sedm Oblastí Vzdělávání\n\nEYFS pokrývá sedm klíčových oblastí:\n\n**Primární Oblasti:**\n1. **Komunikace a Jazyk** — naslouchání, porozumění a mluvení\n2. **Fyzický Rozvoj** — pohyb, manipulace, zdraví a sebeobsluha\n3. **Osobnostní, Sociální a Emocionální Rozvoj** — sebedůvěra, řízení pocitů, vztahy\n\n**Specifické Oblasti:**\n4. **Gramotnost** — čtení a psaní\n5. **Matematika** — čísla, tvary, prostor a míry\n6. **Porozumění Světu** — lidé, komunity, technologie, příroda\n7. **Expresivní Umění a Design** — zkoumání materiálů, kreativita\n\n### Aktualizace 2025\n\nVláda pokračuje ve zjednodušování EYFS při zachování vysokých standardů:\n\n- **Zjednodušené hodnocení** — méně byrokratických požadavků\n- **Důraz na komunikaci** — podpora raného jazykového rozvoje\n- **Důraz na pohodu** — větší uznání emocionálního zdraví dětí\n- **Venkovní vzdělávání** — integrace venkovních zkušeností\n\n### Co To Znamená pro Rodiče\n\nJako rodič vám EYFS dává jistotu, že vaše dítě dostává konzistentní, kvalitní vzdělávání. Zeptejte se chůvy, jak realizuje EYFS.\n\n### Co To Znamená pro Chůvy\n\nChůvy musí prokázat splnění požadavků EYFS během inspekcí Ofsted. KinderStars poskytuje šablony a nástroje pro dokumentaci pokroku dětí.\n\n> **Tip:** Použijte portál KinderStars ke sledování vývojových milníků a sdílení pokroku s rodiči."
+      },
+      "ofstedInspection": {
+        "title": "Vaše První Inspekce Ofsted: Kompletní Průvodce pro Chůvy",
+        "excerpt": "Příprava na první inspekci Ofsted může být stresující. Tento průvodce vysvětluje, co inspektoři hledají.",
+        "content": "## Co Se Děje Během Inspekce Ofsted?\n\nInspekce pro chůvy hodnotí kvalitu a standardy péče.\n\n### Před Inspekcí\n\nOfsted obvykle zavolá s **krátkým varováním** — ráno v den inspekce nebo den předtím:\n\n- Potvrdí registrační údaje\n- Zeptají se na děti v péči\n- Proberou změny od poslední inspekce\n\n### Během Návštěvy\n\nInspektor stráví přibližně **3-4 hodiny**:\n\n1. **Pozoruje praxi** — interakci s dětmi, rutiny, vzdělávací aktivity\n2. **Hovoří s dětmi** — přiměřené rozhovory\n3. **Kontroluje dokumentaci** — politiky, hodnocení rizik, docházku, DBS\n4. **Diskutuje sebehodnocení** — reflexi a zlepšování\n5. **Ověřuje ochranu** — znalosti postupů a místních kontaktů\n\n### Stupnice Hodnocení\n\n- **Vynikající** — výjimečně vysoká kvalita\n- **Dobrý** — efektivní plnění požadavků\n- **Vyžaduje Zlepšení** — některé oblasti potřebují pozornost\n- **Nedostatečný** — závažné obavy\n\n### Tipy pro Úspěch\n\n- ✅ Udržujte aktuální **politiky a postupy**\n- ✅ Veďte jasné **vzdělávací deníky** pro každé dítě\n- ✅ Znějte kontakty **Místní rady na ochranu dětí**\n- ✅ Mějte viditelný **certifikát první pomoci** a DBS\n- ✅ Připravte **formulář sebehodnocení**\n- ✅ Buďte sami sebou\n\n### Jak KinderStars Pomáhá\n\nNáš portál poskytuje šablony připravené pro Ofsted. Váš panel souladu sleduje všechna data expirace certifikátů."
+      },
+      "becomingChildminder": {
+        "title": "Jak se Stát Registrovanou Chůvou v UK: Krok za Krokem",
+        "excerpt": "Přemýšlíte o tom, že se stanete chůvou? Zde je váš kompletní plán od školení po přijetí prvních rodin.",
+        "content": "## Vaše Cesta k Tomu Stát Se Chůvou\n\nPéče o děti je jedna z nejodměňovanějších kariér — formujete mladé životy a provozujete vlastní podnik z domova.\n\n### Krok 1: Průzkum a Sebehodnocení\n\n- Baví mě práce s malými dětmi?\n- Je můj domov vhodný pro péči o děti?\n- Jsem připravená na podnikatelskou stránku?\n- Podporuje moje rodina tuto změnu?\n\n### Krok 2: Absolvujte Požadovaná Školení\n\n1. **Předregistrační kurz** — EYFS, ochrana, podnikatelské dovednosti\n2. **Pediatrická první pomoc** — 12hodinový kurz (obnova každé 3 roky)\n3. **Školení o ochraně dětí** — minimálně Úroveň 2\n4. **Certifikát hygieny potravin** — pokud poskytujete jídla\n\n### Krok 3: DBS a Zdravotní Kontroly\n\n- Požádejte o **Rozšířenou DBS kontrolu**\n- Vyplňte **zdravotní prohlášení** u lékaře\n\n### Krok 4: Registrace u Ofsted\n\n- Vyplnění online formuláře\n- Zaplacení registračního poplatku\n- Přijetí registrační návštěvy\n- Získání unikátního URN\n\n### Krok 5: Pojištění a Politiky\n\n- **Pojištění odpovědnosti** (specifické pro chůvy)\n- **Písemné politiky** — ochrana, rovnost, stížnosti, GDPR\n- **Hodnocení rizik** — domov, zahrada, výlety\n\n### Krok 6: Stanovte Sazby\n\nProzkoumejte místní sazby. Použijte šablony smluv KinderStars.\n\n### Časový Rámec\n\nCelý proces trvá obvykle **3-6 měsíců**.\n\n> **Prospektový Panel KinderStars** vás provede každým krokem s kontrolními seznamy přizpůsobenými vašemu regulátorovi."
+      },
+      "fundedHours": {
+        "title": "Bezplatné Hodiny Péče: Vaše Nároky v 2026",
+        "excerpt": "Navigace ve vládním financování péče o děti může být matoucí. Vysvětlujeme schémata 15, 30 hodin.",
+        "content": "## Vládou Financovaná Péče — Vysvětlení\n\nBritská vláda poskytuje několik schémat financování.\n\n### Univerzálních 15 Hodin (Všechny Děti 3-4 Roky)\n\n**Každé** 3 a 4leté dítě v Anglii má nárok na **15 hodin týdně** bezplatného vzdělávání, 38 týdnů ročně, bez ohledu na příjem.\n\n### Rozšířených 30 Hodin (Pracující Rodiče)\n\nPokud oba rodiče pracují a vydělávají minimálně **národní minimální mzdu za 16 hodin**, můžete mít nárok na **30 hodin**.\n\n**Kritéria:**\n- Každý rodič vydělává méně než 100 000 GBP ročně\n- Minimálně 16 hodin za minimální mzdu\n- Žádost přes Childcare Choices\n- Získání **30hodinového kódu oprávněnosti**\n\n### 15 Hodin pro Znevýhodněné 2leté Děti\n\nNěkteré 2leté děti se kvalifikují pokud rodina pobírá:\n- Income Support nebo JSA\n- Universal Credit (příjem pod 15 400 GBP)\n- Dítě je v péči místní autority\n- Disability Living Allowance\n\n### Tax-Free Childcare\n\nZa každých 8 GBP vláda přidá 2 GBP — do **2 000 GBP na dítě ročně** (4 000 GBP pro postižené děti).\n\n### Jak Chůvy Poskytují Financované Hodiny\n\n- Registrace u místní autority\n- Dodržování EYFS\n- Vyplňování čtvrtletních formulářů\n\n### Jak KinderStars Pomáhá\n\nSekce **Financování a Platby** pomáhá rodičům sledovat kódy a chůvám spravovat financované vs. soukromé hodiny."
+      },
+      "childproofing": {
+        "title": "Zabezpečení Domácnosti: Základní Bezpečnostní Kontrolní Seznam pro Chůvy",
+        "excerpt": "Bezpečné prostředí je nezbytné. Použijte tento kontrolní seznam ke splnění všech požadavků.",
+        "content": "## Kompletní Bezpečnostní Kontrolní Seznam\n\nVytvoření bezpečného prostředí je základem dobré péče.\n\n### Kuchyně\n\n- ☑️ Čisticí prostředky zamčené nebo uložené vysoko\n- ☑️ Bezpečnostní brány u vstupu do kuchyně\n- ☑️ Chrániče trouby a varné desky namontovány\n- ☑️ Ostré předměty mimo dosah\n- ☑️ Pravidla pro horké nápoje\n- ☑️ Teplota lednice kontrolována (pod 5°C)\n\n### Obývací/Herní Prostory\n\n- ☑️ Kryty na nepoužívaných zásuvkách\n- ☑️ Nábytek připevněný ke stěnám\n- ☑️ Omezovače oken na vyšších patrech\n- ☑️ Bezpečnostní zařízení na šňůrách žaluzií\n- ☑️ Ochranné zábrany kolem radiátorů\n- ☑️ Malé předměty a nebezpečí udušení odstraněny\n- ☑️ Hračky pravidelně kontrolovány\n\n### Zahrada\n\n- ☑️ Plot zabezpečený s dětskými brankami\n- ☑️ Rybníky/vodní prvky zakryté\n- ☑️ Jedovaté rostliny identifikovány a odstraněny\n- ☑️ Venkovní vybavení zkontrolováno\n- ☑️ Zvířecí exkrementy denně uklizeny\n- ☑️ Kůlna/garáž zamčená\n\n### Koupelna\n\n- ☑️ Léky a toaletní potřeby zamčené\n- ☑️ Protiskluzové podložky ve vaně/sprše\n- ☑️ Termostat horké vody na max 48°C\n- ☑️ Zámek na toaletě (pro batolata)\n\n### Obecné\n\n- ☑️ Detektory kouře na každém patře (testovány měsíčně)\n- ☑️ Detektor oxidu uhelnatého\n- ☑️ Hasicí deka dostupná\n- ☑️ Lékárnička zásobená a aktuální\n- ☑️ Evakuační plán pravidelně procvičován\n- ☑️ Hodnocení rizika domácích zvířat\n\n### Dokumentace\n\nUchovávejte písemná **hodnocení rizik** pro každou místnost, zahradu, výletní místa a vozidlo.\n\n> **Tip:** Panel souladu KinderStars umožňuje nahrávat a sledovat všechna hodnocení rizik s upozorněními na expiraci."
+      },
+      "speechDevelopment": {
+        "title": "10 Jednoduchých Způsobů Podpory Řečového Vývoje Dítěte",
+        "excerpt": "Rané jazykové dovednosti jsou klíčové pro pozdější vzdělávání. Objevte praktické strategie.",
+        "content": "## Podpora Řeči a Jazyka od Prvního Dne\n\nKomunikace a jazyk je **primární oblast** EYFS. Silné rané jazykové dovednosti předpovídají pozdější úspěch ve čtení, psaní a sociálních vztazích.\n\n### 1. Mluvte, Mluvte, Mluvte\n\nKomentujte svůj den: \"Teď si oblékáme kabát. Ten modrý se zipem.\" Tento průběžný komentář buduje slovní zásobu.\n\n### 2. Následujte Vedení Dítěte\n\nPokud batole ukazuje na psa, mluvte o psech. Zájmem vedený rozhovor udržuje děti zapojené.\n\n### 3. Čtěte Spolu Každý Den\n\nI 10 minut společného čtení dělá obrovský rozdíl. Ptejte se otevřenými otázkami.\n\n### 4. Zpívejte Písničky a Říkanky\n\nRým a rytmus rozvíjejí **fonologické povědomí** — klíčový základ čtení.\n\n### 5. Omezte Čas u Obrazovky\n\nDěti do 2 let nejvíce profitují z **kontaktu tváří v tvář**.\n\n### 6. Rozšiřujte Jejich Věty\n\nPokud dítě řekne \"velké auto\", odpovězte: \"Ano! Velké, červené auto, které veze dřevo.\"\n\n### 7. Dejte Jim Čas\n\nNěkteré děti potřebují více času na zpracování. Počítejte do 10, než zasáhnete.\n\n### 8. Hrajte Si Tvořivě\n\nHra na role a miniaturní světy povzbuzují tvořivé používání jazyka.\n\n### 9. Používejte Makaton nebo Vizuální Podporu\n\nZnaky a symboly podporují komunikaci **všech** dětí.\n\n### 10. Vězte, Kdy Hledat Pomoc\n\nPokud se obáváte o řečový vývoj dítěte, čím dříve hledáte podporu, tím lépe.\n\n> **Pamatujte:** Každé dítě se vyvíjí vlastním tempem. Tyto strategie vytvářejí bohaté jazykové prostředí prospěšné pro všechny."
+      },
+      "choosingChildminder": {
+        "title": "Jak Vybrat Správnou Chůvu: Kontrolní Seznam pro Rodiče",
+        "excerpt": "Najít ideální chůvu pro vaši rodinu je jedno z největších rozhodnutí.",
+        "content": "## Nalezení Ideální Chůvy\n\nChůva poskytuje **domácí** prostředí s malými skupinami a personalizovanou péčí.\n\n### Před Návštěvou\n\n- ✅ Zkontrolujte **registraci Ofsted** a poslední report online\n- ✅ Ověřte platnost **pojištění**\n- ✅ Zeptejte se na **dostupnost**\n- ✅ Potvrďte **věkovou skupinu**\n- ✅ Zkontrolujte **lokalitu** a vzdálenost\n\n### Otázky na Návštěvu\n\n**O Praxi:**\n- Jak realizujete EYFS? Mohu vidět vzdělávací deníky?\n- Jak vypadá typický den?\n- Jak řešíte chování?\n- Jaká jídla a svačiny poskytujete?\n\n**O Bezpečnosti:**\n- Mohu vidět hodnocení rizik?\n- Jaká je vaše politika ochrany?\n- Kdy vyprší certifikát první pomoci?\n- Máte domácí zvířata?\n\n**O Praktických Záležitostech:**\n- Jaké jsou vaše sazby? Jste financovaný poskytovatel?\n- Politika dovolené a nemoci?\n- Jaká je výpovědní lhůta?\n- Děláte školní svozy?\n\n### Červené Vlajky\n\n- 🚩 Neochota ukázat registraci nebo DBS\n- 🚩 Žádné písemné politiky nebo smlouvy\n- 🚩 Nečisté nebo přeplněné prostředí\n- 🚩 Nezaujatá interakce s dětmi\n- 🚩 Neochota poskytnout reference\n\n### Zelené Vlajky\n\n- 🟢 Teplá, responzivní interakce s dětmi\n- 🟢 Organizované, stimulující prostředí\n- 🟢 Jasná komunikace a profesionální dokumentace\n- 🟢 Pozitivní Ofsted report\n- 🟢 Šťastné, zapojené děti\n\n### Důvěřujte Instinktu\n\nKromě kontrolních seznamů věnujte pozornost tomu, jak se **cítíte** v jejich domově. Vaše dítě tam stráví hodně času.\n\n> **Funkce Najít Chůvu** na KinderStars umožňuje vyhledávat ověřené chůvy ve vaší oblasti."
+      },
+      "ofstedRatings": {
+        "title": "Hodnocení Ofsted Vysvětlena: Co Skutečně Znamenají pro Vaše Dítě?",
+        "excerpt": "Vynikající, Dobrý, Vyžaduje Zlepšení, Nedostatečný — dekódujeme každé hodnocení Ofsted.",
+        "content": "## Dekódování Hodnocení Ofsted\n\nPři výběru péče se mnozí rodiče dívají na hodnocení Ofsted. Co tato hodnocení skutečně znamenají?\n\n### Vynikající\n\nNejvyšší hodnocení. Poskytování **přesahuje očekávání** ve všech oblastech.\n\n**Klíčový fakt:** Jen přibližně **15% chův** dostane hodnocení Vynikající.\n\n### Dobrý\n\nPoskytování je **efektivní** a splňuje všechny požadavky. Děti jsou v bezpečí a dělají dobrý pokrok.\n\n**Klíčový fakt:** Přibližně **70% chův** je hodnoceno jako Dobré.\n\n### Vyžaduje Zlepšení\n\nPoskytování má **některé slabiny**, ale děti jsou v bezpečí. Další inspekce do 12 měsíců.\n\n### Nedostatečný\n\n**Vážné obavy** o kvalitu nebo bezpečnost.\n\n### Za Hodnocením\n\n- **Načasování je důležité** — hodnocení před 3 lety nemusí odrážet aktuální praxi\n- **Kontext se počítá** — chůva, která přešla z VZ na Dobrou, ukazuje silné zlepšení\n- **Navštivte osobně** — nejlepší ukazatel\n- **Ptejte se** — Dobrá chůva s dobrou komunikací může vyhovovat lépe\n\n### Jak Zkontrolovat Hodnocení\n\n1. Navštivte reports.ofsted.gov.uk\n2. Hledejte podle jména nebo URN\n3. Přečtěte celý report\n\n> **Na KinderStars** je hodnocení Ofsted a URN každé chůvy zobrazeno na profilu s přímým odkazem na report."
+      }
+    }
+  },
+  "portal": {
+    "common": {
+      "dashboard": "Ovládací panel", "messages": "Zprávy", "notifications": "Oznámení", "settings": "Nastavení", "security": "Zabezpečení", "profile": "Profil", "logout": "Odhlásit", "signOut": "Odhlásit se", "save": "Uložit", "saving": "Ukládání…", "cancel": "Zrušit", "edit": "Upravit", "delete": "Smazat", "close": "Zavřít", "loading": "Načítání…", "noResults": "Žádné výsledky", "welcomeBack": "Vítejte zpět", "viewAll": "Zobrazit vše", "search": "Hledat", "filter": "Filtrovat", "status": "Stav", "date": "Datum", "time": "Čas", "actions": "Akce", "confirm": "Potvrdit", "back": "Zpět", "next": "Další", "submit": "Odeslat", "go": "Jít", "online": "Online", "offline": "Offline", "activeNow": "Aktivní nyní", "lastSeen": "Naposledy viděn", "unread": "nepřečtené", "markAllRead": "Označit vše jako přečtené", "clearRead": "Vyčistit přečtené", "yes": "Ano", "no": "Ne", "select": "Vyberte…", "refresh": "Obnovit", "manage": "Spravovat", "uploaded": "Nahráno", "expires": "Vyprší", "required": "Povinné", "optional": "Volitelné", "accept": "Přijmout", "decline": "Odmítnout", "reason": "Důvod", "noData": "Zatím žádná data", "error": "Chyba", "success": "Úspěch", "available": "Dostupné", "booked": "Rezervováno", "conversations": "Konverzace"
+    },
+    "sidebar": {
+      "parentPortal": "Portál rodiče", "childminderPortal": "Portál pečovatele", "traineePortal": "Portál praktikanta", "dashboard": "Panel", "onboarding": "Registrace", "myDetails": "Moje údaje", "documents": "Dokumenty", "children": "Děti", "findChildminder": "Najít pečovatele", "bookings": "Rezervace", "fundingPayments": "Financování a platby", "invoices": "Faktury", "contracts": "Smlouvy", "messages": "Zprávy", "notifications": "Oznámení", "security": "Zabezpečení", "profile": "Profil", "compliance": "Shoda", "certificates": "Certifikáty", "performance": "Výkon", "availability": "Dostupnost", "shifts": "Směny", "timesheets": "Výkazy", "trainingCpd": "Školení a rozvoj", "subscription": "Předplatné", "training": "Školení", "cpdCourses": "Kurzy", "completeOnboarding": "Dokončete registraci pro odemknutí"
+    },
+    "messages": { "title": "Zprávy", "subtitle": "Komunikujte s rodiči, pečovateli a týmem KinderStars.", "newMessage": "Nová zpráva", "typeMessage": "Napište zprávu…", "send": "Odeslat", "noMessages": "Zatím žádné zprávy", "noConversations": "Žádné konverzace", "selectConversation": "Vyberte konverzaci", "sent": "Odesláno", "delivered": "Doručeno", "read": "Přečteno", "you": "Vy", "searchPeople": "Hledat lidi…", "noMessagesYet": "Zatím žádné zprávy. Začněte konverzaci!" },
+    "notifications": { "title": "Oznámení", "empty": "Žádná oznámení", "booking": "Rezervace", "message": "Zpráva", "alert": "Upozornění", "system": "Systém", "deleteConfirm": "Smazat toto oznámení?" },
+    "bookings": { "title": "Rezervace", "manageRequests": "Spravujte požadavky na rezervaci", "requestAndManage": "Požádejte o rezervace a spravujte je", "upcoming": "Nadcházející", "past": "Minulé", "pending": "Čekající", "confirmed": "Potvrzené", "accepted": "Přijaté", "cancelled": "Zrušené", "declined": "Odmítnuté", "completed": "Dokončené", "requestBooking": "Požádat o rezervaci", "newBooking": "Nová Rezervace", "sendRequest": "Odeslat požadavek", "bookingDate": "Datum rezervace", "startTime": "Čas začátku", "endTime": "Čas konce", "childminder": "Pečovatel", "parent": "Rodič", "notes": "Poznámky", "noBookings": "Žádné rezervace", "calendar": "Kalendář", "list": "Seznam", "bookingRequested": "Rezervace odeslána!", "bookingAccepted": "Rezervace přijata!", "bookingCancelled": "Rezervace zrušena" },
+    "documents": { "title": "Dokumenty", "myDocuments": "Moje dokumenty", "identityDocs": "Doklady totožnosti a adresy", "parentDesc": "Nahrajte průkaz totožnosti a potvrzení adresy.", "childminderDesc": "Nahrajte certifikáty a dokumenty shody.", "upload": "Nahrát", "download": "Stáhnout", "pending": "Čeká na kontrolu", "approved": "Schváleno", "rejected": "Zamítnuto", "uploadDocument": "Nahrát dokument", "noDocuments": "Žádné nahrané dokumenty", "pay": "Zaplatit" },
+    "contracts": { "title": "Smlouvy", "active": "Aktivní", "draft": "Koncept", "signed": "Podepsané", "expired": "Vypršené", "viewContract": "Zobrazit smlouvu", "signContract": "Podepsat smlouvu", "noContracts": "Žádné smlouvy" },
+    "training": { "title": "Školení a rozvoj", "browseDesc": "Procházejte kurzy a sledujte svůj profesní rozvoj.", "courses": "Kurzy", "myCourses": "Moje kurzy", "available": "Dostupné", "completed": "Dokončené", "inProgress": "Probíhá", "certificate": "Certifikát", "bookCourse": "Rezervovat kurz", "noCourses": "Žádné dostupné kurzy" },
+    "childminder": { "dashboard": "Panel pečovatele", "availability": "Dostupnost", "shifts": "Směny", "timesheets": "Výkazy", "performance": "Výkon", "onboarding": "Registrace", "clockIn": "Příchod", "clockOut": "Odchod", "upcomingShifts": "Nadcházející směny", "noShifts": "Žádné naplánované směny", "welcomeFuture": "Vítejte, budoucí pečovateli! 🌟", "welcomeBack": "Vítejte zpět 👋", "completePath": "Dokončete školení a staňte se registrovaným pečovatelem", "pendingShifts": "Čekající směny", "draftTimesheets": "Koncepty výkazů", "unreadMessages": "Nepřečtené zprávy", "recentActivity": "Poslední aktivita", "quickLinks": "Rychlé odkazy" },
+    "cmQuickLinks": { "upcomingShifts": "Nadcházející směny", "upcomingShiftsDesc": "Zobrazte a přijměte nabídky směn", "myAvailability": "Moje dostupnost", "myAvailabilityDesc": "Nastavte pracovní dny a hodiny", "timesheets": "Výkazy", "timesheetsDesc": "Zaznamenejte hodiny a odešlete ke schválení", "myContracts": "Moje smlouvy", "myContractsDesc": "Zobrazte pracovní smlouvy", "notifications": "Oznámení", "notificationsDesc": "Upozornění a aktualizace", "trainingChecklist": "Seznam školení", "trainingChecklistDesc": "Dokončete školící program", "myProfile": "Můj profil", "myProfileDesc": "Aktualizujte své údaje" },
+    "parent": { "dashboard": "Panel rodiče", "myChildren": "Moje děti", "findChildminder": "Najít pečovatele", "funding": "Financování", "addChild": "Přidat dítě", "noChildren": "Zatím žádné děti", "welcomeBack": "Vítejte zpět, {{name}} 👋", "upcomingBookings": "Nadcházející rezervace", "children": "Děti", "unreadMessages": "Nepřečtené zprávy", "recentActivity": "Poslední aktivita", "quickLinks": "Rychlé odkazy" },
+    "parentQuickLinks": { "onboarding": "Registrace", "onboardingDesc": "Dokončete ověření pro odemknutí funkcí", "findChildminder": "Najít pečovatele", "findChildminderDesc": "Hledejte ověřené pečovatele", "myChildren": "Moje děti", "myChildrenDesc": "Spravujte profily dětí", "bookings": "Rezervace", "bookingsDesc": "Zobrazte nadcházející a minulé rezervace", "contracts": "Smlouvy", "contractsDesc": "Zobrazte smlouvy", "funding": "Financování a platby", "fundingDesc": "Spravujte platební metody", "notifications": "Oznámení", "notificationsDesc": "Upozornění a aktualizace" },
+    "onboarding": { "title": "Registrace", "progress": "Pokrok", "complete": "Dokončeno", "incomplete": "Nedokončeno", "step": "Krok", "of": "z", "steps": "kroků", "submitForVerification": "Odeslat k ověření", "submitForReview": "Odeslat ke kontrole", "taskCompleted": "Úkol dokončen ✓", "completeOnboarding": "Dokončete ověření pro odemknutí všech funkcí.", "completeChecklist": "Dokončete kontrolní seznam pro přijímání práce." },
+    "parentOnboarding": { "title": "Registrace rodiče", "subtitle": "Dokončete všechny kroky ověření.", "verified": "✅ Ověřeno — Můžete hledat pečovatele!", "verifiedMessage": "🎉 Jste ověřeni! Nyní můžete hledat a rezervovat.", "personalDetails": "Osobní údaje", "identityChildren": "Totožnost a děti", "policiesFunding": "Pravidla a financování", "docApproved": "Dokument schválen ✅", "docRejected": "Dokument zamítnut" },
+    "cmOnboarding": { "title": "Registrace", "subtitle": "Dokončete všechny etapy pro přijímání práce.", "verified": "✅ Ověřeno — Můžete přijímat práci!", "verifiedMessage": "🎉 Jste ověřeni! Nyní můžete přijímat směny.", "docApproved": "Dokument schválen ✅", "docRejected": "Dokument zamítnut" },
+    "parentProfile": { "title": "Moje údaje", "subtitle": "Osobní informace a nemovitost.", "personalInfo": "Osobní informace", "firstName": "Jméno", "lastName": "Příjmení", "phone": "Telefon", "addressProperty": "Adresa a nemovitost", "saveProfile": "Uložit profil", "profileSaved": "Profil uložen" },
+    "cmProfile": { "title": "Můj profil", "subtitle": "Spravujte profil, kvalifikace a údaje.", "profilePhoto": "Profilová fotka", "locationPrefs": "Poloha a preference", "ofstedDetails": "Údaje Ofsted", "dbsInsurance": "DBS a pojištění", "nextOfKin": "Nejbližší příbuzný", "saveProfile": "Uložit profil", "profileSaved": "Profil uložen" },
+    "childrenMgmt": { "title": "Děti", "subtitle": "Spravujte profily, zdraví a alergie dětí.", "addChild": "Přidat dítě", "editChild": "Upravit dítě", "noChildren": "Zatím žádné děti.", "addFirstChild": "Přidejte první dítě", "childAdded": "Dítě přidáno", "childUpdated": "Dítě aktualizováno", "childRemoved": "Dítě odstraněno" },
+    "findCm": { "title": "Najít pečovatele", "subtitle": "Hledejte ověřené pečovatele.", "postcodeArea": "Oblast PSČ", "ageGroup": "Věková skupina", "language": "Jazyk", "any": "Jakýkoliv", "searching": "Hledání…", "noResults": "Žádní ověření pečovatelé.", "viewAvailability": "Zobrazit dostupnost a rezervovat", "bookChildminder": "Rezervovat pečovatele" },
+    "funding": { "title": "Financování a platby", "subtitle": "Nastavte financování péče o děti.", "fundingType": "Typ financování", "paymentMethod": "Preferovaná platební metoda", "saveConfig": "Uložit nastavení", "configSaved": "Nastavení financování uloženo" },
+    "shifts": { "title": "Směny", "subtitle": "Zobrazte nabídky směn, přijměte nebo odmítněte.", "upcoming": "Nadcházející", "history": "Historie", "accept": "Přijmout", "decline": "Odmítnout", "startShift": "Zahájit směnu", "completeShift": "Dokončit", "getDirections": "Navigace", "noUpcoming": "Žádné nadcházející směny.", "noHistory": "Žádná historie." },
+    "timesheets": { "title": "Výkazy", "subtitle": "Zaznamenejte příchody/odchody a odešlete hodiny.", "clockIn": "Příchod", "clockOut": "Odchod", "history": "Historie výkazů", "noTimesheets": "Zatím žádné výkazy." },
+    "availability": { "title": "Dostupnost", "subtitle": "Nastavte týdenní dostupnost.", "addSlot": "Přidat slot", "noAvailability": "Žádná dostupnost — volný den", "to": "do", "available": "Dostupný", "blocked": "Blokovaný", "saveAvailability": "Uložit dostupnost", "saved": "Dostupnost uložena", "sunday": "Neděle", "monday": "Pondělí", "tuesday": "Úterý", "wednesday": "Středa", "thursday": "Čtvrtek", "friday": "Pátek", "saturday": "Sobota" },
+    "invoices": { "title": "Faktury", "paid": "Zaplacené", "unpaid": "Nezaplacené", "overdue": "Po splatnosti", "amount": "Částka", "dueDate": "Datum splatnosti", "payNow": "Zaplatit nyní", "downloadInvoice": "Stáhnout fakturu", "noInvoices": "Žádné faktury" },
+    "subscription": { "title": "Předplatné", "subtitle": "Spravujte členství KinderStars.", "plan": "Plán", "trial": "Zkušební", "freeTrial": "Bezplatné zkušební", "active": "Aktivní", "expired": "Vypršené", "upgrade": "Vylepšit", "manage": "Spravovat předplatné", "monthly": "Měsíčně", "annual": "Ročně", "monthsFree": "2 měsíce zdarma", "subscribe": "Předplatit", "checkingSub": "Kontrola předplatného…" }
+  }
+}

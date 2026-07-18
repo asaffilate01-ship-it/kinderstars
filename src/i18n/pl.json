@@ -1,0 +1,442 @@
+{
+  "nav": {
+    "forParents": "Dla rodziców",
+    "howItWorks": "Jak to działa",
+    "forChildminders": "Dla opiekunek",
+    "directory": "Katalog",
+    "faq": "FAQ",
+    "contact": "Kontakt",
+    "blog": "Blog",
+    "enquireNow": "Zapytaj teraz",
+    "registerNow": "Zarejestruj się",
+    "language": "Język"
+  },
+  "hero": {
+    "agencyTag": "Agencja opiekunek do dzieci",
+    "ofstedPending": "⏳ Rejestracja Ofsted w toku",
+    "headline": "Zaufana opieka nad dziećmi, po prostu.",
+    "description": "KinderStars to <strong>ogólnokrajowa agencja opiekunek do dzieci</strong>, która pomaga rodzicom w całej Wielkiej Brytanii znaleźć zaufaną opiekę — wspierając opiekunki w szkoleniach, ochronie i zapewnieniu jakości.",
+    "dbsChecked": "🛡️ Sprawdzenie DBS",
+    "qualityAssured": "📋 Zapewniona jakość",
+    "privacyFirst": "🔒 Prywatność przede wszystkim",
+    "searchChildminders": "Szukaj opiekunek",
+    "forParents": "Dla rodziców",
+    "privacyNote": "Prywatność przede wszystkim: profile pokazują tylko <strong>dzielnicę kodu pocztowego</strong> (np. LU1), nie pełne adresy.",
+    "imageOverlay": "KinderStars • Agencja opiekunek"
+  },
+  "stats": {
+    "ukWide": "Cała Wielka Brytania",
+    "nationwideCoverage": "Zasięg ogólnokrajowy",
+    "parentSatisfaction": "Zadowolenie rodziców",
+    "allChecksVerified": "Wszystkie kontrole zweryfikowane",
+    "assuredMonitored": "Zapewnione i monitorowane"
+  },
+  "parents": {
+    "tag": "Dla rodziców",
+    "heading": "Opieka dopasowana do Twojej rodziny",
+    "description": "Podaj nam wiek dziecka, potrzebne dni i godziny oraz dzielnicę kodu pocztowego — poprowadzimy Cię przez kolejne kroki.",
+    "nationwideTitle": "Opieka ogólnokrajowa",
+    "nationwideDesc": "Łączymy Cię z opiekunkami w całej Wielkiej Brytanii, które przeszły nasze kontrole.",
+    "standardsTitle": "Jasne standardy i oczekiwania",
+    "standardsDesc": "Każda opiekunka stosuje się do naszych ram jakości obejmujących ochronę, pierwszą pomoc i naukę przez zabawę.",
+    "supportTitle": "Ciągłe wsparcie agencji",
+    "supportDesc": "KinderStars pozostaje Twoim punktem kontaktowym — przed, w trakcie i po umieszczeniu.",
+    "paymentTitle": "Elastyczne opcje płatności",
+    "paymentDesc": "Przeglądaj i pytaj za darmo. Koszty opieki mogą być pokryte przez godziny finansowane przez rząd, programy pracodawców lub samodzielną płatność.",
+    "searchChildminders": "Szukaj opiekunek",
+    "askHelp": "Poproś KinderStars o pomoc"
+  },
+  "howItWorks": {
+    "tag": "Prosty proces",
+    "heading": "Jak to działa",
+    "description": "Znalezienie zaufanej opieki nie powinno być stresujące. Nasz trzyetapowy proces jest prosty i przejrzysty.",
+    "step1Title": "Szukaj i filtruj",
+    "step1Desc": "Przeglądaj nasz katalog według dzielnicy kodu pocztowego, grupy wiekowej, potrzebnych dni i statusu weryfikacji.",
+    "step2Title": "Wyślij zapytanie",
+    "step2Desc": "Prześlij swoje wymagania przez KinderStars. Dbamy o komunikację, aby Twoje dane były bezpieczne.",
+    "step3Title": "Zostań dopasowany",
+    "step3Desc": "Przedstawiamy Ci odpowiednią opiekunkę i wspieramy proces wdrażania.",
+    "startSearch": "Rozpocznij wyszukiwanie"
+  },
+  "whyUs": {
+    "tag": "Dlaczego my",
+    "heading": "Oparte na zaufaniu i jakości",
+    "description": "Wykraczamy poza zwykłą listę. KinderStars aktywnie wspiera opiekunki i daje rodzicom pewność.",
+    "safeguardingTitle": "Ochrona przede wszystkim",
+    "safeguardingDesc": "Każda opiekunka przechodzi kontrolę DBS, pierwszą pomoc pediatryczną i szkolenie z ochrony.",
+    "qualityTitle": "Agencja z zapewnioną jakością",
+    "qualityDesc": "KinderStars jest zobowiązana do wysokich standardów jakości, zgodności i dobra dzieci.",
+    "privacyTitle": "Prywatność w projekcie",
+    "privacyDesc": "Profile pokazują tylko dzielnice kodu pocztowego — nigdy pełnych adresów.",
+    "multilingualTitle": "Wsparcie wielojęzyczne",
+    "multilingualDesc": "Nasze opiekunki mówią wieloma językami, odzwierciedlając społeczności, którym służymy.",
+    "ongoingSupportTitle": "Ciągłe wsparcie",
+    "ongoingSupportDesc": "Nie znikamy po dopasowaniu. Zapewniamy ciągłe monitorowanie jakości i wsparcie.",
+    "fundingTitle": "Elastyczne finansowanie i płatności",
+    "fundingDesc": "Przeglądaj i pytaj za darmo. Opiekę można sfinansować różnymi programami."
+  },
+  "payment": {
+    "tag": "Płacenie za opiekę",
+    "heading": "Sposoby płacenia za opiekę",
+    "description": "Przeglądanie katalogu i pytania są bezpłatne. Opieka jest usługą płatną, ale wiele rodzin korzysta z dofinansowania.",
+    "govTitle": "Bezpłatne godziny finansowane przez rząd",
+    "govDesc": "Uprawnione rodziny mogą otrzymać 15–30 godzin bezpłatnej opieki tygodniowo. Dostępne dla dzieci w wieku 2–4 lat.",
+    "govTag": "Najpopularniejsze",
+    "studentTitle": "Grant na opiekę (studenci stacjonarni)",
+    "studentDesc": "Studenci stacjonarni mogą ubiegać się o grant pokrywający do 85% kosztów opieki.",
+    "studentTag": "Studenci",
+    "employerTitle": "Opieka wspierana przez pracodawcę",
+    "employerDesc": "Niektórzy pracodawcy oferują bony na opiekę lub Tax-Free Childcare.",
+    "employerTag": "Pracujący rodzice",
+    "selfPayTitle": "Samodzielna płatność",
+    "selfPayDesc": "Płać opiekunce bezpośrednio na uzgodnionych warunkach.",
+    "selfPayTag": "Elastyczne",
+    "notSure": "Nie wiesz, do czego masz prawo?",
+    "notSureDesc": "Skontaktuj się z nami, a pomożemy zrozumieć opcje finansowania.",
+    "askFunding": "Zapytaj o finansowanie",
+    "govGuide": "Przewodnik Gov.uk ↗"
+  },
+  "childminders": {
+    "tag": "Dla opiekunek",
+    "heading": "Rozwijaj karierę z KinderStars",
+    "description": "Niezależnie od doświadczenia, dołączenie do KinderStars daje wsparcie agencyjne, szkolenia i zapytania rodziców — za darmo.",
+    "visibilityTitle": "Widoczność i polecenia",
+    "visibilityDesc": "Bądź w naszym katalogu, aby lokalne rodziny mogły Cię znaleźć.",
+    "trainingTitle": "Szkolenia i rozwój",
+    "trainingDesc": "Dostęp do szkoleń z ochrony, pierwszej pomocy i możliwości rozwoju zawodowego.",
+    "complianceTitle": "Wsparcie w zgodności",
+    "complianceDesc": "Prowadzmy Cię przez rejestrację i wymagania zgodności.",
+    "mentoringTitle": "Ciągłe mentoring",
+    "mentoringDesc": "Otrzymuj indywidualne wsparcie od naszego zespołu.",
+    "joinUs": "Dołącz do KinderStars",
+    "readFaq": "Przeczytaj FAQ"
+  },
+  "testimonials": {
+    "tag": "Opinie",
+    "heading": "Co mówią rodziny i opiekunki",
+    "description": "Prawdziwe opinie od rodziców i opiekunek, z którymi pracujemy na co dzień.",
+    "quote1": "KinderStars sprawiło, że znalezienie opiekunki było takie proste. W ciągu tygodnia mieliśmy wspaniałe dopasowanie dla naszego dwulatka.",
+    "quote1Role": "Rodzic 1 dziecka",
+    "quote2": "Bałam się zostawić dziecko z kimś nowym, ale zespół KinderStars uspokajał mnie na każdym kroku.",
+    "quote2Role": "Rodzic 2 dzieci",
+    "quote3": "Jako opiekunka, dołączenie do KinderStars dało mi widoczność, której nigdy nie miałam.",
+    "quote3Role": "Zarejestrowana opiekunka"
+  },
+  "directory": {
+    "heading": "Znajdź opiekunkę",
+    "description": "Szukaj według miasta lub dzielnicy kodu pocztowego w całej Wielkiej Brytanii.",
+    "reset": "Resetuj",
+    "cantFind": "Nie możesz znaleźć dopasowania?",
+    "searchLabel": "Szukaj",
+    "searchPlaceholder": "np. miasto, dzielnica kodu pocztowego lub imię",
+    "ageGroup": "Grupa wiekowa",
+    "any": "Dowolna",
+    "day": "Dzień",
+    "verified": "Zweryfikowana",
+    "verifiedOnly": "Tylko zweryfikowane",
+    "notVerified": "Niezweryfikowane",
+    "allLanguages": "Wszystkie języki",
+    "showing": "Wyświetlanie",
+    "of": "z",
+    "searchBy": "Szukaj wg",
+    "town": "miasto",
+    "or": "lub",
+    "postcodeDistrict": "dzielnica kodu pocztowego",
+    "ofstedPending": "Rejestracja Ofsted w toku",
+    "noMatches": "Brak wyników",
+    "noMatchesDesc": "Spróbuj szerszego wyszukiwania lub wyczyść filtry.",
+    "resetFilters": "Resetuj filtry",
+    "askHelp": "Poproś KinderStars o pomoc",
+    "viewProfile": "Zobacz profil",
+    "enquire": "Zapytaj",
+    "ref": "Nr ref",
+    "loading": "Ładowanie opiekunek…"
+  },
+  "faq": {
+    "tag": "FAQ",
+    "heading": "Najczęściej zadawane pytania",
+    "description": "Wszystko, o co pytają rodzice i opiekunki — jasno odpowiedziane.",
+    "q1": "Czym jest agencja opiekunek do dzieci?",
+    "a1": "Agencja opiekunek rekrutuje, wspiera i zapewnia jakość opiekunek do dzieci.",
+    "q2": "Ile kosztuje opieka przez KinderStars?",
+    "a2": "Przeglądanie i pytanie jest bezpłatne. Opieka jest usługą płatną — koszty zależą od godzin, wieku i opiekunki.",
+    "q3": "Jak sprawdzane są opiekunki?",
+    "a3": "Wszystkie opiekunki przechodzą kontrolę DBS, pierwszą pomoc, szkolenie z ochrony i proces wdrażania.",
+    "q4": "Co oznacza 'Zweryfikowana' na profilu?",
+    "a4": "Oznaka 'Zweryfikowana' oznacza, że opiekunka ukończyła pełne wdrożenie KinderStars.",
+    "q5": "Jak szybko mogę znaleźć opiekunkę?",
+    "a5": "Większość rodzin otrzymuje przedstawienie w ciągu 1–2 tygodni.",
+    "q6": "Czy mogę sam/sama wybrać opiekunkę?",
+    "a6": "Oczywiście. Możesz przeglądać katalog i pytać o każdą pasującą osobę.",
+    "q7": "Jakie obszary obejmujecie?",
+    "a7": "KinderStars to ogólnokrajowa agencja wspierająca rodziny w całej Wielkiej Brytanii.",
+    "q8": "Jak zostać opiekunką KinderStars?",
+    "a8": "Jeśli jesteś zarejestrowaną lub aspirującą opiekunką, skontaktuj się z nami przez formularz kontaktowy lub e-mail info@kinderstars.co.uk. Przeprowadzimy Cię przez proces wdrożenia, w tym DBS, szkolenie i umieszczenie w naszym katalogu.",
+    "q9": "Czy muszę być zarejestrowana w Ofsted, aby dołączyć?",
+    "a9": "Jeśli jesteś już zarejestrowana w Ofsted (Anglia), CIW (Walia), Care Inspectorate (Szkocja) lub RQIA (Irlandia Północna), możesz dołączyć jako opiekunka od razu. Jeśli nie jesteś jeszcze zarejestrowana, możesz dołączyć jako praktykantka, a my przeprowadzimy Cię przez każdy krok.",
+    "q10": "Jakie szkolenie jest potrzebne, aby zostać opiekunką?",
+    "a10": "Potrzebujesz rozszerzonego sprawdzenia DBS, certyfikatu pierwszej pomocy pediatrycznej, szkolenia z ochrony dzieci oraz rejestracji w lokalnym regulatorze. KinderStars zapewnia krok po kroku listę kontrolną szkoleń obejmującą wszystkie regulatory w Wielkiej Brytanii.",
+    "q11": "Jak długo trwa zostanie zarejestrowaną opiekunką?",
+    "a11": "Zazwyczaj 3–6 miesięcy w zależności od regulatora, ale może być szybciej, jeśli masz już kwalifikacje. KinderStars wspiera Cię przez cały proces z indywidualnym planem szkoleniowym.",
+    "q12": "Czy dołączenie do KinderStars jest płatne?",
+    "a12": "Dołączenie do KinderStars jest bezpłatne. Nie pobieramy opłat od opiekunek za umieszczenie w katalogu, wsparcie szkoleniowe ani dostęp do narzędzi zgodności."
+  },
+  "contact": {
+    "heading": "Kontakt",
+    "description": "Zwykle odpowiadamy e-mailem. W pilnych sprawach zadzwoń.",
+    "companyName": "KinderStars Ltd",
+    "email": "E-mail:",
+    "phone": "Telefon:",
+    "address": "Adres:",
+    "addressValue": "Victory House, Luton, LU1 3BS",
+    "emailUs": "Napisz do nas",
+    "call": "Zadzwoń",
+    "quickMessage": "Szybka wiadomość",
+    "quickMessageDesc": "Wyślij nam szybką wiadomość, a odpowiemy.",
+    "nameLabel": "Imię",
+    "emailLabel": "E-mail",
+    "messageLabel": "Wiadomość",
+    "messagePlaceholder": "Powiedz nam, czego potrzebujesz + dzielnica kodu pocztowego",
+    "send": "Wyślij",
+    "formNotConnected": "Formularz nie jest jeszcze podłączony — napisz na info@kinderstars.co.uk."
+  },
+  "footer": {
+    "companyDesc": "KinderStars Ltd to ogólnokrajowa agencja opiekunek pomagająca rodzinom znaleźć zaufaną opiekę w całej Wielkiej Brytanii.",
+    "navigate": "Nawigacja",
+    "home": "Strona główna",
+    "forParents": "Dla rodziców",
+    "howItWorks": "Jak to działa",
+    "forChildminders": "Dla opiekunek",
+    "findChildminder": "Znajdź opiekunkę",
+    "faq": "FAQ",
+    "contact": "Kontakt",
+    "contactHeading": "Kontakt",
+    "legal": "Prawne",
+    "privacyPolicy": "Polityka prywatności",
+    "termsOfService": "Warunki usługi",
+    "complaintsProcedure": "Procedura skarg",
+    "copyright": "© {{year}} KinderStars Ltd • Agencja opiekunek • Firma zarejestrowana w Anglii i Walii",
+    "builtWith": "Stworzone z troską dla rodzin w Wielkiej Brytanii",
+    "gdpr": "RODO i Prywatność"
+  },
+  "cookie": { "title": "Używamy plików cookie", "description": "Używamy niezbędnych plików cookie, aby ta strona działała. Chcielibyśmy również używać analitycznych plików cookie, aby zrozumieć, jak korzystasz z naszej strony.", "accept": "Zaakceptuj wszystkie", "decline": "Tylko niezbędne" },
+  "profile": {
+    "about": "O opiekunce",
+    "details": "Szczegóły",
+    "detailsOnRequest": "Szczegóły dostępne na żądanie.",
+    "privacyNote": "Uwaga dotycząca prywatności: tylko lokalizacja na poziomie dzielnicy.",
+    "reference": "Nr referencyjny",
+    "postcodeDistrict": "Dzielnica kodu pocztowego",
+    "town": "Miasto",
+    "ages": "Wiek",
+    "days": "Dni",
+    "hours": "Godziny",
+    "languages": "Języki",
+    "experience": "Doświadczenie",
+    "yearsExp": "{{count}} lat",
+    "status": "Status",
+    "verified": "Zweryfikowana",
+    "listed": "Na liście",
+    "sendEnquiry": "Wyślij zapytanie",
+    "copyReference": "Kopiuj numer ref.",
+    "copied": "Skopiowano!",
+    "enquiryNote": "Zapytania trafiają do KinderStars i są przekazywane opiekunce."
+  },
+  "terms": {
+    "title": "Regulamin",
+    "lastUpdated": "Ostatnia aktualizacja: luty 2026",
+    "intro": {
+      "heading": "Wprowadzenie",
+      "body": "Niniejszy Regulamin (\"Warunki\") reguluje korzystanie z witryny i usług KinderStars prowadzonych przez KinderStars Ltd, spółkę zarejestrowaną w Anglii i Walii z siedzibą pod adresem Victory House, Luton, LU1 3BS.\n\nUzyskując dostęp do naszej witryny lub korzystając z niej, zgadzasz się na przestrzeganie niniejszych Warunków. Jeśli się nie zgadzasz, prosimy o niekorzystanie z naszych usług."
+    },
+    "services": {
+      "heading": "Nasze usługi",
+      "body": "KinderStars działa jako Agencja Opiekunek do Dzieci. Zapewniamy:\n\n• Katalog opiekunek, które przeszły nasz proces wdrożenia\n• Usługę dopasowywania łączącą rodziców z odpowiednimi opiekunkami\n• Bieżące zapewnienie jakości, szkolenia i wsparcie dla opiekunek\n• Informacje i poradnictwo dotyczące opcji finansowania opieki nad dziećmi\n\nNie zatrudniamy opiekunek bezpośrednio. Opiekunki zarejestrowane w KinderStars działają jako samozatrudnieni profesjonaliści."
+    },
+    "eligibility": {
+      "heading": "Uprawnienia",
+      "body": "Nasze usługi są dostępne dla:\n\n• Rodziców i opiekunów poszukujących opieki nad dziećmi w Wielkiej Brytanii\n• Opiekunek zarejestrowanych lub ubiegających się o rejestrację w KinderStars\n\nMusisz mieć co najmniej 18 lat, aby korzystać z naszej witryny i usług."
+    },
+    "obligations": {
+      "heading": "Twoje obowiązki",
+      "body": "Korzystając z naszych usług, zgadzasz się:\n\n• Podawać dokładne i prawdziwe informacje\n• Nie nadużywać witryny ani nie próbować uzyskać nieautoryzowanego dostępu\n• Nie kopiować, powielać ani rozpowszechniać treści z naszej witryny bez pozwolenia\n• Traktować wszystkie opiekunki, pracowników i innych użytkowników z szacunkiem\n• Natychmiast zgłaszać wszelkie obawy dotyczące bezpieczeństwa do KinderStars"
+    },
+    "childminderTerms": {
+      "heading": "Warunki dla opiekunek",
+      "body": "Opiekunki zarejestrowane w KinderStars zobowiązują się do:\n\n• Utrzymywania ważnych kontroli DBS, pierwszej pomocy pediatrycznej i szkolenia z zakresu ochrony\n• Przestrzegania naszych ram jakości i kodeksu postępowania\n• Powiadamiania KinderStars o wszelkich zmianach statusu rejestracji, dostępności lub okoliczności\n• Wyrażenia zgody na wyświetlanie ograniczonych informacji profilowych w naszym katalogu\n• Współpracy przy przeglądach zapewnienia jakości i wizytach monitorujących"
+    },
+    "fees": {
+      "heading": "Opłaty i płatności",
+      "body": "Przeglądanie katalogu KinderStars i przesyłanie zapytań jest bezpłatne.\n\nOpieka nad dziećmi jest usługą płatną uzgodnioną między rodzicami a opiekunkami. KinderStars nie ustala stawek opiekunek. Opłaty, warunki płatności i harmonogramy są ustalane bezpośrednio między rodzicem a opiekunką.\n\nKinderStars może pobierać opłaty za niektóre usługi agencyjne. Wszelkie obowiązujące opłaty zostaną jasno zakomunikowane z wyprzedzeniem."
+    },
+    "intellectualProperty": {
+      "heading": "Własność intelektualna",
+      "body": "Cała zawartość witryny KinderStars — w tym tekst, grafika, logo, obrazy i oprogramowanie — jest własnością KinderStars Ltd lub jej licencjodawców i jest chroniona prawem autorskim oraz prawem własności intelektualnej.\n\nNie wolno powielać, rozpowszechniać ani tworzyć dzieł pochodnych z naszych treści bez uprzedniej pisemnej zgody."
+    },
+    "liability": {
+      "heading": "Ograniczenie odpowiedzialności",
+      "body": "KinderStars działa jako agencja łącząca rodziców z opiekunkami. Chociaż przeprowadzamy kontrole i zapewniamy jakość, nie gwarantujemy wydajności, zachowania ani przydatności żadnej opiekunki.\n\nW najszerszym zakresie dozwolonym przez prawo, KinderStars Ltd nie ponosi odpowiedzialności za jakiekolwiek szkody pośrednie, przypadkowe lub wynikowe wynikające z korzystania z naszych usług.\n\nŻadne postanowienie niniejszych Warunków nie wyłącza ani nie ogranicza naszej odpowiedzialności za śmierć lub obrażenia ciała spowodowane zaniedbaniem, oszustwem lub jakąkolwiek inną odpowiedzialność, której nie można wyłączyć na mocy prawa."
+    },
+    "termination": {
+      "heading": "Rozwiązanie",
+      "body": "Zastrzegamy sobie prawo do zawieszenia lub zakończenia dostępu do naszych usług w dowolnym momencie, jeśli naruszysz niniejsze Warunki lub będziesz postępować w sposób, który uznamy za szkodliwy dla innych użytkowników, opiekunek lub reputacji KinderStars.\n\nOpiekunki mogą zostać usunięte z katalogu, jeśli nie utrzymają wymaganych standardów, kwalifikacji lub zgodności z naszymi ramami jakości."
+    },
+    "governing": {
+      "heading": "Prawo właściwe",
+      "body": "Niniejsze Warunki podlegają prawu Anglii i Walii. Wszelkie spory wynikające z niniejszych Warunków lub korzystania z naszych usług podlegają wyłącznej jurysdykcji sądów Anglii i Walii."
+    },
+    "contact": {
+      "heading": "Kontakt",
+      "body": "Jeśli masz pytania dotyczące niniejszych Warunków, prosimy o kontakt:\n\nKinderStars Ltd\nVictory House, Luton, LU1 3BS\nE-mail: info@kinderstars.co.uk"
+    }
+  },
+  "complaints": {
+    "title": "Procedura reklamacyjna",
+    "lastUpdated": "Ostatnia aktualizacja: luty 2026",
+    "intro": {
+      "heading": "Wprowadzenie",
+      "body": "KinderStars Ltd zobowiązuje się do świadczenia usług najwyższej jakości. Jeśli jesteś niezadowolony z jakiegokolwiek aspektu naszej usługi, chcemy o tym usłyszeć, abyśmy mogli naprawić sytuację i uczyć się z Twojej opinii.\n\nNiniejsza procedura reklamacyjna dotyczy rodziców, opiekunek i wszystkich, którzy korzystają z naszych usług."
+    },
+    "scope": {
+      "heading": "Na co można złożyć skargę",
+      "body": "Możesz złożyć skargę dotyczącą:\n\n• Jakości usług świadczonych przez KinderStars\n• Zachowania opiekunki w naszej sieci\n• Komunikacji lub responsywności naszego zespołu\n• Sposobu przetwarzania Twoich danych osobowych\n• Każdej innej kwestii związanej z naszymi usługami\n\nW przypadku obaw dotyczących bezpieczeństwa dziecka, prosimy o natychmiastowy kontakt pod adresem info@kinderstars.co.uk lub zadzwoń do odpowiedniego urzędu lokalnego."
+    },
+    "informal": {
+      "heading": "Etap 1: Rozwiązanie nieformalne",
+      "body": "W pierwszej kolejności zachęcamy do bezpośredniego kontaktu z nami w celu omówienia problemu. Wiele kwestii można szybko rozwiązać poprzez otwartą komunikację.\n\nMożesz się z nami skontaktować:\n• E-mail: info@kinderstars.co.uk\n• Adres: Victory House, Luton, LU1 3BS\n\nNaszym celem jest potwierdzenie odbioru w ciągu 2 dni roboczych i rozwiązanie problemu w ciągu 10 dni roboczych."
+    },
+    "formal": {
+      "heading": "Etap 2: Skarga formalna",
+      "body": "Jeśli nie jesteś zadowolony z nieformalnego rozwiązania lub wolisz od razu złożyć formalną skargę, prosimy o przedstawienie skargi na piśmie.\n\nTwoja pisemna skarga powinna zawierać:\n\n• Twoje imię i nazwisko oraz dane kontaktowe\n• Jasny opis tego, co się wydarzyło\n• Kiedy to miało miejsce\n• Jakiego rezultatu oczekujesz\n• Wszelkie istotne dowody lub korespondencję\n\nWyślij formalną skargę na info@kinderstars.co.uk z tematem \"Skarga formalna\" lub prześlij pocztą na nasz adres rejestrowy."
+    },
+    "investigation": {
+      "heading": "Etap 3: Dochodzenie i odpowiedź",
+      "body": "Po otrzymaniu formalnej skargi:\n\n• Potwierdzimy odbiór w ciągu 3 dni roboczych\n• Wyznaczymy starszego członka zespołu do przeprowadzenia dochodzenia\n• Zbierzemy istotne informacje od wszystkich zaangażowanych stron\n• Udzielimy pisemnej odpowiedzi w ciągu 20 dni roboczych\n\nNasza odpowiedź będzie zawierać podsumowanie naszych ustaleń, planowane działania oraz informacje o dalszych krokach, jeśli nadal będziesz niezadowolony."
+    },
+    "escalation": {
+      "heading": "Etap 4: Eskalacja",
+      "body": "Jeśli nie jesteś zadowolony z naszej odpowiedzi, możesz eskalować skargę do:\n\n• Ofsted — jeśli skarga dotyczy standardów opieki nad dziećmi lub bezpieczeństwa (ofsted.gov.uk)\n• Biuro Komisarza ds. Informacji (ICO) — jeśli skarga dotyczy ochrony danych (ico.org.uk)\n• Zespół ds. wczesnych lat Twojego urzędu lokalnego — w przypadku obaw dotyczących rejestracji lub postępowania opiekunki\n\nBędziemy w pełni współpracować z każdym dochodzeniem zewnętrznym."
+    },
+    "recordKeeping": {
+      "heading": "Prowadzenie dokumentacji i nauka",
+      "body": "Prowadzimy poufne rejestry wszystkich otrzymanych skarg, w tym charakter skargi, sposób jej rozpatrzenia i wynik. Rejestry skarg są przechowywane przez 6 lat.\n\nRegularnie przeglądamy skargi w celu identyfikacji wzorców i obszarów wymagających poprawy. Twoja opinia bezpośrednio pomaga nam ulepszać nasze usługi."
+    },
+    "contact": {
+      "heading": "Kontakt",
+      "body": "Aby złożyć skargę lub przekazać opinię, prosimy o kontakt:\n\nKinderStars Ltd\nVictory House, Luton, LU1 3BS\nE-mail: info@kinderstars.co.uk\n\nTraktujemy wszystkie skargi poważnie i zobowiązujemy się do ich sprawiedliwego i szybkiego rozpatrywania."
+    }
+  },
+  "blog": {
+    "title": "Blog",
+    "heading": "Wczesne Lata i Opieka nad Dziećmi",
+    "description": "Artykuły ekspertów na temat opiekunek, Ofsted, EYFS, finansowania i wszystkiego związanego z wczesnymi latami.",
+    "readMore": "Czytaj",
+    "backToBlog": "Powrót do Bloga",
+    "relatedArticles": "Powiązane Artykuły",
+    "shareArticle": "Udostępnij ten artykuł",
+    "categories": {
+      "all": "Wszystkie",
+      "earlyYears": "Wczesne Lata",
+      "ofsted": "Ofsted",
+      "childminding": "Opieka nad Dziećmi",
+      "parenting": "Rodzicielstwo",
+      "funding": "Finansowanie",
+      "healthSafety": "Zdrowie i Bezpieczeństwo"
+    },
+    "posts": {
+      "eyfs": {
+        "title": "Zrozumienie Ramowych Podstaw EYFS w 2025: Co Rodzice i Opiekunki Muszą Wiedzieć",
+        "excerpt": "Etap Podstawowy Wczesnych Lat (EYFS) wyznacza standardy nauki, rozwoju i opieki nad dziećmi od urodzenia do 5 lat.",
+        "content": "## Czym Jest EYFS?\n\n**Etap Podstawowy Wczesnych Lat (EYFS)** to ramowe podstawy rządu Wielkiej Brytanii, które wyznaczają standardy nauki, rozwoju i opieki nad dziećmi od urodzenia do 5 roku życia. Wszystkie zarejestrowane opiekunki, żłobki i szkoły muszą ich przestrzegać.\n\n### Siedem Obszarów Nauki\n\nEYFS obejmuje siedem kluczowych obszarów nauki i rozwoju:\n\n**Obszary Podstawowe:**\n1. **Komunikacja i Język** — słuchanie, rozumienie i mówienie\n2. **Rozwój Fizyczny** — ruch, manipulowanie przedmiotami, zdrowie i samoobsługa\n3. **Rozwój Osobisty, Społeczny i Emocjonalny** — pewność siebie, zarządzanie uczuciami, budowanie relacji\n\n**Obszary Szczegółowe:**\n4. **Umiejętność Czytania i Pisania** — czytanie i pisanie\n5. **Matematyka** — liczby, kształty, przestrzeń i miary\n6. **Rozumienie Świata** — ludzie, społeczności, technologia, świat przyrody\n7. **Ekspresyjne Sztuki i Design** — eksploracja materiałów, bycie kreatywnym\n\n### Aktualizacje 2025\n\nRząd kontynuuje upraszczanie EYFS, aby zmniejszyć biurokrację przy zachowaniu wysokich standardów. Kluczowe zmiany obejmują:\n\n- **Uproszczona ocena** — mniej biurokratycznych wymagań obserwacyjnych\n- **Nacisk na komunikację** — dodatkowy nacisk na wczesny rozwój językowy\n- **Nacisk na dobrostan** — większe uznanie dla zdrowia emocjonalnego i psychicznego dzieci\n- **Nauka na powietrzu** — zachęcanie do integracji doświadczeń na świeżym powietrzu\n\n### Co To Oznacza dla Rodziców\n\nJako rodzic, EYFS daje ci pewność, że twoje dziecko otrzymuje spójną, wysokiej jakości edukację wczesnoszkolną, gdziekolwiek jest pod opieką. Zapytaj swoją opiekunkę, jak realizuje EYFS w swojej placówce.\n\n### Co To Oznacza dla Opiekunek\n\nOpiekunki muszą wykazać, że spełniają wymagania EYFS podczas inspekcji Ofsted. KinderStars zapewnia szablony i narzędzia, które pomogą ci udokumentować postępy dzieci we wszystkich siedmiu obszarach.\n\n> **Wskazówka:** Użyj portalu KinderStars do śledzenia kamieni milowych rozwoju i dzielenia się postępami z rodzicami."
+      },
+      "ofstedInspection": {
+        "title": "Twoja Pierwsza Inspekcja Ofsted: Kompletny Przewodnik dla Opiekunek",
+        "excerpt": "Przygotowanie do pierwszej inspekcji Ofsted może być stresujące. Ten przewodnik wyjaśnia, czego szukają inspektorzy.",
+        "content": "## Co Się Dzieje Podczas Inspekcji Ofsted?\n\nInspekcje Ofsted dla opiekunek mają na celu ocenę jakości i standardów twojej opieki. Oto czego się spodziewać.\n\n### Przed Inspekcją\n\nOfsted zazwyczaj dzwoni z **krótkim wyprzedzeniem** — zwykle rano w dniu inspekcji lub dzień wcześniej. Podczas tej rozmowy:\n\n- Potwierdzą twoje dane rejestracyjne\n- Zapytają o dzieci pod twoją opieką\n- Omówią zmiany od ostatniej inspekcji\n\n### Podczas Wizyty\n\nInspektor spędzi około **3-4 godziny** w twoim lokalu. Będzie:\n\n1. **Obserwować twoją praktykę** — jak współdziałasz z dziećmi, zarządzasz rutynami i prowadzisz naukę\n2. **Rozmawiać z dziećmi** — rozmowy dostosowane do wieku o tym, co lubią\n3. **Przeglądać dokumentację** — polityki, oceny ryzyka, listy obecności, kontrole DBS\n4. **Omówić twoją samoocenę** — jak reflektujesz nad swoją praktyką i ją ulepszasz\n5. **Sprawdzać ochronę** — twoją wiedzę o procedurach i kontaktach lokalnych\n\n### Skala Ocen Ofsted\n\nInspektorzy ocenią twoją placówkę jako:\n\n- **Wybitna** — wyjątkowo wysoka jakość\n- **Dobra** — skuteczne spełnianie wszystkich wymagań\n- **Wymaga Poprawy** — niektóre obszary wymagają uwagi\n- **Nieodpowiednia** — zidentyfikowano poważne problemy\n\n### Wskazówki do Sukcesu\n\n- ✅ Utrzymuj aktualne **polityki i procedury**\n- ✅ Prowadź jasne **dzienniki nauki** dla każdego dziecka\n- ✅ Znaj kontakty **Lokalnej Rady Ochrony Dzieci**\n- ✅ Miej widoczny **certyfikat pierwszej pomocy** i DBS\n- ✅ Przygotuj **formularz samooceny** pokazujący ciągłe doskonalenie\n- ✅ Bądź sobą — inspektorzy chcą zobaczyć autentyczną praktykę\n\n### Jak KinderStars Pomaga\n\nNasz portal zapewnia gotowe szablony do samooceny, ocen ryzyka i dziennych rejestrów. Twój panel zgodności śledzi wszystkie daty wygaśnięcia certyfikatów."
+      },
+      "becomingChildminder": {
+        "title": "Jak Zostać Zarejestrowaną Opiekunką w Wielkiej Brytanii: Krok po Kroku",
+        "excerpt": "Myślisz o zostaniu opiekunką? Oto kompletna mapa drogowa od szkolenia do przyjęcia pierwszych rodzin.",
+        "content": "## Twoja Droga do Zostania Opiekunką\n\nOpieka nad dziećmi to jedna z najbardziej satysfakcjonujących karier — kształtujesz młode życia, prowadząc własny biznes z domu. Oto jak zacząć.\n\n### Krok 1: Badanie i Samoocena\n\nPrzed podjęciem decyzji, zadaj sobie pytania:\n- Czy lubię pracować z małymi dziećmi przez dłuższy czas?\n- Czy mój dom jest odpowiedni (lub możliwy do dostosowania) do opieki nad dziećmi?\n- Czy jestem gotowa na stronę biznesową — fakturowanie, zeznania podatkowe, prowadzenie dokumentacji?\n- Czy moja rodzina popiera tę zmianę kariery?\n\n### Krok 2: Ukończ Wymagane Szkolenia\n\nMusisz ukończyć:\n\n1. **Kurs przedrejestracyjny dla opiekunek** — obejmuje EYFS, ochronę, umiejętności biznesowe\n2. **Pierwsza pomoc pediatryczna** — kurs 12-godzinny (odnawialny co 3 lata)\n3. **Szkolenie z ochrony/opieki nad dziećmi** — minimum Poziom 2\n4. **Certyfikat higieny żywności** — jeśli zapewniasz posiłki\n\n### Krok 3: Kontrole DBS i Zdrowotne\n\n- Złóż wniosek o **Rozszerzony Certyfikat DBS** dla siebie i wszystkich dorosłych w gospodarstwie domowym\n- Wypełnij **deklarację zdrowotną** u lekarza\n\n### Krok 4: Zarejestruj się w Ofsted\n\nZłóż wniosek do Ofsted (Anglia), Care Inspectorate Wales lub odpowiedniego regulatora. Proces obejmuje:\n\n- Wypełnienie formularza online\n- Opłacenie opłaty rejestracyjnej\n- Przyjęcie wizyty rejestracyjnej\n- Otrzymanie unikalnego URN Ofsted\n\n### Krok 5: Ubezpieczenie i Polityki\n\nPrzed przyjęciem dzieci upewnij się, że masz:\n- **Ubezpieczenie odpowiedzialności cywilnej** (specyficzne dla opiekunek)\n- **Pisemne polityki** — ochrona, równe szanse, skargi, GDPR\n- **Oceny ryzyka** — dom, ogród, wycieczki\n\n### Krok 6: Ustal Stawki i Umowy\n\nZbadaj lokalne stawki i ustal konkurencyjne ceny. Użyj szablonów umów KinderStars do tworzenia profesjonalnych umów rodzic-opiekunka.\n\n### Harmonogram\n\nCały proces trwa zazwyczaj **3-6 miesięcy** od początku do rejestracji.\n\n> **Panel Prospekta KinderStars** prowadzi cię przez każdy krok z listami kontrolnymi dostosowanymi do twojego regulatora."
+      },
+      "fundedHours": {
+        "title": "Bezpłatne Godziny Opieki: Twoje Uprawnienia w 2026",
+        "excerpt": "Nawigacja po rządowym finansowaniu opieki może być myląca. Wyjaśniamy programy 15 i 30 godzin oraz Tax-Free Childcare.",
+        "content": "## Opieka Finansowana przez Rząd — Wyjaśnienie\n\nRząd Wielkiej Brytanii zapewnia kilka programów finansowania opieki nad dziećmi. Oto co jest dostępne.\n\n### Uniwersalne 15 Godzin (Wszystkie Dzieci 3-4 Lata)\n\n**Każde** dziecko w wieku 3 i 4 lat w Anglii ma prawo do **15 godzin tygodniowo** bezpłatnej edukacji wczesnoszkolnej przez 38 tygodni w roku. Jest to dostępne niezależnie od dochodów czy statusu zatrudnienia.\n\n### Rozszerzone 30 Godzin (Pracujący Rodzice)\n\nJeśli oboje rodzice (lub samotny rodzic) pracują i każdy zarabia co najmniej **Minimalne Wynagrodzenie Krajowe za 16 godzin tygodniowo**, możesz kwalifikować się na **30 godzin** bezpłatnej opieki.\n\n**Kryteria kwalifikacji:**\n- Każdy rodzic zarabia mniej niż 100 000 GBP rocznie\n- Każdy rodzic pracuje co najmniej 16 godzin za minimalne wynagrodzenie\n- Złóż wniosek przez stronę Childcare Choices\n- Otrzymaj **kod kwalifikacyjny 30 godzin** dla swojego dostawcy\n\n### 15 Godzin dla Dwulatków z Trudnych Środowisk\n\nNiektóre dwulatki kwalifikują się na **15 bezpłatnych godzin**, jeśli rodzina otrzymuje:\n- Zasiłek dochodowy lub JSA\n- Kredyt Uniwersalny (z dochodem gospodarstwa poniżej 15 400 GBP)\n- Dziecko jest pod opieką władz lokalnych\n- Rodzina otrzymuje zasiłek dla osób niepełnosprawnych\n\n### Opieka Bez Podatku (Tax-Free Childcare)\n\nZa każde 8 GBP wpłacone na konto Tax-Free Childcare, rząd dodaje 2 GBP — do **2000 GBP na dziecko rocznie** (4000 GBP dla dzieci niepełnosprawnych).\n\n### Jak Opiekunki Realizują Finansowane Godziny\n\nZarejestrowane opiekunki mogą oferować miejsca finansowane. Będą musiały:\n- Zarejestrować się w lokalnym urzędzie jako dostawca finansowany\n- Przestrzegać ramowych podstaw EYFS\n- Wypełniać kwartalne formularze liczebności\n\n### Jak KinderStars Pomaga\n\nNasza sekcja **Finansowanie i Płatności** pomaga rodzicom śledzić kody kwalifikacyjne, a opiekunkom zarządzać godzinami finansowanymi i prywatnymi."
+      },
+      "childproofing": {
+        "title": "Zabezpieczanie Domu: Lista Kontrolna Bezpieczeństwa dla Opiekunek",
+        "excerpt": "Bezpieczne środowisko jest bezwzględnym wymogiem. Użyj tej listy kontrolnej, aby spełnić wszystkie wymagania.",
+        "content": "## Kompletna Lista Kontrolna Bezpieczeństwa Domowego\n\nTworzenie bezpiecznego środowiska to fundament dobrej praktyki opieki nad dziećmi. Użyj tej listy kontrolnej dla każdego obszaru swojego domu.\n\n### Kuchnia\n\n- ☑️ Środki czystości zamknięte lub przechowywane wysoko\n- ☑️ Bramki na schodach przy wejściu do kuchni (jeśli potrzebne)\n- ☑️ Osłony piekarnika i płyty kuchennej zamontowane\n- ☑️ Ostre przedmioty przechowywane poza zasięgiem\n- ☑️ Zasady dotyczące gorących napojów\n- ☑️ Temperatura lodówki regularnie sprawdzana (poniżej 5°C)\n\n### Pokoje Dzienne/Bawialne\n\n- ☑️ Zaślepki na nieużywanych gniazdkach\n- ☑️ Meble przymocowane do ścian (zabezpieczenie przed przewróceniem)\n- ☑️ Ograniczniki okienne na wyższych piętrach\n- ☑️ Zabezpieczenia sznurków rolet\n- ☑️ Ekrany ochronne wokół grzejników/kominków\n- ☑️ Małe przedmioty i zagrożenia uduszeniem usunięte\n- ☑️ Zabawki dostosowane do wieku regularnie sprawdzane\n\n### Ogród/Przestrzeń Na Powietrzu\n\n- ☑️ Ogrodzenie zabezpieczone z bramkami dla dzieci\n- ☑️ Stawy/elementy wodne zakryte lub ogrodzone\n- ☑️ Rośliny trujące zidentyfikowane i usunięte\n- ☑️ Sprzęt zewnętrzny sprawdzony pod kątem stabilności\n- ☑️ Odchody zwierząt sprzątane codziennie\n- ☑️ Szopa/garaż zamknięte na klucz\n\n### Łazienka\n\n- ☑️ Leki i kosmetyki zamknięte\n- ☑️ Maty antypoślizgowe w wannie/prysznicu\n- ☑️ Termostat wody ustawiony na maksymalnie 48°C\n- ☑️ Blokada toalety zamontowana (dla maluchów)\n\n### Ogólne\n\n- ☑️ Czujniki dymu na każdym piętrze (testowane co miesiąc)\n- ☑️ Czujnik tlenku węgla zainstalowany\n- ☑️ Koc gaśniczy dostępny\n- ☑️ Apteczka zaopatrzona i aktualna\n- ☑️ Plan ewakuacji regularnie ćwiczony\n- ☑️ Ocena ryzyka zwierząt domowych wykonana (jeśli dotyczy)\n\n### Dokumentacja\n\nProwadź pisemne **oceny ryzyka** dla:\n- Każdego pomieszczenia używanego do opieki\n- Ogrodu/przestrzeni na powietrzu\n- Regularnych miejsc wycieczek\n- Twojego pojazdu (jeśli używany do dowozu do szkoły)\n\n> **Wskazówka:** Panel zgodności KinderStars pozwala przesyłać i śledzić wszystkie oceny ryzyka z przypomnieniami o terminach."
+      },
+      "speechDevelopment": {
+        "title": "10 Prostych Sposobów na Wsparcie Rozwoju Mowy Dziecka",
+        "excerpt": "Wczesne umiejętności językowe mają kluczowe znaczenie dla późniejszej nauki. Odkryj praktyczne strategie.",
+        "content": "## Wspieranie Mowy i Języka od Pierwszego Dnia\n\nKomunikacja i język to **podstawowy obszar** EYFS — i nie bez powodu. Silne wczesne umiejętności językowe przewidują późniejszy sukces w czytaniu, pisaniu i relacjach społecznych.\n\n### 1. Mów, Mów, Mów\n\nKomentuj swój dzień: \"Teraz zakładamy kurtkę. Ta niebieska z zamkiem.\" Ten ciągły komentarz buduje słownictwo naturalnie.\n\n### 2. Podążaj za Dzieckiem\n\nJeśli maluch wskazuje na psa, rozmawiaj o psach. Rozmowa prowadzona przez zainteresowanie utrzymuje zaangażowanie dzieci.\n\n### 3. Czytaj Razem Codziennie\n\nNawet 10 minut wspólnego czytania robi ogromną różnicę. Zadawaj otwarte pytania: \"Jak myślisz, co się stanie dalej?\"\n\n### 4. Śpiewaj Piosenki i Rymowanki\n\nRym i rytm rozwijają **świadomość fonologiczną** — kluczowy element nauki czytania.\n\n### 5. Ogranicz Czas Przed Ekranem\n\nDzieci poniżej 2 lat najbardziej korzystają z **interakcji twarzą w twarz**. Jeśli używasz ekranów, oglądajcie razem i rozmawiajcie.\n\n### 6. Rozszerzaj Ich Zdania\n\nJeśli dziecko mówi \"duża ciężarówka\", odpowiedz: \"Tak! To duża, czerwona ciężarówka wioząca kłody.\" To modeluje bogatszy język.\n\n### 7. Daj Im Czas\n\nNiektóre dzieci potrzebują więcej czasu na przetwarzanie. Policz do 10 w myślach, zanim się odezwiesz.\n\n### 8. Baw Się Kreatywnie\n\nZabawa w role, miniaturowe światy i przebieranki zachęcają dzieci do kreatywnego używania języka.\n\n### 9. Używaj Makatonu lub Wsparcia Wizualnego\n\nZnaki i symbole wspierają komunikację **wszystkich** dzieci, nie tylko tych ze specjalnymi potrzebami.\n\n### 10. Wiedz, Kiedy Szukać Pomocy\n\nJeśli martwisz się o rozwój mowy dziecka, im wcześniej szukasz wsparcia, tym lepiej. Porozmawiaj z pielęgniarką środowiskową.\n\n> **Pamiętaj:** Każde dziecko rozwija się w swoim tempie. Te strategie tworzą bogate środowisko językowe korzystne dla wszystkich."
+      },
+      "choosingChildminder": {
+        "title": "Jak Wybrać Odpowiednią Opiekunkę: Lista Kontrolna dla Rodziców",
+        "excerpt": "Znalezienie idealnej opiekunki dla rodziny to jedna z najważniejszych decyzji.",
+        "content": "## Znalezienie Idealnej Opiekunki\n\nOpiekunka zapewnia środowisko **domowe** z małymi grupami i spersonalizowaną opieką. Ale jak znaleźć tę właściwą?\n\n### Przed Wizytą\n\n- ✅ Sprawdź **rejestrację Ofsted** i najnowszy raport online\n- ✅ Zweryfikuj aktualność **ubezpieczenia**\n- ✅ Zapytaj o **dostępność** w wymagane dni/godziny\n- ✅ Potwierdź, że obsługuje **grupę wiekową** twojego dziecka\n- ✅ Sprawdź **lokalizację** i bliskość domu lub pracy\n\n### Pytania do Zadania Podczas Wizyty\n\n**O Praktyce:**\n- Jak realizujesz EYFS? Czy mogę zobaczyć dzienniki nauki?\n- Jak wygląda typowy dzień?\n- Jak radzisz sobie z zachowaniem?\n- Jakie posiłki i przekąski zapewniasz?\n\n**O Bezpieczeństwie:**\n- Czy mogę zobaczyć oceny ryzyka?\n- Jaka jest twoja polityka ochrony?\n- Kiedy wygasa certyfikat pierwszej pomocy?\n- Czy masz zwierzęta? Jaka jest polityka dotycząca zwierząt?\n\n**O Sprawach Praktycznych:**\n- Jakie są twoje stawki? Czy jesteś dostawcą finansowanym?\n- Jaka jest polityka urlopowa i chorobowa?\n- Jaki jest okres wypowiedzenia?\n- Czy robisz dojazdy do szkoły?\n\n### Sygnały Ostrzegawcze\n\n- 🚩 Niechęć do pokazania rejestracji lub DBS\n- 🚩 Brak pisemnych polityk lub umów\n- 🚩 Brudne lub zagracone środowisko\n- 🚩 Brak zaangażowania w interakcji z dziećmi\n- 🚩 Niechęć do podania referencji od rodziców\n\n### Pozytywne Sygnały\n\n- 🟢 Ciepła, responsywna interakcja z dziećmi\n- 🟢 Dobrze zorganizowane, stymulujące środowisko\n- 🟢 Jasna komunikacja i profesjonalna dokumentacja\n- 🟢 Pozytywny raport Ofsted\n- 🟢 Szczęśliwe, zaangażowane dzieci\n\n### Zaufaj Swojej Intuicji\n\nPoza listami kontrolnymi zwróć uwagę na to, jak się **czujesz** w ich domu. Twoje dziecko spędzi tam dużo czasu — komfort i zaufanie są niezwykle ważne.\n\n> Funkcja **Znajdź Opiekunkę** KinderStars pozwala szukać zweryfikowanych opiekunek w twojej okolicy."
+      },
+      "ofstedRatings": {
+        "title": "Oceny Ofsted Wyjaśnione: Co Naprawdę Oznaczają dla Twojego Dziecka?",
+        "excerpt": "Wybitna, Dobra, Wymaga Poprawy, Nieodpowiednia — dekodujemy znaczenie każdej oceny Ofsted.",
+        "content": "## Dekodowanie Ocen Ofsted\n\nWybierając opiekę nad dziećmi, wielu rodziców patrzy od razu na ocenę Ofsted. Ale co te oceny naprawdę oznaczają?\n\n### Wybitna\n\nNajwyższa ocena. Oznacza, że placówka **przekracza oczekiwania** we wszystkich obszarach. Dzieci robią doskonałe postępy, ochrona jest solidna, a dostawca stale się doskonali.\n\n**Kluczowy fakt:** Tylko około **15% opiekunek** otrzymuje ocenę Wybitną.\n\n### Dobra\n\nOznacza, że placówka jest **skuteczna** i spełnia wszystkie wymagania. Dzieci są bezpieczne, szczęśliwe i robią dobre postępy. Większość rodziców powinna czuć się bardzo pewnie z placówką ocenioną jako Dobra.\n\n**Kluczowy fakt:** Około **70% opiekunek** otrzymuje ocenę Dobrą.\n\n### Wymaga Poprawy\n\nPlacówka ma **pewne słabości** wymagające uwagi, ale dzieci są bezpieczne. Dostawca otrzyma kolejną inspekcję w ciągu 12 miesięcy.\n\n### Nieodpowiednia\n\nIstnieją **poważne obawy** dotyczące jakości lub bezpieczeństwa. Dostawca musi dokonać znaczących zmian.\n\n### Poza Oceną\n\nChociaż oceny są przydatne, nie opowiadają całej historii:\n\n- **Czas ma znaczenie** — ocena sprzed 3 lat może nie odzwierciedlać obecnej praktyki\n- **Kontekst się liczy** — opiekunka, która przeszła z WP do Dobrej, pokazuje silne doskonalenie\n- **Odwiedź osobiście** — najlepszy wskaźnik to zobaczenie placówki samemu\n- **Zadawaj pytania** — opiekunka z oceną Dobrą, która dobrze komunikuje, może lepiej pasować do twojej rodziny\n\n### Jak Sprawdzić Oceny\n\n1. Odwiedź stronę raportów Ofsted (reports.ofsted.gov.uk)\n2. Szukaj po nazwie dostawcy lub URN\n3. Przeczytaj pełny raport — nie tylko nagłówek\n\n> **Na KinderStars** każda wymieniona opiekunka ma ocenę Ofsted i URN widoczne na profilu z bezpośrednim linkiem do raportu."
+      }
+    }
+  },
+  "portal": {
+    "common": {
+      "dashboard": "Panel", "messages": "Wiadomości", "notifications": "Powiadomienia", "settings": "Ustawienia", "security": "Bezpieczeństwo", "profile": "Profil", "logout": "Wyloguj", "signOut": "Wyloguj się", "save": "Zapisz", "saving": "Zapisywanie…", "cancel": "Anuluj", "edit": "Edytuj", "delete": "Usuń", "close": "Zamknij", "loading": "Ładowanie…", "noResults": "Brak wyników", "welcomeBack": "Witaj ponownie", "viewAll": "Zobacz wszystko", "search": "Szukaj", "filter": "Filtruj", "status": "Status", "date": "Data", "time": "Czas", "actions": "Akcje", "confirm": "Potwierdź", "back": "Wstecz", "next": "Dalej", "submit": "Wyślij", "go": "Idź", "online": "Online", "offline": "Offline", "activeNow": "Aktywny teraz", "lastSeen": "Ostatnio widziany", "unread": "nieprzeczytane", "markAllRead": "Oznacz wszystko jako przeczytane", "clearRead": "Wyczyść przeczytane", "yes": "Tak", "no": "Nie", "select": "Wybierz…", "refresh": "Odśwież", "manage": "Zarządzaj", "uploaded": "Przesłano", "expires": "Wygasa", "required": "Wymagane", "optional": "Opcjonalne", "accept": "Akceptuj", "decline": "Odrzuć", "reason": "Powód", "noData": "Brak danych", "error": "Błąd", "success": "Sukces", "available": "Dostępne", "booked": "Zarezerwowane", "conversations": "Rozmowy"
+    },
+    "sidebar": {
+      "parentPortal": "Portal Rodzica", "childminderPortal": "Portal Opiekuna", "traineePortal": "Portal Stażysty", "dashboard": "Panel", "onboarding": "Wdrożenie", "myDetails": "Moje Dane", "documents": "Dokumenty", "children": "Dzieci", "findChildminder": "Znajdź Opiekuna", "bookings": "Rezerwacje", "fundingPayments": "Finansowanie i Płatności", "invoices": "Faktury", "contracts": "Umowy", "messages": "Wiadomości", "notifications": "Powiadomienia", "security": "Bezpieczeństwo", "profile": "Profil", "compliance": "Zgodność", "certificates": "Certyfikaty", "performance": "Wydajność", "availability": "Dostępność", "shifts": "Zmiany", "timesheets": "Karty Czasu", "trainingCpd": "Szkolenia i DPP", "subscription": "Subskrypcja", "training": "Szkolenie", "cpdCourses": "Kursy DPP", "completeOnboarding": "Ukończ wdrożenie, aby odblokować"
+    },
+    "messages": {
+      "title": "Wiadomości", "subtitle": "Czatuj z rodzicami, opiekunami i zespołem KinderStars.", "newMessage": "Nowa wiadomość", "typeMessage": "Napisz wiadomość…", "send": "Wyślij", "noMessages": "Brak wiadomości", "noConversations": "Brak rozmów", "selectConversation": "Wybierz rozmowę, aby zacząć pisać", "sent": "Wysłano", "delivered": "Dostarczono", "read": "Przeczytano", "you": "Ty", "searchPeople": "Szukaj osób…", "noMessagesYet": "Brak wiadomości. Rozpocznij rozmowę!"
+    },
+    "notifications": {
+      "title": "Powiadomienia", "empty": "Brak powiadomień", "booking": "Rezerwacja", "message": "Wiadomość", "alert": "Alert", "system": "System", "deleteConfirm": "Usunąć to powiadomienie?"
+    },
+    "bookings": {
+      "title": "Rezerwacje", "manageRequests": "Zarządzaj prośbami o rezerwację od rodziców", "requestAndManage": "Proś o rezerwacje i zarządzaj nimi", "upcoming": "Nadchodzące", "past": "Przeszłe", "pending": "Oczekujące", "confirmed": "Potwierdzone", "accepted": "Zaakceptowane", "cancelled": "Anulowane", "declined": "Odrzucone", "completed": "Zakończone", "requestBooking": "Poproś o rezerwację", "newBooking": "Nowa Rezerwacja", "requestABooking": "Poproś o Rezerwację", "sendRequest": "Wyślij Prośbę", "bookingDate": "Data rezerwacji", "startTime": "Godzina rozpoczęcia", "endTime": "Godzina zakończenia", "childminder": "Opiekun", "parent": "Rodzic", "children": "Dzieci", "notes": "Notatki", "notesOptional": "Notatki (opcjonalnie)", "noBookings": "Brak rezerwacji", "noBookingsDate": "Brak rezerwacji", "calendar": "Kalendarz", "list": "Lista", "bookingRequested": "Rezerwacja wysłana!", "bookingAccepted": "Rezerwacja zaakceptowana!", "bookingDeclined": "Rezerwacja odrzucona", "bookingCancelled": "Rezerwacja anulowana", "declineReason": "Powód odrzucenia (opcjonalnie):"
+    },
+    "documents": {
+      "title": "Dokumenty", "myDocuments": "Moje Dokumenty", "identityDocs": "Dokumenty Tożsamości i Adresowe", "parentDesc": "Prześlij swój dowód tożsamości i potwierdzenie adresu do weryfikacji.", "childminderDesc": "Prześlij swoje certyfikaty i dokumenty zgodności.", "certificates": "Certyfikaty", "compliance": "Zgodność", "upload": "Prześlij", "download": "Pobierz", "pending": "Oczekuje na weryfikację", "approved": "Zatwierdzono", "rejected": "Odrzucono", "expired": "Wygasło", "expiresOn": "Wygasa dnia", "uploadDocument": "Prześlij Dokument", "noDocuments": "Brak przesłanych dokumentów", "documentType": "Typ Dokumentu", "expiryDate": "Data ważności (opcjonalnie)", "fileLabel": "Plik (PDF, JPG, PNG — maks. 10MB)", "uploading": "Przesyłanie…", "documentUploaded": "Dokument przesłany!", "willBeReviewed": "Zostanie zweryfikowany przez administratora.", "fileTooLarge": "Plik za duży", "maxSize": "Maks. 10MB", "cannotDeleteApproved": "Nie można usunąć zatwierdzonych dokumentów", "documentDeleted": "Dokument usunięty", "requiredMissing": "Brakujące wymagane dokumenty:", "orderDbs": "Zamów kontrolę DBS / BPSS", "dbsPayDesc": "Zapłać bezpiecznie przez Stripe.", "pay": "Zapłać"
+    },
+    "contracts": { "title": "Umowy", "active": "Aktywne", "draft": "Szkic", "signed": "Podpisane", "expired": "Wygasłe", "viewContract": "Zobacz umowę", "signContract": "Podpisz umowę", "noContracts": "Brak umów" },
+    "training": { "title": "Szkolenia i DPP", "browseDesc": "Przeglądaj kursy i śledź swój rozwój zawodowy.", "courses": "Kursy", "myCourses": "Moje kursy", "available": "Dostępne", "completed": "Ukończone", "inProgress": "W trakcie", "certificate": "Certyfikat", "downloadCertificate": "Pobierz certyfikat", "cpdHours": "Godziny DPP", "bookCourse": "Zarezerwuj kurs", "noCourses": "Brak dostępnych kursów" },
+    "childminder": {
+      "dashboard": "Panel Opiekuna", "availability": "Dostępność", "shifts": "Zmiany", "timesheets": "Karty czasu", "performance": "Wydajność", "onboarding": "Wdrożenie", "clockIn": "Wejście", "clockOut": "Wyjście", "viewShifts": "Zobacz zmiany", "submitTimesheet": "Wyślij kartę czasu", "upcomingShifts": "Nadchodzące Zmiany", "pendingTimesheets": "Oczekujące karty czasu", "noShifts": "Brak zaplanowanych zmian", "welcomeFuture": "Witaj, przyszły opiekunie! 🌟", "welcomeBack": "Witaj ponownie 👋", "completePath": "Ukończ szkolenie, aby zostać zarejestrowanym opiekunem", "pendingShifts": "Oczekujące Zmiany", "draftTimesheets": "Szkice Kart Czasu", "unreadMessages": "Nieprzeczytane Wiadomości", "recentActivity": "Ostatnia Aktywność", "quickLinks": "Szybkie Linki"
+    },
+    "cmQuickLinks": { "upcomingShifts": "Nadchodzące Zmiany", "upcomingShiftsDesc": "Zobacz i akceptuj oferty zmian", "myAvailability": "Moja Dostępność", "myAvailabilityDesc": "Ustaw dni i godziny pracy", "timesheets": "Karty Czasu", "timesheetsDesc": "Rejestruj godziny i wyślij do zatwierdzenia", "myContracts": "Moje Umowy", "myContractsDesc": "Zobacz swoje umowy o pracę", "performance": "Wydajność", "performanceDesc": "Statystyki obecności i niezawodności", "notifications": "Powiadomienia", "notificationsDesc": "Alerty i aktualizacje", "trainingChecklist": "Lista Szkoleń", "trainingChecklistDesc": "Ukończ ścieżkę szkoleniową", "myProfile": "Mój Profil", "myProfileDesc": "Zaktualizuj swoje dane" },
+    "parent": {
+      "dashboard": "Panel Rodzica", "myChildren": "Moje dzieci", "findChildminder": "Znajdź opiekuna", "funding": "Finansowanie", "addChild": "Dodaj dziecko", "childDetails": "Dane dziecka", "medicalInfo": "Informacje medyczne", "emergencyContact": "Kontakt alarmowy", "noChildren": "Nie dodano jeszcze dzieci", "welcomeBack": "Witaj ponownie, {{name}} 👋", "upcomingBookings": "Nadchodzące Rezerwacje", "children": "Dzieci", "unreadMessages": "Nieprzeczytane Wiadomości", "recentActivity": "Ostatnia Aktywność", "quickLinks": "Szybkie Linki"
+    },
+    "parentQuickLinks": { "onboarding": "Wdrożenie", "onboardingDesc": "Ukończ weryfikację, aby odblokować wszystkie funkcje", "findChildminder": "Znajdź Opiekuna", "findChildminderDesc": "Szukaj zweryfikowanych opiekunów w Twojej okolicy", "myChildren": "Moje Dzieci", "myChildrenDesc": "Zarządzaj profilami dzieci i wymaganiami", "bookings": "Rezerwacje", "bookingsDesc": "Zobacz nadchodzące i przeszłe rezerwacje", "contracts": "Umowy", "contractsDesc": "Zobacz swoje umowy opieki", "funding": "Finansowanie i Płatności", "fundingDesc": "Zarządzaj metodami płatności i finansowaniem", "notifications": "Powiadomienia", "notificationsDesc": "Alerty i aktualizacje" },
+    "onboarding": { "title": "Wdrożenie", "progress": "Postęp", "complete": "Ukończone", "incomplete": "Nieukończone", "step": "Krok", "of": "z", "steps": "kroków", "nextStep": "Następny krok", "completeStep": "Ukończ ten krok", "allComplete": "Wszystkie kroki ukończone!", "completeOnboarding": "Ukończ weryfikację wdrożeniową, aby odblokować wszystkie funkcje.", "completeChecklist": "Ukończ listę kontrolną wdrożenia, aby zacząć przyjmować pracę.", "submitForVerification": "Wyślij do Weryfikacji", "submitForReview": "Wyślij do Przeglądu", "taskCompleted": "Zadanie ukończone ✓" },
+    "parentOnboarding": {
+      "title": "Wdrożenie Rodzica", "subtitle": "Ukończ wszystkie kroki weryfikacji, aby uzyskać dostęp do wyszukiwania opiekunów.", "gettingStarted": "Rozpoczynanie", "gettingStartedDesc": "Ukończ wszystkie etapy i wyślij do weryfikacji.", "docsSubmitted": "Dokumenty Wysłane — W Trakcie Przeglądu", "docsSubmittedDesc": "Twoje dane są weryfikowane przez KinderStars.", "verified": "✅ Zweryfikowany — Możesz przeglądać opiekunów!", "verifiedDesc": "Twoje konto jest w pełni zweryfikowane.", "rejected": "Weryfikacja Nieudana — Skontaktuj się z KinderStars", "rejectedDesc": "Skontaktuj się z KinderStars po więcej informacji.", "whyVerify": "Dlaczego weryfikujemy rodziców:", "whyVerifyDesc": "KinderStars stosuje dwukierunkowy model ochrony.", "personalDetails": "Dane Osobowe", "personalDetailsComplete": "Wszystkie dane osobowe potwierdzone", "personalDetailsDesc": "Imię, adres, telefon i kontakt alarmowy", "identityChildren": "Tożsamość i Dzieci", "identityComplete": "Tożsamość zweryfikowana i dzieci zarejestrowane", "identityDesc": "Prześlij ID, potwierdzenie adresu i zarejestruj dzieci", "docsNeedReupload": "Niektóre dokumenty wymagają ponownego przesłania", "policiesFunding": "Zasady i Finansowanie", "policiesComplete": "Wszystkie zasady zaakceptowane i finansowanie skonfigurowane", "policiesDesc": "Zaakceptuj zasady ochrony, skonfiguruj płatność i zgódź się na warunki", "verifiedMessage": "🎉 Jesteś zweryfikowany! Możesz teraz szukać opiekunów i rezerwować.", "docApproved": "Dokument Zatwierdzony ✅", "docRejected": "Dokument Odrzucony", "docReupload": "Jeden lub więcej dokumentów zostało odrzuconych. Prześlij ponownie."
+    },
+    "cmOnboarding": {
+      "title": "Wdrożenie", "subtitle": "Ukończ wszystkie etapy poniżej, aby zacząć przyjmować pracę.", "gettingStarted": "Rozpoczynanie", "gettingStartedDesc": "Ukończ wszystkie etapy i wyślij do przeglądu.", "docsSubmitted": "Dokumenty Wysłane — W Trakcie Przeglądu", "docsSubmittedDesc": "Twoje dokumenty są weryfikowane przez zespół KinderStars.", "interviewScheduled": "Rozmowa Zaplanowana", "interviewScheduledDesc": "Twoja rozmowa została zarezerwowana.", "interviewCompleted": "Rozmowa Zakończona — Oczekiwanie na Weryfikację", "interviewCompletedDesc": "Twoja rozmowa została zakończona.", "verified": "✅ Zweryfikowany — Możesz przyjmować pracę!", "verifiedDesc": "Gratulacje! Twoje konto jest w pełni zweryfikowane.", "rejected": "Wniosek Nieudany", "rejectedDesc": "Niestety Twój wniosek nie został zaakceptowany.", "verifiedMessage": "🎉 Jesteś zweryfikowany! Możesz teraz przyjmować zmiany.", "docApproved": "Dokument Zatwierdzony ✅", "docRejected": "Dokument Odrzucony", "docsSubmittedToast": "Dokumenty wysłane! 📋", "docsSubmittedToastDesc": "Zweryfikujemy Twój wniosek."
+    },
+    "parentProfile": {
+      "title": "Moje Dane", "subtitle": "Twoje dane osobowe i informacje o nieruchomości do dopasowania opiekunów.", "personalInfo": "Dane Osobowe", "firstName": "Imię", "lastName": "Nazwisko", "phone": "Numer telefonu", "addressProperty": "Adres i Nieruchomość", "addressLine1": "Linia adresowa 1", "addressLine2": "Linia adresowa 2", "cityTown": "Miasto / Miejscowość", "postcode": "Kod pocztowy", "propertyType": "Typ nieruchomości", "parkingAvailable": "Parking dostępny?", "fundingPayment": "Finansowanie i Płatność", "fundingType": "Typ finansowania", "paymentMethod": "Preferowana metoda płatności", "fundingInvoiceNote": "KinderStars wystawi fakturę bezpośrednio do odpowiedniego organu finansującego.", "pets": "Zwierzęta", "havePets": "Czy masz zwierzęta?", "petDetails": "Szczegóły zwierząt", "specialRequirements": "Specjalne wymagania lub notatki", "saveProfile": "Zapisz Profil", "profileSaved": "Profil zapisany", "selfFunded": "Samofinansowanie / Prywatne", "sfe": "Student Finance England (SFE/CCG)", "localAuthority": "Samorząd (15/30 godz.)", "employer": "Program Opieki Pracodawcy", "bankTransfer": "Przelew Bankowy", "standingOrder": "Zlecenie Stałe", "childcareVouchers": "Bony na Opiekę"
+    },
+    "cmProfile": {
+      "title": "Mój Profil", "subtitle": "Zarządzaj swoim profilem opiekuna, kwalifikacjami i danymi.", "profilePhoto": "Zdjęcie Profilowe", "photoSpec": "JPG, PNG do 5MB", "photoUpdated": "Zdjęcie zaktualizowane", "locationPrefs": "Lokalizacja i Preferencje", "townCity": "Miasto", "postcodeDistrict": "Rejon Kodu Pocztowego", "maxDistance": "Maks. Odległość (mile)", "maxChildren": "Maks. Dzieci Jednocześnie", "workingHours": "Godziny Pracy", "experience": "Doświadczenie (lata)", "languages": "Języki (oddzielone przecinkami)", "ageGroups": "Grupy Wiekowe", "daysAvailable": "Dostępne Dni", "bio": "Biografia", "bioPlaceholder": "Opowiedz rodzicom o swoim podejściu do opieki…", "availableForWork": "Dostępny do pracy", "ofstedDetails": "Dane Ofsted", "ofstedUrn": "URN Ofsted", "ofstedRating": "Ocena Ofsted", "lastInspection": "Data Ostatniej Inspekcji", "outstanding": "Wybitna", "good": "Dobra", "requiresImprovement": "Wymaga Poprawy", "inadequate": "Niewystarczająca", "notYetInspected": "Jeszcze Nie Kontrolowana", "dbsInsurance": "DBS i Ubezpieczenie", "dbsNumber": "Numer Certyfikatu DBS", "dbsIssueDate": "Data Wydania DBS", "insuranceProvider": "Dostawca Ubezpieczenia", "insuranceExpiry": "Wygaśnięcie Ubezpieczenia", "firstAidExpiry": "Wygaśnięcie Pierwszej Pomocy", "nextOfKin": "Najbliższy Krewny", "fullName": "Pełne Imię", "phoneNumber": "Numer Telefonu", "relationship": "Pokrewieństwo", "relationshipPlaceholder": "np. Małżonek, Rodzic", "saveProfile": "Zapisz Profil", "profileSaved": "Profil zapisany"
+    },
+    "childrenMgmt": {
+      "title": "Dzieci", "subtitle": "Zarządzaj profilami dzieci, zdrowiem i alergiami.", "addChild": "Dodaj Dziecko", "editChild": "Edytuj Dziecko", "firstName": "Imię", "lastName": "Nazwisko", "dateOfBirth": "Data urodzenia", "gender": "Płeć", "preferNotToSay": "Wolę nie podawać", "male": "Mężczyzna", "female": "Kobieta", "other": "Inna", "allergies": "Alergie", "dietaryRequirements": "Wymagania dietetyczne", "healthIssues": "Problemy zdrowotne", "specialNeeds": "Specjalne potrzeby", "emergencyContactName": "Nazwa kontaktu alarmowego", "emergencyContactPhone": "Telefon kontaktu alarmowego", "noChildren": "Nie dodano jeszcze dzieci.", "addFirstChild": "Dodaj swoje pierwsze dziecko", "childAdded": "Dziecko dodane", "childUpdated": "Dziecko zaktualizowane", "childRemoved": "Dziecko usunięte", "removeChild": "Usunąć to dziecko?", "missingFields": "Brakujące pola", "missingFieldsDesc": "Imię, nazwisko i data urodzenia są wymagane.", "underOne": "Poniżej 1", "emergency": "Alarm"
+    },
+    "findCm": { "title": "Znajdź Opiekuna", "subtitle": "Szukaj zweryfikowanych opiekunów. Nazwiska ujawniane są po przybyciu dla bezpieczeństwa.", "postcodeArea": "Rejon Kodu Pocztowego", "ageGroup": "Grupa Wiekowa", "language": "Język", "any": "Dowolny", "searching": "Szukanie…", "noResults": "Nie znaleziono zweryfikowanych opiekunów.", "bookingConfirmed": "Rezerwacja Potwierdzona — Nazwisko ujawnione po przybyciu", "verifiedChildminder": "Zweryfikowany Opiekun", "yearsExperience": "lat doświadczenia", "ages": "Wiek", "viewAvailability": "Zobacz Dostępność i Zarezerwuj", "bookChildminder": "Zarezerwuj Opiekuna", "weeklyAvailability": "Dostępność tygodniowa" },
+    "funding": { "title": "Finansowanie i Płatności", "subtitle": "Skonfiguruj sposób finansowania opieki nad dzieckiem.", "fundingType": "Typ Finansowania", "selfFunded": "Samofinansowanie (Prywatne)", "sfe": "Student Finance England (SFE)", "ccg": "NHS CCG / ICB", "localAuthority": "Samorząd (Darmowe Godziny)", "taxFree": "Opieka Bez Podatku (HMRC)", "employer": "Finansowane przez pracodawcę", "paymentMethod": "Preferowana Metoda Płatności", "invoiceNote": "KinderStars wystawi fakturę bezpośrednio.", "payment": "Płatność", "saveConfig": "Zapisz Konfigurację", "configSaved": "Konfiguracja finansowania zapisana" },
+    "shifts": { "title": "Zmiany", "subtitle": "Zobacz oferty zmian, akceptuj lub odrzucaj i śledź bieżące zmiany.", "upcoming": "Nadchodzące", "history": "Historia", "pending": "Oczekujące", "offered": "Zaoferowane", "accepted": "Zaakceptowane", "declined": "Odrzucone", "inProgress": "W Trakcie", "completed": "Zakończone", "cancelled": "Anulowane", "accept": "Akceptuj", "decline": "Odrzuć", "startShift": "Rozpocznij Zmianę", "completeShift": "Zakończ", "getDirections": "Nawiguj", "noUpcoming": "Brak nadchodzących zmian.", "noHistory": "Brak historii zmian." },
+    "timesheets": { "title": "Karty Czasu", "subtitle": "Rejestruj wejścia/wyjścia, śledź przerwy i wysyłaj godziny do zatwierdzenia.", "currentlyClocked": "Aktualnie Zarejestrowany", "clockIn": "Wejście", "clockOut": "Wyjście", "clockedIn": "Zarejestrowano wejście", "clockedOut": "Zarejestrowano wyjście", "elapsed": "Upłynęło (bez przerw)", "breakMinutes": "Przerwa (minuty)", "notes": "Notatki", "notesPlaceholder": "Opcjonalne notatki…", "linkToShift": "Powiąż ze Zmianą (opcjonalnie)", "noShift": "Brak zmiany", "alreadyClockedIn": "Już zarejestrowany", "mustClockOut": "Musisz się wyrejestrować z bieżącej pracy.", "submitted": "Wysłano do zatwierdzenia", "history": "Historia Kart Czasu", "noTimesheets": "Brak kart czasu.", "draft": "Szkic", "approved": "Zatwierdzone", "rejected": "Odrzucone", "late": "Spóźniony", "lateBy": "Spóźniony o {{minutes}} min", "hoursLogged": "{{hours}}h zarejestrowano" },
+    "availability": { "title": "Dostępność", "subtitle": "Ustaw swoją tygodniową dostępność, aby administratorzy mogli przydzielać zmiany.", "addSlot": "Dodaj Slot", "noAvailability": "Brak dostępności — dzień wolny", "to": "do", "available": "Dostępny", "blocked": "Zablokowany", "saveAvailability": "Zapisz Dostępność", "saved": "Dostępność zapisana", "sunday": "Niedziela", "monday": "Poniedziałek", "tuesday": "Wtorek", "wednesday": "Środa", "thursday": "Czwartek", "friday": "Piątek", "saturday": "Sobota" },
+    "invoices": { "title": "Faktury", "paid": "Opłacone", "unpaid": "Nieopłacone", "overdue": "Zaległe", "amount": "Kwota", "dueDate": "Termin płatności", "payNow": "Zapłać teraz", "downloadInvoice": "Pobierz fakturę", "noInvoices": "Brak faktur" },
+    "subscription": { "title": "Subskrypcja", "subtitle": "Zarządzaj swoim członkostwem KinderStars.", "plan": "Plan", "trial": "Okres próbny", "freeTrial": "Bezpłatny Okres Próbny", "active": "Aktywna", "expired": "Wygasła", "upgrade": "Ulepsz", "manage": "Zarządzaj subskrypcją", "trialEnds": "Okres próbny kończy się", "monthly": "Miesięcznie", "annual": "Rocznie", "monthsFree": "2 miesiące gratis", "planDetails": "Szczegóły Planu", "subscribe": "Subskrybuj", "checkingSub": "Sprawdzanie subskrypcji…" }
+  }
+}

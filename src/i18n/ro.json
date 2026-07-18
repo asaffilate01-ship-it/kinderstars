@@ -1,0 +1,420 @@
+{
+  "nav": {
+    "forParents": "Pentru părinți",
+    "howItWorks": "Cum funcționează",
+    "forChildminders": "Pentru bone",
+    "directory": "Director",
+    "faq": "Întrebări frecvente",
+    "contact": "Contact",
+    "blog": "Blog",
+    "enquireNow": "Întreabă acum",
+    "registerNow": "Înregistrează-te",
+    "language": "Limbă"
+  },
+  "hero": {
+    "agencyTag": "Agenție de bone",
+    "ofstedPending": "⏳ Înregistrare Ofsted în curs",
+    "headline": "Îngrijire de încredere, simplificată.",
+    "description": "KinderStars este o <strong>agenție națională de bone</strong> care ajută părinții din Marea Britanie să găsească îngrijire de încredere — sprijinind bonele cu integrare, protecție, formare și asigurarea calității.",
+    "dbsChecked": "🛡️ Verificare DBS",
+    "qualityAssured": "📋 Calitate asigurată",
+    "privacyFirst": "🔒 Confidențialitate mai întâi",
+    "searchChildminders": "Caută bone",
+    "forParents": "Pentru părinți",
+    "privacyNote": "Confidențialitate: profilurile arată doar <strong>districtul codului poștal</strong> (ex. LU1), nu adrese complete.",
+    "imageOverlay": "KinderStars • Agenție de bone"
+  },
+  "stats": {
+    "ukWide": "Toată Marea Britanie",
+    "nationwideCoverage": "Acoperire națională",
+    "parentSatisfaction": "Satisfacția părinților",
+    "allChecksVerified": "Toate verificările confirmate",
+    "assuredMonitored": "Asigurat și monitorizat"
+  },
+  "parents": {
+    "tag": "Pentru părinți",
+    "heading": "Îngrijire potrivită familiei tale",
+    "description": "Spune-ne vârsta copilului, zilele și orele necesare și districtul codului poștal — te ghidăm prin pașii următori.",
+    "nationwideTitle": "Îngrijire națională",
+    "nationwideDesc": "Te conectăm cu bone din toată Marea Britanie care au trecut verificările noastre.",
+    "standardsTitle": "Standarde clare",
+    "standardsDesc": "Fiecare bonă respectă cadrul nostru de calitate.",
+    "supportTitle": "Suport continuu",
+    "supportDesc": "KinderStars rămâne punctul tău de contact.",
+    "paymentTitle": "Opțiuni flexibile de plată",
+    "paymentDesc": "Caută și întreabă gratuit. Costurile pot fi acoperite prin ore gratuite guvernamentale sau auto-plată.",
+    "searchChildminders": "Caută bone",
+    "askHelp": "Cere ajutorul KinderStars"
+  },
+  "howItWorks": {
+    "tag": "Proces simplu",
+    "heading": "Cum funcționează",
+    "description": "Găsirea îngrijirii de încredere nu ar trebui să fie stresantă. Procesul nostru în trei pași este simplu.",
+    "step1Title": "Caută și filtrează",
+    "step1Desc": "Răsfoiește directorul după district, grupă de vârstă, zile necesare și status de verificare.",
+    "step2Title": "Trimite o întrebare",
+    "step2Desc": "Trimite cerințele prin KinderStars. Gestionăm comunicarea pentru siguranța datelor tale.",
+    "step3Title": "Fii potrivit",
+    "step3Desc": "Te prezentăm unei bone potrivite și sprijinim procesul de integrare.",
+    "startSearch": "Începe căutarea"
+  },
+  "whyUs": {
+    "tag": "De ce noi",
+    "heading": "Construit pe încredere și calitate",
+    "description": "Mergem dincolo de o simplă listă. KinderStars sprijină activ bonele și oferă părinților încredere.",
+    "safeguardingTitle": "Protecția pe primul loc",
+    "safeguardingDesc": "Fiecare bonă trece prin verificare DBS, prim ajutor și formare în protecție.",
+    "qualityTitle": "Agenție cu calitate asigurată",
+    "qualityDesc": "KinderStars este dedicată standardelor înalte de calitate și bunăstare a copiilor.",
+    "privacyTitle": "Confidențialitate prin design",
+    "privacyDesc": "Profilurile arată doar districtul — niciodată adrese complete.",
+    "multilingualTitle": "Suport multilingv",
+    "multilingualDesc": "Bonele noastre vorbesc mai multe limbi, reflectând comunitățile pe care le deservim.",
+    "ongoingSupportTitle": "Suport continuu",
+    "ongoingSupportDesc": "Nu dispărem după potrivire. Oferim monitorizare continuă a calității.",
+    "fundingTitle": "Finanțare și plată flexibilă",
+    "fundingDesc": "Caută și întreabă gratuit. Îngrijirea poate fi finanțată prin programe multiple."
+  },
+  "payment": {
+    "tag": "Plata pentru îngrijire",
+    "heading": "Modalități de plată",
+    "description": "Răsfoirea și întrebările sunt gratuite. Îngrijirea este un serviciu plătit, dar multe familii accesează finanțare.",
+    "govTitle": "Ore gratuite finanțate de guvern",
+    "govDesc": "Familiile eligibile pot primi 15–30 ore gratuite săptămânal. Disponibil pentru copii de 2–4 ani.",
+    "govTag": "Cel mai popular",
+    "studentTitle": "Grant pentru îngrijire (studenți)",
+    "studentDesc": "Studenții la timp complet pot solicita un grant care acoperă până la 85% din costuri.",
+    "studentTag": "Studenți",
+    "employerTitle": "Îngrijire sprijinită de angajator",
+    "employerDesc": "Unii angajatori oferă vouchere sau Tax-Free Childcare.",
+    "employerTag": "Părinți angajați",
+    "selfPayTitle": "Auto-plată",
+    "selfPayDesc": "Plătește direct bonei în condiții convenite.",
+    "selfPayTag": "Flexibil",
+    "notSure": "Nu ești sigur la ce ai dreptul?",
+    "notSureDesc": "Contactează-ne și te ajutăm să înțelegi opțiunile.",
+    "askFunding": "Întreabă despre finanțare",
+    "govGuide": "Ghid Gov.uk ↗"
+  },
+  "childminders": {
+    "tag": "Pentru bone",
+    "heading": "Dezvoltă-ți cariera cu KinderStars",
+    "description": "Indiferent de experiență, alăturarea la KinderStars îți oferă suport, formare și întrebări de la părinți — gratuit.",
+    "visibilityTitle": "Vizibilitate și recomandări",
+    "visibilityDesc": "Fii în directorul nostru ca familiile locale să te găsească.",
+    "trainingTitle": "Formare și dezvoltare",
+    "trainingDesc": "Acces la cursuri de protecție, prim ajutor și dezvoltare profesională.",
+    "complianceTitle": "Suport pentru conformitate",
+    "complianceDesc": "Te ghidăm prin înregistrare și cerințele de conformitate.",
+    "mentoringTitle": "Mentorat continuu",
+    "mentoringDesc": "Primește suport individual de la echipa noastră.",
+    "joinUs": "Alătură-te KinderStars",
+    "readFaq": "Citește FAQ"
+  },
+  "testimonials": {
+    "tag": "Testimoniale",
+    "heading": "Ce spun familiile și bonele",
+    "description": "Feedback real de la părinții și bonele cu care lucrăm zilnic.",
+    "quote1": "KinderStars a făcut găsirea unei bone atât de ușoară. Într-o săptămână aveam o potrivire minunată pentru copilul nostru de doi ani.",
+    "quote1Role": "Părinte cu 1 copil",
+    "quote2": "Mă temeam să-mi las copilul cu cineva nou, dar echipa KinderStars m-a liniștit la fiecare pas.",
+    "quote2Role": "Părinte cu 2 copii",
+    "quote3": "Ca bonă, alăturarea la KinderStars mi-a dat vizibilitatea pe care nu o avusesem niciodată.",
+    "quote3Role": "Bonă înregistrată"
+  },
+  "directory": {
+    "heading": "Găsește o bonă",
+    "description": "Caută după oraș sau district oriunde în Marea Britanie.",
+    "reset": "Resetează",
+    "cantFind": "Nu găsești potrivirea?",
+    "searchLabel": "Caută",
+    "searchPlaceholder": "ex. oraș, district sau nume",
+    "ageGroup": "Grupă de vârstă",
+    "any": "Oricare",
+    "day": "Zi",
+    "verified": "Verificată",
+    "verifiedOnly": "Doar verificate",
+    "notVerified": "Neverificate",
+    "allLanguages": "Toate limbile",
+    "showing": "Afișare",
+    "of": "din",
+    "searchBy": "Caută după",
+    "town": "oraș",
+    "or": "sau",
+    "postcodeDistrict": "district cod poștal",
+    "ofstedPending": "Înregistrare Ofsted în curs",
+    "noMatches": "Niciun rezultat",
+    "noMatchesDesc": "Încearcă o căutare mai largă sau șterge filtrele.",
+    "resetFilters": "Resetează filtrele",
+    "askHelp": "Cere ajutorul KinderStars",
+    "viewProfile": "Vezi profil",
+    "enquire": "Întreabă",
+    "ref": "Ref",
+    "loading": "Se încarcă bonele…"
+  },
+  "faq": {
+    "tag": "Întrebări frecvente",
+    "heading": "Întrebări frecvente",
+    "description": "Tot ce întreabă părinții și bonele — răspuns clar.",
+    "q1": "Ce este o agenție de bone?",
+    "a1": "O agenție de bone recrutează, sprijină și asigură calitatea bonelor.",
+    "q2": "Cât costă îngrijirea prin KinderStars?",
+    "a2": "Răsfoirea și întrebările sunt gratuite. Îngrijirea este un serviciu plătit.",
+    "q3": "Cum sunt verificate bonele?",
+    "a3": "Toate bonele trec prin verificare DBS, prim ajutor, formare în protecție și integrare.",
+    "q4": "Ce înseamnă 'Verificată' pe un profil?",
+    "a4": "Insigna 'Verificată' înseamnă că bona a completat integrarea completă KinderStars.",
+    "q5": "Cât de repede pot găsi o bonă?",
+    "a5": "Majoritatea familiilor primesc o prezentare în 1–2 săptămâni.",
+    "q6": "Pot alege eu bona?",
+    "a6": "Absolut. Poți răsfoi directorul și întreba despre oricine potrivit.",
+    "q7": "Ce zone acoperiți?",
+    "a7": "KinderStars este o agenție națională care sprijină familii din toată Marea Britanie.",
+    "q8": "Cum devin bonă KinderStars?",
+    "a8": "Dacă ești o bonă înregistrată sau aspirantă, contactează-ne prin formularul de contact sau la info@kinderstars.co.uk. Te vom ghida prin procesul de integrare, inclusiv DBS, formare și listare în directorul nostru.",
+    "q9": "Trebuie să fiu înregistrată la Ofsted pentru a mă alătura?",
+    "a9": "Dacă ești deja înregistrată la Ofsted (Anglia), CIW (Țara Galilor), Care Inspectorate (Scoția) sau RQIA (Irlanda de Nord), te poți alătura ca bonă imediat. Dacă nu ești încă înregistrată, te poți alătura ca practicantă și te ghidăm prin fiecare pas.",
+    "q10": "Ce formare este necesară pentru a deveni bonă?",
+    "a10": "Ai nevoie de o verificare DBS extinsă, certificat de prim ajutor pediatric, formare în protecția copilului și înregistrare la regulatorul local. KinderStars oferă o listă de verificare pas cu pas pentru toate regulamentele din Marea Britanie.",
+    "q11": "Cât durează să devii bonă înregistrată?",
+    "a11": "De obicei 3–6 luni, în funcție de regulator, dar poate fi mai rapid dacă ai deja calificări. KinderStars te sprijină pe tot parcursul cu un plan de formare personalizat.",
+    "q12": "Există un cost pentru a te alătura KinderStars?",
+    "a12": "Alăturarea la KinderStars este gratuită. Nu percepem taxe bonelor pentru listare, suport de formare sau acces la instrumentele de conformitate."
+  },
+  "contact": {
+    "heading": "Contact",
+    "description": "Răspundem de obicei prin e-mail. Pentru urgențe, sună-ne.",
+    "companyName": "KinderStars Ltd",
+    "email": "E-mail:",
+    "phone": "Telefon:",
+    "address": "Adresă:",
+    "addressValue": "Victory House, Luton, LU1 3BS",
+    "emailUs": "Trimite e-mail",
+    "call": "Sună",
+    "quickMessage": "Mesaj rapid",
+    "quickMessageDesc": "Trimite un mesaj rapid și revenim la tine.",
+    "nameLabel": "Nume",
+    "emailLabel": "E-mail",
+    "messageLabel": "Mesaj",
+    "messagePlaceholder": "Spune-ne ce ai nevoie + districtul codului poștal",
+    "send": "Trimite",
+    "formNotConnected": "Formularul nu este conectat — trimite e-mail la info@kinderstars.co.uk."
+  },
+  "footer": {
+    "companyDesc": "KinderStars Ltd este o agenție națională de bone care ajută familiile să găsească îngrijire de încredere în Marea Britanie.",
+    "navigate": "Navigare",
+    "home": "Acasă",
+    "forParents": "Pentru părinți",
+    "howItWorks": "Cum funcționează",
+    "forChildminders": "Pentru bone",
+    "findChildminder": "Găsește o bonă",
+    "faq": "Întrebări frecvente",
+    "contact": "Contact",
+    "contactHeading": "Contact",
+    "legal": "Legal",
+    "privacyPolicy": "Politica de confidențialitate",
+    "termsOfService": "Termeni și condiții",
+    "complaintsProcedure": "Procedura de reclamații",
+    "copyright": "© {{year}} KinderStars Ltd • Agenție de bone • Companie înregistrată în Anglia și Țara Galilor",
+    "builtWith": "Creat cu grijă pentru familiile din Marea Britanie",
+    "gdpr": "GDPR și Confidențialitate"
+  },
+  "cookie": { "title": "Folosim cookie-uri", "description": "Folosim cookie-uri esențiale pentru funcționarea site-ului. Am dori să folosim și cookie-uri analitice pentru a înțelege cum utilizați site-ul nostru.", "accept": "Acceptă toate", "decline": "Doar esențiale" },
+  "profile": {
+    "about": "Despre",
+    "details": "Detalii",
+    "detailsOnRequest": "Detalii disponibile la cerere.",
+    "privacyNote": "Notă de confidențialitate: doar locația la nivel de district.",
+    "reference": "Referință",
+    "postcodeDistrict": "District cod poștal",
+    "town": "Oraș",
+    "ages": "Vârste",
+    "days": "Zile",
+    "hours": "Ore",
+    "languages": "Limbi",
+    "experience": "Experiență",
+    "yearsExp": "{{count}} ani",
+    "status": "Status",
+    "verified": "Verificată",
+    "listed": "Listată",
+    "sendEnquiry": "Trimite întrebare",
+    "copyReference": "Copiază referința",
+    "copied": "Copiat!",
+    "enquiryNote": "Întrebările ajung la KinderStars și sunt direcționate către bonă."
+  },
+  "terms": {
+    "title": "Termeni și condiții",
+    "lastUpdated": "Ultima actualizare: februarie 2026",
+    "intro": {
+      "heading": "Introducere",
+      "body": "Acești Termeni și Condiții (\"Termeni\") reglementează utilizarea site-ului și serviciilor KinderStars operate de KinderStars Ltd, o companie înregistrată în Anglia și Țara Galilor cu sediul la Victory House, Luton, LU1 3BS.\n\nPrin accesarea sau utilizarea site-ului nostru, sunteți de acord să respectați acești Termeni. Dacă nu sunteți de acord, vă rugăm să nu utilizați serviciile noastre."
+    },
+    "services": {
+      "heading": "Serviciile noastre",
+      "body": "KinderStars funcționează ca o Agenție de Bone. Oferim:\n\n• Un director de bone care au trecut prin procesul nostru de integrare\n• Un serviciu de potrivire care conectează părinții cu bone potrivite\n• Asigurarea continuă a calității, instruire și sprijin pentru bone\n• Informații și îndrumări privind opțiunile de finanțare a îngrijirii copiilor\n\nNu angajăm bone direct. Bonele înregistrate la KinderStars operează ca profesioniști independenți."
+    },
+    "eligibility": {
+      "heading": "Eligibilitate",
+      "body": "Serviciile noastre sunt disponibile pentru:\n\n• Părinți și tutori care caută îngrijire pentru copii în Regatul Unit\n• Bone care sunt înregistrate sau solicită înregistrarea la KinderStars\n\nTrebuie să aveți cel puțin 18 ani pentru a utiliza site-ul și serviciile noastre."
+    },
+    "obligations": {
+      "heading": "Obligațiile dvs.",
+      "body": "Când utilizați serviciile noastre, sunteți de acord să:\n\n• Furnizați informații corecte și veridice\n• Nu abuzați de site sau să încercați să obțineți acces neautorizat\n• Nu copiați, reproduceți sau redistribuiți conținutul de pe site-ul nostru fără permisiune\n• Tratați toate bonele, personalul și ceilalți utilizatori cu respect\n• Raportați imediat orice preocupări privind protecția copilului către KinderStars"
+    },
+    "childminderTerms": {
+      "heading": "Termeni specifici pentru bone",
+      "body": "Bonele înregistrate la KinderStars sunt de acord să:\n\n• Mențină verificări DBS valide, prim ajutor pediatric și instruire în protecția copilului\n• Respecte cadrul nostru de calitate și codul de conduită\n• Notifice KinderStars despre orice modificări ale statutului de înregistrare, disponibilității sau circumstanțelor\n• Permită KinderStars să afișeze informații limitate de profil în directorul nostru\n• Coopereze cu revizuirile de asigurare a calității și vizitele de monitorizare"
+    },
+    "fees": {
+      "heading": "Taxe și plăți",
+      "body": "Navigarea în directorul KinderStars și trimiterea de solicitări este gratuită.\n\nÎngrijirea copiilor este un serviciu plătit aranjat între părinți și bone. KinderStars nu stabilește tarifele bonelor. Taxele, condițiile de plată și programele sunt convenite direct între părinte și bonă.\n\nKinderStars poate percepe taxe pentru anumite servicii de agenție. Orice taxe aplicabile vor fi comunicate clar în avans."
+    },
+    "intellectualProperty": {
+      "heading": "Proprietate intelectuală",
+      "body": "Tot conținutul de pe site-ul KinderStars — inclusiv text, grafică, logo-uri, imagini și software — este proprietatea KinderStars Ltd sau a licențiatorilor săi și este protejat de legile drepturilor de autor și proprietății intelectuale.\n\nNu puteți reproduce, distribui sau crea lucrări derivate din conținutul nostru fără consimțământul scris prealabil."
+    },
+    "liability": {
+      "heading": "Limitarea răspunderii",
+      "body": "KinderStars acționează ca o agenție care conectează părinții cu bonele. Deși efectuăm verificări și asigurăm calitatea, nu garantăm performanța, conduita sau adecvarea niciunei bone.\n\nÎn măsura maximă permisă de lege, KinderStars Ltd nu va fi răspunzătoare pentru niciun prejudiciu indirect, incidental sau consecvent rezultat din utilizarea serviciilor noastre.\n\nNimic din acești Termeni nu exclude sau limitează răspunderea noastră pentru deces sau vătămare corporală cauzată de neglijență, fraudă sau orice altă răspundere care nu poate fi exclusă prin lege."
+    },
+    "termination": {
+      "heading": "Încetare",
+      "body": "Ne rezervăm dreptul de a suspenda sau înceta accesul la serviciile noastre în orice moment dacă încălcați acești Termeni sau vă angajați într-o conduită pe care o considerăm dăunătoare altor utilizatori, bonelor sau reputației KinderStars.\n\nBonele pot fi eliminate din director dacă nu mențin standardele, calificările sau conformitatea necesare cu cadrul nostru de calitate."
+    },
+    "governing": {
+      "heading": "Legea aplicabilă",
+      "body": "Acești Termeni sunt guvernați de legile Angliei și Țării Galilor. Orice dispute care decurg din acești Termeni sau din utilizarea serviciilor noastre vor fi supuse jurisdicției exclusive a instanțelor din Anglia și Țara Galilor."
+    },
+    "contact": {
+      "heading": "Contactați-ne",
+      "body": "Dacă aveți întrebări despre acești Termeni, vă rugăm să contactați:\n\nKinderStars Ltd\nVictory House, Luton, LU1 3BS\nE-mail: info@kinderstars.co.uk"
+    }
+  },
+  "complaints": {
+    "title": "Procedura de reclamații",
+    "lastUpdated": "Ultima actualizare: februarie 2026",
+    "intro": {
+      "heading": "Introducere",
+      "body": "KinderStars Ltd se angajează să ofere un serviciu de înaltă calitate. Dacă sunteți nemulțumit de orice aspect al serviciului nostru, dorim să aflăm pentru a putea remedia situația și a învăța din feedback-ul dvs.\n\nAceastă procedură de reclamații se aplică părinților, bonelor și oricui utilizează serviciile noastre."
+    },
+    "scope": {
+      "heading": "Despre ce puteți reclama",
+      "body": "Puteți depune o reclamație cu privire la:\n\n• Calitatea serviciilor oferite de KinderStars\n• Conduita sau comportamentul unei bone din rețeaua noastră\n• Comunicarea sau capacitatea de răspuns a echipei noastre\n• Modul în care au fost gestionate datele dvs. personale\n• Orice altă problemă legată de serviciile noastre\n\nPentru preocupări privind protecția unui copil, vă rugăm să ne contactați imediat la info@kinderstars.co.uk sau sunați autoritatea locală relevantă."
+    },
+    "informal": {
+      "heading": "Etapa 1: Rezolvare informală",
+      "body": "În primul rând, vă încurajăm să ne contactați direct pentru a discuta preocuparea dvs. Multe probleme pot fi rezolvate rapid prin comunicare deschisă.\n\nNe puteți contacta la:\n• E-mail: info@kinderstars.co.uk\n• Adresă: Victory House, Luton, LU1 3BS\n\nNe propunem să confirmăm primirea în 2 zile lucrătoare și să rezolvăm problema în 10 zile lucrătoare."
+    },
+    "formal": {
+      "heading": "Etapa 2: Reclamație formală",
+      "body": "Dacă nu sunteți mulțumit de rezolvarea informală sau preferați să depuneți o reclamație formală de la început, vă rugăm să formulați reclamația în scris.\n\nReclamația dvs. scrisă ar trebui să includă:\n\n• Numele și datele dvs. de contact\n• O descriere clară a ceea ce s-a întâmplat\n• Când s-a întâmplat\n• Ce rezultat căutați\n• Orice dovezi sau corespondență relevante\n\nTrimiteți reclamația formală la info@kinderstars.co.uk cu subiectul \"Reclamație formală\" sau expediați-o la adresa noastră înregistrată."
+    },
+    "investigation": {
+      "heading": "Etapa 3: Investigație și răspuns",
+      "body": "La primirea unei reclamații formale, vom:\n\n• Confirma primirea în 3 zile lucrătoare\n• Desemna un membru senior al echipei pentru investigare\n• Colecta informații relevante de la toate părțile implicate\n• Oferi un răspuns scris în 20 de zile lucrătoare\n\nRăspunsul nostru va include un rezumat al constatărilor, acțiunile pe care intenționăm să le întreprindem și informații despre pașii următori dacă rămâneți nemulțumit."
+    },
+    "escalation": {
+      "heading": "Etapa 4: Escaladare",
+      "body": "Dacă nu sunteți mulțumit de răspunsul nostru, puteți escalada reclamația către:\n\n• Ofsted — dacă reclamația se referă la standardele de îngrijire a copiilor sau protecție (ofsted.gov.uk)\n• Biroul Comisarului pentru Informații (ICO) — dacă reclamația se referă la protecția datelor (ico.org.uk)\n• Echipa pentru primii ani a autorității locale — pentru preocupări privind înregistrarea sau conduita bonei\n\nVom coopera pe deplin cu orice investigație externă."
+    },
+    "recordKeeping": {
+      "heading": "Păstrarea evidențelor și învățare",
+      "body": "Păstrăm evidențe confidențiale ale tuturor reclamațiilor primite, inclusiv natura reclamației, modul în care a fost gestionată și rezultatul. Evidențele reclamațiilor sunt păstrate timp de 6 ani.\n\nRevizuim reclamațiile în mod regulat pentru a identifica tipare și domenii de îmbunătățire. Feedback-ul dvs. ne ajută direct să ne îmbunătățim serviciile."
+    },
+    "contact": {
+      "heading": "Contactați-ne",
+      "body": "Pentru a depune o reclamație sau a oferi feedback, vă rugăm să contactați:\n\nKinderStars Ltd\nVictory House, Luton, LU1 3BS\nE-mail: info@kinderstars.co.uk\n\nLuăm toate reclamațiile în serios și ne angajăm să le rezolvăm corect și prompt."
+    }
+  },
+  "blog": {
+    "title": "Blog",
+    "heading": "Informații despre Educația Timpurie și Îngrijirea Copiilor",
+    "description": "Articole de specialitate despre bone, Ofsted, EYFS, finanțare și educația timpurie.",
+    "readMore": "Citește",
+    "backToBlog": "Înapoi la Blog",
+    "relatedArticles": "Articole Conexe",
+    "shareArticle": "Distribuie acest articol",
+    "categories": {
+      "all": "Toate",
+      "earlyYears": "Educație Timpurie",
+      "ofsted": "Ofsted",
+      "childminding": "Îngrijirea Copiilor",
+      "parenting": "Parenting",
+      "funding": "Finanțare",
+      "healthSafety": "Sănătate și Siguranță"
+    },
+    "posts": {
+      "eyfs": {
+        "title": "Înțelegerea Cadrului EYFS în 2025: Ce Trebuie să Știe Părinții și Bonele",
+        "excerpt": "Etapa de Fundament a Anilor Timpurii (EYFS) stabilește standardele pentru învățare, dezvoltare și îngrijire.",
+        "content": "## Ce Este EYFS?\n\n**Etapa de Fundament a Anilor Timpurii (EYFS)** este cadrul guvernului britanic care stabilește standardele pentru învățare, dezvoltare și îngrijirea copiilor de la naștere până la 5 ani. Toate bonele, creșele și școlile înregistrate trebuie să-l respecte.\n\n### Cele Șapte Domenii de Învățare\n\nEYFS acoperă șapte domenii cheie:\n\n**Domenii Primare:**\n1. **Comunicare și Limbaj** — ascultare, înțelegere și vorbire\n2. **Dezvoltare Fizică** — mișcare, manipulare, sănătate și autoîngrijire\n3. **Dezvoltare Personală, Socială și Emoțională** — încredere, gestionarea sentimentelor, relații\n\n**Domenii Specifice:**\n4. **Alfabetizare** — citire și scriere\n5. **Matematică** — numere, forme, spațiu și măsuri\n6. **Înțelegerea Lumii** — oameni, comunități, tehnologie, lumea naturală\n7. **Arte Expresive și Design** — explorarea materialelor, creativitate\n\n### Actualizări 2025\n\nGuvernul a continuat simplificarea EYFS pentru a reduce birocrația, menținând standarde ridicate:\n\n- **Evaluare simplificată** — cerințe de observare mai puțin birocratice\n- **Accent pe comunicare** — dezvoltarea timpurie a limbajului\n- **Accent pe bunăstare** — recunoașterea sănătății emoționale a copiilor\n- **Învățare în aer liber** — integrarea experiențelor outdoor\n\n### Ce Înseamnă pentru Părinți\n\nCa părinte, EYFS vă dă încrederea că copilul primește o educație timpurie consistentă și de calitate. Întrebați bona cum implementează EYFS.\n\n### Ce Înseamnă pentru Bone\n\nBonele trebuie să demonstreze conformitatea cu EYFS la inspecțiile Ofsted. KinderStars oferă șabloane și instrumente pentru documentarea progresului copiilor.\n\n> **Sfat:** Folosiți portalul KinderStars pentru a urmări reperele de dezvoltare și a împărtăși progresul cu părinții."
+      },
+      "ofstedInspection": {
+        "title": "Prima Inspecție Ofsted: Ghidul Complet pentru Bone",
+        "excerpt": "Pregătirea pentru prima inspecție Ofsted poate fi intimidantă. Acest ghid explică exact ce caută inspectorii.",
+        "content": "## Ce Se Întâmplă în Timpul unei Inspecții Ofsted?\n\nInspecțiile Ofsted pentru bone evaluează calitatea și standardele îngrijirii. Iată la ce să vă așteptați.\n\n### Înainte de Inspecție\n\nOfsted vă va suna de obicei cu **un preaviz scurt** — dimineața inspecției sau cu o zi înainte:\n\n- Confirmă datele de înregistrare\n- Întreabă despre copiii în îngrijire\n- Discută schimbările de la ultima inspecție\n\n### În Timpul Vizitei\n\nInspectorul va petrece aproximativ **3-4 ore**:\n\n1. **Observă practica** — interacțiunea cu copiii, rutinele, activitățile de învățare\n2. **Vorbește cu copiii** — conversații potrivite vârstei\n3. **Revizuiește documentația** — politici, evaluări de risc, prezențe, verificări DBS\n4. **Discută autoevaluarea** — reflecția și îmbunătățirea continuă\n5. **Verifică protecția** — cunoașterea procedurilor și contactelor locale\n\n### Scala de Evaluare Ofsted\n\n- **Excepțional** — calitate deosebit de ridicată\n- **Bun** — îndeplinește eficient toate cerințele\n- **Necesită Îmbunătățire** — unele aspecte necesită atenție\n- **Inadecvat** — preocupări semnificative identificate\n\n### Sfaturi pentru Succes\n\n- ✅ Mențineți **politicile și procedurile** actualizate\n- ✅ Păstrați **jurnale de învățare** clare pentru fiecare copil\n- ✅ Cunoașteți contactele **Consiliului Local de Protecție a Copilului**\n- ✅ Aveți **certificatul de prim ajutor** și DBS vizibile\n- ✅ Pregătiți un **formular de autoevaluare** care arată îmbunătățirea continuă\n- ✅ Fiți voi înșivă — inspectorii vor să vadă practică autentică\n\n### Cum Ajută KinderStars\n\nPortalul nostru oferă șabloane pregătite pentru Ofsted. Tabloul de conformitate urmărește toate datele de expirare a certificatelor."
+      },
+      "becomingChildminder": {
+        "title": "Cum să Devii Bonă Înregistrată în Marea Britanie: Pas cu Pas",
+        "excerpt": "Te gândești să devii bonă? Iată parcursul complet de la formare la primirea primelor familii.",
+        "content": "## Parcursul Tău pentru a Deveni Bonă\n\nÎngrijirea copiilor este una dintre cele mai satisfăcătoare cariere — modelezi vieți tinere conducând propria afacere de acasă.\n\n### Pasul 1: Cercetare și Autoevaluare\n\nÎnainte de a te angaja, întreabă-te:\n- Îmi place să lucrez cu copii mici perioade lungi?\n- Este casa mea potrivită pentru îngrijirea copiilor?\n- Sunt confortabilă cu partea de afaceri — facturare, declarații fiscale?\n- Familia mea susține această schimbare de carieră?\n\n### Pasul 2: Completează Formarea Necesară\n\n1. **Curs de preînregistrare** — EYFS, protecție, competențe de afaceri\n2. **Prim ajutor pediatric** — curs de 12 ore (reînnoire la 3 ani)\n3. **Formare în protecția copilului** — minimum Nivel 2\n4. **Certificat de igienă alimentară** — dacă oferi mese\n\n### Pasul 3: Verificări DBS și Medicale\n\n- Solicită **Verificarea DBS Extinsă** pentru tine și toți adulții din casă\n- Completează o **declarație medicală** la medic\n\n### Pasul 4: Înregistrare la Ofsted\n\nDepune cererea la Ofsted (Anglia), Care Inspectorate Wales sau regulatorul relevant:\n\n- Completarea formularului online\n- Plata taxei de înregistrare\n- Primirea vizitei de înregistrare\n- Obținerea URN-ului Ofsted unic\n\n### Pasul 5: Asigurare și Politici\n\n- **Asigurare de răspundere civilă** (specifică bonelor)\n- **Politici scrise** — protecție, egalitate, reclamații, GDPR\n- **Evaluări de risc** — casă, grădină, excursii\n\n### Pasul 6: Stabilește Tarifele\n\nCercetează tarifele locale și stabilește prețuri competitive. Folosește șabloanele de contract KinderStars.\n\n### Cronologie\n\nProcesul complet durează de obicei **3-6 luni**.\n\n> **Tabloul de Bord Prospect KinderStars** te ghidează prin fiecare pas cu liste de verificare adaptate regulatorului tău."
+      },
+      "fundedHours": {
+        "title": "Ore Gratuite de Îngrijire: Drepturile Tale în 2026",
+        "excerpt": "Navigarea prin îngrijirea finanțată de guvern poate fi confuză. Explicăm schemele de 15, 30 de ore și Tax-Free Childcare.",
+        "content": "## Îngrijirea Finanțată de Guvern — Explicată\n\nGuvernul britanic oferă mai multe scheme de finanțare.\n\n### 15 Ore Universale (Toți Copiii de 3-4 Ani)\n\n**Fiecare** copil de 3-4 ani din Anglia are dreptul la **15 ore pe săptămână** de educație timpurie gratuită, 38 săptămâni pe an, indiferent de venituri.\n\n### 30 Ore Extinse (Părinți Angajați)\n\nDacă ambii părinți lucrează și câștigă cel puțin **salariul minim pentru 16 ore**, puteți fi eligibili pentru **30 ore gratuite**.\n\n**Criterii:**\n- Fiecare părinte câștigă sub 100.000 GBP/an\n- Cel puțin 16 ore la salariul minim\n- Aplicare prin Childcare Choices\n- Primirea **codului de eligibilitate 30 ore**\n\n### 15 Ore pentru Copii de 2 Ani Defavorizați\n\nUnii copii de 2 ani se califică dacă familia primește:\n- Income Support sau JSA\n- Universal Credit (venit sub 15.400 GBP)\n- Copilul este în grija autorității locale\n- Disability Living Allowance\n\n### Tax-Free Childcare\n\nPentru fiecare 8 GBP depus, guvernul adaugă 2 GBP — până la **2.000 GBP/copil/an** (4.000 GBP pentru copii cu dizabilități).\n\n### Cum Oferă Bonele Ore Finanțate\n\nBonele înregistrate pot oferi locuri finanțate:\n- Înregistrare la autoritatea locală ca furnizor finanțat\n- Respectarea cadrului EYFS\n- Completarea formularelor trimestriale\n\n### Cum Ajută KinderStars\n\nSecțiunea **Finanțare și Plăți** ajută părinții să urmărească codurile și bonele să gestioneze orele finanțate vs. private."
+      },
+      "childproofing": {
+        "title": "Securizarea Casei: Lista de Verificare Esențială pentru Bone",
+        "excerpt": "Un mediu sigur este obligatoriu. Folosește această listă pentru a te asigura că locuința ta îndeplinește cerințele.",
+        "content": "## Lista Completă de Siguranță a Casei\n\nCrearea unui mediu sigur este fundamentul unei bune practici de îngrijire.\n\n### Bucătărie\n\n- ☑️ Produse de curățenie încuiate sau depozitate sus\n- ☑️ Porți de siguranță la intrarea bucătăriei\n- ☑️ Protecții pentru cuptor și plită montate\n- ☑️ Obiecte ascuțite depozitate în afara accesului\n- ☑️ Politică privind băuturile fierbinți\n- ☑️ Temperatura frigiderului verificată regulat (sub 5°C)\n\n### Zone de Living/Joacă\n\n- ☑️ Capace de protecție pe prizele nefolosite\n- ☑️ Mobilier fixat de pereți (anti-răsturnare)\n- ☑️ Limitatoare de fereastră pe etajele superioare\n- ☑️ Dispozitive de siguranță pentru șnururile jaluzelelor\n- ☑️ Ecrane protectoare în jurul radiatoarelor\n- ☑️ Obiecte mici și pericole de sufocare eliminate\n- ☑️ Jucării verificate regulat\n\n### Grădină\n\n- ☑️ Gard sigur cu porți pentru copii\n- ☑️ Iazuri/elemente de apă acoperite sau împrejmuite\n- ☑️ Plante toxice identificate și eliminate\n- ☑️ Echipament exterior verificat pentru stabilitate\n- ☑️ Fecale animale curățate zilnic\n- ☑️ Magazie/garaj încuiate\n\n### Baie\n\n- ☑️ Medicamente și produse cosmetice încuiate\n- ☑️ Covoare antiderapante în cadă/duș\n- ☑️ Termostat apă caldă setat la maximum 48°C\n- ☑️ Blocare toaletă montată (pentru copii mici)\n\n### General\n\n- ☑️ Detectoare de fum pe fiecare etaj (testate lunar)\n- ☑️ Detector de monoxid de carbon instalat\n- ☑️ Pătură de stingere accesibilă\n- ☑️ Trusă de prim ajutor completă și în termen\n- ☑️ Plan de evacuare practicat regulat\n- ☑️ Evaluare de risc animale de companie completată\n\n### Documentație\n\nPăstrați **evaluări de risc** scrise pentru fiecare cameră, grădină, locații de excursii și vehiculul dvs.\n\n> **Sfat:** Tabloul de conformitate KinderStars vă permite să încărcați și să urmăriți toate evaluările de risc cu alerte de expirare."
+      },
+      "speechDevelopment": {
+        "title": "10 Moduri Simple de a Sprijini Dezvoltarea Limbajului Copilului",
+        "excerpt": "Abilitățile lingvistice timpurii sunt cruciale pentru învățarea ulterioară. Descoperă strategii practice.",
+        "content": "## Stimularea Vorbirii și Limbajului din Prima Zi\n\nComunicarea și limbajul sunt un **domeniu primar** al EYFS. Abilitățile lingvistice timpurii prezic succesul ulterior în citire, scriere și relații sociale.\n\n### 1. Vorbește, Vorbește, Vorbește\n\nPovestește-ți ziua: \"Acum îți punem haina. Cea albastră cu fermoar.\" Acest comentariu continuu construiește vocabularul natural.\n\n### 2. Urmează Inițiativa Copilului\n\nDacă un copil arată spre un câine, vorbește despre câini. Conversația ghidată de interes menține copiii motivați.\n\n### 3. Citește Împreună Zilnic\n\nChiar 10 minute de lectură comună face o diferență enormă. Pune întrebări deschise.\n\n### 4. Cântă Cântece și Poezii\n\nRima și ritmul dezvoltă **conștiința fonologică** — element cheie pentru citire.\n\n### 5. Redu Timpul la Ecran\n\nCopiii sub 2 ani beneficiază cel mai mult de **interacțiunea față în față**.\n\n### 6. Extinde Propozițiile Lor\n\nDacă un copil spune \"camion mare\", răspunde: \"Da! E un camion mare, roșu, care transportă bușteni.\"\n\n### 7. Dă-le Timp\n\nUnii copii au nevoie de mai mult timp de procesare. Numără până la 10 mental înainte de a interveni.\n\n### 8. Joacă-te Imaginativ\n\nJocul de rol și miniaturizarea încurajează folosirea creativă a limbajului.\n\n### 9. Folosește Makaton sau Suport Vizual\n\nSemnele și simbolurile sprijină comunicarea **tuturor** copiilor.\n\n### 10. Știi Când Să Ceri Ajutor\n\nDacă ești îngrijorat de dezvoltarea vorbirii, cu cât cauți sprijin mai devreme, cu atât mai bine.\n\n> **Amintește-ți:** Fiecare copil se dezvoltă în ritmul propriu. Aceste strategii creează un mediu lingvistic bogat benefic pentru toți."
+      },
+      "choosingChildminder": {
+        "title": "Cum să Alegi Bona Potrivită: Lista de Verificare pentru Părinți",
+        "excerpt": "Găsirea bonei perfecte pentru familia ta este una dintre cele mai importante decizii.",
+        "content": "## Găsirea Bonei Perfecte\n\nO bonă oferă un mediu **acasă-de-acasă** cu grupuri mici și îngrijire personalizată.\n\n### Înainte de Vizită\n\n- ✅ Verifică **înregistrarea Ofsted** și ultimul raport online\n- ✅ Confirmă **asigurarea** valabilă\n- ✅ Întreabă despre **disponibilitate**\n- ✅ Confirmă **grupa de vârstă** a copilului\n- ✅ Verifică **locația** și proximitatea\n\n### Întrebări pentru Vizită\n\n**Despre Practică:**\n- Cum implementezi EYFS? Pot vedea jurnalele de învățare?\n- Cum arată o zi tipică?\n- Cum gestionezi comportamentul?\n- Ce mese și gustări oferi?\n\n**Despre Siguranță:**\n- Pot vedea evaluările de risc?\n- Care este politica de protecție?\n- Când expiră certificatul de prim ajutor?\n- Ai animale de companie? Ce politică?\n\n**Despre Aspecte Practice:**\n- Care sunt tarifele? Ești furnizor finanțat?\n- Politica de vacanță și boală?\n- Ce perioadă de preaviz?\n- Faci transport la școală?\n\n### Semnale de Alarmă\n\n- 🚩 Reluctanță în a arăta înregistrarea sau DBS\n- 🚩 Fără politici sau contracte scrise\n- 🚩 Mediu murdar sau dezordonat\n- 🚩 Interacțiune dezinteresată cu copiii\n- 🚩 Refuzul de a oferi referințe\n\n### Semnale Pozitive\n\n- 🟢 Interacțiune caldă cu copiii\n- 🟢 Mediu organizat și stimulant\n- 🟢 Comunicare clară și documentație profesională\n- 🟢 Raport Ofsted pozitiv\n- 🟢 Copii fericiți și implicați\n\n### Încrede-te în Instinct\n\nDincolo de liste, observă cum te **simți** în casa lor. Copilul va petrece mult timp acolo.\n\n> **Funcția Găsește o Bonă** KinderStars permite căutarea bonelor verificate în zona ta."
+      },
+      "ofstedRatings": {
+        "title": "Evaluările Ofsted Explicate: Ce Înseamnă Realmente pentru Copilul Tău?",
+        "excerpt": "Excepțional, Bun, Necesită Îmbunătățire, Inadecvat — decodificăm fiecare evaluare Ofsted.",
+        "content": "## Decodificarea Evaluărilor Ofsted\n\nLa alegerea îngrijirii, mulți părinți se uită direct la evaluarea Ofsted. Dar ce înseamnă cu adevărat?\n\n### Excepțional\n\nCea mai înaltă evaluare. Înseamnă că furnizarea **depășește așteptările** în toate domeniile.\n\n**Fapt cheie:** Doar aproximativ **15% din bone** primesc Excepțional.\n\n### Bun\n\nFurnizarea este **eficientă** și îndeplinește toate cerințele. Copiii sunt în siguranță și fac progrese bune.\n\n**Fapt cheie:** Aproximativ **70% din bone** sunt evaluate ca Bune.\n\n### Necesită Îmbunătățire\n\nFurnizarea are **unele slăbiciuni**, dar copiii sunt în siguranță. O nouă inspecție în 12 luni.\n\n### Inadecvat\n\n**Preocupări serioase** privind calitatea sau siguranța. Furnizorul trebuie să facă schimbări semnificative.\n\n### Dincolo de Evaluare\n\n- **Momentul contează** — o evaluare de acum 3 ani poate să nu reflecte practica actuală\n- **Contextul contează** — o bonă care a trecut de la NI la Bun arată îmbunătățire puternică\n- **Vizitează personal** — cel mai bun indicator este să vezi locul tu însuți\n- **Pune întrebări** — o bonă Bună care comunică bine poate fi mai potrivită\n\n### Cum Verifici Evaluările\n\n1. Vizitează reports.ofsted.gov.uk\n2. Caută după numele sau URN-ul furnizorului\n3. Citește raportul complet\n\n> **Pe KinderStars**, evaluarea Ofsted și URN-ul fiecărei bone sunt afișate pe profil cu link direct la raport."
+      }
+    }
+  },
+  "portal": {
+    "common": {
+      "dashboard": "Panou de control", "messages": "Mesaje", "notifications": "Notificări", "settings": "Setări", "security": "Securitate", "profile": "Profil", "logout": "Deconectare", "signOut": "Deconectare", "save": "Salvează", "saving": "Se salvează…", "cancel": "Anulează", "edit": "Editează", "delete": "Șterge", "close": "Închide", "loading": "Se încarcă…", "noResults": "Niciun rezultat", "welcomeBack": "Bine ai revenit", "viewAll": "Vezi tot", "search": "Caută", "filter": "Filtrează", "status": "Status", "date": "Data", "time": "Ora", "actions": "Acțiuni", "confirm": "Confirmă", "back": "Înapoi", "next": "Următor", "submit": "Trimite", "go": "Mergi", "online": "Online", "offline": "Offline", "activeNow": "Activ acum", "lastSeen": "Ultima vizită", "unread": "necitite", "markAllRead": "Marchează toate ca citite", "clearRead": "Șterge citite", "yes": "Da", "no": "Nu", "select": "Selectează…", "refresh": "Reîmprospătează", "manage": "Gestionează", "uploaded": "Încărcat", "expires": "Expiră", "required": "Obligatoriu", "optional": "Opțional", "accept": "Acceptă", "decline": "Refuză", "reason": "Motiv", "noData": "Nicio dată încă", "error": "Eroare", "success": "Succes", "available": "Disponibil", "booked": "Rezervat", "conversations": "Conversații"
+    },
+    "sidebar": {
+      "parentPortal": "Portal Părinte", "childminderPortal": "Portal Îngrijitor", "traineePortal": "Portal Stagiar", "dashboard": "Panou", "onboarding": "Integrare", "myDetails": "Detaliile Mele", "documents": "Documente", "children": "Copii", "findChildminder": "Găsește Îngrijitor", "bookings": "Rezervări", "fundingPayments": "Finanțare și Plăți", "invoices": "Facturi", "contracts": "Contracte", "messages": "Mesaje", "notifications": "Notificări", "security": "Securitate", "profile": "Profil", "compliance": "Conformitate", "certificates": "Certificate", "performance": "Performanță", "availability": "Disponibilitate", "shifts": "Ture", "timesheets": "Foi de Prezență", "trainingCpd": "Formare și DPC", "subscription": "Abonament", "training": "Formare", "cpdCourses": "Cursuri DPC", "completeOnboarding": "Completați integrarea pentru a debloca"
+    },
+    "messages": { "title": "Mesaje", "subtitle": "Discutați cu părinți, îngrijitori și echipa KinderStars.", "newMessage": "Mesaj nou", "typeMessage": "Scrieți un mesaj…", "send": "Trimite", "noMessages": "Niciun mesaj încă", "noConversations": "Nicio conversație", "selectConversation": "Selectați o conversație", "sent": "Trimis", "delivered": "Livrat", "read": "Citit", "you": "Tu", "searchPeople": "Caută persoane…", "noMessagesYet": "Niciun mesaj încă. Începeți o conversație!" },
+    "notifications": { "title": "Notificări", "empty": "Nicio notificare", "booking": "Rezervare", "message": "Mesaj", "alert": "Alertă", "system": "Sistem", "deleteConfirm": "Ștergeți această notificare?" },
+    "bookings": { "title": "Rezervări", "manageRequests": "Gestionați cererile de rezervare de la părinți", "requestAndManage": "Solicitați și gestionați rezervări", "upcoming": "Viitoare", "past": "Anterioare", "pending": "În așteptare", "confirmed": "Confirmate", "accepted": "Acceptate", "cancelled": "Anulate", "declined": "Refuzate", "completed": "Completate", "requestBooking": "Solicită rezervare", "newBooking": "Rezervare Nouă", "requestABooking": "Solicită o Rezervare", "sendRequest": "Trimite Cererea", "bookingDate": "Data rezervării", "startTime": "Ora de început", "endTime": "Ora de sfârșit", "childminder": "Îngrijitor", "parent": "Părinte", "children": "Copii", "notes": "Note", "notesOptional": "Note (opțional)", "noBookings": "Nicio rezervare", "calendar": "Calendar", "list": "Listă", "bookingRequested": "Rezervare solicitată!", "bookingAccepted": "Rezervare acceptată!", "bookingDeclined": "Rezervare refuzată", "bookingCancelled": "Rezervare anulată", "declineReason": "Motivul refuzului (opțional):" },
+    "documents": { "title": "Documente", "myDocuments": "Documentele Mele", "identityDocs": "Documente de Identitate și Adresă", "parentDesc": "Încărcați act de identitate și dovada adresei pentru verificare.", "childminderDesc": "Încărcați certificatele și documentele de conformitate.", "certificates": "Certificate", "compliance": "Conformitate", "upload": "Încarcă", "download": "Descarcă", "pending": "În așteptarea verificării", "approved": "Aprobat", "rejected": "Respins", "expired": "Expirat", "expiresOn": "Expiră pe", "uploadDocument": "Încarcă Document", "noDocuments": "Niciun document încărcat", "documentType": "Tip Document", "expiryDate": "Data expirării (opțional)", "fileLabel": "Fișier (PDF, JPG, PNG — max 10MB)", "uploading": "Se încarcă…", "documentUploaded": "Document încărcat!", "willBeReviewed": "Va fi verificat de un administrator.", "fileTooLarge": "Fișier prea mare", "maxSize": "Max 10MB", "cannotDeleteApproved": "Nu se pot șterge documentele aprobate", "documentDeleted": "Document șters", "requiredMissing": "Documente obligatorii lipsă:", "orderDbs": "Comandă verificare DBS / BPSS", "dbsPayDesc": "Plătiți securizat prin Stripe.", "pay": "Plătește" },
+    "contracts": { "title": "Contracte", "active": "Active", "draft": "Ciornă", "signed": "Semnat", "expired": "Expirat", "viewContract": "Vezi contract", "signContract": "Semnează contract", "noContracts": "Niciun contract" },
+    "training": { "title": "Formare și DPC", "browseDesc": "Răsfoiți cursuri și urmăriți dezvoltarea profesională.", "courses": "Cursuri", "myCourses": "Cursurile mele", "available": "Disponibil", "completed": "Completat", "inProgress": "În desfășurare", "certificate": "Certificat", "downloadCertificate": "Descarcă certificat", "cpdHours": "Ore DPC", "bookCourse": "Rezervă curs", "noCourses": "Niciun curs disponibil" },
+    "childminder": { "dashboard": "Panou Îngrijitor", "availability": "Disponibilitate", "shifts": "Ture", "timesheets": "Foi de prezență", "performance": "Performanță", "onboarding": "Integrare", "clockIn": "Înregistrare intrare", "clockOut": "Înregistrare ieșire", "viewShifts": "Vezi turele", "submitTimesheet": "Trimite foaia", "upcomingShifts": "Ture Viitoare", "pendingTimesheets": "Foi în așteptare", "noShifts": "Nicio tură programată", "welcomeFuture": "Bine ai venit, viitor îngrijitor! 🌟", "welcomeBack": "Bine ai revenit 👋", "completePath": "Completează formarea pentru a deveni îngrijitor înregistrat", "pendingShifts": "Ture în Așteptare", "draftTimesheets": "Foi Ciornă", "unreadMessages": "Mesaje Necitite", "recentActivity": "Activitate Recentă", "quickLinks": "Linkuri Rapide" },
+    "cmQuickLinks": { "upcomingShifts": "Ture Viitoare", "upcomingShiftsDesc": "Vezi și acceptă oferte de ture", "myAvailability": "Disponibilitatea Mea", "myAvailabilityDesc": "Setează zilele și orele de lucru", "timesheets": "Foi de Prezență", "timesheetsDesc": "Înregistrează ore și trimite pentru aprobare", "myContracts": "Contractele Mele", "myContractsDesc": "Vezi contractele de muncă", "performance": "Performanță", "performanceDesc": "Statistici de prezență și fiabilitate", "notifications": "Notificări", "notificationsDesc": "Alerte și actualizări", "trainingChecklist": "Lista de Formare", "trainingChecklistDesc": "Completează parcursul de formare", "myProfile": "Profilul Meu", "myProfileDesc": "Actualizează detaliile" },
+    "parent": { "dashboard": "Panou Părinte", "myChildren": "Copiii mei", "findChildminder": "Găsește îngrijitor", "funding": "Finanțare", "addChild": "Adaugă copil", "childDetails": "Detalii copil", "medicalInfo": "Informații medicale", "emergencyContact": "Contact de urgență", "noChildren": "Niciun copil adăugat încă", "welcomeBack": "Bine ai revenit, {{name}} 👋", "upcomingBookings": "Rezervări Viitoare", "children": "Copii", "unreadMessages": "Mesaje Necitite", "recentActivity": "Activitate Recentă", "quickLinks": "Linkuri Rapide" },
+    "parentQuickLinks": { "onboarding": "Integrare", "onboardingDesc": "Completați verificarea pentru a debloca toate funcțiile", "findChildminder": "Găsește Îngrijitor", "findChildminderDesc": "Caută îngrijitori verificați în zona ta", "myChildren": "Copiii Mei", "myChildrenDesc": "Gestionează profilurile copiilor", "bookings": "Rezervări", "bookingsDesc": "Vezi rezervări viitoare și anterioare", "contracts": "Contracte", "contractsDesc": "Vezi contractele de îngrijire", "funding": "Finanțare și Plăți", "fundingDesc": "Gestionează metode de plată", "notifications": "Notificări", "notificationsDesc": "Alerte și actualizări" },
+    "onboarding": { "title": "Integrare", "progress": "Progres", "complete": "Complet", "incomplete": "Incomplet", "step": "Pas", "of": "din", "steps": "pași", "nextStep": "Pasul următor", "completeStep": "Completează acest pas", "allComplete": "Toți pașii completați!", "completeOnboarding": "Completați verificarea pentru a debloca toate funcțiile.", "completeChecklist": "Completați lista de verificare pentru a accepta lucrul.", "submitForVerification": "Trimite pentru Verificare", "submitForReview": "Trimite pentru Revizuire", "taskCompleted": "Sarcină completată ✓" },
+    "parentOnboarding": { "title": "Integrare Părinte", "subtitle": "Completați toți pașii de verificare.", "gettingStarted": "Început", "verified": "✅ Verificat — Puteți căuta îngrijitori!", "verifiedMessage": "🎉 Sunteți verificat! Puteți căuta îngrijitori și face rezervări.", "docApproved": "Document Aprobat ✅", "docRejected": "Document Respins", "personalDetails": "Detalii Personale", "identityChildren": "Identitate și Copii", "policiesFunding": "Politici și Finanțare" },
+    "cmOnboarding": { "title": "Integrare", "subtitle": "Completați toți pașii pentru a accepta lucrul.", "verified": "✅ Verificat — Puteți accepta lucrul!", "verifiedMessage": "🎉 Sunteți verificat! Puteți accepta ture.", "docApproved": "Document Aprobat ✅", "docRejected": "Document Respins" },
+    "parentProfile": { "title": "Detaliile Mele", "subtitle": "Informații personale și despre proprietate.", "personalInfo": "Informații Personale", "firstName": "Prenume", "lastName": "Nume", "phone": "Telefon", "addressProperty": "Adresă și Proprietate", "addressLine1": "Linia adresei 1", "addressLine2": "Linia adresei 2", "cityTown": "Oraș", "postcode": "Cod poștal", "propertyType": "Tip proprietate", "parkingAvailable": "Parcare disponibilă?", "fundingPayment": "Finanțare și Plată", "fundingType": "Tip finanțare", "paymentMethod": "Metodă de plată preferată", "pets": "Animale de companie", "havePets": "Aveți animale?", "saveProfile": "Salvează Profil", "profileSaved": "Profil salvat" },
+    "cmProfile": { "title": "Profilul Meu", "subtitle": "Gestionați profilul, calificările și detaliile.", "profilePhoto": "Foto Profil", "photoSpec": "JPG, PNG până la 5MB", "locationPrefs": "Locație și Preferințe", "townCity": "Oraș", "postcodeDistrict": "District Cod Poștal", "maxDistance": "Distanță Max (mile)", "maxChildren": "Max Copii Simultan", "workingHours": "Ore de Lucru", "experience": "Experiență (ani)", "languages": "Limbi (separate cu virgulă)", "ageGroups": "Grupe de Vârstă", "daysAvailable": "Zile Disponibile", "bio": "Biografie", "availableForWork": "Disponibil pentru lucru", "ofstedDetails": "Detalii Ofsted", "dbsInsurance": "DBS și Asigurare", "nextOfKin": "Rudă Apropiată", "saveProfile": "Salvează Profil", "profileSaved": "Profil salvat" },
+    "childrenMgmt": { "title": "Copii", "subtitle": "Gestionați profilurile copiilor, sănătatea și alergiile.", "addChild": "Adaugă Copil", "editChild": "Editează Copil", "firstName": "Prenume", "lastName": "Nume", "dateOfBirth": "Data nașterii", "gender": "Gen", "noChildren": "Niciun copil adăugat.", "addFirstChild": "Adăugați primul copil", "childAdded": "Copil adăugat", "childUpdated": "Copil actualizat", "childRemoved": "Copil eliminat", "removeChild": "Eliminați acest copil?" },
+    "findCm": { "title": "Găsește un Îngrijitor", "subtitle": "Căutați îngrijitori verificați.", "postcodeArea": "Zonă Cod Poștal", "ageGroup": "Grupă de Vârstă", "language": "Limbă", "any": "Orice", "searching": "Se caută…", "noResults": "Niciun îngrijitor verificat găsit.", "viewAvailability": "Vezi Disponibilitate și Rezervă", "bookChildminder": "Rezervă Îngrijitor" },
+    "funding": { "title": "Finanțare și Plăți", "subtitle": "Configurați finanțarea îngrijirii copilului.", "fundingType": "Tip Finanțare", "paymentMethod": "Metodă de Plată Preferată", "saveConfig": "Salvează Configurația", "configSaved": "Configurație salvată" },
+    "shifts": { "title": "Ture", "subtitle": "Vedeți oferte de ture, acceptați sau refuzați.", "upcoming": "Viitoare", "history": "Istoric", "accept": "Acceptă", "decline": "Refuză", "startShift": "Începe Tura", "completeShift": "Completează", "getDirections": "Navigare", "noUpcoming": "Nicio tură viitoare.", "noHistory": "Niciun istoric." },
+    "timesheets": { "title": "Foi de Prezență", "subtitle": "Înregistrați intrări/ieșiri și trimiteți orele.", "clockIn": "Intrare", "clockOut": "Ieșire", "history": "Istoric Foi", "noTimesheets": "Nicio foaie încă." },
+    "availability": { "title": "Disponibilitate", "subtitle": "Setați disponibilitatea săptămânală.", "addSlot": "Adaugă Slot", "noAvailability": "Nicio disponibilitate — zi liberă", "to": "până la", "available": "Disponibil", "blocked": "Blocat", "saveAvailability": "Salvează Disponibilitatea", "saved": "Disponibilitate salvată", "sunday": "Duminică", "monday": "Luni", "tuesday": "Marți", "wednesday": "Miercuri", "thursday": "Joi", "friday": "Vineri", "saturday": "Sâmbătă" },
+    "invoices": { "title": "Facturi", "paid": "Plătite", "unpaid": "Neplătite", "overdue": "Întârziate", "amount": "Sumă", "dueDate": "Scadență", "payNow": "Plătește acum", "downloadInvoice": "Descarcă factură", "noInvoices": "Nicio factură" },
+    "subscription": { "title": "Abonament", "subtitle": "Gestionați abonamentul KinderStars.", "plan": "Plan", "trial": "Perioadă de probă", "freeTrial": "Perioadă Gratuită", "active": "Activ", "expired": "Expirat", "upgrade": "Upgrade", "manage": "Gestionează abonament", "trialEnds": "Proba expiră", "monthly": "Lunar", "annual": "Anual", "monthsFree": "2 luni gratis", "subscribe": "Abonează-te", "checkingSub": "Se verifică abonamentul…" }
+  }
+}
