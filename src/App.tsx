@@ -31,6 +31,7 @@ import ParentProfile from "./pages/portal/ParentProfile";
 import ChildrenManagement from "./pages/portal/ChildrenManagement";
 import FundingPage from "./pages/portal/FundingPage";
 import SubscriptionPage from "./pages/portal/SubscriptionPage";
+import VerifizierungBestellen from "./pages/portal/VerifizierungBestellen";
 import MFASetup from "./pages/portal/MFASetup";
 import ParentOnboarding from "./pages/portal/ParentOnboarding";
 import ParentDashboard from "./pages/portal/ParentDashboard";
@@ -93,6 +94,7 @@ const App = () => (
               <Route path="notifications" element={<NotificationsPage />} />
               <Route path="performance" element={<PerformanceDashboard />} />
               <Route path="subscription" element={<SubscriptionPage />} />
+              <Route path="verifizierung" element={<VerifizierungBestellen />} />
               <Route path="training" element={<TrainingPage />} />
               <Route path="bookings" element={<BookingsPage />} />
               <Route path="settings" element={<MFASetup />} />

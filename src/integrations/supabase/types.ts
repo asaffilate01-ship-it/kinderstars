@@ -929,6 +929,8 @@ export type Database = {
           tier: Database["public"]["Enums"]["verification_tier"]
           updated_at: string
           user_id: string
+          verified_from: string | null
+          verified_until: string | null
           video_interview_completed_at: string | null
         }
         Insert: {
@@ -970,6 +972,8 @@ export type Database = {
           tier?: Database["public"]["Enums"]["verification_tier"]
           updated_at?: string
           user_id: string
+          verified_from?: string | null
+          verified_until?: string | null
           video_interview_completed_at?: string | null
         }
         Update: {
@@ -1011,6 +1015,8 @@ export type Database = {
           tier?: Database["public"]["Enums"]["verification_tier"]
           updated_at?: string
           user_id?: string
+          verified_from?: string | null
+          verified_until?: string | null
           video_interview_completed_at?: string | null
         }
         Relationships: []
