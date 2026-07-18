@@ -98,7 +98,7 @@ const ChildminderPortal = () => {
       "/childminder/onboarding", "/childminder/profile", "/childminder/settings",
       "/childminder/compliance", "/childminder/certificates", "/childminder/messages",
       "/childminder/notifications", "/childminder/training", "/childminder/prospect",
-      "/childminder/subscription",
+      "/childminder/subscription", "/childminder/akademie", "/childminder/verifizierung",
     ];
     const isOnAllowed = allowedPaths.some((p) => location.pathname.startsWith(p));
     const isOnDashboard = location.pathname === "/childminder";
