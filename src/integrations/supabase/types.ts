@@ -735,6 +735,107 @@ export type Database = {
         }
         Relationships: []
       }
+      first_aid_bookings: {
+        Row: {
+          amount_cents: number
+          completed_at: string | null
+          created_at: string
+          id: string
+          refresher_due_at: string | null
+          seat_count: number
+          session_id: string
+          status: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          amount_cents: number
+          completed_at?: string | null
+          created_at?: string
+          id?: string
+          refresher_due_at?: string | null
+          seat_count?: number
+          session_id: string
+          status?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          amount_cents?: number
+          completed_at?: string | null
+          created_at?: string
+          id?: string
+          refresher_due_at?: string | null
+          seat_count?: number
+          session_id?: string
+          status?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "first_aid_bookings_session_id_fkey"
+            columns: ["session_id"]
+            isOneToOne: false
+            referencedRelation: "first_aid_sessions"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      first_aid_sessions: {
+        Row: {
+          capacity: number
+          city: string
+          cost_per_seat_cents: number
+          created_at: string
+          id: string
+          notes: string | null
+          postal_code: string
+          seat_price_cents: number
+          seats_booked: number
+          session_date: string
+          status: string
+          trainer_name: string
+          updated_at: string
+          venue_address: string
+          venue_name: string
+        }
+        Insert: {
+          capacity?: number
+          city: string
+          cost_per_seat_cents?: number
+          created_at?: string
+          id?: string
+          notes?: string | null
+          postal_code: string
+          seat_price_cents?: number
+          seats_booked?: number
+          session_date: string
+          status?: string
+          trainer_name: string
+          updated_at?: string
+          venue_address: string
+          venue_name: string
+        }
+        Update: {
+          capacity?: number
+          city?: string
+          cost_per_seat_cents?: number
+          created_at?: string
+          id?: string
+          notes?: string | null
+          postal_code?: string
+          seat_price_cents?: number
+          seats_booked?: number
+          session_date?: string
+          status?: string
+          trainer_name?: string
+          updated_at?: string
+          venue_address?: string
+          venue_name?: string
+        }
+        Relationships: []
+      }
       gdpr_requests: {
         Row: {
           completed_at: string | null
