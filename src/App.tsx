@@ -13,6 +13,7 @@ import AdminPanel from "./pages/AdminPanel";
 import AdminRoster from "./pages/AdminRoster";
 import AdminDashboard from "./pages/AdminDashboard";
 import AdminUmsatz from "./pages/AdminUmsatz";
+import AdminOversight from "./pages/AdminOversight";
 import ChildminderPortal from "./pages/ChildminderPortal";
 import ChildminderOnboarding from "./pages/portal/ChildminderOnboarding";
 import RegisterChildminder from "./pages/RegisterChildminder";
@@ -86,6 +87,7 @@ const App = () => (
             <Route path="/admin/roster" element={<AdminRoster />} />
             <Route path="/admin/dashboard" element={<AdminDashboard />} />
             <Route path="/admin/umsatz" element={<AdminUmsatz />} />
+            <Route path="/admin/oversight" element={<AdminOversight />} />
             <Route path="/admin/create-user" element={<AdminCreateUser />} />
 
             {/* Childminder portal */}
