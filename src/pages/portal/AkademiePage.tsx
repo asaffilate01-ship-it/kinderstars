@@ -53,14 +53,14 @@ const CATEGORY_COLORS: Record<string, string> = {
 
 const AkademiePage = () => {
   const { user } = useAuth();
-  const { subscribed, subscriptionTier } = useSubscription();
+  const { subscribed, plan } = useSubscription();
   const [courses, setCourses] = useState<Course[]>([]);
   const [enrollments, setEnrollments] = useState<Enrollment[]>([]);
   const [loading, setLoading] = useState(true);
   const [enrollingId, setEnrollingId] = useState<string | null>(null);
   const [tab, setTab] = useState<"courses" | "bundles" | "mine">("bundles");
 
-  const isProfessional = subscribed && subscriptionTier === "professional_compliance";
+  const isProfessional = subscribed && plan === "professional_compliance";
 
   const fetchData = useCallback(async () => {
     if (!user) return;
