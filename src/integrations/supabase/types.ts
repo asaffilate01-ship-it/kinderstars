@@ -909,6 +909,75 @@ export type Database = {
         }
         Relationships: []
       }
+      jugendamt_ready_assessments: {
+        Row: {
+          application_pack: Json
+          appointment_prep: Json
+          assigned_reviewer: string | null
+          bundesland: string | null
+          completed_at: string | null
+          created_at: string
+          evidence_folder: Json
+          id: string
+          jugendamt_name: string | null
+          minder_notes: string | null
+          missing_documents: Json
+          monitoring_active_until: string | null
+          monitoring_tier: Database["public"]["Enums"]["jugendamt_monitoring_tier"]
+          ordered_at: string
+          qualifications_review: Json
+          reviewer_notes: string | null
+          status: Database["public"]["Enums"]["jugendamt_ready_status"]
+          training_pathway: Json
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          application_pack?: Json
+          appointment_prep?: Json
+          assigned_reviewer?: string | null
+          bundesland?: string | null
+          completed_at?: string | null
+          created_at?: string
+          evidence_folder?: Json
+          id?: string
+          jugendamt_name?: string | null
+          minder_notes?: string | null
+          missing_documents?: Json
+          monitoring_active_until?: string | null
+          monitoring_tier?: Database["public"]["Enums"]["jugendamt_monitoring_tier"]
+          ordered_at?: string
+          qualifications_review?: Json
+          reviewer_notes?: string | null
+          status?: Database["public"]["Enums"]["jugendamt_ready_status"]
+          training_pathway?: Json
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          application_pack?: Json
+          appointment_prep?: Json
+          assigned_reviewer?: string | null
+          bundesland?: string | null
+          completed_at?: string | null
+          created_at?: string
+          evidence_folder?: Json
+          id?: string
+          jugendamt_name?: string | null
+          minder_notes?: string | null
+          missing_documents?: Json
+          monitoring_active_until?: string | null
+          monitoring_tier?: Database["public"]["Enums"]["jugendamt_monitoring_tier"]
+          ordered_at?: string
+          qualifications_review?: Json
+          reviewer_notes?: string | null
+          status?: Database["public"]["Enums"]["jugendamt_ready_status"]
+          training_pathway?: Json
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       meetings: {
         Row: {
           attendee_ids: string[]
@@ -1814,6 +1883,15 @@ export type Database = {
     }
     Enums: {
       app_role: "admin" | "user" | "childminder" | "parent" | "owner"
+      jugendamt_monitoring_tier: "none" | "basic" | "pro"
+      jugendamt_ready_status:
+        | "ordered"
+        | "in_review"
+        | "action_required"
+        | "ready"
+        | "submitted"
+        | "completed"
+        | "cancelled"
       verification_tier: "registered" | "verified" | "jugendamt_approved"
     }
     CompositeTypes: {
@@ -1943,6 +2021,16 @@ export const Constants = {
   public: {
     Enums: {
       app_role: ["admin", "user", "childminder", "parent", "owner"],
+      jugendamt_monitoring_tier: ["none", "basic", "pro"],
+      jugendamt_ready_status: [
+        "ordered",
+        "in_review",
+        "action_required",
+        "ready",
+        "submitted",
+        "completed",
+        "cancelled",
+      ],
       verification_tier: ["registered", "verified", "jugendamt_approved"],
     },
   },
