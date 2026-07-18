@@ -11,14 +11,21 @@ import {
 const LANGUAGES = [
   { code: "de", label: "Deutsch", flag: "🇩🇪" },
   { code: "en", label: "English", flag: "🇬🇧" },
+  { code: "tr", label: "Türkçe", flag: "🇹🇷" },
+  { code: "ar", label: "العربية", flag: "🇸🇦" },
+  { code: "ur", label: "اردو", flag: "🇵🇰" },
+  { code: "uk", label: "Українська", flag: "🇺🇦" },
+  { code: "ru", label: "Русский", flag: "🇷🇺" },
 ];
+
+const RTL_LANGS = new Set(["ar", "ur"]);
 
 const LanguageSwitcher = () => {
   const { i18n } = useTranslation();
 
   const handleChange = (value: string) => {
     i18n.changeLanguage(value);
-    document.documentElement.dir = "ltr";
+    document.documentElement.dir = RTL_LANGS.has(value) ? "rtl" : "ltr";
     document.documentElement.lang = value;
   };
 
