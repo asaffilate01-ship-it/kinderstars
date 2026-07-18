@@ -11,7 +11,7 @@ import { useRealtimeToasts } from "@/hooks/use-realtime-toasts";
 import logo from "@/assets/kinderstars-logo.png";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import {
-  User, Calendar, Clock, FileText, MessageSquare, Bell, Settings, LogOut, Home, Shield, Award, ClipboardList, TrendingUp, CreditCard, Heart, ScrollText, GraduationCap, Lock, BookOpen, ShieldCheck
+  User, Calendar, Clock, FileText, MessageSquare, Bell, Settings, LogOut, Home, Shield, Award, ClipboardList, TrendingUp, CreditCard, Heart, ScrollText, GraduationCap, Lock, BookOpen, ShieldCheck, ShieldAlert
 } from "lucide-react";
 
 const ChildminderPortal = () => {
