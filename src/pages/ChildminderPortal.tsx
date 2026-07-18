@@ -41,6 +41,7 @@ const ChildminderPortal = () => {
     { to: "/childminder/bookings", icon: Heart, label: t("portal.sidebar.bookings"), requiresVerified: true, key: "bookings" },
     { to: "/childminder/training", icon: BookOpen, label: t("portal.sidebar.trainingCpd"), requiresVerified: false, key: "training" },
     { to: "/childminder/akademie", icon: GraduationCap, label: "Akademie", requiresVerified: false, key: "akademie" },
+    { to: "/childminder/externe-kurse", icon: BookOpen, label: "Externe Kurse", requiresVerified: false, key: "externe-kurse" },
     { to: "/childminder/messages", icon: MessageSquare, label: t("portal.sidebar.messages"), requiresVerified: false, key: "messages" },
     { to: "/childminder/notifications", icon: Bell, label: t("portal.sidebar.notifications"), requiresVerified: false, key: "notifications" },
     { to: "/childminder/subscription", icon: CreditCard, label: t("portal.sidebar.subscription"), requiresVerified: false, key: "subscription" },
@@ -99,6 +100,7 @@ const ChildminderPortal = () => {
       "/childminder/compliance", "/childminder/certificates", "/childminder/messages",
       "/childminder/notifications", "/childminder/training", "/childminder/prospect",
       "/childminder/subscription", "/childminder/akademie", "/childminder/verifizierung",
+      "/childminder/externe-kurse",
     ];
     const isOnAllowed = allowedPaths.some((p) => location.pathname.startsWith(p));
     const isOnDashboard = location.pathname === "/childminder";
