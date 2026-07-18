@@ -179,7 +179,19 @@
     "q11": "How long does it take to become a Kindertagespflegeperson?",
     "a11": "Typically 3–6 months depending on your Jugendamt, but it can be faster if you already have qualifications. KinderStars supports you throughout with a personalised training plan.",
     "q12": "Is there a cost to join KinderStars?",
-    "a12": "Joining KinderStars is free. We don't charge childminders to be listed, receive training support, or access our compliance tools."
+    "a12": "Joining KinderStars is free. We don't charge childminders to be listed, receive training support, or access our compliance tools.",
+    "q13": "Does KinderStars operate the same way in all German states?",
+    "a13": "Yes, we operate across all of Germany. However, the legal framework for home childcare is set by each Bundesland and individual Jugendamt (§ 43 SGB VIII). Required training hours, care permits and reporting duties can differ from district to district. We help you identify the Jugendamt responsible for your area.",
+    "q14": "What is the difference between a babysitter, Kinderfrau, nanny and Kindertagespflegeperson?",
+    "a14": "Babysitters and Kinderfrauen care hourly or evenings in the family home — no care permit needed. A nanny typically works full-time, employed or on a service contract. A Kindertagespflegeperson holds a care permit under § 43 SGB VIII and may look after up to five other children at once and receive public funding. KinderStars matches all forms — the right one depends on your needs.",
+    "q15": "How is KinderStars GDPR compliant?",
+    "a15": "We process personal data strictly under EU GDPR and the German BDSG. Profiles only display the PLZ area — never the full address. Sensitive child data (allergies, medications, authorised pickup) is only visible to the assigned carer and the family. See our privacy policy for details.",
+    "q16": "Can the Jugendamt cover the cost of childcare?",
+    "a16": "Yes. Under § 23 SGB VIII, the Jugendamt can cover Kindertagespflege costs where the carer holds a care permit and the family is eligible. In that case the Jugendamt pays the carer directly. KinderStars supports the application.",
+    "q17": "Can my employer subsidise childcare?",
+    "a17": "Yes. Many employers, universities and colleges subsidise childcare as a tax-free benefit under § 3 Nr. 33 EStG or through corporate programmes. KinderStars issues invoices and evidence for these schemes. Contact us for a company account.",
+    "q18": "Is KinderStars an employer or a placement agency?",
+    "a18": "KinderStars is a licensed marketplace, not a private placement service under § 296 SGB III. Families and carers sign their childcare contract directly with each other. For weekly recurring bookings we flag the risk of bogus self-employment (Scheinselbständigkeit) and recommend a proper employment arrangement or status clarification with the Deutsche Rentenversicherung."
   },
   "contact": {
     "heading": "Contact",

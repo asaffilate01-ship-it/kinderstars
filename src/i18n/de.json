@@ -179,7 +179,19 @@
     "q11": "Wie lange dauert es, Kindertagespflegeperson zu werden?",
     "a11": "Typischerweise 3–6 Monate, abhängig von Ihrem Jugendamt, aber es kann schneller gehen, wenn Sie bereits Qualifikationen besitzen. KinderStars unterstützt Sie dabei mit einem personalisierten Schulungsplan.",
     "q12": "Gibt es Kosten, um KinderStars beizutreten?",
-    "a12": "Der Beitritt zu KinderStars ist kostenlos. Wir berechnen Kindertagespflegepersonen keine Gebühren für die Listung, den Schulungssupport oder den Zugang zu unseren Compliance-Tools."
+    "a12": "Der Beitritt zu KinderStars ist kostenlos. Wir berechnen Kindertagespflegepersonen keine Gebühren für die Listung, den Schulungssupport oder den Zugang zu unseren Compliance-Tools.",
+    "q13": "Gilt KinderStars in allen Bundesländern gleichermaßen?",
+    "a13": "Ja, wir vermitteln bundesweit. Die rechtlichen Rahmenbedingungen für Kindertagespflege werden jedoch von den Bundesländern und einzelnen Jugendämtern unterschiedlich ausgestaltet (§ 43 SGB VIII). Erforderliche Qualifikationsstunden, Pflegeerlaubnis und Meldepflichten können je nach Landkreis variieren. Wir helfen Ihnen, das für Ihre Region zuständige Jugendamt zu finden.",
+    "q14": "Was ist der Unterschied zwischen Babysitter, Kinderfrau, Nanny und Kindertagespflegeperson?",
+    "a14": "Babysitter und Kinderfrauen betreuen Kinder stundenweise oder abends im Haushalt der Familie — ohne Pflegeerlaubnis. Eine Nanny arbeitet meist fest angestellt oder auf Honorarbasis in Vollzeit. Eine Kindertagespflegeperson mit Pflegeerlaubnis nach § 43 SGB VIII darf bis zu fünf fremde Kinder gleichzeitig betreuen und kann öffentlich gefördert werden. KinderStars vermittelt alle Formen — die passende hängt von Ihrem Bedarf ab.",
+    "q15": "Wie ist KinderStars mit der DSGVO konform?",
+    "a15": "Wir verarbeiten personenbezogene Daten ausschließlich nach der EU-DSGVO und dem BDSG. Profile zeigen nur die PLZ-Region — nie die vollständige Adresse. Sensible Kinderdaten (Allergien, Medikamente, Abholberechtigte) sind nur für die zugewiesene Betreuungsperson und die Familie sichtbar. Details finden Sie in unserer Datenschutzerklärung.",
+    "q16": "Kann das Jugendamt die Kosten für Kindertagespflege übernehmen?",
+    "a16": "Ja. Nach § 23 SGB VIII kann das Jugendamt die Kosten für Kindertagespflege übernehmen, wenn die Betreuungsperson eine Pflegeerlaubnis besitzt und die Familie berechtigt ist. Die Zahlung erfolgt in diesem Fall direkt vom Jugendamt an die Betreuungsperson. KinderStars unterstützt bei der Antragsstellung.",
+    "q17": "Kann mein Arbeitgeber die Kinderbetreuung fördern?",
+    "a17": "Ja. Viele Arbeitgeber, Hochschulen und Universitäten fördern Kinderbetreuung als steuerfreien Zuschuss (§ 3 Nr. 33 EStG) oder über betriebliche Programme. KinderStars stellt hierfür Rechnungen und Verwendungsnachweise bereit. Sprechen Sie uns für ein Firmenkonto an.",
+    "q18": "Ist KinderStars ein Arbeitgeber oder eine Vermittlungsagentur?",
+    "a18": "KinderStars ist ein lizenzierter Marktplatz und keine private Arbeitsvermittlung im Sinne des § 296 SGB III. Familien und Betreuungspersonen schließen ihren Betreuungsvertrag direkt miteinander. Bei regelmäßigen, wöchentlich wiederkehrenden Buchungen weisen wir auf das Risiko der Scheinselbständigkeit hin und empfehlen eine sozialversicherungspflichtige Anstellung oder eine Statusklärung bei der Deutschen Rentenversicherung."
   },
   "contact": {
     "heading": "Kontakt",
