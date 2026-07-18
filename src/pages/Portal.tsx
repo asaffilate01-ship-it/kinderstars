@@ -23,6 +23,9 @@ const Portal = () => {
       case "parent":
         navigate("/parent", { replace: true });
         break;
+      case "employer":
+        navigate("/employer", { replace: true });
+        break;
       default:
         navigate("/auth", { replace: true });
     }
