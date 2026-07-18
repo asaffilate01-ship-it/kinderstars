@@ -681,6 +681,128 @@ export type Database = {
           },
         ]
       }
+      employer_minder_links: {
+        Row: {
+          created_at: string
+          employee_email: string | null
+          employee_name: string | null
+          employer_id: string
+          ended_on: string | null
+          funding_note: string | null
+          id: string
+          minder_user_id: string
+          monthly_hour_cap: number | null
+          started_on: string | null
+          status: Database["public"]["Enums"]["employer_link_status"]
+          subsidy_cents: number
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          employee_email?: string | null
+          employee_name?: string | null
+          employer_id: string
+          ended_on?: string | null
+          funding_note?: string | null
+          id?: string
+          minder_user_id: string
+          monthly_hour_cap?: number | null
+          started_on?: string | null
+          status?: Database["public"]["Enums"]["employer_link_status"]
+          subsidy_cents?: number
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          employee_email?: string | null
+          employee_name?: string | null
+          employer_id?: string
+          ended_on?: string | null
+          funding_note?: string | null
+          id?: string
+          minder_user_id?: string
+          monthly_hour_cap?: number | null
+          started_on?: string | null
+          status?: Database["public"]["Enums"]["employer_link_status"]
+          subsidy_cents?: number
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "employer_minder_links_employer_id_fkey"
+            columns: ["employer_id"]
+            isOneToOne: false
+            referencedRelation: "employer_organisations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      employer_organisations: {
+        Row: {
+          active: boolean
+          address_line1: string | null
+          address_line2: string | null
+          city: string | null
+          company_name: string
+          contact_email: string
+          contact_person: string | null
+          contact_phone: string | null
+          country: string
+          created_at: string
+          id: string
+          notes: string | null
+          owner_user_id: string
+          postal_code: string | null
+          seat_count: number
+          tax_id: string | null
+          tier: Database["public"]["Enums"]["employer_tier"]
+          updated_at: string
+          vat_id: string | null
+        }
+        Insert: {
+          active?: boolean
+          address_line1?: string | null
+          address_line2?: string | null
+          city?: string | null
+          company_name: string
+          contact_email: string
+          contact_person?: string | null
+          contact_phone?: string | null
+          country?: string
+          created_at?: string
+          id?: string
+          notes?: string | null
+          owner_user_id: string
+          postal_code?: string | null
+          seat_count?: number
+          tax_id?: string | null
+          tier?: Database["public"]["Enums"]["employer_tier"]
+          updated_at?: string
+          vat_id?: string | null
+        }
+        Update: {
+          active?: boolean
+          address_line1?: string | null
+          address_line2?: string | null
+          city?: string | null
+          company_name?: string
+          contact_email?: string
+          contact_person?: string | null
+          contact_phone?: string | null
+          country?: string
+          created_at?: string
+          id?: string
+          notes?: string | null
+          owner_user_id?: string
+          postal_code?: string | null
+          seat_count?: number
+          tax_id?: string | null
+          tier?: Database["public"]["Enums"]["employer_tier"]
+          updated_at?: string
+          vat_id?: string | null
+        }
+        Relationships: []
+      }
       expenses: {
         Row: {
           allocated_to: string | null
@@ -1983,7 +2105,15 @@ export type Database = {
       is_owner: { Args: never; Returns: boolean }
     }
     Enums: {
-      app_role: "admin" | "user" | "childminder" | "parent" | "owner"
+      app_role:
+        | "admin"
+        | "user"
+        | "childminder"
+        | "parent"
+        | "owner"
+        | "employer"
+      employer_link_status: "pending" | "active" | "paused" | "ended"
+      employer_tier: "starter" | "growth" | "enterprise"
       jugendamt_monitoring_tier: "none" | "basic" | "pro"
       jugendamt_ready_status:
         | "ordered"
@@ -2121,7 +2251,9 @@ export type CompositeTypes<
 export const Constants = {
   public: {
     Enums: {
-      app_role: ["admin", "user", "childminder", "parent", "owner"],
+      app_role: ["admin", "user", "childminder", "parent", "owner", "employer"],
+      employer_link_status: ["pending", "active", "paused", "ended"],
+      employer_tier: ["starter", "growth", "enterprise"],
       jugendamt_monitoring_tier: ["none", "basic", "pro"],
       jugendamt_ready_status: [
         "ordered",

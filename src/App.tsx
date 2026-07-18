@@ -52,6 +52,8 @@ import Datenschutz from "./pages/Datenschutz";
 import Verifizierung from "./pages/Verifizierung";
 import ErsteHilfe from "./pages/ErsteHilfe";
 import Partner from "./pages/Partner";
+import FuerArbeitgeber from "./pages/FuerArbeitgeber";
+import EmployerPortal from "./pages/EmployerPortal";
 import FlyerPage from "./pages/FlyerPage";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
@@ -133,6 +135,8 @@ const App = () => (
             <Route path="/verifizierung" element={<Verifizierung />} />
             <Route path="/erste-hilfe" element={<ErsteHilfe />} />
             <Route path="/partner" element={<Partner />} />
+            <Route path="/fuer-arbeitgeber" element={<FuerArbeitgeber />} />
+            <Route path="/employer" element={<EmployerPortal />} />
             {/* German-friendly aliases */}
             <Route path="/agb" element={<TermsOfService />} />
             <Route path="/beschwerdeverfahren" element={<ComplaintsProcedure />} />
