@@ -111,3 +111,10 @@ export const JUGENDAMT_READY = {
   monitoringProPriceKey: "jugendamt_ready_monitor_pro",
   monitoringProMonthlyCents: 2999,
 };
+
+export const FIRST_AID = {
+  seatPriceKey: "first_aid_seat",
+  seatPriceCents: 6900, // €69 per seat
+  refresherMonths: 24,
+  refresherReminderMonths: 22,
+};
