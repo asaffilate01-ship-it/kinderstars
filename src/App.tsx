@@ -58,6 +58,7 @@ import Partner from "./pages/Partner";
 import FuerArbeitgeber from "./pages/FuerArbeitgeber";
 import EmployerPortal from "./pages/EmployerPortal";
 import SaaS from "./pages/SaaS";
+import JugendamtPortal from "./pages/JugendamtPortal";
 import FlyerPage from "./pages/FlyerPage";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
@@ -146,6 +147,7 @@ const App = () => (
             <Route path="/fuer-arbeitgeber" element={<FuerArbeitgeber />} />
             <Route path="/employer" element={<EmployerPortal />} />
             <Route path="/saas" element={<SaaS />} />
+            <Route path="/jugendamt" element={<JugendamtPortal />} />
             {/* German-friendly aliases */}
             <Route path="/agb" element={<TermsOfService />} />
             <Route path="/beschwerdeverfahren" element={<ComplaintsProcedure />} />
