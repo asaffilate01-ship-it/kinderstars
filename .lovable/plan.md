@@ -1,79 +1,76 @@
-# KinderStars DE — Build Plan
+## KinderStars DE revenue model — build plan
 
-Grounded in your spec. Executed in phases so each step is reviewable and shippable. Every step keeps the legal wording exact: **KinderStars Verified ≠ Jugendamt Approved**.
+Turn your pricing spec into working product surfaces. Split across turns to stay safe.
 
-## Guiding rules baked into every phase
-- Never render "staatlich anerkannt", "Jugendamt approved" or "government certified" on internal content.
-- "Jugendamt Ready" is a preparation package, never shown as "Jugendamt Approved".
-- Führungszeugnis: store outcome + date + reviewer + renewal date only, not the certificate PDF long-term.
-- Child sensitive data (allergies, meds, collection list) never public — only visible to the assigned minder + parent.
-- Location only during an active booking check‑in/out.
-- Roles in a separate `user_roles` table with `has_role()` security-definer function.
+### Turn 1 — Subscription plans (rewrite `SubscriptionPage`)
+Replace UK £-based Basic monthly/annual with the three-tier German model:
+
+| Plan | Price | Notes |
+|---|---|---|
+| KinderStars Frei | €0 | Free registration, no unsupervised bookings |
+| Compliance Plus | €14.99/mo (€149/yr) | Docs vault, reminders, refresher, earnings reports |
+| Professional Compliance | €29.99/mo (€299/yr) | + Academy Complete + Jugendamt Ready prep + priority reviews |
+
+- Add "€79 initial KinderStars Verified" as a one-off product shown above the recurring plans.
+- Rewrite all £ copy → €, remove UK trial-end date, use `de-DE` date locale.
+- Update Stripe `price_key` map (6 keys). New prices created inside Stripe are a separate follow-up — I'll leave TODO placeholders keyed by name so we can slot IDs in when payments are enabled.
+
+### Turn 2 — Verification fee flow
+- New `/portal/verifizierung/bestellen` page: €79 KinderStars Verified checkout with the 8-item scope list from the spec and the "not a government clearance" disclaimer.
+- Gate "accept unsupervised bookings" behind `verification_tier >= verified`.
+- Add renewal reminder (12-month expiry field on `minder_verification`).
+
+### Turn 3 — KinderStars Academy catalogue
+- New `/portal/akademie` page + `academy_courses` and `academy_enrollments` tables.
+- Seed the 12 courses + 6 bundles from the spec with the exact €19–€149 pricing.
+- Per-user progress, certificate PDF (KinderStars-branded, explicitly "professional-development certificate, not a state-recognised qualification").
+- Bundle → auto-enrol into member courses.
+- Included free for Professional Compliance subscribers.
+
+### Turn 4 — Third-party course referrals
+- New `partner_courses` table (paediatric first aid, QHB, German language, translations, tax courses).
+- `/portal/externe-kurse` list with partner logo, price, "Buchen" button that hits partner URL with tracking token.
+- Log referral clicks + completions; admin can record commission received.
+
+### Turn 5 — Jugendamt Ready service
+- €149 assessment product on `/portal/jugendamt-ready`.
+- Structured checklist (qualifications review, missing docs, training pathway, application pack, appointment prep, evidence folder).
+- €19.99/mo or €29.99/mo add-on for ongoing monitoring.
+- Clear disclaimer: "KinderStars stellt keine Jugendamt-Anerkennung aus."
+
+### Turn 6 — First-aid group sessions
+- `first_aid_sessions` table (date, trainer, venue, capacity, seat price, cost).
+- Public `/erste-hilfe` booking page — seat reservation flow.
+- Auto-refresher reminder 22 months after completion.
+
+### Turn 7 — Partner/insurance directory
+- Simple `/partner` directory with categories (insurance, tax, payroll, pension, translation, first aid).
+- Framed as advertising/introductions only — no commission-arranged insurance sales (regulatory guardrail from the spec).
+
+### Turn 8 — Employer / B2B compliance portal
+- New role `employer` + `employer_organisations` table.
+- `/employer` dashboard: linked minders, compliance status matrix, invoice export.
+- Pricing tier €199 / €499 / €999 monthly (shown on public `/fuer-arbeitgeber` landing).
+
+### Turn 9 — Compliance SaaS white-label (later)
+- Placeholder marketing page `/saas` with the four tiers (€99 / €299 / €750–2000 / bespoke) and a "Demo anfragen" form → super-admin inbox.
+- No product build in this pass — landing + lead capture only.
+
+### Turn 10 — Admin & revenue reporting
+- Super-admin `/admin/umsatz` page: MRR, verification sales, course sales, referral commissions, Jugendamt Ready pipeline.
+- Illustrative-1000-minders projection table from your spec, seeded with live numbers where available.
 
 ---
 
-## Phase 1 — Verification tiers & badges (foundation)
-1. DB: `minder_verification` table with columns for every Level 1/2/3 checklist item + `tier` enum (`registered | verified | jugendamt_approved`), reviewer, timestamps, renewal dates.
-2. Badge component with three visual states matching the tier; tooltip explains the legal meaning.
-3. Public minder cards show badge only when tier is granted; Level 1 renders as "Registered — not yet verified".
-4. Guard: Jugendamt Approved requires an uploaded confirmation document reference before the flag can be set (admin action, audit-logged).
-
-## Phase 2 — Minder onboarding & compliance dashboard
-1. Onboarding wizard mapped 1:1 to Level 1 checklist (identity, address, right-to-work, phone/email OTP, terms, safeguarding declaration).
-2. Minder dashboard: profile builder, document vault, availability calendar, service radius, rates, languages, age-group experience, compliance score, certificate-expiry alerts.
-3. Compliance admin queue: onboarding, identity, Führungszeugnis, references, qualifications, right-to-work, first-aid expiry, insurance, safeguarding flags, duplicate detection, decision + reason + audit trail.
-
-## Phase 3 — Parent dashboard & booking
-1. Family/child profiles with private fields (allergies, meds, authorised collection) never exposed publicly.
-2. PLZ search + map, filters (age, language, qualification, verified tier, availability).
-3. Instant + request bookings, recurring bookings, favourites, secure messaging, video intro request.
-4. Check-in/out (location only during active booking), live status, incident reports, reviews, cancellations, complaints/safeguarding report entry point.
-
-## Phase 4 — Payments & subscriptions
-1. Licensed marketplace payments (Stripe Connect — enable via `enable_stripe_payments` when you're ready).
-2. Parent booking fee split; minder payouts; invoices; tax export.
-3. Subscription plans exactly as specified:
-   - Verified Starter €79 one-off
-   - Verified Plus €19.99/mo
-   - Professional €34.99/mo
-   - Jugendamt Ready €149 setup + €29.99/mo
-4. Recurring-booking detector warning re: Scheinselbständigkeit.
-
-## Phase 5 — KinderStars Academy
-1. Course catalogue (all 18 courses from your list with the suggested prices), free + paid.
-2. Learning paths per minder type; video lessons, written guide, scenario exercises, quiz, pass mark, certificate, expiry, version, audit trail.
-3. "Certificate of Completion" wording only — never "Jugendamt approved".
-4. Third-party course booking (paediatric first aid): provider price €45 / retail €59 / margin €14 model, expiry monitoring, booking block when required cert expires.
-
-## Phase 6 — Safeguarding dashboard (restricted role)
-Urgent reports, allegation category, risk level, suspension, booking cancellation, parent contact, Jugendamt/police escalation, chronology, evidence, assigned officer, actions, closure review, anonymised trends. Access gated by `safeguarding_officer` role only.
-
-## Phase 7 — Employer / University portal
-Employee eligibility, childcare-credit allocation, budgets, approved categories, authorisations, anonymised utilisation, invoices, cost centres, SLA reporting. No child/family PII beyond billing + eligibility.
-
-## Phase 8 — Jugendamt / public-body dashboard (pilot-gated)
-Only exposed to accounts with a `public_body` role after a pilot agreement is recorded. Approved families, approved hours, minders, auth numbers, attendance, funding limits, invoices, case status, safeguarding notifications, document expiry, audit exports.
-
-## Phase 9 — Super-admin (LoungeTech)
-Users/roles, subscriptions, fees, payouts, refunds, chargebacks, training revenue, third-party commissions, cities, funding schemes, CMS, complaints, fraud, DSGVO requests, consent records, retention, analytics, DAC7/PStTG reporting, VAT export, system health, immutable audit log.
-
-## Phase 10 — Mobile-ready polish
-Responsive web is priority; native apps (React Native) are a later track. In-web equivalents built now: PWA install, push permission scaffold, biometric-login placeholder abstraction, emergency-report button, calendar sync (ICS export).
+### Technical notes
+- All prices live in a single `src/lib/pricing.ts` (EUR, VAT-inclusive shown, `Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' })`).
+- Stripe price IDs stored in a `stripe_prices` table so we can swap sandbox→live without redeploying.
+- Every certificate/badge shipped by KinderStars includes the standard disclaimer sentence in de + en locales.
+- New tables get grants + RLS per project conventions.
 
 ---
 
-## Technical notes
-- Roles table pattern (`user_roles` + `app_role` enum + `has_role()`) already required by our security rules — every new dashboard checks role via that function in RLS.
-- Document vault: private storage bucket, signed URLs only, retention policy per doc type (Führungszeugnis outcome retained, PDF purged after review window).
-- Audit log: append-only table, `service_role` insert, admin read via security-definer function.
-- Feature flags per city (Berlin, NRW) so we can enable/disable geographic scope without redeploys.
-- All copy shipped in `de.json` + `en.json`; the other languages (tr/ar/ur/uk/ru) inherit English fallback until translated.
-
-## Recommended first build (this turn, on your approval)
-**Phase 1 in full** — the verification tier model + badge is the legal spine of the platform and unblocks every other phase. Roughly:
-- Migration: `verification_tier` enum, `minder_verification` table with the Level 1/2/3 checklist columns, RLS + GRANTs, audit trigger.
-- `<VerificationBadge tier="..." />` component + tier legend page `/verifizierung`.
-- Admin action to promote tier with required-evidence guard.
-- Wire the badge into existing minder profile cards.
-
-Say "start phase 1" (or name a different phase) and I'll build it in the next turn.
+### Confirm before I start
+1. Start with **Turn 1 (subscription plans)** now?
+2. Payments: shall I switch the project to **Lovable-managed Stripe** (`enable_stripe_payments`) so Turn 1's price IDs are real? Requires Pro plan. If not now, I'll keep TODO placeholders.
+3. Anything to drop from the 10-turn list, or change ordering?

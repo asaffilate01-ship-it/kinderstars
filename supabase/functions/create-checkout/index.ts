@@ -9,6 +9,16 @@ const corsHeaders = {
 
 // KinderStars price mapping
 const PRICES = {
+  // KinderStars DE — TODO: replace placeholders when Stripe payments are enabled
+  compliance_plus_monthly:         "price_TODO_compliance_plus_monthly",       // €14.99/mo
+  compliance_plus_annual:          "price_TODO_compliance_plus_annual",        // €149/yr
+  professional_compliance_monthly: "price_TODO_professional_compliance_monthly", // €29.99/mo
+  professional_compliance_annual:  "price_TODO_professional_compliance_annual",  // €299/yr
+  jugendamt_ready_monitor_basic:   "price_TODO_jugendamt_ready_monitor_basic", // €19.99/mo
+  jugendamt_ready_monitor_pro:     "price_TODO_jugendamt_ready_monitor_pro",   // €29.99/mo
+  verification_fee:                "price_TODO_verification_79",               // €79 one-off
+  jugendamt_ready_assessment:      "price_TODO_jugendamt_ready_149",           // €149 one-off
+  // Legacy UK keys (retain for existing customers)
   basic_monthly:          "price_1T8rvyFFogsDQVs4CE1cn0Pz",  // £4.99/mo
   basic_annual:           "price_1T8rw6FFogsDQVs4aIIMtR2n",  // £49.90/yr
   training_monthly:       "price_1T8rwBFFogsDQVs4q39R4nqm",  // £19.99/mo
@@ -50,8 +60,14 @@ serve(async (req) => {
     const customers = await stripe.customers.list({ email: user.email, limit: 1 });
     const customerId = customers.data.length > 0 ? customers.data[0].id : undefined;
 
+    const RECURRING_KEYS = [
+      "compliance_plus_monthly", "compliance_plus_annual",
+      "professional_compliance_monthly", "professional_compliance_annual",
+      "jugendamt_ready_monitor_basic", "jugendamt_ready_monitor_pro",
+      "basic_monthly", "basic_annual", "training_monthly", "training_annual",
+    ];
     const isRecurring = isRecurringOverride !== undefined ? false :
-      ["basic_monthly", "basic_annual", "training_monthly", "training_annual"].includes(price_key ?? "");
+      RECURRING_KEYS.includes(price_key ?? "");
     const origin = req.headers.get("origin") || "https://kinderstars.lovable.app";
 
     const session = await stripe.checkout.sessions.create({
