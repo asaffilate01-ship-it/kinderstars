@@ -46,13 +46,13 @@ export default function JugendamtPortal() {
 
   useEffect(() => {
     (async () => {
-      const { data } = await supabase.from("minder_verification").select("status");
+      const { data } = await supabase.from("minder_verification").select("tier");
       if (!data) return;
       const s = { registered: 0, verified: 0, jugendamt_approved: 0 };
       for (const r of data) {
-        const st = (r as { status: string }).status;
-        if (st === "verified") s.verified++;
-        else if (st === "jugendamt_approved") s.jugendamt_approved++;
+        const t = r.tier;
+        if (t === "verified") s.verified++;
+        else if (t === "jugendamt_approved") s.jugendamt_approved++;
         else s.registered++;
       }
       setStats(s);
