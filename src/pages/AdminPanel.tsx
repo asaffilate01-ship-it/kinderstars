@@ -29,7 +29,7 @@ const childminderSchema = z.object({
 
 const emptyForm: Childminder = {
   id: "", firstName: "", lastInitial: "", town: "", postcodeDistrict: "",
-  verified: false, ageGroups: [], days: [], hours: "", languages: [],
+  verified: false, verificationTier: "registered", ageGroups: [], days: [], hours: "", languages: [],
   experienceYears: null, bio: "",
 };
 

@@ -1,0 +1,2 @@
+ALTER TABLE public.childminders ADD COLUMN IF NOT EXISTS verification_tier public.verification_tier NOT NULL DEFAULT 'registered';
+UPDATE public.childminders SET verification_tier = 'verified' WHERE verified = true;

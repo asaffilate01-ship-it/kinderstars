@@ -272,6 +272,7 @@ export type Database = {
           postcode_district: string
           town: string
           updated_at: string
+          verification_tier: Database["public"]["Enums"]["verification_tier"]
           verified: boolean
         }
         Insert: {
@@ -288,6 +289,7 @@ export type Database = {
           postcode_district: string
           town: string
           updated_at?: string
+          verification_tier?: Database["public"]["Enums"]["verification_tier"]
           verified?: boolean
         }
         Update: {
@@ -304,6 +306,7 @@ export type Database = {
           postcode_district?: string
           town?: string
           updated_at?: string
+          verification_tier?: Database["public"]["Enums"]["verification_tier"]
           verified?: boolean
         }
         Relationships: []

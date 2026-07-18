@@ -5,6 +5,7 @@ export interface Childminder {
   town: string;
   postcodeDistrict: string;
   verified: boolean;
+  verificationTier: "registered" | "verified" | "jugendamt_approved";
   ageGroups: string[];
   days: string[];
   hours: string;
@@ -22,6 +23,7 @@ export function rowToChildminder(row: any): Childminder {
     town: row.town,
     postcodeDistrict: row.postcode_district,
     verified: row.verified,
+    verificationTier: (row.verification_tier as Childminder["verificationTier"]) ?? "registered",
     ageGroups: row.age_groups ?? [],
     days: row.days ?? [],
     hours: row.hours ?? "",
@@ -40,6 +42,7 @@ export function childminderToRow(cm: Childminder) {
     town: cm.town,
     postcode_district: cm.postcodeDistrict,
     verified: cm.verified,
+    verification_tier: cm.verificationTier,
     age_groups: cm.ageGroups,
     days: cm.days,
     hours: cm.hours,
@@ -50,9 +53,9 @@ export function childminderToRow(cm: Childminder) {
 }
 
 export function makeEnquiryMailto(cm: Childminder) {
-  const subject = encodeURIComponent(`Childcare Enquiry – ${cm.id} (${cm.postcodeDistrict})`);
+  const subject = encodeURIComponent(`Kinderbetreuungs-Anfrage – ${cm.id} (${cm.postcodeDistrict})`);
   const body = encodeURIComponent(
-    `Hello KinderStars,\n\nI would like to enquire about: ${cm.firstName} ${cm.lastInitial}. (Ref: ${cm.id})\n\nMy postcode (district is fine):\nChild age(s):\nDays/hours needed:\nStart date:\nAny extra notes:\n\nThank you,`
+    `Hallo KinderStars,\n\nIch möchte mich informieren zu: ${cm.firstName} ${cm.lastInitial}. (Ref: ${cm.id})\n\nMeine PLZ:\nAlter der Kinder:\nBenötigte Tage/Zeiten:\nStartdatum:\nWeitere Hinweise:\n\nVielen Dank,`
   );
-  return `mailto:info@kinderstars.co.uk?subject=${subject}&body=${body}`;
+  return `mailto:info@kinderstars.de?subject=${subject}&body=${body}`;
 }
