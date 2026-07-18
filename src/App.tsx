@@ -34,6 +34,7 @@ import SubscriptionPage from "./pages/portal/SubscriptionPage";
 import VerifizierungBestellen from "./pages/portal/VerifizierungBestellen";
 import AkademiePage from "./pages/portal/AkademiePage";
 import ExterneKursePage from "./pages/portal/ExterneKursePage";
+import JugendamtReadyPage from "./pages/portal/JugendamtReadyPage";
 import MFASetup from "./pages/portal/MFASetup";
 import ParentOnboarding from "./pages/portal/ParentOnboarding";
 import ParentDashboard from "./pages/portal/ParentDashboard";
@@ -100,6 +101,7 @@ const App = () => (
               <Route path="training" element={<TrainingPage />} />
               <Route path="akademie" element={<AkademiePage />} />
               <Route path="externe-kurse" element={<ExterneKursePage />} />
+              <Route path="jugendamt-ready" element={<JugendamtReadyPage />} />
               <Route path="bookings" element={<BookingsPage />} />
               <Route path="settings" element={<MFASetup />} />
             </Route>
