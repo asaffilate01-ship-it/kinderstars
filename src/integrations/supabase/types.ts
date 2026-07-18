@@ -14,6 +14,110 @@ export type Database = {
   }
   public: {
     Tables: {
+      academy_courses: {
+        Row: {
+          bundle_course_slugs: string[]
+          category: string
+          created_at: string
+          description: string | null
+          duration_minutes: number
+          id: string
+          included_in_professional: boolean
+          is_active: boolean
+          is_bundle: boolean
+          price_cents: number
+          slug: string
+          sort_order: number
+          stripe_price_key: string | null
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          bundle_course_slugs?: string[]
+          category?: string
+          created_at?: string
+          description?: string | null
+          duration_minutes?: number
+          id?: string
+          included_in_professional?: boolean
+          is_active?: boolean
+          is_bundle?: boolean
+          price_cents?: number
+          slug: string
+          sort_order?: number
+          stripe_price_key?: string | null
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          bundle_course_slugs?: string[]
+          category?: string
+          created_at?: string
+          description?: string | null
+          duration_minutes?: number
+          id?: string
+          included_in_professional?: boolean
+          is_active?: boolean
+          is_bundle?: boolean
+          price_cents?: number
+          slug?: string
+          sort_order?: number
+          stripe_price_key?: string | null
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      academy_enrollments: {
+        Row: {
+          certificate_url: string | null
+          completed_at: string | null
+          course_id: string
+          created_at: string
+          enrolled_at: string
+          id: string
+          payment_status: string
+          progress_percent: number
+          status: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          certificate_url?: string | null
+          completed_at?: string | null
+          course_id: string
+          created_at?: string
+          enrolled_at?: string
+          id?: string
+          payment_status?: string
+          progress_percent?: number
+          status?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          certificate_url?: string | null
+          completed_at?: string | null
+          course_id?: string
+          created_at?: string
+          enrolled_at?: string
+          id?: string
+          payment_status?: string
+          progress_percent?: number
+          status?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "academy_enrollments_course_id_fkey"
+            columns: ["course_id"]
+            isOneToOne: false
+            referencedRelation: "academy_courses"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       admin_audit_log: {
         Row: {
           action: string
