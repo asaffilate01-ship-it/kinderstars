@@ -24,10 +24,10 @@ const SubscriptionGate = ({ children }: SubscriptionGateProps) => {
         <Lock className="w-7 h-7 text-destructive" />
       </div>
       <div className="space-y-2">
-        <h2 className="text-xl font-bold">Subscription Required</h2>
+        <h2 className="text-xl font-bold">Abonnement erforderlich</h2>
         <p className="text-muted-foreground text-sm max-w-sm">
-          Your free trial ended on <strong>30 April 2026</strong>. Subscribe to continue
-          accepting shifts, logging timesheets, and accessing all portal features.
+          Ihre kostenlose Testphase ist beendet. Wählen Sie ein Abonnement, um weiterhin
+          Anfragen anzunehmen, Stundennachweise einzureichen und alle Portal-Funktionen zu nutzen.
         </p>
       </div>
       <Button
@@ -36,7 +36,7 @@ const SubscriptionGate = ({ children }: SubscriptionGateProps) => {
         onClick={() => navigate("/childminder/subscription")}
       >
         <CreditCard className="w-4 h-4" />
-        View Subscription Plans
+        Abo-Pakete ansehen
       </Button>
     </div>
   );
