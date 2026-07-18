@@ -147,6 +147,26 @@ const FindChildminder = () => {
   const handleBook = async () => {
     if (!user || !selectedMinder || !selectedDate) return;
     setBookingLoading(true);
+
+    // Booking gate: minder must be at least "verified" to accept unsupervised care.
+    const { data: v } = await supabase
+      .from("minder_verification")
+      .select("tier, verified_until")
+      .eq("user_id", selectedMinder.user_id)
+      .maybeSingle();
+    const tier = v?.tier ?? "registered";
+    const expired = v?.verified_until ? new Date(v.verified_until) < new Date() : false;
+    if (tier === "registered" || expired) {
+      toast({
+        title: "Buchung nicht möglich",
+        description:
+          "Diese Betreuungsperson ist derzeit nicht KinderStars Verified. Unbeaufsichtigte Buchungen sind nur mit gültiger Verifizierung möglich.",
+        variant: "destructive",
+      });
+      setBookingLoading(false);
+      return;
+    }
+
     const { error } = await supabase.from("bookings").insert({
       parent_id: user.id,
       childminder_id: selectedMinder.user_id,
