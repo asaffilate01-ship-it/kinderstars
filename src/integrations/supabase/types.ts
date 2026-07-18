@@ -1734,6 +1734,60 @@ export type Database = {
         }
         Relationships: []
       }
+      saas_leads: {
+        Row: {
+          admin_notes: string | null
+          company_name: string
+          contact_name: string
+          created_at: string
+          current_software: string | null
+          email: string
+          estimated_seats: number | null
+          id: string
+          message: string | null
+          org_type: Database["public"]["Enums"]["saas_org_type"] | null
+          phone: string | null
+          status: Database["public"]["Enums"]["saas_lead_status"]
+          submitted_ip: string | null
+          tier_interest: Database["public"]["Enums"]["saas_tier"] | null
+          updated_at: string
+        }
+        Insert: {
+          admin_notes?: string | null
+          company_name: string
+          contact_name: string
+          created_at?: string
+          current_software?: string | null
+          email: string
+          estimated_seats?: number | null
+          id?: string
+          message?: string | null
+          org_type?: Database["public"]["Enums"]["saas_org_type"] | null
+          phone?: string | null
+          status?: Database["public"]["Enums"]["saas_lead_status"]
+          submitted_ip?: string | null
+          tier_interest?: Database["public"]["Enums"]["saas_tier"] | null
+          updated_at?: string
+        }
+        Update: {
+          admin_notes?: string | null
+          company_name?: string
+          contact_name?: string
+          created_at?: string
+          current_software?: string | null
+          email?: string
+          estimated_seats?: number | null
+          id?: string
+          message?: string | null
+          org_type?: Database["public"]["Enums"]["saas_org_type"] | null
+          phone?: string | null
+          status?: Database["public"]["Enums"]["saas_lead_status"]
+          submitted_ip?: string | null
+          tier_interest?: Database["public"]["Enums"]["saas_tier"] | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
       shifts: {
         Row: {
           childminder_id: string | null
@@ -2123,6 +2177,9 @@ export type Database = {
         | "submitted"
         | "completed"
         | "cancelled"
+      saas_lead_status: "new" | "contacted" | "qualified" | "won" | "lost"
+      saas_org_type: "traeger" | "kette" | "kommune" | "sonstiges"
+      saas_tier: "starter" | "growth" | "scale" | "bespoke"
       verification_tier: "registered" | "verified" | "jugendamt_approved"
     }
     CompositeTypes: {
@@ -2264,6 +2321,9 @@ export const Constants = {
         "completed",
         "cancelled",
       ],
+      saas_lead_status: ["new", "contacted", "qualified", "won", "lost"],
+      saas_org_type: ["traeger", "kette", "kommune", "sonstiges"],
+      saas_tier: ["starter", "growth", "scale", "bespoke"],
       verification_tier: ["registered", "verified", "jugendamt_approved"],
     },
   },
