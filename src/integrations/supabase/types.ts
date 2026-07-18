@@ -1788,6 +1788,81 @@ export type Database = {
         }
         Relationships: []
       }
+      safeguarding_concerns: {
+        Row: {
+          category: Database["public"]["Enums"]["safeguarding_category"]
+          child_age_years: number | null
+          child_initials: string
+          created_at: string
+          description: string
+          id: string
+          immediate_actions: string | null
+          jugendamt_notified: boolean
+          jugendamt_notified_at: string | null
+          jugendamt_reference: string | null
+          location: string | null
+          occurred_at: string
+          parents_informed: boolean
+          parents_informed_at: string | null
+          reporter_id: string
+          resolved_at: string | null
+          reviewer_id: string | null
+          reviewer_notes: string | null
+          severity: Database["public"]["Enums"]["safeguarding_severity"]
+          status: Database["public"]["Enums"]["safeguarding_status"]
+          updated_at: string
+          witnesses: string | null
+        }
+        Insert: {
+          category: Database["public"]["Enums"]["safeguarding_category"]
+          child_age_years?: number | null
+          child_initials: string
+          created_at?: string
+          description: string
+          id?: string
+          immediate_actions?: string | null
+          jugendamt_notified?: boolean
+          jugendamt_notified_at?: string | null
+          jugendamt_reference?: string | null
+          location?: string | null
+          occurred_at?: string
+          parents_informed?: boolean
+          parents_informed_at?: string | null
+          reporter_id: string
+          resolved_at?: string | null
+          reviewer_id?: string | null
+          reviewer_notes?: string | null
+          severity?: Database["public"]["Enums"]["safeguarding_severity"]
+          status?: Database["public"]["Enums"]["safeguarding_status"]
+          updated_at?: string
+          witnesses?: string | null
+        }
+        Update: {
+          category?: Database["public"]["Enums"]["safeguarding_category"]
+          child_age_years?: number | null
+          child_initials?: string
+          created_at?: string
+          description?: string
+          id?: string
+          immediate_actions?: string | null
+          jugendamt_notified?: boolean
+          jugendamt_notified_at?: string | null
+          jugendamt_reference?: string | null
+          location?: string | null
+          occurred_at?: string
+          parents_informed?: boolean
+          parents_informed_at?: string | null
+          reporter_id?: string
+          resolved_at?: string | null
+          reviewer_id?: string | null
+          reviewer_notes?: string | null
+          severity?: Database["public"]["Enums"]["safeguarding_severity"]
+          status?: Database["public"]["Enums"]["safeguarding_status"]
+          updated_at?: string
+          witnesses?: string | null
+        }
+        Relationships: []
+      }
       shifts: {
         Row: {
           childminder_id: string | null
@@ -2180,6 +2255,23 @@ export type Database = {
       saas_lead_status: "new" | "contacted" | "qualified" | "won" | "lost"
       saas_org_type: "traeger" | "kette" | "kommune" | "sonstiges"
       saas_tier: "starter" | "growth" | "scale" | "bespoke"
+      safeguarding_category:
+        | "physical_concern"
+        | "emotional_concern"
+        | "neglect"
+        | "sexual_concern"
+        | "domestic_violence"
+        | "online_safety"
+        | "accident_injury"
+        | "behavioural_change"
+        | "other"
+      safeguarding_severity: "low" | "medium" | "high" | "critical"
+      safeguarding_status:
+        | "open"
+        | "in_review"
+        | "jugendamt_notified"
+        | "resolved"
+        | "closed"
       verification_tier: "registered" | "verified" | "jugendamt_approved"
     }
     CompositeTypes: {
@@ -2324,6 +2416,25 @@ export const Constants = {
       saas_lead_status: ["new", "contacted", "qualified", "won", "lost"],
       saas_org_type: ["traeger", "kette", "kommune", "sonstiges"],
       saas_tier: ["starter", "growth", "scale", "bespoke"],
+      safeguarding_category: [
+        "physical_concern",
+        "emotional_concern",
+        "neglect",
+        "sexual_concern",
+        "domestic_violence",
+        "online_safety",
+        "accident_injury",
+        "behavioural_change",
+        "other",
+      ],
+      safeguarding_severity: ["low", "medium", "high", "critical"],
+      safeguarding_status: [
+        "open",
+        "in_review",
+        "jugendamt_notified",
+        "resolved",
+        "closed",
+      ],
       verification_tier: ["registered", "verified", "jugendamt_approved"],
     },
   },
