@@ -9,32 +9,32 @@ import { format } from "date-fns";
 import { useLocation } from "react-router-dom";
 
 const CHILDMINDER_DOC_TYPES = [
-  { value: "dbs_certificate", label: "DBS Certificate" },
-  { value: "first_aid_cert", label: "First Aid Certificate" },
-  { value: "insurance", label: "Insurance Document" },
-  { value: "ofsted_registration", label: "Ofsted Registration" },
-  { value: "safeguarding_cert", label: "Safeguarding Certificate" },
-  { value: "paediatric_first_aid", label: "Paediatric First Aid" },
-  { value: "food_hygiene", label: "Food Hygiene Certificate" },
-  { value: "profile_photo", label: "Profile Photo" },
-  { value: "references", label: "References" },
-  { value: "right_to_work", label: "Right to Work" },
-  { value: "other", label: "Other Document" },
+  { value: "dbs_certificate", label: "Erweitertes Führungszeugnis (§ 30a BZRG)" },
+  { value: "first_aid_cert", label: "Erste-Hilfe am Kind (Nachweis)" },
+  { value: "insurance", label: "Berufshaftpflichtversicherung (Nachweis)" },
+  { value: "ofsted_registration", label: "Pflegeerlaubnis Jugendamt (§ 43 SGB VIII)" },
+  { value: "safeguarding_cert", label: "Kinderschutz-Fortbildung (§ 8a SGB VIII)" },
+  { value: "paediatric_first_aid", label: "Kinder-Notfallmedizin (Aufbaukurs)" },
+  { value: "food_hygiene", label: "Belehrung nach § 43 IfSG (Gesundheitsamt)" },
+  { value: "profile_photo", label: "Profilfoto" },
+  { value: "references", label: "Referenzen" },
+  { value: "right_to_work", label: "Aufenthalts-/Arbeitserlaubnis" },
+  { value: "other", label: "Sonstiges Dokument" },
 ];
 
 const PARENT_DOC_TYPES = [
-  { value: "photo_id", label: "Photo ID (Passport / Driving Licence)" },
-  { value: "proof_of_address", label: "Proof of Address (Utility Bill / Bank Statement)" },
-  { value: "birth_certificate", label: "Child's Birth Certificate" },
-  { value: "medical_records", label: "Medical / Health Records" },
-  { value: "consent_form", label: "Consent Form" },
-  { value: "other", label: "Other Document" },
+  { value: "photo_id", label: "Lichtbildausweis (Personalausweis / Reisepass)" },
+  { value: "proof_of_address", label: "Meldebescheinigung / Adressnachweis" },
+  { value: "birth_certificate", label: "Geburtsurkunde des Kindes" },
+  { value: "medical_records", label: "Gesundheitsunterlagen (U-Heft, Impfpass)" },
+  { value: "consent_form", label: "Einwilligungserklärung" },
+  { value: "other", label: "Sonstiges Dokument" },
 ];
 
 const DBS_PAYMENTS = [
-  { key: "dbs_standard", label: "DBS Standard Check", price: "£38", desc: "Standard check for childcare roles" },
-  { key: "dbs_enhanced", label: "DBS Enhanced Check", price: "£45", desc: "Enhanced check required for regulated activity" },
-  { key: "bpss", label: "BPSS Screening", price: "£220", desc: "Baseline Personnel Security Standard" },
+  { key: "dbs_standard", label: "Einfaches Führungszeugnis", price: "€13", desc: "Nur für interne Zwecke — nicht ausreichend für Kinderbetreuung" },
+  { key: "dbs_enhanced", label: "Erweitertes Führungszeugnis (§ 30a BZRG)", price: "€13", desc: "Pflicht für Kinderbetreuung — Antrag beim Bürgeramt" },
+  { key: "bpss", label: "Zuverlässigkeitsprüfung Premium", price: "€49", desc: "Ident- und Zuverlässigkeitsprüfung digital" },
 ];
 
 interface ComplianceDoc {
@@ -163,19 +163,19 @@ const DocumentsPage = () => {
     <div className="space-y-5">
       <div>
         <h1 className="text-2xl font-bold tracking-tight flex items-center gap-2">
-          <Shield className="w-6 h-6" /> {isParentPortal ? t('portal.documents.identityDocs', 'Identity & Address Documents') : t('portal.documents.title', 'My Documents')}
+          <Shield className="w-6 h-6" /> {isParentPortal ? t('portal.documents.identityDocs', 'Ausweis- & Adressdokumente') : t('portal.documents.title', 'Meine Dokumente')}
         </h1>
         <p className="text-muted-foreground text-sm">
           {isParentPortal
-            ? t('portal.documents.parentDesc', 'Upload your Photo ID and Proof of Address for verification. These are required to complete onboarding.')
-            : t('portal.documents.childminderDesc', 'Upload your certificates and compliance documents for admin review.')}
+            ? t('portal.documents.parentDesc', 'Bitte Lichtbildausweis und Adressnachweis hochladen. Diese sind für den Abschluss der Verifizierung erforderlich.')
+            : t('portal.documents.childminderDesc', 'Laden Sie Ihre Nachweise (Führungszeugnis, Erste-Hilfe am Kind, Haftpflicht, ggf. Pflegeerlaubnis) zur Prüfung durch das KinderStars-Compliance-Team hoch.')}
         </p>
       </div>
 
       {/* Missing docs warning for parents */}
       {isParentPortal && missingDocs.length > 0 && (
         <div className="ks-card p-4 bg-destructive/5 border-destructive/20 space-y-1">
-          <p className="text-sm font-bold text-destructive">⚠️ Required documents missing:</p>
+          <p className="text-sm font-bold text-destructive">⚠️ Erforderliche Dokumente fehlen:</p>
           <ul className="list-disc list-inside text-sm text-muted-foreground">
             {missingDocs.map(d => (
               <li key={d}>{typeLabel(d)}</li>
@@ -188,10 +188,10 @@ const DocumentsPage = () => {
       {!isParentPortal && (
         <div className="ks-card p-4 space-y-3">
           <h3 className="font-bold text-sm flex items-center gap-1.5">
-            <CreditCard className="w-4 h-4 text-secondary" /> Order a DBS / BPSS Check
+            <CreditCard className="w-4 h-4 text-secondary" /> Führungszeugnis / Zuverlässigkeitsprüfung beauftragen
           </h3>
           <p className="text-xs text-muted-foreground">
-            Pay securely via Stripe. Once complete, upload your certificate above.
+            Das erweiterte Führungszeugnis beantragen Sie beim Bürgeramt (§ 30a BZRG). Alternativ nutzen Sie unsere digitale Zuverlässigkeitsprüfung. Nach Erhalt hier hochladen.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             {DBS_PAYMENTS.map(item => (
@@ -212,7 +212,7 @@ const DocumentsPage = () => {
                     {payingKey === item.key
                       ? <Loader2 className="w-3.5 h-3.5 animate-spin" />
                       : <ExternalLink className="w-3.5 h-3.5" />}
-                    Pay
+                    Bezahlen
                   </Button>
                 </div>
               </div>
@@ -223,10 +223,10 @@ const DocumentsPage = () => {
 
       {/* Upload form */}
       <div className="ks-card p-4 space-y-3">
-        <h3 className="font-bold text-sm flex items-center gap-1.5"><Upload className="w-4 h-4" /> {t('portal.documents.uploadDocument', 'Upload Document')}</h3>
+        <h3 className="font-bold text-sm flex items-center gap-1.5"><Upload className="w-4 h-4" /> {t('portal.documents.uploadDocument', 'Dokument hochladen')}</h3>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           <div>
-            <label className="text-xs text-muted-foreground block mb-1">Document Type</label>
+            <label className="text-xs text-muted-foreground block mb-1">Dokumententyp</label>
             <select
               className="w-full h-10 rounded-md border border-input bg-background px-3 text-sm"
               value={selectedType}
@@ -236,7 +236,7 @@ const DocumentsPage = () => {
             </select>
           </div>
           <div>
-            <label className="text-xs text-muted-foreground block mb-1">Expiry Date (optional)</label>
+            <label className="text-xs text-muted-foreground block mb-1">Ablaufdatum (optional)</label>
             <input
               type="date"
               className="w-full h-10 rounded-md border border-input bg-background px-3 text-sm"
@@ -245,7 +245,7 @@ const DocumentsPage = () => {
             />
           </div>
           <div>
-            <label className="text-xs text-muted-foreground block mb-1">File (PDF, JPG, PNG — max 10MB)</label>
+            <label className="text-xs text-muted-foreground block mb-1">Datei (PDF, JPG, PNG — max. 10 MB)</label>
             <input
               ref={fileRef}
               type="file"
@@ -258,7 +258,7 @@ const DocumentsPage = () => {
         </div>
         {uploading && (
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
-            <Loader2 className="w-4 h-4 animate-spin" /> Uploading…
+            <Loader2 className="w-4 h-4 animate-spin" /> Wird hochgeladen…
           </div>
         )}
       </div>
@@ -268,7 +268,7 @@ const DocumentsPage = () => {
         {docs.length === 0 ? (
           <div className="ks-card p-8 text-center text-muted-foreground text-sm">
             <FileText className="w-8 h-8 mx-auto mb-2 opacity-40" />
-            {t('portal.documents.noDocuments', 'No documents uploaded yet')}
+            {t('portal.documents.noDocuments', 'Noch keine Dokumente hochgeladen')}
           </div>
         ) : docs.map((doc) => (
           <div key={doc.id} className="ks-card p-4 flex items-center gap-3">
@@ -276,8 +276,8 @@ const DocumentsPage = () => {
             <div className="flex-1 min-w-0">
               <div className="font-medium text-sm">{typeLabel(doc.document_type)}</div>
               <div className="text-xs text-muted-foreground">
-                Uploaded {format(new Date(doc.created_at), "dd MMM yyyy")}
-                {doc.expires_at && ` · Expires ${format(new Date(doc.expires_at), "dd MMM yyyy")}`}
+                Hochgeladen am {format(new Date(doc.created_at), "dd.MM.yyyy")}
+                {doc.expires_at && ` · gültig bis ${format(new Date(doc.expires_at), "dd.MM.yyyy")}`}
               </div>
               {doc.review_notes && (
                 <div className="text-xs text-muted-foreground mt-1 italic">"{doc.review_notes}"</div>

@@ -19,23 +19,23 @@ const DOCUMENT_TASKS: Record<string, string> = {
 
 // Stage 1: Personal details — with navigation targets
 const PERSONAL_TASKS = [
-  { key: "profile_complete", label: "Complete your personal details (name, phone, address)", icon: UserCheck, requiresDoc: false, navigateTo: "/parent/profile" },
-  { key: "address_verification", label: "Confirm your home address and postcode", icon: Home, requiresDoc: false, navigateTo: "/parent/profile" },
-  { key: "emergency_contact", label: "Provide emergency contact details", icon: Phone, requiresDoc: false, navigateTo: "/parent/profile" },
+  { key: "profile_complete", label: "Persönliche Angaben vervollständigen (Name, Telefon, Anschrift)", icon: UserCheck, requiresDoc: false, navigateTo: "/parent/profile" },
+  { key: "address_verification", label: "Straße, PLZ und Ort bestätigen", icon: Home, requiresDoc: false, navigateTo: "/parent/profile" },
+  { key: "emergency_contact", label: "Notfallkontakt hinterlegen", icon: Phone, requiresDoc: false, navigateTo: "/parent/profile" },
 ];
 
 // Stage 2: Identity & children
 const IDENTITY_TASKS = [
-  { key: "id_verification", label: "Upload proof of identity (passport or driving licence)", icon: Shield, requiresDoc: true },
-  { key: "address_proof", label: "Upload proof of address (utility bill or bank statement)", icon: Home, requiresDoc: true },
-  { key: "children_registered", label: "Register at least one child with full details", icon: UserCheck, requiresDoc: false, navigateTo: "/parent/children" },
+  { key: "id_verification", label: "Lichtbildausweis hochladen (Personalausweis oder Reisepass)", icon: Shield, requiresDoc: true },
+  { key: "address_proof", label: "Meldebescheinigung oder Adressnachweis hochladen", icon: Home, requiresDoc: true },
+  { key: "children_registered", label: "Mindestens ein Kind mit vollständigen Angaben registrieren", icon: UserCheck, requiresDoc: false, navigateTo: "/parent/children" },
 ];
 
 // Stage 3: Policies & funding
 const POLICY_TASKS = [
-  { key: "safeguarding_accepted", label: "Read and accept the safeguarding policy", icon: Shield, requiresDoc: false },
-  { key: "funding_configured", label: "Configure your funding / payment method", icon: FileText, requiresDoc: false, navigateTo: "/parent/funding" },
-  { key: "terms_accepted", label: "Accept terms of service and privacy policy", icon: ClipboardList, requiresDoc: false },
+  { key: "safeguarding_accepted", label: "Kinderschutz-Richtlinie lesen und akzeptieren", icon: Shield, requiresDoc: false },
+  { key: "funding_configured", label: "Finanzierung / Zahlungsart einrichten (privat oder § 23 SGB VIII)", icon: FileText, requiresDoc: false, navigateTo: "/parent/funding" },
+  { key: "terms_accepted", label: "AGB und Datenschutzerklärung akzeptieren", icon: ClipboardList, requiresDoc: false },
 ];
 
 const ALL_TASKS = [...PERSONAL_TASKS, ...IDENTITY_TASKS, ...POLICY_TASKS];
@@ -43,10 +43,10 @@ const ALL_TASKS = [...PERSONAL_TASKS, ...IDENTITY_TASKS, ...POLICY_TASKS];
 type OnboardingStatus = "pending" | "submitted" | "verified" | "rejected";
 
 const STATUS_LABELS: Record<OnboardingStatus, { label: string; color: string; description: string }> = {
-  pending: { label: "Getting Started", color: "text-muted-foreground", description: "Complete all stages and submit for verification." },
-  submitted: { label: "Documents Submitted — Under Review", color: "text-primary", description: "Your details are being reviewed by KinderStars." },
-  verified: { label: "✅ Verified — You can browse childminders!", color: "text-success", description: "Your account is fully verified. All features are unlocked." },
-  rejected: { label: "Verification Unsuccessful — Contact KinderStars", color: "text-destructive", description: "Please contact KinderStars for more information." },
+  pending: { label: "Registrierung — noch nicht verifiziert", color: "text-muted-foreground", description: "Bitte alle Schritte abschließen und zur Prüfung einreichen." },
+  submitted: { label: "Unterlagen eingereicht — in Prüfung", color: "text-primary", description: "Ihre Angaben werden von KinderStars geprüft." },
+  verified: { label: "✅ Verifiziert — Sie können jetzt Betreuungspersonen suchen", color: "text-success", description: "Ihr Konto ist vollständig verifiziert. Alle Funktionen sind freigeschaltet." },
+  rejected: { label: "Verifizierung nicht erfolgreich — bitte KinderStars kontaktieren", color: "text-destructive", description: "Bitte wenden Sie sich für weitere Informationen an KinderStars." },
 };
 
 const ParentOnboarding = () => {
@@ -128,9 +128,9 @@ const ParentOnboarding = () => {
             setTasks((prev) => ({ ...prev, [taskKey]: doc.status === "approved" }));
 
             if (doc.status === "approved") {
-              toast({ title: "Document Approved ✅", description: `Your ${doc.document_type.replace(/_/g, " ")} has been approved.` });
+              toast({ title: "Dokument freigegeben ✅", description: `Ihr Dokument (${doc.document_type.replace(/_/g, " ")}) wurde freigegeben.` });
             } else if (doc.status === "rejected") {
-              toast({ title: "Document Rejected", description: `Your ${doc.document_type.replace(/_/g, " ")} needs to be re-uploaded.`, variant: "destructive" });
+              toast({ title: "Dokument abgelehnt", description: `Bitte laden Sie das Dokument (${doc.document_type.replace(/_/g, " ")}) erneut hoch.`, variant: "destructive" });
             }
           }
         }
@@ -142,7 +142,7 @@ const ParentOnboarding = () => {
           const task = payload.new as { task_key: string; completed: boolean };
           if (task.task_key === "parent_verified" && task.completed) {
             setStatus("verified");
-            toast({ title: "🎉 You're verified!", description: "You can now search for childminders and make bookings." });
+            toast({ title: "🎉 Verifizierung erfolgreich!", description: "Sie können jetzt Betreuungspersonen suchen und Buchungen vornehmen." });
           } else if (task.task_key === "parent_rejected" && task.completed) {
             setStatus("rejected");
           }
@@ -173,7 +173,7 @@ const ParentOnboarding = () => {
     );
 
     if (newVal) {
-      toast({ title: "Task completed ✓", description: task?.label || key });
+      toast({ title: "Schritt abgeschlossen ✓", description: task?.label || key });
     }
   };
 
@@ -200,7 +200,7 @@ const ParentOnboarding = () => {
       {
         user_id: user.id,
         task_key: "parent_submitted",
-        task_label: "Parent onboarding submitted",
+        task_label: "Eltern-Onboarding eingereicht",
         completed: true,
         completed_at: new Date().toISOString(),
       },
@@ -217,20 +217,20 @@ const ParentOnboarding = () => {
 
     setStatus("submitted");
     setSubmitting(false);
-    toast({ title: "Onboarding submitted! 📋", description: "KinderStars will review your details and verify your account." });
+    toast({ title: "Onboarding eingereicht 📋", description: "KinderStars prüft Ihre Angaben und verifiziert Ihr Konto." });
   };
 
   const goToDocUpload = () => navigate("/parent/documents");
 
-  if (loading) return <div className="text-muted-foreground p-4">Loading onboarding…</div>;
+  if (loading) return <div className="text-muted-foreground p-4">Onboarding wird geladen…</div>;
 
   const isVerified = status === "verified";
 
   return (
     <div className="space-y-5">
       <div>
-        <h1 className="text-2xl font-bold tracking-tight">Parent Onboarding</h1>
-        <p className="text-muted-foreground text-sm">Complete all verification steps to access childminder search and bookings.</p>
+        <h1 className="text-2xl font-bold tracking-tight">Eltern-Onboarding</h1>
+        <p className="text-muted-foreground text-sm">Bitte schließen Sie alle Verifizierungsschritte ab, um Betreuungspersonen zu suchen und Buchungen vorzunehmen.</p>
       </div>
 
       {/* Status banner */}
@@ -255,7 +255,7 @@ const ParentOnboarding = () => {
       {/* Progress */}
       <div>
         <div className="flex justify-between text-xs text-muted-foreground mb-1">
-          <span>{completedCount} of {ALL_TASKS.length} steps</span>
+          <span>{completedCount} von {ALL_TASKS.length} Schritten</span>
           <span>{progress}%</span>
         </div>
         <div className="h-2 bg-muted rounded-full overflow-hidden">
@@ -266,14 +266,14 @@ const ParentOnboarding = () => {
       {/* Safeguarding notice */}
       <div className="ks-card p-4 bg-primary/5 border-primary/20">
         <p className="text-xs text-muted-foreground leading-relaxed">
-          <strong className="text-foreground">🛡️ Why we verify parents:</strong> KinderStars operates a two-way safeguarding model. Your identity and contact details are kept confidential and used solely for safeguarding purposes.
+          <strong className="text-foreground">🛡️ Warum wir Eltern verifizieren:</strong> KinderStars arbeitet mit einem beidseitigen Kinderschutz-Modell. Ihre Ausweisdaten und Kontaktinformationen werden vertraulich und ausschließlich zu Kinderschutz-Zwecken gemäß DSGVO verwendet.
         </p>
       </div>
 
       {/* Stage 1: Personal Details */}
       <OnboardingStage
-        title="Personal Details"
-        description={personalComplete ? "All personal details confirmed" : "Name, address, phone, and emergency contact"}
+        title="Persönliche Angaben"
+        description={personalComplete ? "Alle persönlichen Angaben bestätigt" : "Name, Anschrift, Telefon und Notfallkontakt"}
         stageNumber={1}
         isComplete={personalComplete}
         isLocked={false}
@@ -308,8 +308,8 @@ const ParentOnboarding = () => {
 
       {/* Stage 2: Identity & Children */}
       <OnboardingStage
-        title="Identity & Children"
-        description={identityComplete ? "Identity verified and children registered" : docsAnyRejected ? "⚠️ Some documents need re-uploading" : "Upload ID, proof of address, and register your children"}
+        title="Identität & Kinder"
+        description={identityComplete ? "Identität geprüft und Kinder registriert" : docsAnyRejected ? "⚠️ Bitte abgelehnte Dokumente erneut hochladen" : "Ausweis, Adressnachweis hochladen und Kinder registrieren"}
         stageNumber={2}
         isComplete={identityComplete}
         isLocked={!personalComplete}
@@ -347,30 +347,30 @@ const ParentOnboarding = () => {
         {/* Amiqus ID verification for parents */}
         {user && personalComplete && !isVerified && (
           <div className="mt-4 p-3 rounded-lg bg-muted/50 border border-border space-y-2">
-            <p className="text-xs font-semibold text-foreground">🔒 Verify your identity digitally via Amiqus</p>
-            <p className="text-[11px] text-muted-foreground">Complete your ID verification online — no need to post documents.</p>
+            <p className="text-xs font-semibold text-foreground">🔒 Identität digital verifizieren</p>
+            <p className="text-[11px] text-muted-foreground">Ident-Prüfung bequem online — kein Postversand nötig.</p>
             <AmiqusCheckButton
               checkType="identity"
               firstName={user.user_metadata?.first_name || ""}
               lastName={user.user_metadata?.last_name || ""}
               email={user.email || ""}
               existingStatus={docStatuses["id_verification"]}
-              label="Start ID Verification"
+              label="Identitätsprüfung starten"
             />
           </div>
         )}
 
         {docsAnyRejected && (
           <p className="text-xs text-destructive mt-3 font-medium">
-            ⚠️ One or more documents were rejected. Please re-upload via the Documents page.
+            ⚠️ Ein oder mehrere Dokumente wurden abgelehnt. Bitte erneut im Bereich Dokumente hochladen.
           </p>
         )}
       </OnboardingStage>
 
       {/* Stage 3: Policies & Funding */}
       <OnboardingStage
-        title="Policies & Funding"
-        description={policyComplete ? "All policies accepted and funding configured" : "Accept safeguarding policy, configure payment, and agree to terms"}
+        title="Richtlinien & Finanzierung"
+        description={policyComplete ? "Alle Richtlinien akzeptiert und Zahlung eingerichtet" : "Kinderschutz-Richtlinie akzeptieren, Zahlung einrichten, AGB bestätigen"}
         stageNumber={3}
         isComplete={policyComplete}
         isLocked={!identityComplete}
@@ -407,14 +407,14 @@ const ParentOnboarding = () => {
       {status === "pending" && personalComplete && idUploaded && addressUploaded && policyComplete && (
         <Button variant="hero" onClick={handleSubmit} disabled={!allDone || submitting} className="gap-2">
           {submitting ? <Loader2 className="w-4 h-4 animate-spin" /> : <FileText className="w-4 h-4" />}
-          Submit for Verification
+          Zur Verifizierung einreichen
         </Button>
       )}
 
       {isVerified && (
         <div className="ks-card p-4 bg-success/10 border-success/30">
           <p className="text-sm font-medium text-success">
-            🎉 You're verified! You can now search for childminders and make bookings.
+            🎉 Verifizierung abgeschlossen! Sie können jetzt Betreuungspersonen suchen und Buchungen vornehmen.
           </p>
         </div>
       )}
