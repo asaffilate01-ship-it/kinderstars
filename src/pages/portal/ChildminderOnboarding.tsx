@@ -25,23 +25,23 @@ const DOCUMENT_TASKS: Record<string, string> = {
 
 // Stage 1: Profile tasks — with navigation targets
 const PROFILE_TASKS = [
-  { key: "profile_complete", label: "Complete your profile (location, bio, hours, languages)", icon: UserCheck, requiresDoc: false, navigateTo: "/childminder/profile" },
-  { key: "next_of_kin", label: "Add next of kin details", icon: UserCheck, requiresDoc: false, navigateTo: "/childminder/profile" },
-  { key: "photo_uploaded", label: "Upload a profile photo", icon: UserCheck, requiresDoc: true },
+  { key: "profile_complete", label: "Profil vervollständigen (PLZ/Ort, Vorstellung, Verfügbarkeit, Sprachen)", icon: UserCheck, requiresDoc: false, navigateTo: "/childminder/profile" },
+  { key: "next_of_kin", label: "Notfallkontakt hinzufügen", icon: UserCheck, requiresDoc: false, navigateTo: "/childminder/profile" },
+  { key: "photo_uploaded", label: "Profilfoto hochladen", icon: UserCheck, requiresDoc: true },
 ];
 
 // Stage 2: Document tasks
 const DOC_TASKS = [
-  { key: "dbs_certificate", label: "Upload DBS certificate", icon: Shield, requiresDoc: true },
-  { key: "ofsted_details", label: "Upload Ofsted registration document", icon: Award, requiresDoc: true },
-  { key: "insurance_details", label: "Upload insurance document", icon: FileText, requiresDoc: true },
-  { key: "first_aid", label: "Upload First Aid certificate", icon: Heart, requiresDoc: true },
+  { key: "dbs_certificate", label: "Erweitertes Führungszeugnis (§ 30a BZRG) hochladen", icon: Shield, requiresDoc: true },
+  { key: "ofsted_details", label: "Pflegeerlaubnis des Jugendamts (§ 43 SGB VIII) — falls vorhanden", icon: Award, requiresDoc: true },
+  { key: "insurance_details", label: "Nachweis Berufshaftpflicht­versicherung hochladen", icon: FileText, requiresDoc: true },
+  { key: "first_aid", label: "Erste-Hilfe-Kurs am Kind (max. 2 Jahre alt) hochladen", icon: Heart, requiresDoc: true },
 ];
 
 // Stage 3: References & right to work (now mandatory uploads)
 const VERIFICATION_TASKS = [
-  { key: "references", label: "Upload 2 professional references", icon: ClipboardList, requiresDoc: true },
-  { key: "right_to_work", label: "Upload right to work document", icon: FileText, requiresDoc: true },
+  { key: "references", label: "Zwei berufliche Referenzen hochladen", icon: ClipboardList, requiresDoc: true },
+  { key: "right_to_work", label: "Aufenthalts-/Arbeitserlaubnis­nachweis hochladen (falls kein EU-Pass)", icon: FileText, requiresDoc: true },
 ];
 
 const ALL_TASKS = [...PROFILE_TASKS, ...DOC_TASKS, ...VERIFICATION_TASKS];
@@ -49,12 +49,12 @@ const ALL_TASKS = [...PROFILE_TASKS, ...DOC_TASKS, ...VERIFICATION_TASKS];
 type OnboardingStatus = "pending" | "documents_submitted" | "interview_scheduled" | "interview_completed" | "verified" | "rejected";
 
 const STATUS_LABELS: Record<OnboardingStatus, { label: string; color: string; description: string }> = {
-  pending: { label: "Getting Started", color: "text-muted-foreground", description: "Complete all stages and submit for review." },
-  documents_submitted: { label: "Documents Submitted — Under Review", color: "text-primary", description: "Your documents are being reviewed by the KinderStars team." },
-  interview_scheduled: { label: "Interview Scheduled", color: "text-primary", description: "Your interview has been booked. Check Stage 4 for details." },
-  interview_completed: { label: "Interview Completed — Awaiting Verification", color: "text-primary", description: "Your interview is complete. Final verification is in progress." },
-  verified: { label: "✅ Verified — You can accept jobs!", color: "text-success", description: "Congratulations! Your account is fully verified." },
-  rejected: { label: "Application Unsuccessful", color: "text-destructive", description: "Unfortunately your application was not successful. Please contact KinderStars for more information." },
+  pending: { label: "Registrierung — noch nicht verifiziert", color: "text-muted-foreground", description: "Bitte alle Schritte abschließen und zur Prüfung einreichen." },
+  documents_submitted: { label: "Unterlagen eingereicht — in Prüfung", color: "text-primary", description: "Ihre Unterlagen werden vom KinderStars-Compliance-Team geprüft." },
+  interview_scheduled: { label: "Video-Interview vereinbart", color: "text-primary", description: "Ihr Interview ist gebucht. Details in Schritt 4." },
+  interview_completed: { label: "Interview abgeschlossen — Endprüfung läuft", color: "text-primary", description: "Wir schließen die abschließende Verifizierung ab." },
+  verified: { label: "✅ KinderStars Verified — Sie können Anfragen annehmen", color: "text-success", description: "Hinweis: KinderStars Verified ist keine staatliche Anerkennung durch das Jugendamt." },
+  rejected: { label: "Bewerbung nicht erfolgreich", color: "text-destructive", description: "Leider können wir Ihre Bewerbung derzeit nicht bestätigen. Bitte kontaktieren Sie KinderStars." },
 };
 
 const ChildminderOnboarding = () => {
@@ -221,7 +221,7 @@ const ChildminderOnboarding = () => {
     <div className="space-y-5">
       <div>
         <h1 className="text-2xl font-bold tracking-tight">Onboarding</h1>
-        <p className="text-muted-foreground text-sm">Complete all stages below to start accepting jobs.</p>
+        <p className="text-muted-foreground text-sm">Schließen Sie alle Schritte ab, um als KinderStars Verified Betreuungsperson Anfragen zu erhalten.</p>
       </div>
 
       {/* Status banner */}
@@ -259,8 +259,8 @@ const ChildminderOnboarding = () => {
 
       {/* Stage 1: Profile */}
       <OnboardingStage
-        title="Profile & Personal Details"
-        description={profileComplete ? "All personal details completed" : "Complete your profile, upload a photo, and add next of kin"}
+        title="Profil & persönliche Daten"
+        description={profileComplete ? "Alle Angaben vollständig" : "Profil ausfüllen, Foto hochladen und Notfallkontakt hinterlegen"}
         stageNumber={1}
         isComplete={profileComplete}
         isLocked={false}
@@ -307,8 +307,8 @@ const ChildminderOnboarding = () => {
 
       {/* Stage 2: Documents */}
       <OnboardingStage
-        title="Compliance Documents"
-        description={docsAllApproved ? "All documents approved ✅" : docsAnyRejected ? "⚠️ Some documents need re-uploading" : "Upload DBS, Ofsted, Insurance, and First Aid certificates"}
+        title="Compliance-Dokumente"
+        description={docsAllApproved ? "Alle Unterlagen freigegeben ✅" : docsAnyRejected ? "⚠️ Bitte abgelehnte Dokumente erneut hochladen" : "Führungszeugnis, ggf. Pflegeerlaubnis, Haftpflicht und Erste-Hilfe-Nachweis hochladen"}
         stageNumber={2}
         isComplete={docsAllApproved}
         isLocked={!profileComplete}
@@ -332,8 +332,8 @@ const ChildminderOnboarding = () => {
         {/* Amiqus automated checks */}
         {user && profileComplete && !isVerified && (
           <div className="mt-4 p-3 rounded-lg bg-muted/50 border border-border space-y-3">
-            <p className="text-xs font-semibold text-foreground">🔒 Automated Verification via Amiqus</p>
-            <p className="text-[11px] text-muted-foreground">Start your DBS check and ID verification digitally — no paper forms needed.</p>
+            <p className="text-xs font-semibold text-foreground">🔒 Digitale Identitäts- und Zuverlässigkeitsprüfung</p>
+            <p className="text-[11px] text-muted-foreground">Starten Sie Ihre Ident- und Zuverlässigkeitsprüfung digital — ganz ohne Papier.</p>
             <div className="flex flex-wrap gap-2">
               <AmiqusCheckButton
                 checkType="dbs"
@@ -341,6 +341,7 @@ const ChildminderOnboarding = () => {
                 lastName={user.user_metadata?.last_name || ""}
                 email={user.email || ""}
                 existingStatus={docStatuses["dbs_certificate"]}
+                label="Führungszeugnis-Prüfung starten"
               />
               <AmiqusCheckButton
                 checkType="identity"
@@ -348,7 +349,7 @@ const ChildminderOnboarding = () => {
                 lastName={user.user_metadata?.last_name || ""}
                 email={user.email || ""}
                 existingStatus={docStatuses["photo_uploaded"]}
-                label="Start ID Verification"
+                label="Identitätsprüfung starten"
               />
             </div>
           </div>
@@ -356,20 +357,20 @@ const ChildminderOnboarding = () => {
 
         {docsAllUploaded && !docsAllApproved && !docsAnyRejected && (
           <p className="text-xs text-muted-foreground mt-3">
-            ⏳ Your documents are being reviewed by KinderStars. You'll be notified in real-time once approved.
+            ⏳ Ihre Unterlagen werden vom KinderStars-Compliance-Team geprüft. Sie werden in Echtzeit benachrichtigt.
           </p>
         )}
         {docsAnyRejected && (
           <p className="text-xs text-destructive mt-3 font-medium">
-            ⚠️ One or more documents were rejected. Please re-upload the rejected documents via the Compliance page.
+            ⚠️ Ein oder mehrere Dokumente wurden abgelehnt. Bitte laden Sie die betroffenen Unterlagen erneut im Bereich Compliance hoch.
           </p>
         )}
       </OnboardingStage>
 
       {/* Stage 3: References & Right to Work */}
       <OnboardingStage
-        title="References & Right to Work"
-        description={verificationComplete ? "References and eligibility confirmed" : "Provide references and confirm your eligibility to work"}
+        title="Referenzen & Arbeitsberechtigung"
+        description={verificationComplete ? "Referenzen und Berechtigung bestätigt" : "Referenzen und Nachweis der Arbeitsberechtigung hochladen"}
         stageNumber={3}
         isComplete={verificationComplete}
         isLocked={!docsAllUploaded}
