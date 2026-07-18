@@ -45,6 +45,7 @@ import TermsOfService from "./pages/TermsOfService";
 import ComplaintsProcedure from "./pages/ComplaintsProcedure";
 import Impressum from "./pages/Impressum";
 import Datenschutz from "./pages/Datenschutz";
+import Verifizierung from "./pages/Verifizierung";
 import FlyerPage from "./pages/FlyerPage";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
@@ -119,6 +120,7 @@ const App = () => (
             <Route path="/complaints-procedure" element={<ComplaintsProcedure />} />
             <Route path="/impressum" element={<Impressum />} />
             <Route path="/datenschutz" element={<Datenschutz />} />
+            <Route path="/verifizierung" element={<Verifizierung />} />
             {/* German-friendly aliases */}
             <Route path="/agb" element={<TermsOfService />} />
             <Route path="/beschwerdeverfahren" element={<ComplaintsProcedure />} />
