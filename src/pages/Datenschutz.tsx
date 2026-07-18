@@ -42,7 +42,7 @@ const sections: { heading: string; body: string }[] = [
   {
     heading: "8. Beschwerderecht",
     body:
-      "Sie können sich bei der zuständigen Datenschutz-Aufsichtsbehörde beschweren — z. B. Berliner Beauftragte für Datenschutz und Informationsfreiheit (datenschutz-berlin.de) oder Landesbeauftragte für Datenschutz und Informationsfreiheit Nordrhein-Westfalen (ldi.nrw.de).",
+      "Sie können sich bei der zuständigen Datenschutz-Aufsichtsbehörde beschweren — in der Regel die Landesdatenschutzaufsichtsbehörde Ihres Bundeslandes.",
   },
   {
     heading: "9. Cookies und Reichweitenmessung",
