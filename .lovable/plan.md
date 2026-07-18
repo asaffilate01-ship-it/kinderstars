@@ -1,173 +1,148 @@
 
+# KinderStars DE — Phase 1 rebuild plan
 
-# Comprehensive Platform Update Plan
+Scope of this plan: **Phase 1 only** (Private in-home marketplace, Berlin + selected NRW cities). Phases 2–5 (employers/universities, Jugendamt/Jobcenter, Kita recruitment, regulated operation) are acknowledged in the data model and copy hooks but not built yet.
 
-This plan addresses all the requested changes across the KinderStars platform. Due to the volume of work, it is broken into prioritized phases.
+Everything UK-specific (Ofsted, DBS, GBP, en-GB, `.co.uk`, UK postcodes, community-language mix) is removed or replaced.
 
----
+## 1. Brand, locale & SEO
 
-## Phase 1: Critical Fixes and Core Flow Changes
+- Primary language **de-DE**, secondary **en**. Drop cy/cs/sk/ro/ur/pl/ar bundles for now (can re-add Türkisch/Polnisch/Arabisch later); keep the i18n framework so it's easy to re-enable.
+- `index.html`: `lang="de-DE"`, new title/description/OG, canonical `https://www.kinderstars.de/`, remove GA placeholder or keep as env-driven.
+- Currency: EUR (€) everywhere.
+- Address/geo model: replace UK postcodes with German **PLZ (5-digit)** + **Bundesland** + **Stadt/Kreis**. Seed only **Berlin** and **NRW** as active regions; other Bundesländer shown as "Bald verfügbar".
+- Phone format: `+49`.
 
-### 1.1 Remove Homepage Childminder Search
-- Remove the `DirectorySection` component from `Index.tsx` (the `#directory` section)
-- Update `HeroSection.tsx`: Change "Search Childminders" button to "Register Now" linking to `/auth`
-- Change "Enquire Now" style buttons to "Register Now" across the homepage
-- Update the "Can't find" / "Ask KinderStars" links to say "Register & Get Help" pointing to `/auth`
+## 2. Terminology map (global find/replace + copy rewrite)
 
-### 1.2 Display User Name Instead of Email
-- In `AdminDashboard.tsx` header (line 684), change `{user?.email}` to show the user's first name from metadata: `{user?.user_metadata?.first_name || user?.email}`
-- Apply same pattern to `ChildminderPortal.tsx` and `ParentPortal.tsx` headers
+| UK term | DE replacement |
+|---|---|
+| Childminder | Betreuungsperson (generic) / Babysitter / Kinderfrau / Nanny / Kindertagespflegeperson (context-specific) |
+| DBS check | erweitertes Führungszeugnis |
+| Ofsted registered / Government approved | Jugendamt-anerkannt (only when actually true) |
+| Paediatric first aid | Erste-Hilfe am Kind |
+| Safeguarding | Kinderschutz |
+| GDPR page | DSGVO / Datenschutzerklärung + Impressum (new) |
+| Complaints procedure | Beschwerdeverfahren |
+| Parent / Childminder portals | Eltern-Portal / Betreuer-Portal |
 
-### 1.3 Contact Form SMTP Integration
-- Create a new edge function `send-contact-email` that sends form submissions directly to `info@kinderstars.co.uk` via the existing Resend integration
-- Update `ContactSection.tsx` to call this edge function instead of showing "form not connected"
-- All email functions already use Resend -- this is SMTP-equivalent for the site. No third-party is needed since Resend delivers from your domain.
+Care location constraint (per spec): **all care in the child's/parents' home**. Copy and booking flow must reflect this — no "at minder's home" option.
 
-### 1.4 Preferred Payment Method -- Self-Funded Only
-- In `ParentProfile.tsx`, add a `payment_method` field but only show it when the parent's funding type is "self_funded" or "private"
-- For SFE, Local Authority, and Employer funded parents, remove payment method selection and display: "KinderStars will invoice the relevant funding body directly."
+## 3. Directory & search
 
----
+- Region filter: **Berlin** (with Bezirke) + **NRW** cities (Köln, Düsseldorf, Essen, Dortmund, Bochum, Duisburg, Wuppertal, Bonn, Münster, Aachen, Mönchengladbach, Krefeld, Bielefeld to start).
+- Filter facets: care type (Babysitter, Kinderfrau, Nanny, Kindertagespflege), verification badges, languages spoken, availability (Abend/Wochenende/Schicht/Notfall), qualifications, age range of children, own transport.
+- Autocomplete: swap UK postcode API for a German PLZ/city lookup (Nominatim/OpenPLZ — no key needed). Confirm before wiring.
 
-## Phase 2: Registration and Onboarding Overhaul
+## 4. Verification & badges (replace DBS/Ofsted set)
 
-### 2.1 Childminder Registration Flow ("Join KinderStars")
-- Create a dedicated registration page at `/register/childminder` with extended fields:
-  - Personal details (name, email, phone, address, postcode)
-  - Right to work confirmation
-  - DBS status (yes/no, number if yes)
-  - Experience summary
-  - Availability preferences
-- On submission: Create the auth account, send registration details directly to `info@kinderstars.co.uk` via the `send-email` edge function, and redirect to login
-- After first login: Force redirect to `/childminder/onboarding` until onboarding status is "verified"
+New badge system exactly per spec, stored per-minder as booleans + expiry dates:
+- Identität verifiziert
+- Arbeitserlaubnis geprüft
+- Referenzen geprüft
+- Erweitertes Führungszeugnis geprüft (+ expiry)
+- Erste Hilfe am Kind gültig (+ expiry)
+- KinderStars Kinderschutz-Schulung
+- Qualifikation verifiziert
+- Jugendamt-anerkannt (only settable by admin, per authority)
 
-### 2.2 Parent Registration with KYC
-- Enhance parent signup to collect ID verification details
-- Add parent onboarding checklist (similar to childminder):
-  - Verify identity (upload ID document)
-  - Emergency contact details
-  - Confirm address
-  - Accept safeguarding policy
-  - DBS (if applicable for supervised visits)
-- Gate access to childminder search until parent onboarding is complete
+Rule enforced in code + copy: "government approved" wording is gated behind the Jugendamt flag.
 
-### 2.3 Mandatory Onboarding Gate
-- In `ChildminderPortal.tsx` and `ParentPortal.tsx`, add a check: if onboarding is incomplete, force redirect to the onboarding page
-- Users cannot access any portal features until onboarding is verified by admin
+Amiqus (UK KYC) is kept **only** for identity/right-to-work if it supports DE; otherwise stubbed behind a `KYC_PROVIDER` abstraction and a manual document upload flow for Führungszeugnis + certificates with admin review.
 
----
+## 5. Plans, pricing & fees
 
-## Phase 3: Admin Dashboard Enhancements
+Rebuild pricing pages to match the spec exactly.
 
-### 3.1 User Creation in Admin Dashboard
-- Move the "Create User" functionality directly into the Admin Dashboard sidebar (currently at `/admin/create-user`)
-- Add it as a new sidebar tab "Create User" under People section
-- Include role selection with required permissions for each role type
+**Minder plans:**
+- Basic — kostenlos
+- Verified — €9,99/Monat
+- Professional — €19,99–€29,99/Monat
+- Professional Plus — €39,99/Monat
+- Jugendamt Ready — Setup-Gebühr + Monatsplan
 
-### 3.2 MFA Management by Admin
-- Add an MFA section in the Admin Dashboard where admin can:
-  - View which users have MFA enabled
-  - Enforce MFA for specific roles or all users
-  - Reset MFA for users who lose access
-- Remove MFA self-setup from user Settings pages (admin controls MFA enrollment)
-- Update `MFASetup.tsx` to be admin-only, showing a message to users that MFA is managed by KinderStars
+Guardrail: keep Basic genuinely free and never gate "getting a job" behind a paid minder plan (§296 SGB III / employment-placement law). Paid plans sell tools, visibility, training, verification, invoicing.
 
-### 3.3 MFA for All Login Types
-- Ensure MFA verification is triggered after login for all roles (admin, childminder, parent)
-- The existing `MFAVerify` component already handles this in `Auth.tsx` -- verify it works for all role types
+**Parent plans:**
+- Pay as you book — 12% Buchungsgebühr
+- Family — €9,99/Monat + 6%
+- Family Plus — €19,99/Monat + 3%
+- Dauerhafte Nanny-Vermittlung — €299–€599 (parent/employer pays, not minder)
+- Lohnabrechnung — €29–€49/Monat
 
-### 3.4 Subscription Page Fix for Childminders
-- Debug and fix `SubscriptionPage.tsx` -- currently not showing for childminders
-- Add annual subscription toggle:
-  - Monthly: £4.99/month
-  - Annual: £49.90/year (2 months free, equivalent to 10 months)
-- Add toggle switch between monthly and annual plans
-- Update the subscription database to support `plan: "annual"` alongside "monthly" and "free_trial"
+Copy block on funded families: no undisclosed top-ups on publicly funded Kindertagespflege.
 
-### 3.5 Roster: Parent and Minder Tabs with Drag-Drop
-- In the Gantt scheduler, add two side panels:
-  - **Minders tab**: List of available childminders that can be dragged onto the timeline
-  - **Parents tab**: List of parents/children that can be dragged onto shift slots
-- Enable dropping both parents and minders onto the scheduler grid
-- Conflict detection for:
-  - Double-booked childminders (existing)
-  - Double-booked children (new) -- flag if same child assigned to two shifts at same time
-  - Multi-minder support: allow two minders on one shift with a visual indicator
-  - Multi-parent booking: allow multiple parent bookings on the same childminder slot
+## 6. Payments (marketplace split)
 
-### 3.6 Safeguarding, GDPR & Incident Logs
-- Add new sidebar sections in Admin Dashboard:
-  - **Safeguarding**: Safeguarding protocols, concern reporting, referral tracking
-  - **Incident Log**: Record and track incidents with date, type, involved parties, actions taken, outcome
-  - **GDPR Compliance**: Data subject requests log, data retention tracking, consent records
-- Database migration: Create `incidents` and `gdpr_requests` tables with RLS (admin only)
+Replace any direct-payment assumption with a **licensed marketplace provider** so LoungeTech never holds client money. Recommendation: **Stripe Connect** (Express accounts for minders, destination charges, EUR, SEPA + card). Alternatives noted: Adyen for Platforms, Mangopay.
 
-### 3.7 Contract Templates
-- Add predefined contract templates to the Contracts tab:
-  - SFE/CCG childcare contract
-  - Local authority funding agreement
-  - Private/self-funded parent contract
-  - Childminder employment agreement
-  - Employer-funded childcare contract
-- Templates auto-fill with parent/childminder/child details from the database
+Flow: parent pays → provider holds → split to minder + platform fee → invoices generated → refunds/chargebacks via provider. Requires Pro plan + Lovable Cloud; I'll set this up in a follow-up turn after you confirm the provider.
 
-### 3.8 Seed 200 Dummy Parents and Children
-- Update the `seed-demo-data` edge function to create approximately 200 parent profiles with corresponding children
-- Use realistic UK names, addresses, and postcodes
-- Include a mix of funding types (SFE, LA, self-funded, employer)
+Booking record stores: gross, platform fee, minder net, VAT treatment, provider transfer IDs — needed for DAC7/PStTG reporting later.
 
----
+## 7. Employment-status guardrail
 
-## Phase 4: Email & Communication
+New backend check: if the same parent books the same minder for **regular fixed hours over N weeks**, flag the booking pair and surface a banner:
 
-### 4.1 All Emails Via Site SMTP
-- Verify all edge functions (`send-email`, `send-welcome-email`, `send-notification`, `check-compliance-expiry`, `check-contract-expiry`) route through the single Resend integration
-- The Resend API key is already configured -- this is your SMTP equivalent
-- Add a "Contact Us" email trigger from the homepage contact form
-- Ensure the childminder registration form sends directly to your email
+> "Diese Buchung sieht nach einer regelmäßigen Anstellung aus. Wir empfehlen unsere Nanny-Vermittlung + Lohnabrechnung."
 
----
+Routes the parent to the placement/payroll product instead of continuing as marketplace bookings (protects against Scheinselbständigkeit).
 
-## Technical Details
+## 8. Au-pair — separate product surface
 
-### Database Changes (Migrations)
-```text
-1. CREATE TABLE public.incidents (
-     id uuid PK, reporter_id uuid, incident_date timestamptz,
-     incident_type text, description text, persons_involved text,
-     actions_taken text, outcome text, status text DEFAULT 'open',
-     created_at timestamptz, updated_at timestamptz
-   ) + RLS (admin only)
+New route `/au-pair` clearly branded **KinderStars Au-pair-Vermittlung**, separate from the hourly marketplace. Copy reflects §296 SGB III (au-pair-paid fee capped at €150; host family pays). Au-pair profiles cannot be booked as hourly minders.
 
-2. CREATE TABLE public.gdpr_requests (
-     id uuid PK, user_id uuid, request_type text,
-     status text DEFAULT 'pending', notes text,
-     completed_at timestamptz, created_at timestamptz
-   ) + RLS (admin only)
+## 9. Kita recruitment — teaser only
 
-3. ALTER TABLE subscriptions ADD COLUMN billing_period text DEFAULT 'monthly';
-```
+Static "KinderStars für Kitas — Recruitment & Vermittlung geprüfter Fachkräfte" page. Explicit copy: **no** temporary staffing / no Arbeitnehmerüberlassung until AÜG structure exists. Lead-capture form only.
 
-### Files to Create
-- `src/pages/RegisterChildminder.tsx` -- Standalone registration page
-- `supabase/functions/send-contact-email/index.ts` -- Contact form handler
+## 10. Legal & compliance pages (rewritten)
 
-### Files to Modify (Major)
-- `src/pages/Index.tsx` -- Remove directory, update CTAs
-- `src/components/HeroSection.tsx` -- Register Now button
-- `src/components/ContactSection.tsx` -- SMTP integration
-- `src/pages/AdminDashboard.tsx` -- Add safeguarding/incidents/GDPR tabs, user creation, MFA management, roster parent+minder tabs, contract templates
-- `src/pages/portal/SubscriptionPage.tsx` -- Annual toggle, fix display
-- `src/pages/portal/MFASetup.tsx` -- Admin-only messaging
-- `src/pages/portal/ParentProfile.tsx` -- Conditional payment method
-- `src/pages/portal/FindChildminder.tsx` -- Remove DBS/Ofsted from display (already done)
-- `src/pages/Auth.tsx` -- Registration flow updates
-- `src/pages/ChildminderPortal.tsx` -- Onboarding gate, display name
-- `src/pages/ParentPortal.tsx` -- Onboarding gate, display name
-- `src/App.tsx` -- Add new routes
-- `supabase/functions/seed-demo-data/index.ts` -- 200 dummy parents/children
+- **Impressum** (new, required by §5 TMG) — LoungeTech GmbH details.
+- **Datenschutzerklärung** (DSGVO) — replaces UK GDPR page.
+- **AGB** — platform terms, parent terms, minder terms, marketplace-payment disclosure, DAC7/PStTG notice.
+- **Beschwerdeverfahren** — rewrite for DE.
+- **Widerrufsbelehrung** for consumer bookings.
+- Cookie banner: TTDSG-compliant (reject-all equal weight to accept).
 
-### Edge Function Updates
-- `send-contact-email` (new) -- Sends contact form submissions to info@kinderstars.co.uk
-- `seed-demo-data` -- Expand to include 200 parents with children
+Placeholder legal text clearly marked "Entwurf — vor Launch durch Anwalt prüfen lassen."
 
+## 11. Data model changes (Lovable Cloud)
+
+Migrations (single batch, RLS + GRANTs per rules):
+- `profiles`: add `bundesland`, `plz`, `stadt`, replace `postcode` fields; add `preferred_language`.
+- `minder_verifications`: badge booleans + `fuehrungszeugnis_expires_at`, `erste_hilfe_expires_at`, `jugendamt_approved_by`, `jugendamt_approved_at`.
+- `plans`: seed new minder + parent plan rows in EUR.
+- `bookings`: `gross_cents`, `platform_fee_cents`, `minder_net_cents`, `stripe_payment_intent`, `stripe_transfer_id`, `care_location` (locked to "family_home"), `is_recurring_flag`.
+- `au_pair_profiles`: separate table, cannot join hourly bookings.
+- `funding_sources` enum: `private | employer | university | jobcenter | jugendamt | agentur_fuer_arbeit | other`.
+
+## 12. Copy hooks for later phases
+
+Landing page includes a short "Für Arbeitgeber, Hochschulen, Jugendämter" strip with "Bald verfügbar" CTAs — no functional flow yet, just interest capture.
+
+## 13. Explicit launch proposition (homepage hero + meta description)
+
+> "KinderStars verbindet Familien in Berlin und NRW mit geprüften Betreuungspersonen für die Kinderbetreuung zu Hause. Eltern zahlen selbst oder mit Unterstützung von Arbeitgeber, Hochschule, Jobcenter oder Jugendamt. Wir übernehmen Matching, Buchung, Zahlung, Verifikation, Schulung und Compliance-Nachweise — öffentliche Förderung und amtliche Anerkennung bleiben Sache der zuständigen Behörde."
+
+## Suggested execution order (each is one working turn)
+
+1. Locale, brand, index.html, terminology sweep, drop unused i18n bundles, EUR, `/impressum` + `/datenschutz` skeletons.
+2. Region/PLZ model + directory filters for Berlin + NRW; homepage + directory copy rewrite; care-location lock.
+3. Verification badge system + admin review UI + Führungszeugnis/Erste-Hilfe expiry handling.
+4. New pricing pages (minder + parent) + plan seed data + placement-law guardrails on minder plans.
+5. Stripe Connect marketplace payments (needs Pro + your go-ahead) with fee split and invoices.
+6. Recurring-booking employment-status detector + Nanny-placement/payroll product surface.
+7. Au-pair separate product route.
+8. Kita-recruitment teaser + employer/uni/Jugendamt teaser strip.
+9. Full legal/AGB/Widerruf/cookie pass, DAC7 disclosures.
+
+## Questions I need answered before I start
+
+1. **Domain**: do you own `kinderstars.de`? (Affects canonical + email/Impressum.)
+2. **Company details for Impressum** (LoungeTech GmbH address, HRB, Geschäftsführer, USt-IdNr., contact email) — can be placeholder until you send them.
+3. **Payments provider**: confirm **Stripe Connect** (my recommendation) vs Adyen/Mangopay. Stripe needs a Pro plan; is the workspace on Pro?
+4. **Amiqus**: do you want me to keep it for identity in DE, or replace with a stub + manual document review for now?
+5. **Languages at launch**: German only, or German + English from day one? Any other languages you want live at Phase 1 (Türkisch? Arabisch? Polnisch?)?
+
+Once you answer 1–5 (or say "your call"), I'll execute step 1 immediately.
