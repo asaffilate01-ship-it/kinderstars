@@ -1254,6 +1254,113 @@ export type Database = {
         }
         Relationships: []
       }
+      partner_courses: {
+        Row: {
+          category: string
+          commission_label: string | null
+          created_at: string
+          description: string | null
+          duration_label: string | null
+          id: string
+          is_active: boolean
+          logo_url: string | null
+          price_from_cents: number | null
+          price_label: string | null
+          provider: string
+          referral_token: string | null
+          referral_url: string
+          slug: string
+          sort_order: number
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          category?: string
+          commission_label?: string | null
+          created_at?: string
+          description?: string | null
+          duration_label?: string | null
+          id?: string
+          is_active?: boolean
+          logo_url?: string | null
+          price_from_cents?: number | null
+          price_label?: string | null
+          provider: string
+          referral_token?: string | null
+          referral_url: string
+          slug: string
+          sort_order?: number
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          category?: string
+          commission_label?: string | null
+          created_at?: string
+          description?: string | null
+          duration_label?: string | null
+          id?: string
+          is_active?: boolean
+          logo_url?: string | null
+          price_from_cents?: number | null
+          price_label?: string | null
+          provider?: string
+          referral_token?: string | null
+          referral_url?: string
+          slug?: string
+          sort_order?: number
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      partner_referrals: {
+        Row: {
+          clicked_at: string
+          commission_cents: number | null
+          commission_status: string
+          completed_at: string | null
+          created_at: string
+          id: string
+          notes: string | null
+          partner_course_id: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          clicked_at?: string
+          commission_cents?: number | null
+          commission_status?: string
+          completed_at?: string | null
+          created_at?: string
+          id?: string
+          notes?: string | null
+          partner_course_id: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          clicked_at?: string
+          commission_cents?: number | null
+          commission_status?: string
+          completed_at?: string | null
+          created_at?: string
+          id?: string
+          notes?: string | null
+          partner_course_id?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "partner_referrals_partner_course_id_fkey"
+            columns: ["partner_course_id"]
+            isOneToOne: false
+            referencedRelation: "partner_courses"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       profiles: {
         Row: {
           avatar_url: string | null
