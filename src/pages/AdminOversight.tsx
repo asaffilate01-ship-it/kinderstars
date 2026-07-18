@@ -34,20 +34,21 @@ type SafeguardingRow = {
 
 type SaasLeadRow = {
   id: string;
-  organisation_name: string;
-  contact_email: string;
-  org_type: string;
-  tier: string | null;
+  company_name: string;
+  email: string;
+  contact_name: string;
+  org_type: string | null;
+  tier_interest: string | null;
   status: string;
-  seats_estimate: number | null;
+  estimated_seats: number | null;
   created_at: string;
 };
 
 type EmployerRow = {
   id: string;
-  name: string;
-  plan_tier: string | null;
-  billing_email: string | null;
+  company_name: string;
+  tier: string | null;
+  contact_email: string | null;
   created_at: string;
 };
 
@@ -55,7 +56,8 @@ type JugendamtReadyRow = {
   id: string;
   user_id: string;
   status: string;
-  score: number | null;
+  monitoring_tier: string | null;
+  bundesland: string | null;
   created_at: string;
 };
 
@@ -92,14 +94,14 @@ export default function AdminOversight() {
       supabase.from("minder_verification").select("*").order("created_at", { ascending: false }).limit(200),
       supabase.from("safeguarding_concerns").select("id, child_initials, category, severity, status, jugendamt_notified, occurred_at, created_at").order("created_at", { ascending: false }).limit(100),
       supabase.from("saas_leads").select("*").order("created_at", { ascending: false }).limit(100),
-      supabase.from("employer_organisations").select("id, name, plan_tier, billing_email, created_at").order("created_at", { ascending: false }).limit(100),
-      supabase.from("jugendamt_ready_assessments").select("id, user_id, status, score, created_at").order("created_at", { ascending: false }).limit(100),
+      supabase.from("employer_organisations").select("id, company_name, tier, contact_email, created_at").order("created_at", { ascending: false }).limit(100),
+      supabase.from("jugendamt_ready_assessments").select("id, user_id, status, monitoring_tier, bundesland, created_at").order("created_at", { ascending: false }).limit(100),
     ]);
     setVerifications((ver.data as VerificationRow[]) || []);
     setSafeguarding((sg.data as SafeguardingRow[]) || []);
-    setSaasLeads((leads.data as SaasLeadRow[]) || []);
-    setEmployers((emp.data as EmployerRow[]) || []);
-    setJugendamtReady((jr.data as JugendamtReadyRow[]) || []);
+    setSaasLeads((leads.data as unknown as SaasLeadRow[]) || []);
+    setEmployers((emp.data as unknown as EmployerRow[]) || []);
+    setJugendamtReady((jr.data as unknown as JugendamtReadyRow[]) || []);
     setBusy(false);
   };
 
@@ -301,12 +303,12 @@ export default function AdminOversight() {
                     {saasLeads.map(l => (
                       <TableRow key={l.id}>
                         <TableCell>
-                          <div className="font-medium">{l.organisation_name}</div>
-                          <div className="text-xs text-muted-foreground">{l.contact_email}</div>
+                          <div className="font-medium">{l.company_name}</div>
+                          <div className="text-xs text-muted-foreground">{l.email}</div>
                         </TableCell>
-                        <TableCell className="text-xs">{l.org_type}</TableCell>
-                        <TableCell>{l.seats_estimate || "—"}</TableCell>
-                        <TableCell className="text-xs">{l.tier || "—"}</TableCell>
+                        <TableCell className="text-xs">{l.org_type || "—"}</TableCell>
+                        <TableCell>{l.estimated_seats || "—"}</TableCell>
+                        <TableCell className="text-xs">{l.tier_interest || "—"}</TableCell>
                         <TableCell><Badge variant="outline">{l.status}</Badge></TableCell>
                         <TableCell className="text-right space-x-2">
                           {l.status === "new" && <Button size="sm" variant="outline" onClick={() => updateLead(l.id, "contacted")}>Kontaktiert</Button>}
@@ -340,9 +342,9 @@ export default function AdminOversight() {
                   <TableBody>
                     {employers.map(e => (
                       <TableRow key={e.id}>
-                        <TableCell className="font-medium">{e.name}</TableCell>
-                        <TableCell><Badge variant="outline">{e.plan_tier || "—"}</Badge></TableCell>
-                        <TableCell className="text-xs">{e.billing_email || "—"}</TableCell>
+                        <TableCell className="font-medium">{e.company_name}</TableCell>
+                        <TableCell><Badge variant="outline">{e.tier || "—"}</Badge></TableCell>
+                        <TableCell className="text-xs">{e.contact_email || "—"}</TableCell>
                         <TableCell className="text-xs">{new Date(e.created_at).toLocaleDateString("de-DE")}</TableCell>
                       </TableRow>
                     ))}
@@ -365,7 +367,7 @@ export default function AdminOversight() {
                     <TableRow>
                       <TableHead>User</TableHead>
                       <TableHead>Status</TableHead>
-                      <TableHead>Score</TableHead>
+                      <TableHead>Monitoring / Bundesland</TableHead>
                       <TableHead>Erstellt</TableHead>
                     </TableRow>
                   </TableHeader>
@@ -374,7 +376,7 @@ export default function AdminOversight() {
                       <TableRow key={j.id}>
                         <TableCell className="font-mono text-xs">{j.user_id.slice(0, 8)}…</TableCell>
                         <TableCell><Badge variant="outline">{j.status}</Badge></TableCell>
-                        <TableCell>{j.score ?? "—"}</TableCell>
+                        <TableCell className="text-xs">{j.monitoring_tier || "—"} · {j.bundesland || "—"}</TableCell>
                         <TableCell className="text-xs">{new Date(j.created_at).toLocaleDateString("de-DE")}</TableCell>
                       </TableRow>
                     ))}
