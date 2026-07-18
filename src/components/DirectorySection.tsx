@@ -4,6 +4,7 @@ import { Childminder, makeEnquiryMailto } from "@/lib/childminder-data";
 import { useChildminders } from "@/hooks/use-childminders";
 import { Button } from "@/components/ui/button";
 import ProfileModal from "@/components/ProfileModal";
+import VerificationBadge from "@/components/VerificationBadge";
 
 const DirectorySection = () => {
   const { t } = useTranslation();
@@ -118,9 +119,7 @@ const DirectorySection = () => {
                 <div key={cm.id} className="ks-profile-card">
                   <div className="flex items-center justify-between gap-2">
                     <span className="font-black tracking-tight">{displayName}</span>
-                    <span className={cm.verified ? "ks-badge ks-badge-verified" : "ks-badge"}>
-                      {cm.verified ? t("profile.verified") : t("profile.listed")}
-                    </span>
+                    <VerificationBadge tier={cm.verificationTier} size="sm" />
                   </div>
                   <div className="text-muted-foreground text-[13.5px]">
                     <strong>{cm.postcodeDistrict}</strong> • {cm.town}
