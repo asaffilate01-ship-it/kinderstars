@@ -411,15 +411,15 @@ const ChildminderOnboarding = () => {
         )}
         {verificationAnyRejected && (
           <p className="text-xs text-destructive mt-3 font-medium">
-            ⚠️ One or more documents were rejected. Please re-upload via the Compliance page.
+            ⚠️ Ein oder mehrere Dokumente wurden abgelehnt. Bitte erneut im Bereich Compliance hochladen.
           </p>
         )}
       </OnboardingStage>
 
       {/* Stage 4: Interview */}
       <OnboardingStage
-        title="Onboarding Interview"
-        description={interviewDone ? "Interview completed ✅" : "Book and attend your video interview via Google Meet"}
+        title="Video-Interview"
+        description={interviewDone ? "Interview abgeschlossen ✅" : "Buchen Sie Ihr Video-Interview per Google Meet"}
         stageNumber={4}
         isComplete={interviewDone}
         isLocked={!interviewUnlocked}
@@ -443,14 +443,14 @@ const ChildminderOnboarding = () => {
           className="gap-2"
         >
           {submitting ? <Loader2 className="w-4 h-4 animate-spin" /> : <FileText className="w-4 h-4" />}
-          Submit for Review
+          Zur Prüfung einreichen
         </Button>
       )}
 
       {isVerified && (
         <div className="ks-card p-4 bg-success/10 border-success/30">
           <p className="text-sm font-medium text-success">
-            🎉 You're verified! You can now accept shifts and start working.
+            🎉 Sie sind KinderStars Verified! Sie können nun Anfragen annehmen. Hinweis: Dies ersetzt keine Anerkennung durch das Jugendamt.
           </p>
         </div>
       )}
