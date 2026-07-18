@@ -886,6 +886,132 @@ export type Database = {
         }
         Relationships: []
       }
+      minder_verification: {
+        Row: {
+          address_checked: boolean
+          basic_profile_completed: boolean
+          code_of_conduct_signed_at: string | null
+          cpd_recorded: boolean
+          created_at: string
+          email_verified: boolean
+          emergency_training_completed_at: string | null
+          experience_declared: boolean
+          first_aid_certificate_date: string | null
+          first_aid_expiry: string | null
+          fuehrungszeugnis_checked: boolean
+          fuehrungszeugnis_checked_at: string | null
+          fuehrungszeugnis_renewal_date: string | null
+          id: string
+          identity_checked: boolean
+          insurance_status: string | null
+          jugendamt_approval_expiry: string | null
+          jugendamt_confirmation_date: string | null
+          jugendamt_confirmation_ref: string | null
+          jugendamt_confirmed: boolean
+          jugendamt_municipality: string | null
+          knowledge_assessment_passed_at: string | null
+          local_qualifications_completed: boolean
+          notes: string | null
+          permitted_categories: string[] | null
+          phone_verified: boolean
+          qhb_training_documented: boolean
+          references_checked: boolean
+          references_count: number
+          reviewer_id: string | null
+          right_to_work_checked: boolean
+          safeguarding_declaration_signed_at: string | null
+          safeguarding_induction_completed_at: string | null
+          tax_social_insurance_documented: boolean
+          terms_accepted_at: string | null
+          tier: Database["public"]["Enums"]["verification_tier"]
+          updated_at: string
+          user_id: string
+          video_interview_completed_at: string | null
+        }
+        Insert: {
+          address_checked?: boolean
+          basic_profile_completed?: boolean
+          code_of_conduct_signed_at?: string | null
+          cpd_recorded?: boolean
+          created_at?: string
+          email_verified?: boolean
+          emergency_training_completed_at?: string | null
+          experience_declared?: boolean
+          first_aid_certificate_date?: string | null
+          first_aid_expiry?: string | null
+          fuehrungszeugnis_checked?: boolean
+          fuehrungszeugnis_checked_at?: string | null
+          fuehrungszeugnis_renewal_date?: string | null
+          id?: string
+          identity_checked?: boolean
+          insurance_status?: string | null
+          jugendamt_approval_expiry?: string | null
+          jugendamt_confirmation_date?: string | null
+          jugendamt_confirmation_ref?: string | null
+          jugendamt_confirmed?: boolean
+          jugendamt_municipality?: string | null
+          knowledge_assessment_passed_at?: string | null
+          local_qualifications_completed?: boolean
+          notes?: string | null
+          permitted_categories?: string[] | null
+          phone_verified?: boolean
+          qhb_training_documented?: boolean
+          references_checked?: boolean
+          references_count?: number
+          reviewer_id?: string | null
+          right_to_work_checked?: boolean
+          safeguarding_declaration_signed_at?: string | null
+          safeguarding_induction_completed_at?: string | null
+          tax_social_insurance_documented?: boolean
+          terms_accepted_at?: string | null
+          tier?: Database["public"]["Enums"]["verification_tier"]
+          updated_at?: string
+          user_id: string
+          video_interview_completed_at?: string | null
+        }
+        Update: {
+          address_checked?: boolean
+          basic_profile_completed?: boolean
+          code_of_conduct_signed_at?: string | null
+          cpd_recorded?: boolean
+          created_at?: string
+          email_verified?: boolean
+          emergency_training_completed_at?: string | null
+          experience_declared?: boolean
+          first_aid_certificate_date?: string | null
+          first_aid_expiry?: string | null
+          fuehrungszeugnis_checked?: boolean
+          fuehrungszeugnis_checked_at?: string | null
+          fuehrungszeugnis_renewal_date?: string | null
+          id?: string
+          identity_checked?: boolean
+          insurance_status?: string | null
+          jugendamt_approval_expiry?: string | null
+          jugendamt_confirmation_date?: string | null
+          jugendamt_confirmation_ref?: string | null
+          jugendamt_confirmed?: boolean
+          jugendamt_municipality?: string | null
+          knowledge_assessment_passed_at?: string | null
+          local_qualifications_completed?: boolean
+          notes?: string | null
+          permitted_categories?: string[] | null
+          phone_verified?: boolean
+          qhb_training_documented?: boolean
+          references_checked?: boolean
+          references_count?: number
+          reviewer_id?: string | null
+          right_to_work_checked?: boolean
+          safeguarding_declaration_signed_at?: string | null
+          safeguarding_induction_completed_at?: string | null
+          tax_social_insurance_documented?: boolean
+          terms_accepted_at?: string | null
+          tier?: Database["public"]["Enums"]["verification_tier"]
+          updated_at?: string
+          user_id?: string
+          video_interview_completed_at?: string | null
+        }
+        Relationships: []
+      }
       notifications: {
         Row: {
           body: string | null
@@ -1459,11 +1585,16 @@ export type Database = {
         }[]
       }
       get_user_role: { Args: { p_user_id: string }; Returns: string }
+      get_verification_tier: {
+        Args: { p_user_id: string }
+        Returns: Database["public"]["Enums"]["verification_tier"]
+      }
       is_admin: { Args: never; Returns: boolean }
       is_owner: { Args: never; Returns: boolean }
     }
     Enums: {
       app_role: "admin" | "user" | "childminder" | "parent" | "owner"
+      verification_tier: "registered" | "verified" | "jugendamt_approved"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -1592,6 +1723,7 @@ export const Constants = {
   public: {
     Enums: {
       app_role: ["admin", "user", "childminder", "parent", "owner"],
+      verification_tier: ["registered", "verified", "jugendamt_approved"],
     },
   },
 } as const
