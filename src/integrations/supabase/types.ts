@@ -1132,6 +1132,48 @@ export type Database = {
         }
         Relationships: []
       }
+      jugendamt_lookups: {
+        Row: {
+          bundesland: string | null
+          city: string | null
+          contact_email: string
+          contact_name: string | null
+          created_at: string
+          id: string
+          jugendamt_name: string
+          notes: string | null
+          plz: string | null
+          purpose: string | null
+          updated_at: string
+        }
+        Insert: {
+          bundesland?: string | null
+          city?: string | null
+          contact_email: string
+          contact_name?: string | null
+          created_at?: string
+          id?: string
+          jugendamt_name: string
+          notes?: string | null
+          plz?: string | null
+          purpose?: string | null
+          updated_at?: string
+        }
+        Update: {
+          bundesland?: string | null
+          city?: string | null
+          contact_email?: string
+          contact_name?: string | null
+          created_at?: string
+          id?: string
+          jugendamt_name?: string
+          notes?: string | null
+          plz?: string | null
+          purpose?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
       jugendamt_ready_assessments: {
         Row: {
           application_pack: Json
