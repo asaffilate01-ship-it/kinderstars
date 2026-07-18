@@ -43,6 +43,8 @@ import TrainingPage from "./pages/portal/TrainingPage";
 import GDPRPolicy from "./pages/GDPRPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import ComplaintsProcedure from "./pages/ComplaintsProcedure";
+import Impressum from "./pages/Impressum";
+import Datenschutz from "./pages/Datenschutz";
 import FlyerPage from "./pages/FlyerPage";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
@@ -115,6 +117,11 @@ const App = () => (
             <Route path="/privacy-policy" element={<GDPRPolicy />} />
             <Route path="/terms-of-service" element={<TermsOfService />} />
             <Route path="/complaints-procedure" element={<ComplaintsProcedure />} />
+            <Route path="/impressum" element={<Impressum />} />
+            <Route path="/datenschutz" element={<Datenschutz />} />
+            {/* German-friendly aliases */}
+            <Route path="/agb" element={<TermsOfService />} />
+            <Route path="/beschwerdeverfahren" element={<ComplaintsProcedure />} />
             <Route path="/flyer" element={<FlyerPage />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />

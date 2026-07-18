@@ -9,14 +9,8 @@ import {
 } from "@/components/ui/select";
 
 const LANGUAGES = [
+  { code: "de", label: "Deutsch", flag: "🇩🇪" },
   { code: "en", label: "English", flag: "🇬🇧" },
-  { code: "cy", label: "Cymraeg", flag: "🏴󠁧󠁢󠁷󠁬󠁳󠁿" },
-  { code: "pl", label: "Polski", flag: "🇵🇱" },
-  { code: "ro", label: "Română", flag: "🇷🇴" },
-  { code: "ur", label: "اردو", flag: "🇵🇰" },
-  { code: "ar", label: "العربية", flag: "🇸🇦" },
-  { code: "sk", label: "Slovenčina", flag: "🇸🇰" },
-  { code: "cs", label: "Čeština", flag: "🇨🇿" },
 ];
 
 const LanguageSwitcher = () => {
@@ -24,7 +18,7 @@ const LanguageSwitcher = () => {
 
   const handleChange = (value: string) => {
     i18n.changeLanguage(value);
-    document.documentElement.dir = value === "ar" || value === "ur" ? "rtl" : "ltr";
+    document.documentElement.dir = "ltr";
     document.documentElement.lang = value;
   };
 

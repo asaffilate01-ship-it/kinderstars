@@ -41,7 +41,7 @@ const Footer = () => {
         <div>
           <h4 className="text-xs font-bold uppercase tracking-widest text-foreground mb-2.5">{t("footer.contactHeading")}</h4>
           <ul className="space-y-1.5 text-xs text-muted-foreground list-none p-0 m-0">
-            <li><a href="mailto:info@kinderstars.co.uk" className="hover:text-foreground transition-colors">info@kinderstars.co.uk</a></li>
+            <li><a href="mailto:info@kinderstars.de" className="hover:text-foreground transition-colors">info@kinderstars.de</a></li>
             <li>{t("contact.addressValue")}</li>
           </ul>
         </div>
@@ -49,10 +49,10 @@ const Footer = () => {
         <div>
           <h4 className="text-xs font-bold uppercase tracking-widest text-foreground mb-2.5">{t("footer.legal")}</h4>
           <ul className="space-y-1.5 text-xs text-muted-foreground list-none p-0 m-0">
-            <li><Link to="/privacy-policy" className="hover:text-foreground transition-colors">{t("footer.privacyPolicy")}</Link></li>
-            <li><Link to="/terms-of-service" className="hover:text-foreground transition-colors">{t("footer.termsOfService")}</Link></li>
-            <li><Link to="/complaints-procedure" className="hover:text-foreground transition-colors">{t("footer.complaintsProcedure")}</Link></li>
-            <li><Link to="/privacy-policy" className="hover:text-foreground transition-colors">{t("footer.gdpr")}</Link></li>
+            <li><Link to="/impressum" className="hover:text-foreground transition-colors">{t("footer.impressum")}</Link></li>
+            <li><Link to="/datenschutz" className="hover:text-foreground transition-colors">{t("footer.privacyPolicy")}</Link></li>
+            <li><Link to="/agb" className="hover:text-foreground transition-colors">{t("footer.termsOfService")}</Link></li>
+            <li><Link to="/beschwerdeverfahren" className="hover:text-foreground transition-colors">{t("footer.complaintsProcedure")}</Link></li>
           </ul>
         </div>
       </div>
