@@ -62,10 +62,10 @@ export default function AdminUmsatz() {
       const [subs, ver, enr, ref, jr, fa, leads, emp] = await Promise.all([
         supabase.from("subscriptions").select("plan_id, status"),
         supabase.from("minder_verification").select("tier, verified_from"),
-        supabase.from("academy_enrollments").select("price_cents_paid, status"),
+        supabase.from("academy_enrollments").select("payment_status, status, course:academy_courses(price_cents)"),
         supabase.from("partner_referrals").select("id"),
         supabase.from("jugendamt_ready_assessments").select("status"),
-        supabase.from("first_aid_bookings").select("price_cents_paid, status"),
+        supabase.from("first_aid_bookings").select("amount_cents, status"),
         supabase.from("saas_leads").select("id"),
         supabase.from("employer_organisations").select("id, plan_tier"),
       ]);
@@ -77,7 +77,7 @@ export default function AdminUmsatz() {
       }, 0);
 
       const verifiedRows = (ver.data || []).filter((v: any) => v.tier !== "registered");
-      const enrRows = (enr.data || []).filter((e: any) => e.status === "paid" || e.status === "completed" || e.status === "enrolled");
+      const enrRows = (enr.data || []).filter((e: any) => e.payment_status === "paid" || e.status === "completed" || e.status === "enrolled");
       const jrRows = (jr.data || []).filter((j: any) => j.status && j.status !== "cancelled");
       const faRows = (fa.data || []).filter((f: any) => f.status === "confirmed" || f.status === "attended");
 
@@ -87,12 +87,12 @@ export default function AdminUmsatz() {
         verifiedCount: verifiedRows.length,
         verificationRevenueCents: verifiedRows.length * VERIFICATION_FEE.amountCents,
         academyEnrollments: enrRows.length,
-        academyRevenueCents: enrRows.reduce((a: number, e: any) => a + (e.price_cents_paid ?? 0), 0),
+        academyRevenueCents: enrRows.reduce((a: number, e: any) => a + (e.course?.price_cents ?? 0), 0),
         referralClicks: (ref.data || []).length,
         jugendamtAssessments: jrRows.length,
         jugendamtRevenueCents: jrRows.length * JUGENDAMT_READY.assessmentAmountCents,
         firstAidBookings: faRows.length,
-        firstAidRevenueCents: faRows.reduce((a: number, f: any) => a + (f.price_cents_paid ?? FIRST_AID.seatPriceCents), 0),
+        firstAidRevenueCents: faRows.reduce((a: number, f: any) => a + (f.amount_cents ?? FIRST_AID.seatPriceCents), 0),
         saasLeads: (leads.data || []).length,
         employerOrgs: (emp.data || []).length,
       });
