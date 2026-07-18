@@ -11,7 +11,7 @@ import { useRealtimeToasts } from "@/hooks/use-realtime-toasts";
 import logo from "@/assets/kinderstars-logo.png";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import {
-  User, Calendar, Clock, FileText, MessageSquare, Bell, Settings, LogOut, Home, Shield, Award, ClipboardList, TrendingUp, CreditCard, Heart, ScrollText, GraduationCap, Lock, BookOpen, ShieldCheck
+  User, Calendar, Clock, FileText, MessageSquare, Bell, Settings, LogOut, Home, Shield, Award, ClipboardList, TrendingUp, CreditCard, Heart, ScrollText, GraduationCap, Lock, BookOpen, ShieldCheck, ShieldAlert
 } from "lucide-react";
 
 const ChildminderPortal = () => {
@@ -43,6 +43,7 @@ const ChildminderPortal = () => {
     { to: "/childminder/akademie", icon: GraduationCap, label: "Akademie", requiresVerified: false, key: "akademie" },
     { to: "/childminder/externe-kurse", icon: BookOpen, label: "Externe Kurse", requiresVerified: false, key: "externe-kurse" },
     { to: "/childminder/jugendamt-ready", icon: ShieldCheck, label: "Jugendamt Ready", requiresVerified: false, key: "jugendamt-ready" },
+    { to: "/childminder/kinderschutz", icon: ShieldAlert, label: "Kinderschutz", requiresVerified: false, key: "kinderschutz" },
     { to: "/childminder/messages", icon: MessageSquare, label: t("portal.sidebar.messages"), requiresVerified: false, key: "messages" },
     { to: "/childminder/notifications", icon: Bell, label: t("portal.sidebar.notifications"), requiresVerified: false, key: "notifications" },
     { to: "/childminder/subscription", icon: CreditCard, label: t("portal.sidebar.subscription"), requiresVerified: false, key: "subscription" },
