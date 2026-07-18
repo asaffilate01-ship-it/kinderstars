@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 const FAQSection = () => {
   const { t } = useTranslation();
 
-  const faqs = Array.from({ length: 12 }, (_, i) => ({
+  const faqs = Array.from({ length: 18 }, (_, i) => ({
     q: t(`faq.q${i + 1}`),
     a: t(`faq.a${i + 1}`),
   }));
