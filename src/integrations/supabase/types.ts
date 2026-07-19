@@ -181,47 +181,146 @@ export type Database = {
         }
         Relationships: []
       }
+      booking_events: {
+        Row: {
+          actor_id: string
+          booking_id: string
+          created_at: string
+          event_type: string
+          from_status: Database["public"]["Enums"]["booking_flow_status"] | null
+          id: string
+          payload: Json | null
+          to_status: Database["public"]["Enums"]["booking_flow_status"] | null
+        }
+        Insert: {
+          actor_id: string
+          booking_id: string
+          created_at?: string
+          event_type: string
+          from_status?:
+            | Database["public"]["Enums"]["booking_flow_status"]
+            | null
+          id?: string
+          payload?: Json | null
+          to_status?: Database["public"]["Enums"]["booking_flow_status"] | null
+        }
+        Update: {
+          actor_id?: string
+          booking_id?: string
+          created_at?: string
+          event_type?: string
+          from_status?:
+            | Database["public"]["Enums"]["booking_flow_status"]
+            | null
+          id?: string
+          payload?: Json | null
+          to_status?: Database["public"]["Enums"]["booking_flow_status"] | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "booking_events_booking_id_fkey"
+            columns: ["booking_id"]
+            isOneToOne: false
+            referencedRelation: "bookings"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       bookings: {
         Row: {
+          accepted_at: string | null
+          actual_hours: number | null
+          authorized_at: string | null
           booking_date: string
+          cancellation_reason: string | null
+          captured_at: string | null
+          check_in_at: string | null
+          check_out_at: string | null
           childminder_id: string
           children_ids: string[] | null
           created_at: string
+          currency: string
           decline_reason: string | null
           end_time: string
+          flow_status: Database["public"]["Enums"]["booking_flow_status"]
+          hourly_rate_cents: number | null
           id: string
+          minder_payout_cents: number | null
           notes: string | null
+          paid_out_at: string | null
           parent_id: string
+          parent_rating: number | null
+          parent_review: string | null
+          platform_fee_cents: number | null
           start_time: string
           status: string
+          stripe_payment_intent_id: string | null
+          stripe_transfer_id: string | null
+          total_amount_cents: number | null
           updated_at: string
         }
         Insert: {
+          accepted_at?: string | null
+          actual_hours?: number | null
+          authorized_at?: string | null
           booking_date: string
+          cancellation_reason?: string | null
+          captured_at?: string | null
+          check_in_at?: string | null
+          check_out_at?: string | null
           childminder_id: string
           children_ids?: string[] | null
           created_at?: string
+          currency?: string
           decline_reason?: string | null
           end_time: string
+          flow_status?: Database["public"]["Enums"]["booking_flow_status"]
+          hourly_rate_cents?: number | null
           id?: string
+          minder_payout_cents?: number | null
           notes?: string | null
+          paid_out_at?: string | null
           parent_id: string
+          parent_rating?: number | null
+          parent_review?: string | null
+          platform_fee_cents?: number | null
           start_time: string
           status?: string
+          stripe_payment_intent_id?: string | null
+          stripe_transfer_id?: string | null
+          total_amount_cents?: number | null
           updated_at?: string
         }
         Update: {
+          accepted_at?: string | null
+          actual_hours?: number | null
+          authorized_at?: string | null
           booking_date?: string
+          cancellation_reason?: string | null
+          captured_at?: string | null
+          check_in_at?: string | null
+          check_out_at?: string | null
           childminder_id?: string
           children_ids?: string[] | null
           created_at?: string
+          currency?: string
           decline_reason?: string | null
           end_time?: string
+          flow_status?: Database["public"]["Enums"]["booking_flow_status"]
+          hourly_rate_cents?: number | null
           id?: string
+          minder_payout_cents?: number | null
           notes?: string | null
+          paid_out_at?: string | null
           parent_id?: string
+          parent_rating?: number | null
+          parent_review?: string | null
+          platform_fee_cents?: number | null
           start_time?: string
           status?: string
+          stripe_payment_intent_id?: string | null
+          stripe_transfer_id?: string | null
+          total_amount_cents?: number | null
           updated_at?: string
         }
         Relationships: []
@@ -2256,6 +2355,17 @@ export type Database = {
         }
         Relationships: []
       }
+      recurring_engagement_flags: {
+        Row: {
+          bookings_last_30d: number | null
+          childminder_id: string | null
+          first_date: string | null
+          hours_last_30d: number | null
+          last_date: string | null
+          parent_id: string | null
+        }
+        Relationships: []
+      }
     }
     Functions: {
       get_profiles_display: {
@@ -2283,6 +2393,17 @@ export type Database = {
         | "parent"
         | "owner"
         | "employer"
+      booking_flow_status:
+        | "requested"
+        | "accepted"
+        | "authorized"
+        | "in_progress"
+        | "completed"
+        | "captured"
+        | "paid_out"
+        | "declined"
+        | "cancelled"
+        | "disputed"
       employer_link_status: "pending" | "active" | "paused" | "ended"
       employer_tier: "starter" | "growth" | "enterprise"
       jugendamt_monitoring_tier: "none" | "basic" | "pro"
@@ -2443,6 +2564,18 @@ export const Constants = {
   public: {
     Enums: {
       app_role: ["admin", "user", "childminder", "parent", "owner", "employer"],
+      booking_flow_status: [
+        "requested",
+        "accepted",
+        "authorized",
+        "in_progress",
+        "completed",
+        "captured",
+        "paid_out",
+        "declined",
+        "cancelled",
+        "disputed",
+      ],
       employer_link_status: ["pending", "active", "paused", "ended"],
       employer_tier: ["starter", "growth", "enterprise"],
       jugendamt_monitoring_tier: ["none", "basic", "pro"],
