@@ -66,6 +66,7 @@ import NotFound from "./pages/NotFound";
 import ResetPassword from "./pages/ResetPassword";
 import Screensaver from "./pages/Screensaver";
 import LoadingScreen from "./components/LoadingScreen";
+import InstallPrompt from "./components/InstallPrompt";
 
 const queryClient = new QueryClient();
 
@@ -76,6 +77,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <LoadingScreen />
+        <InstallPrompt />
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
