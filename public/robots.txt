@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://www.kinderstars.co.uk/sitemap.xml
+Sitemap: https://www.kinderstars.de/sitemap.xml
