@@ -132,7 +132,7 @@ const sidebarItems: { key: Tab; icon: any; label: string; group: string }[] = [
   { key: "documents", icon: FileText, label: "Documents", group: "Finance" },
   { key: "expenses", icon: PoundSterling, label: "Expenses", group: "Finance" },
   { key: "finance", icon: TrendingUp, label: "Finance Pulse", group: "Finance" },
-  { key: "ofsted", icon: ClipboardCheck, label: "Ofsted Tools", group: "Compliance" },
+  { key: "ofsted", icon: ClipboardCheck, label: "Jugendamt", group: "Compliance" },
   { key: "safeguarding", icon: ShieldCheck, label: "Safeguarding", group: "Compliance" },
   { key: "incidents", icon: AlertTriangle, label: "Incident Log", group: "Compliance" },
   { key: "gdpr", icon: FileText, label: "GDPR", group: "Compliance" },
@@ -150,7 +150,7 @@ const OFSTED_AREAS = [
     weight: 25,
     items: [
       { key: "safeguarding_policy", label: "Safeguarding policy up to date" },
-      { key: "staff_dbs", label: "All staff DBS checked" },
+      { key: "staff_dbs", label: "Alle Mitarbeiter mit erweitertem Führungszeugnis" },
       { key: "staff_training", label: "Staff training records current" },
       { key: "complaints_log", label: "Complaints log maintained" },
       { key: "risk_assessments", label: "Risk assessments completed" },
@@ -164,7 +164,7 @@ const OFSTED_AREAS = [
       { key: "learning_plans", label: "Individual learning plans in place" },
       { key: "observations", label: "Regular child observations recorded" },
       { key: "parent_engagement", label: "Parent engagement documented" },
-      { key: "eyfs_tracking", label: "EYFS progress tracking" },
+      { key: "eyfs_tracking", label: "Bildungsdokumentation & Portfolios" },
       { key: "activity_planning", label: "Activity planning documented" },
     ],
   },
@@ -689,10 +689,10 @@ const AdminDashboard = () => {
 
   const REQUIRED_DOCS_BY_ROLE: Record<string, { type: string; label: string }[]> = {
     childminder: [
-      { type: "dbs_certificate", label: "DBS Certificate" },
+      { type: "dbs_certificate", label: "Erweitertes Führungszeugnis" },
       { type: "first_aid_cert", label: "First Aid Certificate" },
       { type: "insurance", label: "Insurance Document" },
-      { type: "ofsted_registration", label: "Ofsted Registration" },
+      { type: "ofsted_registration", label: "Pflegeerlaubnis § 43 SGB VIII" },
     ],
     parent: [
       { type: "other", label: "Proof of Identity (Passport or Driving Licence)" },
@@ -1150,7 +1150,7 @@ const AdminDashboard = () => {
                           <CartesianGrid strokeDasharray="3 3" stroke="hsl(220 20% 91%)" />
                           <XAxis dataKey="month" tick={{ fontSize: 10 }} />
                           <YAxis tick={{ fontSize: 10 }} />
-                          <Tooltip contentStyle={{ fontSize: 12, borderRadius: 12 }} formatter={(v: number) => [`£${v.toFixed(2)}`, "Expenses"]} />
+                          <Tooltip contentStyle={{ fontSize: 12, borderRadius: 12 }} formatter={(v: number) => [`€${v.toFixed(2)}`, "Expenses"]} />
                           <Line type="monotone" dataKey="total" stroke="hsl(44 93% 57%)" strokeWidth={2} dot={{ fill: "hsl(44 93% 57%)", r: 3 }} />
                         </LineChart>
                       </ResponsiveContainer>
@@ -1180,9 +1180,9 @@ const AdminDashboard = () => {
                     </div>
                   </div>
 
-                  {/* Ofsted Quick Score */}
+                  {/* Jugendamt-Kurzbewertung */}
                   <div className="ks-card p-4">
-                    <h3 className="font-bold text-sm mb-2 flex items-center gap-1.5"><ClipboardCheck className="w-4 h-4" /> Ofsted Readiness</h3>
+                    <h3 className="font-bold text-sm mb-2 flex items-center gap-1.5"><ClipboardCheck className="w-4 h-4" /> Jugendamt-Bereitschaft</h3>
                     <div className="flex items-center gap-4">
                       <div className={`text-3xl font-bold ${ofstedScore.overall >= 70 ? "text-success" : ofstedScore.overall >= 50 ? "text-primary" : "text-destructive"}`}>
                         {ofstedScore.overall.toFixed(0)}%
@@ -1497,7 +1497,7 @@ const AdminDashboard = () => {
                           <th className="text-left p-3 text-xs text-muted-foreground font-medium">Location</th>
                           <th className="text-left p-3 text-xs text-muted-foreground font-medium">Status</th>
                           <th className="text-left p-3 text-xs text-muted-foreground font-medium">DBS</th>
-                          <th className="text-left p-3 text-xs text-muted-foreground font-medium">Ofsted</th>
+                          <th className="text-left p-3 text-xs text-muted-foreground font-medium">Jugendamt</th>
                           <th className="text-left p-3 text-xs text-muted-foreground font-medium">Exp</th>
                           <th className="text-left p-3 text-xs text-muted-foreground font-medium">Live</th>
                         </tr></thead>
@@ -1561,8 +1561,8 @@ const AdminDashboard = () => {
                               {statusBadge(cm.onboarding_status)}
                               {(cm as any).prospect_stage && statusBadge((cm as any).prospect_stage)}
                               {(cm as any).regulator && <span className="text-[11px] text-muted-foreground uppercase">{(cm as any).regulator}</span>}
-                              {cm.dbs_number && <span className="text-[11px] text-muted-foreground">DBS ✓</span>}
-                              {cm.ofsted_urn && <span className="text-[11px] text-muted-foreground">Ofsted ✓</span>}
+                              {cm.dbs_number && <span className="text-[11px] text-muted-foreground">Führungszeugnis ✓</span>}
+                              {cm.ofsted_urn && <span className="text-[11px] text-muted-foreground">Jugendamt ✓</span>}
                               {hasActiveSub ? (
                                 <span className="text-[10px] px-2 py-0.5 rounded-full bg-success/15 text-success font-bold">Subscribed</span>
                               ) : (
@@ -1651,7 +1651,7 @@ const AdminDashboard = () => {
                               <td className="p-3">{statusBadge(s.plan)}</td>
                               <td className="p-3">{statusBadge(s.status)}</td>
                               <td className="p-3 text-xs">{format(new Date(s.trial_ends_at), "dd MMM yyyy")}</td>
-                              <td className="p-3 text-xs">£{s.price_monthly}/mo</td>
+                              <td className="p-3 text-xs">€{s.price_monthly}/mo</td>
                             </tr>
                           ))}
                         </tbody>
@@ -1690,7 +1690,7 @@ const AdminDashboard = () => {
                             </div>
                             <div className="flex gap-3 mt-1 text-[11px] text-muted-foreground flex-wrap">
                               <span>{cm.dbs_number ? "✅ DBS" : "❌ DBS"}</span>
-                              <span>{cm.ofsted_urn ? "✅ Ofsted" : "❌ Ofsted"}</span>
+                              <span>{cm.ofsted_urn ? "✅ Jugendamt" : "❌ Jugendamt"}</span>
                               <span>{statusBadge(cm.onboarding_status)}</span>
                             </div>
                             <div className="flex gap-2 mt-1 text-[11px] flex-wrap">
@@ -2210,7 +2210,7 @@ const AdminDashboard = () => {
               {/* ═══ EXPENSES ═══ */}
               {tab === "expenses" && (
                 <div className="space-y-5">
-                  <h2 className="text-xl font-bold">Expenses</h2>
+                  <h2 className="text-xl font-bold">Ausgaben</h2>
 
                   <div className="ks-card p-4 space-y-3">
                     <h3 className="font-bold text-sm flex items-center gap-1.5"><Plus className="w-4 h-4" /> Add Expense</h3>
@@ -2223,7 +2223,7 @@ const AdminDashboard = () => {
                         </select>
                       </div>
                       <div>
-                        <label className="text-xs text-muted-foreground mb-1 block">Amount (£) *</label>
+                        <label className="text-xs text-muted-foreground mb-1 block">Betrag (€) *</label>
                         <Input type="number" step="0.01" min="0" placeholder="0.00" value={expenseForm.amount}
                           onChange={(e) => setExpenseForm(f => ({ ...f, amount: e.target.value }))} />
                       </div>
@@ -2302,19 +2302,19 @@ const AdminDashboard = () => {
                       </div>
                     )}
                     <div className="ks-card px-4 py-2 text-sm font-bold">
-                      Total: £{expenses.reduce((sum, e) => sum + Number(e.amount), 0).toFixed(2)}
+                      Gesamt: €{expenses.reduce((sum, e) => sum + Number(e.amount), 0).toFixed(2)}
                     </div>
                     <div className="ks-card px-4 py-2 text-sm text-success font-bold">
-                      Approved: £{expenses.filter(e => e.is_paid).reduce((sum, e) => sum + Number(e.amount), 0).toFixed(2)}
+                      Genehmigt: €{expenses.filter(e => e.is_paid).reduce((sum, e) => sum + Number(e.amount), 0).toFixed(2)}
                     </div>
                     <div className="ks-card px-4 py-2 text-sm text-destructive font-bold">
-                      Pending: £{expenses.filter(e => !e.is_paid).reduce((sum, e) => sum + Number(e.amount), 0).toFixed(2)}
+                      Offen: €{expenses.filter(e => !e.is_paid).reduce((sum, e) => sum + Number(e.amount), 0).toFixed(2)}
                     </div>
                     <div className="ks-card px-4 py-2 text-sm text-primary font-bold">
-                      Reimbursed: £{expenses.filter(e => e.reimbursed).reduce((sum, e) => sum + Number(e.amount), 0).toFixed(2)}
+                      Erstattet: €{expenses.filter(e => e.reimbursed).reduce((sum, e) => sum + Number(e.amount), 0).toFixed(2)}
                     </div>
                     <div className="ks-card px-4 py-2 text-sm text-warning font-bold">
-                      Unreimbursed: £{expenses.filter(e => !e.reimbursed).reduce((sum, e) => sum + Number(e.amount), 0).toFixed(2)}
+                      Nicht erstattet: €{expenses.filter(e => !e.reimbursed).reduce((sum, e) => sum + Number(e.amount), 0).toFixed(2)}
                     </div>
                     <div className="ks-card px-4 py-2 text-sm text-muted-foreground">
                       {expenses.length} expense{expenses.length !== 1 ? "s" : ""}
@@ -2331,7 +2331,7 @@ const AdminDashboard = () => {
                       ).sort((a, b) => b[1] - a[1]).map(([cat, total]) => (
                         <div key={cat} className="ks-card p-3 text-center">
                           <div className="text-xs text-muted-foreground">{cat}</div>
-                          <div className="text-sm font-bold">£{total.toFixed(2)}</div>
+                          <div className="text-sm font-bold">€{total.toFixed(2)}</div>
                         </div>
                       ))}
                     </div>
@@ -2373,9 +2373,9 @@ const AdminDashboard = () => {
                         if (!printWin) return;
                         const total = filteredExpenses.reduce((s, e) => s + Number(e.amount), 0);
                         const rows = filteredExpenses.map(e =>
-                          `<tr><td>${e.expense_date}</td><td>${e.category}</td><td>${e.description || "—"}</td><td>${e.paid_to || "—"}</td><td>${e.paid_by || "—"}</td><td>${e.allocated_to || "—"}</td><td>${e.is_paid ? "Paid" : "Unpaid"}</td><td>${e.reimbursed ? "Yes" : "No"}</td><td style="text-align:right">£${Number(e.amount).toFixed(2)}</td></tr>`
+                          `<tr><td>${e.expense_date}</td><td>${e.category}</td><td>${e.description || "—"}</td><td>${e.paid_to || "—"}</td><td>${e.paid_by || "—"}</td><td>${e.allocated_to || "—"}</td><td>${e.is_paid ? "Paid" : "Unpaid"}</td><td>${e.reimbursed ? "Yes" : "No"}</td><td style="text-align:right">€${Number(e.amount).toFixed(2)}</td></tr>`
                         ).join("");
-                        printWin.document.write(`<!DOCTYPE html><html><head><title>KinderStars Expenses</title><style>body{font-family:Arial,sans-serif;padding:20px}table{width:100%;border-collapse:collapse;margin-top:16px}th,td{border:1px solid #ddd;padding:6px 8px;font-size:12px;text-align:left}th{background:#f5f5f5;font-weight:600}h1{font-size:18px;margin:0}h2{font-size:14px;color:#666;margin:4px 0 0}.total{font-weight:bold;font-size:14px;margin-top:12px}@media print{body{padding:0}}</style></head><body><h1>KinderStars GmbH — Expenses Report</h1><h2>${filteredExpenses.length} expense${filteredExpenses.length !== 1 ? "s" : ""}</h2><table><thead><tr><th>Date</th><th>Category</th><th>Description</th><th>Paid To</th><th>Paid By</th><th>Allocated To</th><th>Status</th><th>Reimbursed</th><th style="text-align:right">Amount</th></tr></thead><tbody>${rows}</tbody></table><p class="total">Total: £${total.toFixed(2)}</p></body></html>`);
+                        printWin.document.write(`<!DOCTYPE html><html><head><title>KinderStars Expenses</title><style>body{font-family:Arial,sans-serif;padding:20px}table{width:100%;border-collapse:collapse;margin-top:16px}th,td{border:1px solid #ddd;padding:6px 8px;font-size:12px;text-align:left}th{background:#f5f5f5;font-weight:600}h1{font-size:18px;margin:0}h2{font-size:14px;color:#666;margin:4px 0 0}.total{font-weight:bold;font-size:14px;margin-top:12px}@media print{body{padding:0}}</style></head><body><h1>KinderStars GmbH — Ausgabenbericht</h1><h2>${filteredExpenses.length} expense${filteredExpenses.length !== 1 ? "s" : ""}</h2><table><thead><tr><th>Date</th><th>Category</th><th>Description</th><th>Paid To</th><th>Paid By</th><th>Allocated To</th><th>Status</th><th>Reimbursed</th><th style="text-align:right">Amount</th></tr></thead><tbody>${rows}</tbody></table><p class="total">Gesamt: €${total.toFixed(2)}</p></body></html>`);
                         printWin.document.close();
                         printWin.print();
                       }}>
@@ -2435,7 +2435,7 @@ const AdminDashboard = () => {
                                   {e.reimbursed ? "Yes" : "No"}
                                 </span>
                               </td>
-                              <td className="p-3 text-right font-bold">£{Number(e.amount).toFixed(2)}</td>
+                              <td className="p-3 text-right font-bold">€{Number(e.amount).toFixed(2)}</td>
                               <td className="p-3">
                                 <Button variant="ghost" size="sm" onClick={() => deleteExpense(e.id)}>
                                   <Trash2 className="w-4 h-4 text-destructive" />
@@ -2470,10 +2470,10 @@ const AdminDashboard = () => {
                   <div className="space-y-5">
                     <h2 className="text-xl font-bold flex items-center gap-2"><TrendingUp className="w-5 h-5" /> Finance Pulse</h2>
                     <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
-                      <div className="ks-card p-4 text-center"><div className="text-2xl font-bold text-success">£{totalRevenue.toFixed(2)}</div><div className="text-xs text-muted-foreground">Revenue (Paid)</div></div>
-                      <div className="ks-card p-4 text-center"><div className="text-2xl font-bold text-primary">£{totalOutstanding.toFixed(2)}</div><div className="text-xs text-muted-foreground">Outstanding</div></div>
-                      <div className="ks-card p-4 text-center"><div className="text-2xl font-bold text-destructive">£{totalExpensesAmt.toFixed(2)}</div><div className="text-xs text-muted-foreground">Expenses</div></div>
-                      <div className="ks-card p-4 text-center"><div className={`text-2xl font-bold ${netProfit >= 0 ? "text-success" : "text-destructive"}`}>£{netProfit.toFixed(2)}</div><div className="text-xs text-muted-foreground">Net Profit</div></div>
+                      <div className="ks-card p-4 text-center"><div className="text-2xl font-bold text-success">€{totalRevenue.toFixed(2)}</div><div className="text-xs text-muted-foreground">Umsatz (bezahlt)</div></div>
+                      <div className="ks-card p-4 text-center"><div className="text-2xl font-bold text-primary">€{totalOutstanding.toFixed(2)}</div><div className="text-xs text-muted-foreground">Offen</div></div>
+                      <div className="ks-card p-4 text-center"><div className="text-2xl font-bold text-destructive">€{totalExpensesAmt.toFixed(2)}</div><div className="text-xs text-muted-foreground">Ausgaben</div></div>
+                      <div className="ks-card p-4 text-center"><div className={`text-2xl font-bold ${netProfit >= 0 ? "text-success" : "text-destructive"}`}>€{netProfit.toFixed(2)}</div><div className="text-xs text-muted-foreground">Nettogewinn</div></div>
                       <div className="ks-card p-4 text-center"><div className="text-2xl font-bold">{activeContracts}</div><div className="text-xs text-muted-foreground">Active Contracts</div></div>
                     </div>
                     <div className="ks-card p-4">
@@ -2483,7 +2483,7 @@ const AdminDashboard = () => {
                           <thead><tr className="border-b border-border">
                             <th className="text-left p-2 text-xs text-muted-foreground">Month</th>
                             <th className="text-right p-2 text-xs text-success">Revenue</th>
-                            <th className="text-right p-2 text-xs text-destructive">Expenses</th>
+                            <th className="text-right p-2 text-xs text-destructive">Ausgaben</th>
                             <th className="text-right p-2 text-xs font-bold">Net</th>
                             <th className="p-2 text-xs text-muted-foreground">Bar</th>
                           </tr></thead>
@@ -2493,9 +2493,9 @@ const AdminDashboard = () => {
                               return (
                                 <tr key={m.month} className="border-b border-border last:border-0">
                                   <td className="p-2 font-medium text-xs">{m.month}</td>
-                                  <td className="p-2 text-right text-xs text-success">£{m.revenue.toFixed(2)}</td>
-                                  <td className="p-2 text-right text-xs text-destructive">£{m.expenses.toFixed(2)}</td>
-                                  <td className={`p-2 text-right text-xs font-bold ${m.net >= 0 ? "text-success" : "text-destructive"}`}>£{m.net.toFixed(2)}</td>
+                                  <td className="p-2 text-right text-xs text-success">€{m.revenue.toFixed(2)}</td>
+                                  <td className="p-2 text-right text-xs text-destructive">€{m.expenses.toFixed(2)}</td>
+                                  <td className={`p-2 text-right text-xs font-bold ${m.net >= 0 ? "text-success" : "text-destructive"}`}>€{m.net.toFixed(2)}</td>
                                   <td className="p-2 w-40">
                                     <div className="flex gap-0.5 h-4">
                                       <div className="bg-success/30 rounded-sm" style={{ width: `${(m.revenue / maxVal) * 100}%` }} />
@@ -2525,7 +2525,7 @@ const AdminDashboard = () => {
                           {["draft", "sent", "paid", "overdue"].map((status) => {
                             const count = invoices.filter(i => i.status === status).length;
                             const total = invoices.filter(i => i.status === status).reduce((s, i) => s + Number(i.total), 0);
-                            return (<div key={status} className="text-center"><div className="text-lg font-bold">{count}</div><div className="text-xs text-muted-foreground capitalize">{status}</div><div className="text-xs font-medium">£{total.toFixed(2)}</div></div>);
+                            return (<div key={status} className="text-center"><div className="text-lg font-bold">{count}</div><div className="text-xs text-muted-foreground capitalize">{status}</div><div className="text-xs font-medium">€{total.toFixed(2)}</div></div>);
                           })}
                         </div>
                       </div>
@@ -2538,7 +2538,7 @@ const AdminDashboard = () => {
               {tab === "ofsted" && (
                 <div className="space-y-5">
                   <div className="flex items-center justify-between">
-                    <h2 className="text-xl font-bold flex items-center gap-2"><ClipboardCheck className="w-5 h-5" /> Ofsted Compliance Tools</h2>
+                    <h2 className="text-xl font-bold flex items-center gap-2"><ClipboardCheck className="w-5 h-5" /> Jugendamt-Compliance</h2>
                     <Button variant="hero" size="sm" className="gap-1.5" onClick={runMockAudit}>
                       <Sparkles className="w-4 h-4" /> Run Mock Audit
                     </Button>
@@ -2561,7 +2561,7 @@ const AdminDashboard = () => {
                             style={{ width: `${ofstedScore.overall}%` }} />
                         </div>
                         <div className="flex justify-between text-[10px] text-muted-foreground mt-1">
-                          <span>Inadequate</span><span>Requires Improvement</span><span>Good</span><span>Outstanding</span>
+                          <span>Inadequate</span><span>Requires Improvement</span><span>Good</span><span>Offen</span>
                         </div>
                       </div>
                     </div>
@@ -2644,7 +2644,7 @@ const AdminDashboard = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                     {[
                       { title: "Safeguarding Policy", desc: "Ensure up-to-date safeguarding policy is documented and shared with all staff.", status: complianceDocs.some(d => d.document_type === "safeguarding_policy" && d.status === "approved") },
-                      { title: "DBS Checks", desc: "All childminders must have valid DBS certificates before working with children.", status: cmProfiles.filter(c => c.dbs_number).length > 0 },
+                      { title: "Führungszeugnis-Prüfungen", desc: "Alle Betreuungspersonen müssen ein gültiges erweitertes Führungszeugnis (§ 30a BZRG) vorlegen, bevor sie mit Kindern arbeiten.", status: cmProfiles.filter(c => c.dbs_number).length > 0 },
                       { title: "First Aid Training", desc: "Current paediatric first aid certification required for all active childminders.", status: cmProfiles.filter(c => c.first_aid_expiry && new Date(c.first_aid_expiry) > new Date()).length > 0 },
                       { title: "Risk Assessments", desc: "Risk assessments must be completed for all childminder settings and activities.", status: false },
                       { title: "Prevent Duty", desc: "Staff training on Prevent duty and British values awareness.", status: false },
@@ -2668,15 +2668,15 @@ const AdminDashboard = () => {
                     <div className="text-xs space-y-1 text-muted-foreground">
                       <p><strong>Designated Safeguarding Lead:</strong> Admin User — info@kinderstars.de</p>
                       <p><strong>Local Authority Designated Officer (LADO):</strong> Contact your local LADO</p>
-                      <p><strong>Ofsted:</strong> 0300 123 1231</p>
+                      <p><strong>Landesjugendamt:</strong> siehe Landesbehörde</p>
                       <p><strong>NSPCC Helpline:</strong> 0808 800 5000</p>
                       <p><strong>Childline:</strong> 0800 1111</p>
                     </div>
                   </div>
                   <div className="ks-card p-4 space-y-2">
-                    <h3 className="font-bold text-sm">DBS & Compliance Summary</h3>
+                    <h3 className="font-bold text-sm">Führungszeugnis & Compliance-Übersicht</h3>
                     <div className="grid grid-cols-3 gap-3 text-center">
-                      <div><div className="text-2xl font-bold text-success">{cmProfiles.filter(c => c.dbs_number).length}</div><div className="text-xs text-muted-foreground">DBS Verified</div></div>
+                      <div><div className="text-2xl font-bold text-success">{cmProfiles.filter(c => c.dbs_number).length}</div><div className="text-xs text-muted-foreground">Führungszeugnis geprüft</div></div>
                       <div><div className="text-2xl font-bold text-destructive">{cmProfiles.filter(c => !c.dbs_number).length}</div><div className="text-xs text-muted-foreground">Missing DBS</div></div>
                       <div><div className="text-2xl font-bold">{cmProfiles.filter(c => c.first_aid_expiry && new Date(c.first_aid_expiry) > new Date()).length}</div><div className="text-xs text-muted-foreground">Valid First Aid</div></div>
                     </div>
