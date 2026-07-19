@@ -309,20 +309,20 @@ const MessagesPage = () => {
     return <Check className="w-3 h-3" />;
   };
 
-  if (loading) return <div className="text-muted-foreground">Loading messages…</div>;
+  if (loading) return <div className="text-muted-foreground">Nachrichten werden geladen…</div>;
 
   return (
     <div className="h-[calc(100vh-120px)] flex flex-col">
       <div>
-        <h1 className="text-2xl font-bold tracking-tight">Messages</h1>
-        <p className="text-muted-foreground text-sm mb-4">Chat with parents, childminders, and the KinderStars team.</p>
+        <h1 className="text-2xl font-bold tracking-tight">Nachrichten</h1>
+        <p className="text-muted-foreground text-sm mb-4">Chatten Sie mit Eltern, Betreuungspersonen und dem KinderStars-Team.</p>
       </div>
 
       <div className="flex-1 flex border border-border rounded-xl overflow-hidden bg-card min-h-0">
         {/* Contact list */}
         <div className={`w-full sm:w-[280px] border-r border-border flex flex-col shrink-0 ${selectedContact && !showNewChat ? "hidden sm:flex" : "flex"}`}>
           <div className="p-3 border-b border-border flex items-center justify-between">
-            <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest">Conversations</p>
+            <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest">Unterhaltungen</p>
             <button onClick={() => { setShowNewChat(!showNewChat); setSelectedContact(null); }}
               className="w-7 h-7 rounded-lg flex items-center justify-center hover:bg-muted transition-colors text-muted-foreground">
               <Plus className="w-4 h-4" />
@@ -335,7 +335,7 @@ const MessagesPage = () => {
                 <div className="relative">
                   <Search className="w-3.5 h-3.5 absolute left-2.5 top-1/2 -translate-y-1/2 text-muted-foreground" />
                   <input className="w-full pl-8 pr-3 py-2 rounded-lg border border-border text-xs bg-background"
-                    placeholder="Search people…" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} autoFocus />
+                    placeholder="Personen suchen…" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} autoFocus />
                 </div>
               </div>
               {filteredNewUsers.length === 0 ? (
@@ -390,7 +390,7 @@ const MessagesPage = () => {
                       )}
                     </div>
                     <div className="flex items-center justify-between mt-0.5">
-                      <span className="text-xs text-muted-foreground truncate max-w-[160px] ml-4">{c.lastMessage || "No messages"}</span>
+                      <span className="text-xs text-muted-foreground truncate max-w-[160px] ml-4">{c.lastMessage || "Keine Nachrichten"}</span>
                       {c.lastMessageAt && (
                         <span className="text-[10px] text-muted-foreground shrink-0 ml-2">
                           {format(new Date(c.lastMessageAt), "dd/MM HH:mm")}
