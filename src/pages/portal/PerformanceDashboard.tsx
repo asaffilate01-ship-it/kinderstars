@@ -62,23 +62,23 @@ const PerformanceDashboard = () => {
     setLoading(false);
   };
 
-  if (loading) return <div className="text-muted-foreground p-4">Loading…</div>;
+  if (loading) return <div className="text-muted-foreground p-4">Wird geladen…</div>;
   if (!stats) return null;
 
   const cards = [
-    { label: "Reliability Score", value: `${stats.reliabilityScore}%`, icon: Award, color: stats.reliabilityScore >= 90 ? "text-success" : stats.reliabilityScore >= 70 ? "text-primary" : "text-destructive" },
-    { label: "Total Hours Worked", value: `${stats.totalHours}h`, icon: Clock, color: "text-secondary" },
-    { label: "Completed Shifts", value: `${stats.completedShifts}`, icon: Calendar, color: "text-secondary" },
-    { label: "Late Arrivals", value: `${stats.lateArrivals}`, icon: AlertTriangle, color: stats.lateArrivals === 0 ? "text-success" : "text-destructive" },
-    { label: "Avg Hours/Shift", value: `${stats.avgHoursPerShift}h`, icon: TrendingUp, color: "text-secondary" },
-    { label: "Timesheets Approved", value: `${stats.approvedTimesheets}/${stats.submittedTimesheets}`, icon: TrendingUp, color: "text-secondary" },
+    { label: "Zuverlässigkeitsscore", value: `${stats.reliabilityScore}%`, icon: Award, color: stats.reliabilityScore >= 90 ? "text-success" : stats.reliabilityScore >= 70 ? "text-primary" : "text-destructive" },
+    { label: "Geleistete Stunden", value: `${stats.totalHours} Std.`, icon: Clock, color: "text-secondary" },
+    { label: "Abgeschlossene Einsätze", value: `${stats.completedShifts}`, icon: Calendar, color: "text-secondary" },
+    { label: "Verspätungen", value: `${stats.lateArrivals}`, icon: AlertTriangle, color: stats.lateArrivals === 0 ? "text-success" : "text-destructive" },
+    { label: "Ø Stunden/Einsatz", value: `${stats.avgHoursPerShift} Std.`, icon: TrendingUp, color: "text-secondary" },
+    { label: "Genehmigte Stundenzettel", value: `${stats.approvedTimesheets}/${stats.submittedTimesheets}`, icon: TrendingUp, color: "text-secondary" },
   ];
 
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold tracking-tight">Performance</h1>
-        <p className="text-muted-foreground text-sm">Your attendance and reliability stats.</p>
+        <h1 className="text-2xl font-bold tracking-tight">Leistung</h1>
+        <p className="text-muted-foreground text-sm">Deine Anwesenheits- und Zuverlässigkeitsstatistiken.</p>
       </div>
 
       {/* Reliability hero */}
@@ -95,8 +95,8 @@ const PerformanceDashboard = () => {
           </svg>
           <span className="absolute text-2xl font-bold">{stats.reliabilityScore}%</span>
         </div>
-        <p className="font-bold text-sm">Reliability Score</p>
-        <p className="text-xs text-muted-foreground mt-1">Based on on-time arrivals across {stats.submittedTimesheets} logged sessions</p>
+        <p className="font-bold text-sm">Zuverlässigkeitsscore</p>
+        <p className="text-xs text-muted-foreground mt-1">Basierend auf pünktlichen Ankünften über {stats.submittedTimesheets} erfasste Einsätze</p>
       </div>
 
       {/* Stat cards */}
@@ -118,11 +118,11 @@ const PerformanceDashboard = () => {
         <div className="ks-card p-4 bg-destructive/5 border-destructive/20">
           <div className="flex items-center gap-2 mb-2">
             <AlertTriangle className="w-4 h-4 text-destructive" />
-            <p className="font-bold text-sm text-destructive">Late Arrival Warning</p>
+            <p className="font-bold text-sm text-destructive">Verspätungshinweis</p>
           </div>
           <p className="text-xs text-muted-foreground">
-            You have {stats.lateArrivals} late arrival{stats.lateArrivals !== 1 ? "s" : ""} on record.
-            Consistent punctuality improves your reliability score and helps you receive more shift offers.
+            Es sind {stats.lateArrivals} Verspätung{stats.lateArrivals !== 1 ? "en" : ""} erfasst.
+            Pünktlichkeit verbessert deinen Zuverlässigkeitsscore und erhöht die Zahl der Einsatzangebote.
           </p>
         </div>
       )}
