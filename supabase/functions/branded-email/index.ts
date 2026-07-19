@@ -15,21 +15,21 @@ const bookingConfirmationHtml = (
 ) => `
 <div style="font-family: 'Segoe UI', Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #FFFBF5; border-radius: 16px; overflow: hidden;">
   <div style="background: linear-gradient(135deg, #1a5276, #2980b9); padding: 24px; text-align: center;">
-    <h1 style="color: white; margin: 0; font-size: 24px;">Booking ${status === "confirmed" ? "Confirmed ✅" : "Update 📋"}</h1>
+    <h1 style="color: white; margin: 0; font-size: 24px;">Buchung ${status === "confirmed" ? "bestätigt ✅" : "aktualisiert 📋"}</h1>
   </div>
   <div style="padding: 28px;">
-    <p style="font-size: 16px;">Hi ${parentName},</p>
-    <p>Your booking has been <strong>${status}</strong>.</p>
+    <p style="font-size: 16px;">Hallo ${parentName},</p>
+    <p>Ihre Buchung wurde <strong>${status}</strong>.</p>
     <div style="background: white; border-radius: 12px; padding: 20px; margin: 20px 0; border-left: 4px solid #F97316;">
       <table style="width: 100%; font-size: 14px;">
-        <tr><td style="padding: 6px 0; color: #666;">Childminder</td><td style="padding: 6px 0; font-weight: bold;">${childminderName}</td></tr>
-        <tr><td style="padding: 6px 0; color: #666;">Date</td><td style="padding: 6px 0; font-weight: bold;">${date}</td></tr>
-        <tr><td style="padding: 6px 0; color: #666;">Time</td><td style="padding: 6px 0; font-weight: bold;">${startTime} – ${endTime}</td></tr>
+        <tr><td style="padding: 6px 0; color: #666;">Betreuungsperson</td><td style="padding: 6px 0; font-weight: bold;">${childminderName}</td></tr>
+        <tr><td style="padding: 6px 0; color: #666;">Datum</td><td style="padding: 6px 0; font-weight: bold;">${date}</td></tr>
+        <tr><td style="padding: 6px 0; color: #666;">Uhrzeit</td><td style="padding: 6px 0; font-weight: bold;">${startTime} – ${endTime}</td></tr>
         <tr><td style="padding: 6px 0; color: #666;">Status</td><td style="padding: 6px 0;"><span style="background: ${status === "confirmed" ? "#dcfce7" : "#fef3c7"}; color: ${status === "confirmed" ? "#166534" : "#92400e"}; padding: 2px 10px; border-radius: 8px; font-weight: bold; font-size: 12px;">${status.toUpperCase()}</span></td></tr>
       </table>
     </div>
     <div style="text-align: center; margin-top: 20px;">
-      <a href="https://kinderstars.de/parent/bookings" style="display: inline-block; background: #F97316; color: white; padding: 12px 28px; border-radius: 12px; text-decoration: none; font-weight: bold;">View Bookings →</a>
+      <a href="https://kinderstars.de/parent/bookings" style="display: inline-block; background: #F97316; color: white; padding: 12px 28px; border-radius: 12px; text-decoration: none; font-weight: bold;">Buchungen ansehen →</a>
     </div>
   </div>
   <div style="background: #F5F0EB; padding: 14px; text-align: center; font-size: 12px; color: #999;">
@@ -40,15 +40,15 @@ const bookingConfirmationHtml = (
 const passwordResetHtml = (firstName: string, resetLink: string) => `
 <div style="font-family: 'Segoe UI', Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #FFFBF5; border-radius: 16px; overflow: hidden;">
   <div style="background: linear-gradient(135deg, #1a5276, #2980b9); padding: 24px; text-align: center;">
-    <h1 style="color: white; margin: 0; font-size: 24px;">Reset Your Password 🔑</h1>
+    <h1 style="color: white; margin: 0; font-size: 24px;">Passwort zurücksetzen 🔑</h1>
   </div>
   <div style="padding: 28px;">
-    <p style="font-size: 16px;">Hi ${firstName || "there"},</p>
-    <p>We received a request to reset your KinderStars password. Click below to set a new one:</p>
+    <p style="font-size: 16px;">Hallo ${firstName || "zusammen"},</p>
+    <p>Wir haben eine Anfrage zum Zurücksetzen Ihres KinderStars-Passworts erhalten. Klicken Sie unten, um ein neues zu vergeben:</p>
     <div style="text-align: center; margin: 28px 0;">
-      <a href="${resetLink}" style="display: inline-block; background: #F97316; color: white; padding: 14px 36px; border-radius: 12px; text-decoration: none; font-weight: bold; font-size: 16px;">Reset Password →</a>
+      <a href="${resetLink}" style="display: inline-block; background: #F97316; color: white; padding: 14px 36px; border-radius: 12px; text-decoration: none; font-weight: bold; font-size: 16px;">Passwort zurücksetzen →</a>
     </div>
-    <p style="color: #666; font-size: 13px;">If you didn't request this, you can safely ignore this email. This link expires in 1 hour.</p>
+    <p style="color: #666; font-size: 13px;">Falls Sie diese Anfrage nicht gestellt haben, ignorieren Sie diese E-Mail. Der Link ist 1 Stunde gültig.</p>
   </div>
   <div style="background: #F5F0EB; padding: 14px; text-align: center; font-size: 12px; color: #999;">
     KinderStars GmbH · hello@kinderstars.de
@@ -58,15 +58,15 @@ const passwordResetHtml = (firstName: string, resetLink: string) => `
 const verificationHtml = (firstName: string, confirmLink: string) => `
 <div style="font-family: 'Segoe UI', Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #FFFBF5; border-radius: 16px; overflow: hidden;">
   <div style="background: linear-gradient(135deg, #F97316, #FB923C); padding: 28px; text-align: center;">
-    <h1 style="color: white; margin: 0; font-size: 24px;">Verify Your Email ✉️</h1>
+    <h1 style="color: white; margin: 0; font-size: 24px;">E-Mail bestätigen ✉️</h1>
   </div>
   <div style="padding: 28px;">
-    <p style="font-size: 16px;">Hi ${firstName || "there"},</p>
-    <p>Thanks for signing up to KinderStars! Please verify your email to get started:</p>
+    <p style="font-size: 16px;">Hallo ${firstName || "zusammen"},</p>
+    <p>Danke für Ihre Anmeldung bei KinderStars! Bitte bestätigen Sie Ihre E-Mail-Adresse, um loszulegen:</p>
     <div style="text-align: center; margin: 28px 0;">
-      <a href="${confirmLink}" style="display: inline-block; background: #F97316; color: white; padding: 14px 36px; border-radius: 12px; text-decoration: none; font-weight: bold; font-size: 16px;">Verify Email →</a>
+      <a href="${confirmLink}" style="display: inline-block; background: #F97316; color: white; padding: 14px 36px; border-radius: 12px; text-decoration: none; font-weight: bold; font-size: 16px;">E-Mail bestätigen →</a>
     </div>
-    <p style="color: #666; font-size: 13px;">If you didn't create this account, please ignore this email.</p>
+    <p style="color: #666; font-size: 13px;">Falls Sie kein Konto erstellt haben, ignorieren Sie diese E-Mail.</p>
   </div>
   <div style="background: #F5F0EB; padding: 14px; text-align: center; font-size: 12px; color: #999;">
     KinderStars GmbH · hello@kinderstars.de
@@ -85,7 +85,7 @@ Deno.serve(async (req) => {
 
     switch (template) {
       case "booking_confirmation":
-        subject = `Booking ${params.status === "confirmed" ? "Confirmed" : "Update"} – KinderStars`;
+        subject = `Buchung ${params.status === "confirmed" ? "bestätigt" : "aktualisiert"} – KinderStars`;
         html = bookingConfirmationHtml(
           params.parent_name || "Parent",
           params.childminder_name || "Childminder",
@@ -96,11 +96,11 @@ Deno.serve(async (req) => {
         );
         break;
       case "password_reset":
-        subject = "Reset Your KinderStars Password";
+        subject = "Passwort zurücksetzen – KinderStars";
         html = passwordResetHtml(params.first_name || "", params.reset_link || "");
         break;
       case "verification":
-        subject = "Verify Your KinderStars Email";
+        subject = "E-Mail bestätigen – KinderStars";
         html = verificationHtml(params.first_name || "", params.confirm_link || "");
         break;
       default:
