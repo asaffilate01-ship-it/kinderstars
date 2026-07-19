@@ -37,10 +37,10 @@ const StatsBar = () => {
   const counter1 = useAnimatedCounter(100, 1800);
 
   const stats = [
-    { value: t("stats.ukWide"), label: t("stats.nationwideCoverage"), isText: true },
+    { value: "Bundesweit", label: t("stats.nationwideCoverage"), isText: true },
     { value: "4.9★", label: t("stats.parentSatisfaction"), isText: true },
-    { value: "DBS", label: t("stats.allChecksVerified"), isText: true },
-    { value: "Quality", label: t("stats.assuredMonitored"), isText: true },
+    { value: "§ 30 BZRG", label: t("stats.allChecksVerified"), isText: true },
+    { value: "Geprüft", label: t("stats.assuredMonitored"), isText: true },
   ];
 
   return (
@@ -61,11 +61,11 @@ const StatsBar = () => {
       {/* Trust Badges */}
       <div className="flex flex-wrap items-center justify-center gap-3 mt-4 pt-4 border-t border-border">
         {[
-          { label: "DBS Enhanced", icon: "🛡️" },
-          { label: "ICO Registered", icon: "📋" },
-          { label: "Ofsted Aligned", icon: "⭐" },
-          { label: "GDPR Compliant", icon: "🔒" },
-          { label: "First Aid Trained", icon: "🏥" },
+          { label: "Erw. Führungszeugnis", icon: "🛡️" },
+          { label: "DSGVO‑konform", icon: "🔒" },
+          { label: "Jugendamt‑konform", icon: "⭐" },
+          { label: "§ 8a SGB VIII", icon: "📋" },
+          { label: "Erste‑Hilfe geschult", icon: "🏥" },
         ].map((badge) => (
           <span key={badge.label} className="ks-tag text-[11px] flex items-center gap-1.5 px-3 py-1.5">
             <span>{badge.icon}</span>
