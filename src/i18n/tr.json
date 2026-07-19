@@ -391,7 +391,7 @@
   "blog": {
     "title": "Blog",
     "heading": "Erken Yaş ve Çocuk Bakımı Hakkında Bilgiler",
-    "description": "Çocuk bakımı, Jugendamt, EYFS, finansman ve erken yaş hakkında uzman makaleleri.",
+    "description": "Kindertagespflege, Jugendamt, Bildungsplan (eyalet müfredatı), finansman ve erken yaş hakkında uzman makaleleri.",
     "readMore": "Oku",
     "backToBlog": "Bloğa Geri Dön",
     "relatedArticles": "İlgili Makaleler",
@@ -407,8 +407,8 @@
     },
     "posts": {
       "eyfs": {
-        "title": "2025'te EYFS Çerçevesini Anlamak: Ebeveynlerin ve Çocuk Bakıcılarının Bilmesi Gerekenler",
-        "excerpt": "Erken Yaş Temel Aşaması (EYFS), doğumdan 5 yaşına kadar olan çocukların öğrenimi, gelişimi ve bakımı için standartları belirler."
+        "title": "2025'te Almanya'nın Bildungsplan Müfredatlarını Anlamak: Ebeveynlerin ve Kindertagespflegeperson'ların Bilmesi Gerekenler",
+        "excerpt": "Her federal eyaletin Bildungsplan'ı, doğumdan okul çağına kadar çocukların öğrenimi, gelişimi ve bakımı için standartları belirler."
       },
       "ofstedInspection": {
         "title": "İlk Jugendamt Denetiminiz: Bir Çocuk Bakıcısı İçin Eksiksiz Bir Rehber",
