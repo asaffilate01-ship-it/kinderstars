@@ -238,16 +238,15 @@ const Auth = () => {
 
               {role === "parent" && (
                 <div className="rounded-xl p-3 text-[11px] space-y-1.5 border" style={{ borderColor: "hsl(var(--brand-accent) / 0.4)", background: "hsl(var(--brand-accent) / 0.06)" }}>
-                  <p className="font-bold text-xs text-foreground">💳 How Payments Work</p>
+                  <p className="font-bold text-xs text-foreground">💳 So funktioniert die Bezahlung</p>
                   <p className="text-muted-foreground leading-relaxed">
-                    All childcare fees — whether funded via <strong className="text-foreground">Student Finance England (SFE/CCG)</strong>, 
-                    <strong className="text-foreground"> Local Authority 15/30 funded hours</strong>, 
-                    <strong className="text-foreground"> employer childcare schemes</strong>, or 
-                    <strong className="text-foreground"> private payments</strong> — are 
-                    <strong className="text-foreground"> invoiced by and paid directly to KinderStars Ltd</strong>.
+                    KinderStars vermittelt Sie an eine selbstständige Kindertagespflegeperson. Die Abrechnung erfolgt transparent über die Plattform — ob privat, über
+                    {" "}<strong className="text-foreground">Jugendamt‑Förderung nach § 23 SGB VIII</strong>,
+                    {" "}<strong className="text-foreground">Arbeitgeberzuschuss nach § 3 Nr. 33 EStG</strong> oder
+                    {" "}<strong className="text-foreground">steuerliche Absetzbarkeit nach § 10 Abs. 1 Nr. 5 EStG</strong>.
                   </p>
                   <p className="text-muted-foreground leading-relaxed">
-                    Your childminder works for KinderStars and is paid by us. You'll receive invoices and a formal care contract from KinderStars.
+                    Ihre Betreuungsperson ist selbstständig tätig — KinderStars ist ausschließlich Vermittler nach § 296 SGB III und kein Arbeitgeber.
                   </p>
                 </div>
               )}
