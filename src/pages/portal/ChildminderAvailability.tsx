@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { toast } from "@/hooks/use-toast";
 import { Save, Loader2, Plus, Trash2 } from "lucide-react";
 
-const DAY_NAMES = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+const DAY_NAMES = ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"];
 
 interface Slot {
   id?: string;
@@ -73,18 +73,18 @@ const ChildminderAvailability = () => {
       }));
       const { error } = await supabase.from("availability").insert(rows);
       if (error) {
-        toast({ title: "Error", description: error.message, variant: "destructive" });
+        toast({ title: "Fehler", description: error.message, variant: "destructive" });
         setSaving(false);
         return;
       }
     }
 
-    toast({ title: "Availability saved" });
+    toast({ title: "Verfügbarkeit gespeichert" });
     setSaving(false);
     loadSlots();
   };
 
-  if (loading) return <div className="text-muted-foreground">Loading…</div>;
+  if (loading) return <div className="text-muted-foreground">Wird geladen…</div>;
 
   // Group by day
   const groupedByDay = DAY_NAMES.map((name, dayIndex) => ({
@@ -98,8 +98,8 @@ const ChildminderAvailability = () => {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold tracking-tight">Availability</h1>
-        <p className="text-muted-foreground text-sm">Set your weekly availability so admins can assign you shifts.</p>
+        <h1 className="text-2xl font-bold tracking-tight">Verfügbarkeit</h1>
+        <p className="text-muted-foreground text-sm">Legen Sie Ihre wöchentliche Verfügbarkeit fest, damit Anfragen und Schichten zugeordnet werden können.</p>
       </div>
 
       <div className="space-y-3">
@@ -108,11 +108,11 @@ const ChildminderAvailability = () => {
             <div className="flex items-center justify-between mb-2">
               <h3 className="font-bold text-sm">{day.name}</h3>
               <Button variant="ghost" size="sm" className="gap-1 text-xs" onClick={() => addSlot(day.dayIndex)}>
-                <Plus className="w-3.5 h-3.5" /> Add Slot
+                <Plus className="w-3.5 h-3.5" /> Zeitfenster hinzufügen
               </Button>
             </div>
             {day.daySlots.length === 0 ? (
-              <p className="text-xs text-muted-foreground">No availability set — day off</p>
+              <p className="text-xs text-muted-foreground">Keine Verfügbarkeit – freier Tag</p>
             ) : (
               <div className="space-y-2">
                 {day.daySlots.map((slot) => (
@@ -124,7 +124,7 @@ const ChildminderAvailability = () => {
                         onChange={(e) => updateSlot(slot.origIndex, "start_time", e.target.value)}
                       />
                     </div>
-                    <span className="text-xs text-muted-foreground">to</span>
+                    <span className="text-xs text-muted-foreground">bis</span>
                     <div className="ks-field flex-1 min-w-[100px]">
                       <input
                         type="time"
@@ -137,7 +137,7 @@ const ChildminderAvailability = () => {
                       onClick={() => updateSlot(slot.origIndex, "is_available", !slot.is_available)}
                       className={`ks-tag cursor-pointer text-[11px] ${slot.is_available ? "!bg-success/15 !border-success/30 !text-success" : "!bg-destructive/15 !border-destructive/30 !text-destructive"}`}
                     >
-                      {slot.is_available ? "Available" : "Blocked"}
+                      {slot.is_available ? "Verfügbar" : "Gesperrt"}
                     </button>
                     <button onClick={() => removeSlot(slot.origIndex)} className="text-destructive hover:text-destructive/80">
                       <Trash2 className="w-4 h-4" />
@@ -152,7 +152,7 @@ const ChildminderAvailability = () => {
 
       <Button variant="hero" onClick={handleSave} disabled={saving} className="gap-2">
         {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
-        {saving ? "Saving…" : "Save Availability"}
+        {saving ? "Speichern…" : "Verfügbarkeit speichern"}
       </Button>
     </div>
   );

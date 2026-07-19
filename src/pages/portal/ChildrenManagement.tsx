@@ -62,18 +62,18 @@ const ChildrenManagement = () => {
 
   const handleSave = async () => {
     if (!user || !form.first_name || !form.last_name || !form.date_of_birth) {
-      toast({ title: "Missing fields", description: "First name, last name, and date of birth are required.", variant: "destructive" });
+      toast({ title: "Pflichtfelder fehlen", description: "Vorname, Nachname und Geburtsdatum sind erforderlich.", variant: "destructive" });
       return;
     }
     setSaving(true);
     if (editing === "new") {
       const { error } = await supabase.from("children").insert({ ...form, parent_id: user.id });
-      if (error) { toast({ title: "Error", description: error.message, variant: "destructive" }); setSaving(false); return; }
-      toast({ title: "Child added" });
+      if (error) { toast({ title: "Fehler", description: error.message, variant: "destructive" }); setSaving(false); return; }
+      toast({ title: "Kind hinzugefügt" });
     } else {
       const { error } = await supabase.from("children").update(form).eq("id", editing!);
-      if (error) { toast({ title: "Error", description: error.message, variant: "destructive" }); setSaving(false); return; }
-      toast({ title: "Child updated" });
+      if (error) { toast({ title: "Fehler", description: error.message, variant: "destructive" }); setSaving(false); return; }
+      toast({ title: "Kind aktualisiert" });
     }
     setSaving(false);
     setEditing(null);
@@ -82,28 +82,28 @@ const ChildrenManagement = () => {
   };
 
   const handleDelete = async (id: string) => {
-    if (!confirm("Remove this child?")) return;
+    if (!confirm("Dieses Kind entfernen?")) return;
     await supabase.from("children").delete().eq("id", id);
-    toast({ title: "Child removed" });
+    toast({ title: "Kind entfernt" });
     fetchChildren();
     if (editing === id) cancel();
   };
 
   const getAge = (dob: string) => {
     const years = Math.floor((Date.now() - new Date(dob).getTime()) / (365.25 * 24 * 60 * 60 * 1000));
-    return years < 1 ? "Under 1" : `${years}y`;
+    return years < 1 ? "Unter 1 Jahr" : `${years} J.`;
   };
 
   return (
     <div>
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-2xl font-bold tracking-tight mb-1">Children</h1>
-          <p className="text-muted-foreground text-sm">Manage your children's profiles, health, and allergy information.</p>
+          <h1 className="text-2xl font-bold tracking-tight mb-1">Kinder</h1>
+          <p className="text-muted-foreground text-sm">Verwalten Sie die Profile, Gesundheits- und Allergieinformationen Ihrer Kinder.</p>
         </div>
         {!editing && (
           <Button variant="hero" size="sm" className="gap-1.5" onClick={startNew}>
-            <Plus className="w-4 h-4" /> Add Child
+            <Plus className="w-4 h-4" /> Kind hinzufügen
           </Button>
         )}
       </div>
@@ -111,54 +111,54 @@ const ChildrenManagement = () => {
       {/* Edit/Add form */}
       {editing && (
         <div className="ks-card p-5 mb-6">
-          <h2 className="font-bold text-sm mb-3">{editing === "new" ? "Add Child" : "Edit Child"}</h2>
+          <h2 className="font-bold text-sm mb-3">{editing === "new" ? "Kind hinzufügen" : "Kind bearbeiten"}</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <div className="ks-field"><label>First name *</label>
+            <div className="ks-field"><label>Vorname *</label>
               <input value={form.first_name} onChange={(e) => setForm({ ...form, first_name: e.target.value })} />
             </div>
-            <div className="ks-field"><label>Last name *</label>
+            <div className="ks-field"><label>Nachname *</label>
               <input value={form.last_name} onChange={(e) => setForm({ ...form, last_name: e.target.value })} />
             </div>
-            <div className="ks-field"><label>Date of birth *</label>
+            <div className="ks-field"><label>Geburtsdatum *</label>
               <input type="date" value={form.date_of_birth} onChange={(e) => setForm({ ...form, date_of_birth: e.target.value })} />
             </div>
-            <div className="ks-field"><label>Gender</label>
+            <div className="ks-field"><label>Geschlecht</label>
               <select value={form.gender || ""} onChange={(e) => setForm({ ...form, gender: e.target.value || null })}>
-                <option value="">Prefer not to say</option>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-                <option value="other">Other</option>
+                <option value="">Keine Angabe</option>
+                <option value="male">Männlich</option>
+                <option value="female">Weiblich</option>
+                <option value="other">Divers</option>
               </select>
             </div>
-            <div className="ks-field col-span-full"><label>Allergies</label>
+            <div className="ks-field col-span-full"><label>Allergien</label>
               <textarea value={form.allergies || ""} onChange={(e) => setForm({ ...form, allergies: e.target.value || null })}
-                placeholder="List any known allergies (food, environmental, medication)…" />
+                placeholder="Bekannte Allergien angeben (Lebensmittel, Umwelt, Medikamente)…" />
             </div>
-            <div className="ks-field col-span-full"><label>Dietary requirements</label>
+            <div className="ks-field col-span-full"><label>Ernährungsbedürfnisse</label>
               <input value={form.dietary_requirements || ""} onChange={(e) => setForm({ ...form, dietary_requirements: e.target.value || null })}
-                placeholder="e.g. Vegetarian, halal, gluten-free" />
+                placeholder="z. B. vegetarisch, halal, glutenfrei" />
             </div>
-            <div className="ks-field col-span-full"><label>Health issues</label>
+            <div className="ks-field col-span-full"><label>Gesundheitliche Hinweise</label>
               <textarea value={form.health_issues || ""} onChange={(e) => setForm({ ...form, health_issues: e.target.value || null })}
-                placeholder="Any medical conditions, medications, or ongoing treatments…" />
+                placeholder="Erkrankungen, Medikamente oder laufende Behandlungen…" />
             </div>
-            <div className="ks-field col-span-full"><label>Special needs / additional support</label>
+            <div className="ks-field col-span-full"><label>Förderbedarf / besondere Unterstützung</label>
               <textarea value={form.special_needs || ""} onChange={(e) => setForm({ ...form, special_needs: e.target.value || null })}
-                placeholder="SEND, behavioural needs, or developmental considerations…" />
+                placeholder="Inklusion, Verhaltens- oder Entwicklungsbesonderheiten…" />
             </div>
-            <div className="ks-field"><label>Emergency contact name</label>
+            <div className="ks-field"><label>Notfallkontakt (Name)</label>
               <input value={form.emergency_contact_name || ""} onChange={(e) => setForm({ ...form, emergency_contact_name: e.target.value || null })} />
             </div>
-            <div className="ks-field"><label>Emergency contact phone</label>
+            <div className="ks-field"><label>Notfallkontakt (Telefon)</label>
               <input type="tel" value={form.emergency_contact_phone || ""} onChange={(e) => setForm({ ...form, emergency_contact_phone: e.target.value || null })} />
             </div>
           </div>
           <div className="flex gap-2 mt-4">
             <Button variant="success" size="sm" onClick={handleSave} disabled={saving} className="gap-1.5">
-              <Save className="w-4 h-4" /> {saving ? "Saving…" : "Save"}
+              <Save className="w-4 h-4" /> {saving ? "Speichern…" : "Speichern"}
             </Button>
             <Button variant="ghost" size="sm" onClick={cancel} className="gap-1.5">
-              <X className="w-4 h-4" /> Cancel
+              <X className="w-4 h-4" /> Abbrechen
             </Button>
           </div>
         </div>
@@ -169,9 +169,9 @@ const ChildrenManagement = () => {
         {children.length === 0 && !editing ? (
           <div className="ks-card p-8 text-center">
             <Baby className="w-8 h-8 text-muted-foreground mx-auto mb-3" />
-            <p className="text-muted-foreground text-sm">No children added yet.</p>
+            <p className="text-muted-foreground text-sm">Noch keine Kinder angelegt.</p>
             <Button variant="warm" size="sm" className="mt-3 gap-1.5" onClick={startNew}>
-              <Plus className="w-4 h-4" /> Add your first child
+              <Plus className="w-4 h-4" /> Erstes Kind hinzufügen
             </Button>
           </div>
         ) : children.map((child) => (
@@ -181,14 +181,14 @@ const ChildrenManagement = () => {
                 <span className="text-xs text-muted-foreground ml-2">{getAge(child.date_of_birth)} • {format(new Date(child.date_of_birth), "dd MMM yyyy")}</span>
               </div>
               <div className="flex flex-wrap gap-2 mt-2 text-xs text-muted-foreground">
-                {child.allergies && <span className="ks-tag border-destructive/30 text-destructive">⚠ Allergies: {child.allergies}</span>}
+                {child.allergies && <span className="ks-tag border-destructive/30 text-destructive">⚠ Allergien: {child.allergies}</span>}
                 {child.dietary_requirements && <span className="ks-tag">🍽 {child.dietary_requirements}</span>}
-                {child.health_issues && <span className="ks-tag border-primary/30">🏥 Health notes</span>}
-                {child.special_needs && <span className="ks-tag border-secondary/30">♿ SEND</span>}
+                {child.health_issues && <span className="ks-tag border-primary/30">🏥 Gesundheitshinweise</span>}
+                {child.special_needs && <span className="ks-tag border-secondary/30">♿ Förderbedarf</span>}
               </div>
               {child.emergency_contact_name && (
                 <div className="text-xs text-muted-foreground mt-2">
-                  Emergency: {child.emergency_contact_name} ({child.emergency_contact_phone || "—"})
+                  Notfall: {child.emergency_contact_name} ({child.emergency_contact_phone || "—"})
                 </div>
               )}
             </div>
