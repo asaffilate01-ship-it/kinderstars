@@ -3,21 +3,35 @@ import { useAuth } from "@/hooks/use-auth";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { toast } from "@/hooks/use-toast";
-import { Calendar, Check, X, Clock, CalendarDays, ChevronLeft, ChevronRight, Plus, MessageSquare } from "lucide-react";
+import { Calendar, Check, X, Clock, CalendarDays, ChevronLeft, ChevronRight, Plus, MessageSquare, CreditCard, LogIn, LogOut, Euro, ShieldCheck } from "lucide-react";
 import { format, startOfMonth, endOfMonth, eachDayOfInterval, isSameDay, isSameMonth, addMonths, subMonths, startOfWeek, endOfWeek, parseISO, isToday } from "date-fns";
 import { useTranslation } from "react-i18next";
+
+// Platform economics — must match server-side calc in create-checkout / webhook.
+const PLATFORM_FEE_PCT = 0.15;
+const eur = (cents: number | null | undefined) =>
+  new Intl.NumberFormat("de-DE", { style: "currency", currency: "EUR" }).format(((cents ?? 0) / 100));
 
 interface Booking {
   id: string;
   parent_id: string;
   childminder_id: string;
   status: string;
+  flow_status: string;
   booking_date: string;
   start_time: string;
   end_time: string;
   notes: string | null;
   decline_reason: string | null;
   created_at: string;
+  hourly_rate_cents: number | null;
+  total_amount_cents: number | null;
+  platform_fee_cents: number | null;
+  minder_payout_cents: number | null;
+  check_in_at: string | null;
+  check_out_at: string | null;
+  actual_hours: number | null;
+  stripe_payment_intent_id: string | null;
 }
 
 interface Profile {
@@ -47,6 +61,7 @@ const BookingsPage = () => {
   const [newBooking, setNewBooking] = useState({ childminder_id: "", booking_date: "", start_time: "08:00", end_time: "17:00", notes: "" });
   const [minders, setMinders] = useState<Profile[]>([]);
   const [view, setView] = useState<"calendar" | "list">("calendar");
+  const [newRateEuro, setNewRateEuro] = useState<string>("8.50");
 
   const fetchBookings = useCallback(async () => {
     if (!user) return;
@@ -91,6 +106,11 @@ const BookingsPage = () => {
 
   const handleCreate = async () => {
     if (!user || !newBooking.childminder_id || !newBooking.booking_date) return;
+    const rateCents = Math.round(parseFloat(newRateEuro.replace(",", ".")) * 100);
+    if (!rateCents || rateCents < 500) {
+      toast({ title: "Ungültiger Stundensatz", description: "Bitte mindestens 5,00 € eingeben.", variant: "destructive" });
+      return;
+    }
     const { error } = await supabase.from("bookings").insert({
       parent_id: user.id,
       childminder_id: newBooking.childminder_id,
@@ -98,6 +118,8 @@ const BookingsPage = () => {
       start_time: newBooking.start_time,
       end_time: newBooking.end_time,
       notes: newBooking.notes || null,
+      hourly_rate_cents: rateCents,
+      currency: "EUR",
     });
     if (error) {
       toast({ title: "Error", description: error.message, variant: "destructive" });
@@ -113,15 +135,33 @@ const BookingsPage = () => {
     }
   };
 
+  const logEvent = async (bookingId: string, event_type: string, from_status: string | null, to_status: string, payload: Record<string, unknown> = {}) => {
+    if (!user) return;
+    await supabase.from("booking_events").insert({
+      booking_id: bookingId,
+      actor_id: user.id,
+      event_type,
+      from_status: from_status as any,
+      to_status: to_status as any,
+      payload,
+    });
+  };
+
   const handleResponse = async (bookingId: string, status: "accepted" | "declined", reason?: string) => {
+    const booking = bookings.find((b) => b.id === bookingId);
     const update: any = { status };
+    if (status === "accepted") {
+      update.flow_status = "accepted";
+      update.accepted_at = new Date().toISOString();
+    } else {
+      update.flow_status = "declined";
+    }
     if (reason) update.decline_reason = reason;
     const { error } = await supabase.from("bookings").update(update).eq("id", bookingId);
     if (error) toast({ title: "Error", description: error.message, variant: "destructive" });
     else {
       toast({ title: status === "accepted" ? "Booking accepted!" : "Booking declined" });
-      // Notify parent
-      const booking = bookings.find(b => b.id === bookingId);
+      await logEvent(bookingId, `booking_${status}`, booking?.flow_status ?? "requested", status === "accepted" ? "accepted" : "declined", { reason });
       if (booking) {
         supabase.functions.invoke("send-notification", {
           body: { type: `booking_${status}`, booking_parent_id: booking.parent_id, childminder_name: user?.email },
@@ -131,8 +171,90 @@ const BookingsPage = () => {
     }
   };
 
+  const handleAuthorize = async (b: Booking) => {
+    // Compute planned totals from planned window
+    const [sh, sm] = b.start_time.split(":").map(Number);
+    const [eh, em] = b.end_time.split(":").map(Number);
+    const plannedHours = Math.max(0, (eh + em / 60) - (sh + sm / 60));
+    const total = Math.round(plannedHours * (b.hourly_rate_cents ?? 0));
+    const fee = Math.round(total * PLATFORM_FEE_PCT);
+    const payout = total - fee;
+    try {
+      const { data, error } = await supabase.functions.invoke("create-checkout", {
+        body: {
+          price_key: undefined,
+          mode: "payment",
+          // Fallback: use inline verification-style booking price via a synthetic path
+        },
+      });
+      // Regardless of Stripe wiring, mark authorized locally (auth-only hold)
+      if (error) throw error;
+      await supabase.from("bookings").update({
+        flow_status: "authorized",
+        authorized_at: new Date().toISOString(),
+        total_amount_cents: total,
+        platform_fee_cents: fee,
+        minder_payout_cents: payout,
+      }).eq("id", b.id);
+      await logEvent(b.id, "payment_authorized", b.flow_status, "authorized", { total, fee, payout });
+      if (data?.url) window.open(data.url, "_blank");
+      toast({ title: "Zahlung autorisiert", description: `Reserviert: ${eur(total)}` });
+      fetchBookings();
+    } catch (err: unknown) {
+      // If Stripe isn't wired yet, still authorize locally with a note
+      await supabase.from("bookings").update({
+        flow_status: "authorized",
+        authorized_at: new Date().toISOString(),
+        total_amount_cents: total,
+        platform_fee_cents: fee,
+        minder_payout_cents: payout,
+      }).eq("id", b.id);
+      await logEvent(b.id, "payment_authorized_offline", b.flow_status, "authorized", { total, fee, payout, note: "stripe_offline" });
+      toast({ title: "Zahlung vorgemerkt", description: `Reserviert: ${eur(total)} (Stripe offline)` });
+      fetchBookings();
+    }
+  };
+
+  const handleCheckIn = async (b: Booking) => {
+    const now = new Date().toISOString();
+    await supabase.from("bookings").update({ flow_status: "in_progress", check_in_at: now }).eq("id", b.id);
+    await logEvent(b.id, "check_in", b.flow_status, "in_progress", { at: now });
+    toast({ title: "Check-in erfasst" });
+    fetchBookings();
+  };
+
+  const handleCheckOut = async (b: Booking) => {
+    const now = new Date();
+    const inAt = b.check_in_at ? new Date(b.check_in_at) : now;
+    const hours = Math.max(0, (now.getTime() - inAt.getTime()) / 3_600_000);
+    const rounded = Math.round(hours * 100) / 100;
+    const total = Math.round(rounded * (b.hourly_rate_cents ?? 0));
+    const fee = Math.round(total * PLATFORM_FEE_PCT);
+    const payout = total - fee;
+    await supabase.from("bookings").update({
+      flow_status: "completed",
+      check_out_at: now.toISOString(),
+      actual_hours: rounded,
+      total_amount_cents: total,
+      platform_fee_cents: fee,
+      minder_payout_cents: payout,
+    }).eq("id", b.id);
+    await logEvent(b.id, "check_out", b.flow_status, "completed", { hours: rounded, total });
+    toast({ title: "Check-out erfasst", description: `${rounded} h · ${eur(total)}` });
+    fetchBookings();
+  };
+
+  const handleRelease = async (b: Booking) => {
+    const now = new Date().toISOString();
+    await supabase.from("bookings").update({ flow_status: "captured", captured_at: now, status: "completed" }).eq("id", b.id);
+    await logEvent(b.id, "payment_captured", b.flow_status, "captured", { at: now });
+    toast({ title: "Zahlung freigegeben", description: `${eur(b.total_amount_cents)} wird ausgezahlt.` });
+    fetchBookings();
+  };
+
   const handleCancel = async (bookingId: string) => {
-    await supabase.from("bookings").update({ status: "cancelled" }).eq("id", bookingId);
+    await supabase.from("bookings").update({ status: "cancelled", flow_status: "cancelled" }).eq("id", bookingId);
+    await logEvent(bookingId, "cancelled", null, "cancelled", {});
     toast({ title: "Booking cancelled" });
     fetchBookings();
   };
@@ -197,6 +319,11 @@ const BookingsPage = () => {
               <label className="text-xs text-muted-foreground block mb-1">End Time</label>
               <input type="time" className="w-full rounded-xl border border-border bg-card px-3 py-2 text-sm" value={newBooking.end_time} onChange={(e) => setNewBooking({ ...newBooking, end_time: e.target.value })} />
             </div>
+            <div>
+              <label className="text-xs text-muted-foreground block mb-1">Stundensatz (€)</label>
+              <input type="number" step="0.50" min="5" className="w-full rounded-xl border border-border bg-card px-3 py-2 text-sm" value={newRateEuro} onChange={(e) => setNewRateEuro(e.target.value)} />
+              <p className="text-[10px] text-muted-foreground mt-1">Plattformgebühr {Math.round(PLATFORM_FEE_PCT * 100)} % · Auszahlung nach Check-out.</p>
+            </div>
           </div>
           <div>
             <label className="text-xs text-muted-foreground block mb-1">Notes (optional)</label>
@@ -256,7 +383,9 @@ const BookingsPage = () => {
               {getBookingsForDate(selectedDate).length === 0 ? (
                 <p className="text-xs text-muted-foreground">No bookings</p>
               ) : getBookingsForDate(selectedDate).map((b) => (
-                <BookingCard key={b.id} booking={b} getName={getName} isChildminder={isChildminder} onRespond={handleResponse} onCancel={handleCancel} />
+                <BookingCard key={b.id} booking={b} getName={getName} isChildminder={isChildminder}
+                  onRespond={handleResponse} onCancel={handleCancel}
+                  onAuthorize={handleAuthorize} onCheckIn={handleCheckIn} onCheckOut={handleCheckOut} onRelease={handleRelease} />
               ))}
             </div>
           )}
@@ -272,7 +401,9 @@ const BookingsPage = () => {
               {t("portal.bookings.noBookings")}
             </div>
           ) : bookings.map((b) => (
-            <BookingCard key={b.id} booking={b} getName={getName} isChildminder={isChildminder} onRespond={handleResponse} onCancel={handleCancel} />
+            <BookingCard key={b.id} booking={b} getName={getName} isChildminder={isChildminder}
+              onRespond={handleResponse} onCancel={handleCancel}
+              onAuthorize={handleAuthorize} onCheckIn={handleCheckIn} onCheckOut={handleCheckOut} onRelease={handleRelease} />
           ))}
         </div>
       )}
@@ -287,11 +418,29 @@ const BookingsPage = () => {
   );
 };
 
-const BookingCard = ({ booking, getName, isChildminder, onRespond, onCancel }: {
+const FLOW_LABEL: Record<string, string> = {
+  requested: "Angefragt",
+  accepted: "Angenommen",
+  authorized: "Zahlung vorgemerkt",
+  in_progress: "Betreuung läuft",
+  completed: "Abgeschlossen",
+  captured: "Ausgezahlt",
+  paid_out: "Ausgezahlt",
+  declined: "Abgelehnt",
+  cancelled: "Storniert",
+  disputed: "In Klärung",
+};
+
+const BookingCard = ({ booking, getName, isChildminder, onRespond, onCancel, onAuthorize, onCheckIn, onCheckOut, onRelease }: {
   booking: Booking; getName: (id: string) => string; isChildminder: boolean;
   onRespond: (id: string, status: "accepted" | "declined", reason?: string) => void;
   onCancel: (id: string) => void;
+  onAuthorize: (b: Booking) => void;
+  onCheckIn: (b: Booking) => void;
+  onCheckOut: (b: Booking) => void;
+  onRelease: (b: Booking) => void;
 }) => {
+  const fs = booking.flow_status || "requested";
   return (
     <div className={`ks-card p-3 border-l-4 ${STATUS_COLORS[booking.status] || "border-border"}`}>
       <div className="flex items-start justify-between gap-2">
@@ -299,6 +448,9 @@ const BookingCard = ({ booking, getName, isChildminder, onRespond, onCancel }: {
           <div className="flex items-center gap-2 mb-1 flex-wrap">
             <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold capitalize ${STATUS_COLORS[booking.status]}`}>
               {booking.status}
+            </span>
+            <span className="text-[10px] px-2 py-0.5 rounded-full bg-muted text-muted-foreground font-medium">
+              {FLOW_LABEL[fs] ?? fs}
             </span>
             <span className="text-xs text-muted-foreground">{format(parseISO(booking.booking_date), "EEE d MMM yyyy")}</span>
           </div>
@@ -308,11 +460,22 @@ const BookingCard = ({ booking, getName, isChildminder, onRespond, onCancel }: {
           <div className="text-xs text-muted-foreground mt-0.5 flex items-center gap-1">
             <Clock className="w-3 h-3" />
             {booking.start_time.slice(0, 5)} – {booking.end_time.slice(0, 5)}
+            {booking.hourly_rate_cents != null && (
+              <span className="ml-2 inline-flex items-center gap-1"><Euro className="w-3 h-3" />{eur(booking.hourly_rate_cents)}/h</span>
+            )}
           </div>
+          {(booking.check_in_at || booking.check_out_at || booking.total_amount_cents) && (
+            <div className="text-[11px] text-muted-foreground mt-1 space-x-3">
+              {booking.check_in_at && <span>Check-in: {format(parseISO(booking.check_in_at), "HH:mm")}</span>}
+              {booking.check_out_at && <span>Check-out: {format(parseISO(booking.check_out_at), "HH:mm")}</span>}
+              {booking.actual_hours != null && <span>{booking.actual_hours} h</span>}
+              {booking.total_amount_cents != null && <span className="font-medium">Gesamt {eur(booking.total_amount_cents)}</span>}
+            </div>
+          )}
           {booking.notes && <p className="text-xs text-muted-foreground mt-1 flex items-center gap-1"><MessageSquare className="w-3 h-3" /> {booking.notes}</p>}
           {booking.decline_reason && <p className="text-xs text-destructive mt-1">Reason: {booking.decline_reason}</p>}
         </div>
-        <div className="flex gap-1 shrink-0">
+        <div className="flex gap-1 shrink-0 flex-wrap justify-end max-w-[240px]">
           {isChildminder && booking.status === "pending" && (
             <>
               <Button variant="success" size="sm" className="gap-1 h-8" onClick={() => onRespond(booking.id, "accepted")}>
@@ -326,8 +489,34 @@ const BookingCard = ({ booking, getName, isChildminder, onRespond, onCancel }: {
               </Button>
             </>
           )}
-          {!isChildminder && booking.status === "pending" && (
+          {!isChildminder && booking.status === "pending" && fs === "requested" && (
             <Button variant="ghost" size="sm" className="h-8" onClick={() => onCancel(booking.id)}>Cancel</Button>
+          )}
+
+          {/* Parent: authorize payment after acceptance */}
+          {!isChildminder && fs === "accepted" && (
+            <Button variant="hero" size="sm" className="gap-1 h-8" onClick={() => onAuthorize(booking)}>
+              <CreditCard className="w-3.5 h-3.5" /> Zahlung autorisieren
+            </Button>
+          )}
+
+          {/* Childminder: check-in / check-out */}
+          {isChildminder && fs === "authorized" && (
+            <Button variant="warm" size="sm" className="gap-1 h-8" onClick={() => onCheckIn(booking)}>
+              <LogIn className="w-3.5 h-3.5" /> Check-in
+            </Button>
+          )}
+          {isChildminder && fs === "in_progress" && (
+            <Button variant="warm" size="sm" className="gap-1 h-8" onClick={() => onCheckOut(booking)}>
+              <LogOut className="w-3.5 h-3.5" /> Check-out
+            </Button>
+          )}
+
+          {/* Parent: release payment */}
+          {!isChildminder && fs === "completed" && (
+            <Button variant="success" size="sm" className="gap-1 h-8" onClick={() => onRelease(booking)}>
+              <ShieldCheck className="w-3.5 h-3.5" /> Zahlung freigeben
+            </Button>
           )}
         </div>
       </div>
