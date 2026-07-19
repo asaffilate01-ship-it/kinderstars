@@ -10,11 +10,14 @@ import {
 
 type Regulator = "ofsted" | "ciw" | "care_inspectorate" | "rqia";
 
+// German aufsichtsführende Stellen: örtliches Jugendamt (Pflegeerlaubnis nach § 43 SGB VIII)
+// plus Landesjugendamt (überregionale Aufsicht). We map the four legacy codes to German
+// regional groupings so existing DB values continue to load.
 const REGULATOR_INFO: Record<Regulator, { name: string; fullName: string; region: string; icon: typeof Building2 }> = {
-  ofsted: { name: "Ofsted", fullName: "Office for Standards in Education", region: "England", icon: Building2 },
-  ciw: { name: "CIW", fullName: "Care Inspectorate Wales", region: "Wales", icon: Building2 },
-  care_inspectorate: { name: "Care Inspectorate", fullName: "Care Inspectorate Scotland", region: "Scotland", icon: Building2 },
-  rqia: { name: "RQIA", fullName: "Regulation and Quality Improvement Authority", region: "Northern Ireland", icon: Building2 },
+  ofsted: { name: "Jugendamt Nord/West", fullName: "Örtliches Jugendamt – NRW, Niedersachsen, Bremen, Hamburg, SH, MV", region: "Nord & Nordrhein-Westfalen", icon: Building2 },
+  ciw: { name: "Jugendamt Süd", fullName: "Örtliches Jugendamt – Bayern, Baden-Württemberg", region: "Süddeutschland", icon: Building2 },
+  care_inspectorate: { name: "Jugendamt Mitte", fullName: "Örtliches Jugendamt – Hessen, RLP, Saarland, Thüringen", region: "Mitte", icon: Building2 },
+  rqia: { name: "Jugendamt Ost", fullName: "Örtliches Jugendamt – Berlin, Brandenburg, Sachsen, Sachsen-Anhalt", region: "Berlin & Ostdeutschland", icon: Building2 },
 };
 
 interface TrainingTask {
@@ -25,55 +28,39 @@ interface TrainingTask {
 }
 
 const COMMON_TASKS: TrainingTask[] = [
-  { key: "dbs_applied", label: "Apply for Enhanced DBS/PVG/AccessNI check", category: "safeguarding", icon: Shield },
-  { key: "dbs_received", label: "DBS/PVG/AccessNI certificate received", category: "safeguarding", icon: Shield },
-  { key: "first_aid_enrolled", label: "Enrol in Paediatric First Aid course (12 hours)", category: "training", icon: Heart },
-  { key: "first_aid_completed", label: "Complete Paediatric First Aid certification", category: "training", icon: Heart },
-  { key: "safeguarding_level2", label: "Complete Safeguarding Children Level 2 training", category: "training", icon: Shield },
-  { key: "food_hygiene", label: "Complete Food Hygiene Level 2 certificate", category: "training", icon: Award },
-  { key: "prevent_training", label: "Complete Prevent Duty awareness training", category: "training", icon: Shield },
-  { key: "insurance_obtained", label: "Obtain Public Liability & Professional Indemnity insurance", category: "compliance", icon: FileText },
-  { key: "premises_risk", label: "Complete home risk assessment for childminding premises", category: "compliance", icon: MapPin },
-  { key: "policies_drafted", label: "Draft essential policies (safeguarding, behaviour, complaints, GDPR)", category: "compliance", icon: FileText },
-  { key: "eyfs_training", label: "Complete EYFS (Early Years Foundation Stage) awareness course", category: "training", icon: BookOpen },
+  { key: "fz_applied", label: "Erweitertes Führungszeugnis nach § 30a BZRG beantragt", category: "safeguarding", icon: Shield },
+  { key: "fz_received", label: "Erweitertes Führungszeugnis vorliegend (max. 3 Monate alt)", category: "safeguarding", icon: Shield },
+  { key: "first_aid_enrolled", label: "Erste‑Hilfe‑Kurs am Kind angemeldet (mind. 9 UE)", category: "training", icon: Heart },
+  { key: "first_aid_completed", label: "Erste‑Hilfe‑Kurs am Kind abgeschlossen", category: "training", icon: Heart },
+  { key: "kinderschutz_8a", label: "Kinderschutz‑Schulung nach § 8a SGB VIII", category: "training", icon: Shield },
+  { key: "belehrung_43_ifsg", label: "Belehrung nach § 43 IfSG (Infektionsschutz) beim Gesundheitsamt", category: "training", icon: Award },
+  { key: "dsgvo_training", label: "DSGVO‑Basisschulung für Kindertagespflege", category: "training", icon: Shield },
+  { key: "insurance_obtained", label: "Berufshaftpflicht- & Unfallversicherung abgeschlossen (BGW)", category: "compliance", icon: FileText },
+  { key: "premises_risk", label: "Räumlichkeiten geprüft (Gefährdungsbeurteilung Wohnung)", category: "compliance", icon: MapPin },
+  { key: "policies_drafted", label: "Konzeption erstellt (Kinderschutz, Beschwerden, DSGVO)", category: "compliance", icon: FileText },
+  { key: "qualifikation_160h", label: "160‑Stunden‑Grundqualifikation Kindertagespflege (DJI‑Curriculum)", category: "training", icon: BookOpen },
+];
+
+const REGIONAL_TASKS: TrainingTask[] = [
+  { key: "jugendamt_application", label: "Antrag auf Pflegeerlaubnis (§ 43 SGB VIII) beim örtlichen Jugendamt eingereicht", category: "registration", icon: Building2 },
+  { key: "eignungspruefung", label: "Eignungsprüfung durch das Jugendamt absolviert", category: "registration", icon: Shield },
+  { key: "raumbegehung", label: "Raumbegehung / Ortstermin durch das Jugendamt", category: "registration", icon: Building2 },
+  { key: "pflegeerlaubnis_43", label: "Pflegeerlaubnis nach § 43 SGB VIII erteilt", category: "registration", icon: Award },
+  { key: "landesjugendamt_check", label: "Meldung / Prüfung durch das Landesjugendamt (§ 45 SGB VIII, falls einschlägig)", category: "registration", icon: Building2 },
 ];
 
 const REGULATOR_TASKS: Record<Regulator, TrainingTask[]> = {
-  ofsted: [
-    { key: "ofsted_application", label: "Submit Ofsted registration application (EY2)", category: "registration", icon: Building2 },
-    { key: "ofsted_dbs_check", label: "Complete Ofsted DBS suitability check for all household members (16+)", category: "registration", icon: Shield },
-    { key: "ofsted_health_dec", label: "Submit Health Declaration Booklet to Ofsted", category: "registration", icon: FileText },
-    { key: "ofsted_intro_visit", label: "Receive Ofsted introductory visit", category: "registration", icon: Building2 },
-    { key: "ofsted_urn_received", label: "Ofsted URN received — registration confirmed", category: "registration", icon: Award },
-  ],
-  ciw: [
-    { key: "ciw_application", label: "Submit CIW registration application", category: "registration", icon: Building2 },
-    { key: "ciw_statement", label: "Draft Statement of Purpose for CIW", category: "registration", icon: FileText },
-    { key: "ciw_welsh_regs", label: "Complete Welsh regulatory framework awareness training", category: "training", icon: BookOpen },
-    { key: "ciw_visit", label: "Receive CIW initial registration visit", category: "registration", icon: Building2 },
-    { key: "ciw_registered", label: "CIW registration confirmed", category: "registration", icon: Award },
-  ],
-  care_inspectorate: [
-    { key: "ci_application", label: "Submit Care Inspectorate registration application", category: "registration", icon: Building2 },
-    { key: "ci_pvg", label: "Complete PVG scheme membership (Disclosure Scotland)", category: "safeguarding", icon: Shield },
-    { key: "ci_scqf", label: "Enrol in SCQF Level 7 (or equivalent) early years qualification", category: "training", icon: GraduationCap },
-    { key: "ci_visit", label: "Receive Care Inspectorate initial assessment visit", category: "registration", icon: Building2 },
-    { key: "ci_registered", label: "Care Inspectorate registration confirmed", category: "registration", icon: Award },
-  ],
-  rqia: [
-    { key: "rqia_application", label: "Submit RQIA registration application", category: "registration", icon: Building2 },
-    { key: "rqia_access_ni", label: "Complete AccessNI Enhanced Disclosure", category: "safeguarding", icon: Shield },
-    { key: "rqia_minimum_standards", label: "Review RQIA Minimum Standards for childminding", category: "training", icon: BookOpen },
-    { key: "rqia_visit", label: "Receive RQIA pre-registration visit", category: "registration", icon: Building2 },
-    { key: "rqia_registered", label: "RQIA registration confirmed", category: "registration", icon: Award },
-  ],
+  ofsted: REGIONAL_TASKS,
+  ciw: REGIONAL_TASKS,
+  care_inspectorate: REGIONAL_TASKS,
+  rqia: REGIONAL_TASKS,
 };
 
 const CATEGORIES = [
-  { key: "safeguarding", label: "Safeguarding & DBS" },
-  { key: "training", label: "Training & Qualifications" },
-  { key: "compliance", label: "Compliance & Insurance" },
-  { key: "registration", label: "Regulator Registration" },
+  { key: "safeguarding", label: "Kinderschutz & Führungszeugnis" },
+  { key: "training", label: "Qualifizierung & Fortbildung" },
+  { key: "compliance", label: "Compliance & Versicherung" },
+  { key: "registration", label: "Pflegeerlaubnis & Jugendamt" },
 ];
 
 const ProspectDashboard = () => {
@@ -126,7 +113,7 @@ const ProspectDashboard = () => {
 
     if (error) {
       console.error("Failed to save regulator:", error);
-      toast({ title: "Error", description: "Failed to save your selection.", variant: "destructive" });
+      toast({ title: "Fehler", description: "Auswahl konnte nicht gespeichert werden.", variant: "destructive" });
     }
   };
 
@@ -161,19 +148,19 @@ const ProspectDashboard = () => {
       .update({ prospect_stage: "ready_for_review" })
       .eq("user_id", user.id);
     setSaving(false);
-    toast({ title: "Review requested!", description: "An admin will review your training progress and contact you about next steps." });
+    toast({ title: "Prüfung angefragt!", description: "Ein Admin prüft Ihren Fortschritt und meldet sich mit den nächsten Schritten." });
   };
 
-  if (loading) return <div className="text-muted-foreground p-4">Loading training dashboard…</div>;
+  if (loading) return <div className="text-muted-foreground p-4">Anwärter‑Dashboard wird geladen…</div>;
 
   // Step 1: Select regulator if not chosen
   if (!regulator) {
     return (
       <div className="space-y-6">
         <div>
-          <h1 className="text-2xl font-bold tracking-tight">Become a Childminder 🌟</h1>
+          <h1 className="text-2xl font-bold tracking-tight">Kindertagespflegeperson werden 🌟</h1>
           <p className="text-muted-foreground text-sm mt-1">
-            Welcome to your journey to becoming a registered childminder! First, tell us which region you'll be working in.
+            Willkommen auf dem Weg zur anerkannten Kindertagespflegeperson! Wählen Sie zunächst Ihre Region, um das zuständige Jugendamt zu bestimmen.
           </p>
         </div>
 
@@ -202,9 +189,9 @@ const ProspectDashboard = () => {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold tracking-tight">Trainee Dashboard 🎓</h1>
+        <h1 className="text-2xl font-bold tracking-tight">Anwärter‑Dashboard 🎓</h1>
         <p className="text-muted-foreground text-sm mt-1">
-          Your training pathway to {regulatorInfo.name} registration ({regulatorInfo.region})
+          Ihr Weg zur Pflegeerlaubnis nach § 43 SGB VIII über {regulatorInfo.name} ({regulatorInfo.region})
         </p>
       </div>
 
@@ -213,8 +200,8 @@ const ProspectDashboard = () => {
         <div className="flex items-center gap-3 mb-3">
           <GraduationCap className="w-5 h-5 text-primary shrink-0" />
           <div className="flex-1">
-            <p className="font-bold text-sm">Training Progress</p>
-            <p className="text-xs text-muted-foreground">{completedCount} of {allTasks.length} tasks completed</p>
+            <p className="font-bold text-sm">Qualifizierungs‑Fortschritt</p>
+            <p className="text-xs text-muted-foreground">{completedCount} von {allTasks.length} Aufgaben erledigt</p>
           </div>
           <span className="ks-tag font-bold">{progress}%</span>
         </div>
@@ -266,14 +253,14 @@ const ProspectDashboard = () => {
       {progress === 100 && (
         <Button variant="hero" onClick={handleRequestReview} disabled={saving} className="gap-2">
           {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Award className="w-4 h-4" />}
-          Request Admin Review
+          Prüfung durch Admin anfordern
         </Button>
       )}
 
       {progress < 100 && (
         <div className="ks-card p-4 bg-muted/50">
           <p className="text-sm text-muted-foreground">
-            💡 Complete all tasks above, then request an admin review. Once your {regulatorInfo.name} registration is confirmed, you'll be migrated to the full Childminder Dashboard.
+            💡 Erledigen Sie alle Aufgaben oben und fordern Sie anschließend die Prüfung an. Nach Erteilung der Pflegeerlaubnis nach § 43 SGB VIII werden Sie automatisch ins vollständige Betreuungspersonen‑Dashboard überführt.
           </p>
         </div>
       )}
