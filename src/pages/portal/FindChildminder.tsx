@@ -26,6 +26,8 @@ interface MinderResult {
   has_booking?: boolean;
   has_arrived?: boolean;
   first_name?: string;
+  avg_rating?: number | null;
+  review_count?: number;
 }
 
 interface AvailabilitySlot {
@@ -106,6 +108,31 @@ const FindChildminder = () => {
         m.has_arrived = arrivedIds.has(m.user_id);
         if (m.has_arrived && nameMap[m.user_id]) {
           m.first_name = nameMap[m.user_id];
+        }
+      });
+
+      // Aggregate parent ratings from completed bookings
+      const { data: ratings } = await supabase
+        .from("bookings")
+        .select("childminder_id, parent_rating")
+        .in("childminder_id", cmIds)
+        .not("parent_rating", "is", null);
+      const ratingMap: Record<string, { sum: number; count: number }> = {};
+      (ratings || []).forEach((r: any) => {
+        if (r.parent_rating == null) return;
+        const key = r.childminder_id as string;
+        if (!ratingMap[key]) ratingMap[key] = { sum: 0, count: 0 };
+        ratingMap[key].sum += Number(r.parent_rating);
+        ratingMap[key].count += 1;
+      });
+      minders.forEach((m) => {
+        const r = ratingMap[m.user_id];
+        if (r && r.count > 0) {
+          m.avg_rating = r.sum / r.count;
+          m.review_count = r.count;
+        } else {
+          m.avg_rating = null;
+          m.review_count = 0;
         }
       });
     }
@@ -264,6 +291,17 @@ const FindChildminder = () => {
                   <p className="text-xs text-muted-foreground flex items-center gap-1 mt-0.5">
                     <MapPin className="w-3 h-3" /> {m.town} area {m.postcode_district && `(${m.postcode_district})`}
                   </p>
+                )}
+                {m.avg_rating != null && m.review_count ? (
+                  <p className="text-xs flex items-center gap-1 mt-1 text-amber-600 font-medium">
+                    <Star className="w-3.5 h-3.5 fill-amber-500 text-amber-500" />
+                    {m.avg_rating.toFixed(1)}
+                    <span className="text-muted-foreground font-normal">
+                      ({m.review_count} {m.review_count === 1 ? "Bewertung" : "Bewertungen"})
+                    </span>
+                  </p>
+                ) : (
+                  <p className="text-xs text-muted-foreground mt-1">Noch keine Bewertungen</p>
                 )}
               </div>
               <div className="flex gap-1.5 shrink-0">
