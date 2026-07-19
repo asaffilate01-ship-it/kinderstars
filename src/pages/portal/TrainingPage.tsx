@@ -307,7 +307,7 @@ const TrainingPage = () => {
                       className="w-full h-10 rounded-md border border-input bg-background px-3 text-sm"
                       value={cpdForm.title}
                       onChange={e => setCpdForm(f => ({ ...f, title: e.target.value }))}
-                      placeholder="e.g. Safeguarding Refresher"
+                      placeholder="z. B. Kinderschutz‑Auffrischung"
                     />
                   </div>
                   <div>
@@ -350,7 +350,7 @@ const TrainingPage = () => {
                       className="w-full h-10 rounded-md border border-input bg-background px-3 text-sm"
                       value={cpdForm.provider}
                       onChange={e => setCpdForm(f => ({ ...f, provider: e.target.value }))}
-                      placeholder="e.g. CACHE, Coursera"
+                      placeholder="z. B. IHK, DRK, Caritas"
                     />
                   </div>
                   <div>
