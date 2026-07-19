@@ -31,8 +31,8 @@ const statusColors: Record<ShiftStatus, string> = {
 };
 
 const statusLabels: Record<ShiftStatus, string> = {
-  pending: "Pending", offered: "Offered", accepted: "Accepted",
-  declined: "Declined", in_progress: "In Progress", completed: "Completed", cancelled: "Cancelled",
+  pending: "Ausstehend", offered: "Angeboten", accepted: "Angenommen",
+  declined: "Abgelehnt", in_progress: "Läuft", completed: "Abgeschlossen", cancelled: "Storniert",
 };
 
 type Tab = "upcoming" | "history";
@@ -57,7 +57,7 @@ const ChildminderShifts = () => {
       .eq("childminder_id", user.id)
       .order("start_time", { ascending: false });
     if (error) {
-      toast({ title: "Error loading shifts", description: error.message, variant: "destructive" });
+      toast({ title: "Fehler beim Laden der Einsätze", description: error.message, variant: "destructive" });
     }
     setShifts((data ?? []) as Shift[]);
     setLoading(false);
@@ -68,9 +68,9 @@ const ChildminderShifts = () => {
     const { error } = await supabase.from("shifts").update({ status: newStatus }).eq("id", shiftId);
     setUpdating(null);
     if (error) {
-      toast({ title: "Error", description: error.message, variant: "destructive" });
+      toast({ title: "Fehler", description: error.message, variant: "destructive" });
     } else {
-      toast({ title: `Shift ${statusLabels[newStatus].toLowerCase()}` });
+      toast({ title: `Einsatz: ${statusLabels[newStatus]}` });
       fetchShifts();
     }
   };
@@ -80,13 +80,13 @@ const ChildminderShifts = () => {
   const history = shifts.filter((s) => s.end_time < now || ["completed", "cancelled", "declined"].includes(s.status));
   const displayed = tab === "upcoming" ? upcoming : history;
 
-  if (loading) return <div className="text-muted-foreground">Loading shifts…</div>;
+  if (loading) return <div className="text-muted-foreground">Einsätze werden geladen…</div>;
 
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold tracking-tight">Shifts</h1>
-        <p className="text-muted-foreground text-sm">View shift offers, accept or decline, and track live shifts.</p>
+        <h1 className="text-2xl font-bold tracking-tight">Einsätze</h1>
+        <p className="text-muted-foreground text-sm">Angebote annehmen oder ablehnen und laufende Einsätze verfolgen.</p>
       </div>
 
       {/* Tabs */}
@@ -99,7 +99,7 @@ const ChildminderShifts = () => {
               tab === t ? "border-secondary text-foreground" : "border-transparent text-muted-foreground hover:text-foreground"
             }`}
           >
-            {t === "upcoming" ? `Upcoming (${upcoming.length})` : `History (${history.length})`}
+            {t === "upcoming" ? `Anstehend (${upcoming.length})` : `Verlauf (${history.length})`}
           </button>
         ))}
       </div>
@@ -107,7 +107,7 @@ const ChildminderShifts = () => {
       {/* Shifts list */}
       {displayed.length === 0 ? (
         <div className="ks-card p-8 text-center">
-          <p className="text-muted-foreground text-sm">{tab === "upcoming" ? "No upcoming shifts." : "No shift history."}</p>
+          <p className="text-muted-foreground text-sm">{tab === "upcoming" ? "Keine anstehenden Einsätze." : "Kein Einsatzverlauf."}</p>
         </div>
       ) : (
         <div className="space-y-3">
@@ -139,7 +139,7 @@ const ChildminderShifts = () => {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1 text-secondary text-xs font-medium hover:underline mt-1"
                   >
-                    <Navigation className="w-3 h-3" /> Get Directions
+                    <Navigation className="w-3 h-3" /> Route
                   </a>
                 )}
                 {shift.notes && <p className="text-xs text-muted-foreground mt-1">{shift.notes}</p>}
@@ -151,24 +151,24 @@ const ChildminderShifts = () => {
                   <>
                     <Button size="sm" variant="default" className="gap-1 bg-success hover:bg-success/90 text-success-foreground"
                       disabled={updating === shift.id} onClick={() => updateStatus(shift.id, "accepted")}>
-                      {updating === shift.id ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Check className="w-3.5 h-3.5" />} Accept
+                      {updating === shift.id ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Check className="w-3.5 h-3.5" />} Annehmen
                     </Button>
                     <Button size="sm" variant="destructive" className="gap-1"
                       disabled={updating === shift.id} onClick={() => updateStatus(shift.id, "declined")}>
-                      <X className="w-3.5 h-3.5" /> Decline
+                      <X className="w-3.5 h-3.5" /> Ablehnen
                     </Button>
                   </>
                 )}
                 {shift.status === "accepted" && (
                   <Button size="sm" variant="secondary" className="gap-1"
                     disabled={updating === shift.id} onClick={() => updateStatus(shift.id, "in_progress")}>
-                    <Play className="w-3.5 h-3.5" /> Start Shift
+                    <Play className="w-3.5 h-3.5" /> Einsatz starten
                   </Button>
                 )}
                 {shift.status === "in_progress" && (
                   <Button size="sm" variant="default" className="gap-1 bg-success hover:bg-success/90 text-success-foreground"
                     disabled={updating === shift.id} onClick={() => updateStatus(shift.id, "completed")}>
-                    <CheckCircle2 className="w-3.5 h-3.5" /> Complete
+                    <CheckCircle2 className="w-3.5 h-3.5" /> Abschließen
                   </Button>
                 )}
               </div>
