@@ -18,7 +18,7 @@ import AnimatedSection from "@/components/AnimatedSection";
 import SEOHead from "@/components/SEOHead";
 import { useTranslation } from "react-i18next";
 
-const SITE_URL = "https://www.kinderstars.co.uk";
+const SITE_URL = "https://www.kinderstars.de";
 
 const Index = () => {
   const { t } = useTranslation();
@@ -36,21 +36,18 @@ const Index = () => {
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "KinderStars Ltd",
+    name: "KinderStars GmbH",
     url: SITE_URL,
     logo: `${SITE_URL}/favicon.png`,
-    description: "KinderStars is a nationwide Childminder Agency helping UK parents find DBS-checked, quality-assured childminders.",
+    description: "KinderStars ist eine bundesweite Vermittlungsplattform für qualifizierte Kinderbetreuung in ganz Deutschland – geprüft, versichert und DSGVO-konform.",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Victory House",
-      addressLocality: "Luton",
-      postalCode: "LU1 3BS",
-      addressCountry: "GB",
+      addressCountry: "DE",
     },
     contactPoint: {
       "@type": "ContactPoint",
-      telephone: "+44-7585-803505",
-      email: "info@kinderstars.co.uk",
+      telephone: "+49-30-12345678",
+      email: "info@kinderstars.de",
       contactType: "customer service",
     },
     sameAs: [],
@@ -65,8 +62,8 @@ const Index = () => {
   return (
     <>
       <SEOHead
-        title="Find Trusted Childminders Across the UK"
-        description="KinderStars is a nationwide Childminder Agency helping UK parents find DBS-checked, quality-assured childminders. Browse, enquire, and get matched — free."
+        title="Qualifizierte Kinderbetreuung in ganz Deutschland finden"
+        description="KinderStars vermittelt geprüfte Kinderbetreuung in ganz Deutschland. Mit erweitertem Führungszeugnis, § 43 SGB VIII und DSGVO-konform. Jetzt kostenlos suchen."
         canonical={SITE_URL}
         ogImage={`${SITE_URL}/favicon.png`}
       />

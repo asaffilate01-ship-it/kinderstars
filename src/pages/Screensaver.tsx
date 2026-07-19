@@ -36,7 +36,7 @@ const Screensaver = () => {
             Trusted childcare, nationwide.
           </p>
           <p className="mt-4 text-xl md:text-2xl text-[hsl(215_42%_25%)]/80 animate-fade-in">
-            kinderstars.co.uk
+            kinderstars.de
           </p>
         </div>
       ),
@@ -55,7 +55,7 @@ const Screensaver = () => {
             <span className="text-[hsl(44_93%_57%)]">Childminder Agency</span>
           </h2>
           <p className="mt-10 text-2xl md:text-3xl text-white/85 max-w-4xl leading-relaxed animate-fade-in">
-            KinderStars connects UK families with DBS-checked, quality-assured childminders — vetted, supported and matched by us.
+            KinderStars vermittelt Familien in ganz Deutschland an geprüfte, qualifizierte Betreuungspersonen – mit erweitertem Führungszeugnis und § 43 SGB VIII.
           </p>
         </div>
       ),
@@ -73,7 +73,7 @@ const Screensaver = () => {
           </h2>
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { t: "Vetted Childminders", d: "DBS-checked, Ofsted-aligned, fully insured." },
+              { t: "Geprüfte Betreuung", d: "Erweitertes Führungszeugnis, § 43 SGB VIII, versichert." },
               { t: "Free Matching", d: "Tell us your needs — we do the legwork." },
               { t: "Funding Support", d: "Help with SFE, CCG and tax-free childcare." },
             ].map((c, i) => (
@@ -142,7 +142,7 @@ const Screensaver = () => {
           </h2>
           <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-20">
             {[
-              { n: "100%", l: "DBS-checked" },
+              { n: "100%", l: "Führungszeugnis geprüft" },
               { n: "UK", l: "Wide coverage" },
               { n: "Free", l: "To get matched" },
             ].map((s, i) => (
@@ -173,10 +173,10 @@ const Screensaver = () => {
             Find your childminder.
           </h2>
           <p className="mt-8 text-2xl md:text-4xl text-[hsl(215_42%_25%)]/85 animate-fade-in">
-            Visit <span className="font-bold text-[hsl(200_93%_23%)]">kinderstars.co.uk</span>
+            Visit <span className="font-bold text-[hsl(200_93%_23%)]">kinderstars.de</span>
           </p>
           <p className="mt-4 text-xl md:text-2xl text-[hsl(215_42%_25%)]/70 animate-fade-in">
-            hello@kinderstars.co.uk · WhatsApp +44 7585 803505
+            hello@kinderstars.de · WhatsApp +49 30 12345678
           </p>
         </div>
       ),
@@ -230,7 +230,7 @@ const Screensaver = () => {
       <SEOHead
         title="KinderStars Screensaver"
         description="Auto-playing slideshow about KinderStars — for display screens."
-        canonical="https://www.kinderstars.co.uk/screensaver"
+        canonical="https://www.kinderstars.de/screensaver"
       />
       <div
         ref={containerRef}

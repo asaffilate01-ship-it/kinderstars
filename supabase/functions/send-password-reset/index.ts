@@ -53,7 +53,7 @@ Deno.serve(async (req) => {
       type: "recovery",
       email,
       options: {
-        redirectTo: redirectTo || "https://kinderstars.lovable.app/reset-password",
+        redirectTo: redirectTo || "https://kinderstars.de/reset-password",
       },
     });
 
@@ -80,26 +80,26 @@ Deno.serve(async (req) => {
       .eq("email", email)
       .maybeSingle();
 
-    const firstName = profile?.first_name || "there";
+    const firstName = profile?.first_name || "zusammen";
 
     const emailHtml = `
     <div style="font-family: 'Segoe UI', Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #FFFBF5; border-radius: 16px; overflow: hidden;">
       <div style="background: linear-gradient(135deg, #F97316, #FB923C); padding: 32px; text-align: center;">
-        <h1 style="color: white; margin: 0; font-size: 24px;">Reset Your Password</h1>
-        <p style="color: rgba(255,255,255,0.9); margin: 8px 0 0;">KinderStars Account Security</p>
+        <h1 style="color: white; margin: 0; font-size: 24px;">Passwort zurücksetzen</h1>
+        <p style="color: rgba(255,255,255,0.9); margin: 8px 0 0;">KinderStars Kontosicherheit</p>
       </div>
       <div style="padding: 32px;">
-        <p style="font-size: 16px;">Hi ${firstName},</p>
-        <p>We received a request to reset the password for your KinderStars account. Click the button below to set a new password:</p>
+        <p style="font-size: 16px;">Hallo ${firstName},</p>
+        <p>Wir haben eine Anfrage zum Zurücksetzen Ihres KinderStars-Passworts erhalten. Klicken Sie unten, um ein neues zu vergeben:</p>
         <div style="text-align: center; margin: 28px 0;">
-          <a href="${recoveryLink}" style="display: inline-block; background: #F97316; color: white; padding: 14px 36px; border-radius: 12px; text-decoration: none; font-weight: bold; font-size: 16px;">Reset Password →</a>
+          <a href="${recoveryLink}" style="display: inline-block; background: #F97316; color: white; padding: 14px 36px; border-radius: 12px; text-decoration: none; font-weight: bold; font-size: 16px;">Passwort zurücksetzen →</a>
         </div>
-        <p style="color: #666; font-size: 14px;">This link will expire in 24 hours. If you didn't request this, you can safely ignore this email.</p>
-        <p style="color: #999; font-size: 12px; margin-top: 20px;">If the button doesn't work, copy and paste this URL into your browser:<br/>
+        <p style="color: #666; font-size: 14px;">Der Link ist 24 Stunden gültig. Falls Sie diese Anfrage nicht gestellt haben, ignorieren Sie diese E-Mail.</p>
+        <p style="color: #999; font-size: 12px; margin-top: 20px;">Falls der Button nicht funktioniert, kopieren Sie diese URL in Ihren Browser:<br/>
         <a href="${recoveryLink}" style="color: #F97316; word-break: break-all;">${recoveryLink}</a></p>
       </div>
       <div style="background: #F5F0EB; padding: 16px; text-align: center; font-size: 12px; color: #999;">
-        KinderStars Ltd · Quality Childminding Agency<br/>info@kinderstars.co.uk
+        KinderStars GmbH · Vermittlung qualifizierter Kinderbetreuung<br/>info@kinderstars.de
       </div>
     </div>`;
 
@@ -116,9 +116,9 @@ Deno.serve(async (req) => {
       method: "POST",
       headers: { "Content-Type": "application/json", Authorization: `Bearer ${RESEND_API_KEY}` },
       body: JSON.stringify({
-        from: "KinderStars <info@kinderstars.co.uk>",
+        from: "KinderStars <info@kinderstars.de>",
         to: [email],
-        subject: "Reset your KinderStars password",
+        subject: "Passwort zurücksetzen – KinderStars",
         html: emailHtml,
       }),
     });

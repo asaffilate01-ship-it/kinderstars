@@ -2375,7 +2375,7 @@ const AdminDashboard = () => {
                         const rows = filteredExpenses.map(e =>
                           `<tr><td>${e.expense_date}</td><td>${e.category}</td><td>${e.description || "—"}</td><td>${e.paid_to || "—"}</td><td>${e.paid_by || "—"}</td><td>${e.allocated_to || "—"}</td><td>${e.is_paid ? "Paid" : "Unpaid"}</td><td>${e.reimbursed ? "Yes" : "No"}</td><td style="text-align:right">£${Number(e.amount).toFixed(2)}</td></tr>`
                         ).join("");
-                        printWin.document.write(`<!DOCTYPE html><html><head><title>KinderStars Expenses</title><style>body{font-family:Arial,sans-serif;padding:20px}table{width:100%;border-collapse:collapse;margin-top:16px}th,td{border:1px solid #ddd;padding:6px 8px;font-size:12px;text-align:left}th{background:#f5f5f5;font-weight:600}h1{font-size:18px;margin:0}h2{font-size:14px;color:#666;margin:4px 0 0}.total{font-weight:bold;font-size:14px;margin-top:12px}@media print{body{padding:0}}</style></head><body><h1>KinderStars Ltd — Expenses Report</h1><h2>${filteredExpenses.length} expense${filteredExpenses.length !== 1 ? "s" : ""}</h2><table><thead><tr><th>Date</th><th>Category</th><th>Description</th><th>Paid To</th><th>Paid By</th><th>Allocated To</th><th>Status</th><th>Reimbursed</th><th style="text-align:right">Amount</th></tr></thead><tbody>${rows}</tbody></table><p class="total">Total: £${total.toFixed(2)}</p></body></html>`);
+                        printWin.document.write(`<!DOCTYPE html><html><head><title>KinderStars Expenses</title><style>body{font-family:Arial,sans-serif;padding:20px}table{width:100%;border-collapse:collapse;margin-top:16px}th,td{border:1px solid #ddd;padding:6px 8px;font-size:12px;text-align:left}th{background:#f5f5f5;font-weight:600}h1{font-size:18px;margin:0}h2{font-size:14px;color:#666;margin:4px 0 0}.total{font-weight:bold;font-size:14px;margin-top:12px}@media print{body{padding:0}}</style></head><body><h1>KinderStars GmbH — Expenses Report</h1><h2>${filteredExpenses.length} expense${filteredExpenses.length !== 1 ? "s" : ""}</h2><table><thead><tr><th>Date</th><th>Category</th><th>Description</th><th>Paid To</th><th>Paid By</th><th>Allocated To</th><th>Status</th><th>Reimbursed</th><th style="text-align:right">Amount</th></tr></thead><tbody>${rows}</tbody></table><p class="total">Total: £${total.toFixed(2)}</p></body></html>`);
                         printWin.document.close();
                         printWin.print();
                       }}>
@@ -2666,7 +2666,7 @@ const AdminDashboard = () => {
                   <div className="ks-card p-4">
                     <h3 className="font-bold text-sm mb-2">Safeguarding Contacts</h3>
                     <div className="text-xs space-y-1 text-muted-foreground">
-                      <p><strong>Designated Safeguarding Lead:</strong> Admin User — info@kinderstars.co.uk</p>
+                      <p><strong>Designated Safeguarding Lead:</strong> Admin User — info@kinderstars.de</p>
                       <p><strong>Local Authority Designated Officer (LADO):</strong> Contact your local LADO</p>
                       <p><strong>Ofsted:</strong> 0300 123 1231</p>
                       <p><strong>NSPCC Helpline:</strong> 0808 800 5000</p>
@@ -2854,7 +2854,7 @@ const AdminDashboard = () => {
                       <p>• <strong>Right to Erasure:</strong> Personal data must be deleted unless a legal basis exists for retention.</p>
                       <p>• <strong>Data Retention:</strong> Financial records: 7 years. Childminder records: 3 years post-engagement. Child records: Until child turns 25.</p>
                       <p>• <strong>Breach Notification:</strong> ICO must be notified within 72 hours of a qualifying breach.</p>
-                      <p>• <strong>Data Protection Officer:</strong> info@kinderstars.co.uk</p>
+                      <p>• <strong>Data Protection Officer:</strong> info@kinderstars.de</p>
                     </div>
                   </div>
                 </div>

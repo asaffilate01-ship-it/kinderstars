@@ -62,7 +62,7 @@ const BlogPost = () => {
     author: { "@type": "Organization", name: post.author },
     publisher: {
       "@type": "Organization",
-      name: "KinderStars Ltd",
+      name: "KinderStars GmbH",
       logo: { "@type": "ImageObject", url: `${SITE_URL}/favicon.png` },
     },
     mainEntityOfPage: { "@type": "WebPage", "@id": postUrl },

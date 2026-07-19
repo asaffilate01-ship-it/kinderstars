@@ -69,7 +69,7 @@ Deno.serve(async (req) => {
       });
     }
 
-    const senderEmail = from || "KinderStars <hello@kinderstars.co.uk>";
+    const senderEmail = from || "KinderStars <hello@kinderstars.de>";
 
     // If no real API key or dummy key, log and return success
     if (!resendApiKey || resendApiKey === "re_dummy_key_for_testing" || resendApiKey.length < 10) {

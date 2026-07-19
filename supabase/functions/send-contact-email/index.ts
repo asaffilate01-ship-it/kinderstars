@@ -110,8 +110,8 @@ serve(async (req) => {
       method: "POST",
       headers: { "Content-Type": "application/json", Authorization: `Bearer ${RESEND_API_KEY}` },
       body: JSON.stringify({
-        from: "KinderStars Website <info@kinderstars.co.uk>",
-        to: ["info@kinderstars.co.uk"],
+        from: "KinderStars Website <info@kinderstars.de>",
+        to: ["info@kinderstars.de"],
         subject: `${subjectPrefix} from ${escapeHtml(name)}`,
         html: emailHtml,
         reply_to: email,
