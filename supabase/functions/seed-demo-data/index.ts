@@ -5,58 +5,58 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
 };
 
-// UK towns with realistic postcode districts
+// Deutsche Städte mit realistischen PLZ-Präfixen (erste 3 Stellen)
 const UK_LOCATIONS = [
-  { town: "London", districts: ["E1","E2","N1","N4","SE1","SE5","SW1","SW4","W1","W2","NW1","NW3","EC1","WC1"] },
-  { town: "Birmingham", districts: ["B1","B2","B5","B11","B14","B16","B23","B29","B31","B33"] },
-  { town: "Manchester", districts: ["M1","M2","M4","M8","M11","M14","M16","M20","M21","M23"] },
-  { town: "Leeds", districts: ["LS1","LS2","LS4","LS6","LS7","LS8","LS11","LS15","LS17"] },
-  { town: "Liverpool", districts: ["L1","L2","L3","L4","L7","L8","L11","L15","L17","L18"] },
-  { town: "Bristol", districts: ["BS1","BS2","BS3","BS5","BS6","BS7","BS8","BS9","BS10"] },
-  { town: "Sheffield", districts: ["S1","S2","S3","S5","S7","S8","S10","S11","S12"] },
-  { town: "Newcastle", districts: ["NE1","NE2","NE3","NE4","NE5","NE6","NE7","NE12"] },
-  { town: "Nottingham", districts: ["NG1","NG2","NG3","NG5","NG7","NG8","NG9","NG11"] },
-  { town: "Leicester", districts: ["LE1","LE2","LE3","LE4","LE5","LE7","LE8"] },
-  { town: "Coventry", districts: ["CV1","CV2","CV3","CV4","CV5","CV6"] },
-  { town: "Southampton", districts: ["SO14","SO15","SO16","SO17","SO18","SO19"] },
-  { town: "Brighton", districts: ["BN1","BN2","BN3"] },
-  { town: "Plymouth", districts: ["PL1","PL2","PL3","PL4","PL5","PL6"] },
-  { town: "Reading", districts: ["RG1","RG2","RG4","RG6","RG30"] },
-  { town: "Derby", districts: ["DE1","DE3","DE21","DE22","DE23","DE24"] },
-  { town: "Luton", districts: ["LU1","LU2","LU3","LU4"] },
-  { town: "Milton Keynes", districts: ["MK1","MK2","MK3","MK5","MK9","MK10"] },
-  { town: "Northampton", districts: ["NN1","NN2","NN3","NN4","NN5"] },
-  { town: "Oxford", districts: ["OX1","OX2","OX3","OX4"] },
-  { town: "Cambridge", districts: ["CB1","CB2","CB3","CB4","CB5"] },
-  { town: "Norwich", districts: ["NR1","NR2","NR3","NR4","NR5","NR6"] },
-  { town: "York", districts: ["YO1","YO10","YO23","YO24","YO26","YO30"] },
-  { town: "Bath", districts: ["BA1","BA2"] },
-  { town: "Exeter", districts: ["EX1","EX2","EX4"] },
-  { town: "Cardiff", districts: ["CF10","CF11","CF14","CF24"] },
-  { town: "Edinburgh", districts: ["EH1","EH3","EH4","EH6","EH7","EH10"] },
-  { town: "Glasgow", districts: ["G1","G2","G3","G4","G11","G12","G20","G41"] },
-  { town: "Aberdeen", districts: ["AB10","AB11","AB15","AB24","AB25"] },
-  { town: "Swindon", districts: ["SN1","SN2","SN3","SN5","SN25"] },
-  { town: "Peterborough", districts: ["PE1","PE2","PE3","PE4"] },
-  { town: "Ipswich", districts: ["IP1","IP2","IP3","IP4"] },
-  { town: "Stoke-on-Trent", districts: ["ST1","ST2","ST3","ST4","ST6"] },
-  { town: "Wolverhampton", districts: ["WV1","WV2","WV3","WV4","WV6","WV10"] },
-  { town: "Sunderland", districts: ["SR1","SR2","SR3","SR4","SR5"] },
-  { town: "Bournemouth", districts: ["BH1","BH2","BH5","BH8","BH9"] },
-  { town: "Cheltenham", districts: ["GL50","GL51","GL52","GL53"] },
-  { town: "Colchester", districts: ["CO1","CO2","CO3","CO4"] },
-  { town: "Blackpool", districts: ["FY1","FY2","FY3","FY4"] },
-  { town: "Swansea", districts: ["SA1","SA2","SA3","SA4","SA5"] },
+  { town: "Berlin", districts: ["101","104","109","121","122","123"] },
+  { town: "Hamburg", districts: ["201","202","203","221","224"] },
+  { town: "München", districts: ["803","804","805","806","807","808"] },
+  { town: "Köln", districts: ["506","507","509","510","511"] },
+  { town: "Frankfurt am Main", districts: ["603","604","605","606"] },
+  { town: "Stuttgart", districts: ["701","702","703","704"] },
+  { town: "Düsseldorf", districts: ["402","403","404","405"] },
+  { town: "Leipzig", districts: ["041","041","043","044"] },
+  { town: "Dortmund", districts: ["441","442","443","444"] },
+  { town: "Essen", districts: ["451","452","453","454"] },
+  { town: "Bremen", districts: ["281","282","283"] },
+  { town: "Dresden", districts: ["011","012","013"] },
+  { town: "Hannover", districts: ["301","302","303"] },
+  { town: "Nürnberg", districts: ["904","905","906"] },
+  { town: "Duisburg", districts: ["470","471","472"] },
+  { town: "Bochum", districts: ["447","448"] },
+  { town: "Wuppertal", districts: ["421","422","423"] },
+  { town: "Bielefeld", districts: ["336","337","338"] },
+  { town: "Bonn", districts: ["531","532","533"] },
+  { town: "Münster", districts: ["481","482","483"] },
+  { town: "Karlsruhe", districts: ["761","762","763"] },
+  { town: "Mannheim", districts: ["681","682","683"] },
+  { town: "Augsburg", districts: ["861","862"] },
+  { town: "Wiesbaden", districts: ["651","652","653"] },
+  { town: "Mönchengladbach", districts: ["410","411","412"] },
+  { town: "Gelsenkirchen", districts: ["458","459"] },
+  { town: "Braunschweig", districts: ["381","382"] },
+  { town: "Kiel", districts: ["241","242"] },
+  { town: "Aachen", districts: ["520","521"] },
+  { town: "Chemnitz", districts: ["091","092"] },
+  { town: "Halle (Saale)", districts: ["061","062"] },
+  { town: "Magdeburg", districts: ["391","392"] },
+  { town: "Freiburg", districts: ["791","790"] },
+  { town: "Krefeld", districts: ["474","475"] },
+  { town: "Mainz", districts: ["550","551"] },
+  { town: "Lübeck", districts: ["235","236"] },
+  { town: "Erfurt", districts: ["990","991"] },
+  { town: "Rostock", districts: ["180","181"] },
+  { town: "Kassel", districts: ["341","342"] },
+  { town: "Potsdam", districts: ["144","145"] },
 ];
 
-const FIRST_NAMES_F = ["Emma","Olivia","Sophie","Amelia","Isla","Ava","Mia","Isabella","Evie","Ella","Grace","Lily","Charlotte","Hannah","Freya","Jessica","Ruby","Emily","Daisy","Phoebe","Alice","Lucy","Chloe","Poppy","Florence","Sienna","Matilda","Rosie","Layla","Maisie","Willow","Ivy","Harper","Aria","Scarlett","Eva","Elsie","Millie","Georgia","Eliza","Bella","Lola","Molly","Jasmine","Imogen","Zara","Thea","Iris","Holly","Clara"];
-const FIRST_NAMES_M = ["Oliver","George","Harry","Noah","Jack","Leo","Arthur","Charlie","Oscar","James","Jacob","Henry","Thomas","William","Alfie","Teddy","Freddie","Archie","Joshua","Alexander","Lucas","Theo","Edward","Isaac","Max","Ethan","Logan","Joseph","Samuel","Daniel","Sebastian","Adam","Liam","Benjamin","Ryan","Dylan","Nathan","Matthew","Luke","Finley"];
-const LAST_INITIALS = "ABCDEFGHJKLMNOPRSTUVW";
-const LANGUAGES = ["English","Welsh","Polish","Urdu","Arabic","Romanian","Czech","Slovak","Gujarati","Punjabi","Bengali","Hindi","Mandarin","French","Spanish","Portuguese","Italian","German","Turkish","Somali"];
+const FIRST_NAMES_F = ["Emma","Mia","Hannah","Emilia","Sofia","Lina","Marie","Anna","Lea","Leonie","Klara","Laura","Julia","Sarah","Nele","Amelie","Charlotte","Johanna","Ella","Frieda","Ida","Lena","Luisa","Melina","Nora","Paula","Pia","Ronja","Selina","Theresa","Aylin","Ayşe","Elif","Zeynep","Fatma","Hafsa","Amira","Yasmin","Aisha","Maryam","Nadiya","Kateryna","Olena","Anastasiia","Iryna","Daria","Sofiya","Anastasia","Polina","Katya"];
+const FIRST_NAMES_M = ["Ben","Paul","Jonas","Leon","Elias","Finn","Noah","Luis","Lukas","Felix","Maximilian","Henry","Julian","David","Jakob","Anton","Emil","Oskar","Theo","Karl","Mats","Moritz","Nils","Tim","Tom","Yusuf","Mehmet","Ahmet","Emir","Ali","Omar","Ibrahim","Amir","Hassan","Karim","Danylo","Andriy","Oleh","Mykhailo","Ivan","Nikita","Aleksandr","Maksim","Artem","Yaroslav"];
+const LAST_INITIALS = "ABCDEFGHJKLMNOPRSTUVWZ";
+const LANGUAGES = ["Deutsch","Englisch","Türkisch","Arabisch","Russisch","Ukrainisch","Urdu","Polnisch","Französisch","Spanisch","Italienisch","Kurdisch","Farsi","Rumänisch","Vietnamesisch"];
 const AGE_GROUPS = ["0-1","2-4","5-8"];
-const DAYS = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
+const DAYS = ["Mo","Di","Mi","Do","Fr","Sa","So"];
 const GENDERS = ["male","female"];
-const LAST_NAMES = ["Smith","Jones","Williams","Taylor","Brown","Davies","Wilson","Evans","Johnson","Roberts","Walker","Wright","Thompson","White","Robinson","Hall","Green","Lewis","Clarke","Jackson","Harris","Wood","Turner","Martin","Cooper","Hill","Ward","Hughes","Moore","King","Baker","Harrison","Morgan","Allen","James","Scott","Phillips","Watson","Davis","Parker","Price","Bennett","Young","Griffiths","Mitchell","Kelly","Cook","Carter","Richardson","Bailey","Collins","Shaw","Murphy","Miller","Cox","Richards","Khan","Marshall","Anderson","Simpson"];
+const LAST_NAMES = ["Müller","Schmidt","Schneider","Fischer","Weber","Meyer","Wagner","Becker","Schulz","Hoffmann","Schäfer","Koch","Bauer","Richter","Klein","Wolf","Schröder","Neumann","Schwarz","Zimmermann","Braun","Krüger","Hofmann","Hartmann","Lange","Schmitt","Werner","Krause","Meier","Lehmann","Yilmaz","Kaya","Demir","Şahin","Çelik","Öztürk","Aydın","Yıldız","Özdemir","Arslan","Kowalski","Nowak","Ivanov","Petrov","Sokolov","Popov","Volkov","Kuznetsov","Shevchenko","Bondarenko","Kovalenko","Melnyk","Khan","Ahmed","Ali","Hussain","Malik","Sheikh"];
 
 function pick<T>(arr: T[]): T { return arr[Math.floor(Math.random() * arr.length)]; }
 function pickN<T>(arr: T[], min: number, max: number): T[] {
