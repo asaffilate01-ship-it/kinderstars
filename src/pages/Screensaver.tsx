@@ -55,7 +55,7 @@ const Screensaver = () => {
             <span className="text-[hsl(44_93%_57%)]">Childminder Agency</span>
           </h2>
           <p className="mt-10 text-2xl md:text-3xl text-white/85 max-w-4xl leading-relaxed animate-fade-in">
-            KinderStars connects UK families with DBS-checked, quality-assured childminders — vetted, supported and matched by us.
+            KinderStars vermittelt Familien in ganz Deutschland an geprüfte, qualifizierte Betreuungspersonen – mit erweitertem Führungszeugnis und § 43 SGB VIII.
           </p>
         </div>
       ),
@@ -73,7 +73,7 @@ const Screensaver = () => {
           </h2>
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { t: "Vetted Childminders", d: "DBS-checked, Ofsted-aligned, fully insured." },
+              { t: "Geprüfte Betreuung", d: "Erweitertes Führungszeugnis, § 43 SGB VIII, versichert." },
               { t: "Free Matching", d: "Tell us your needs — we do the legwork." },
               { t: "Funding Support", d: "Help with SFE, CCG and tax-free childcare." },
             ].map((c, i) => (
@@ -142,7 +142,7 @@ const Screensaver = () => {
           </h2>
           <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-20">
             {[
-              { n: "100%", l: "DBS-checked" },
+              { n: "100%", l: "Führungszeugnis geprüft" },
               { n: "UK", l: "Wide coverage" },
               { n: "Free", l: "To get matched" },
             ].map((s, i) => (

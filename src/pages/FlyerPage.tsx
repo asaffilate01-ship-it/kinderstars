@@ -67,10 +67,10 @@ const FlyerPage = () => {
           {/* Bullet Points */}
           <div className="space-y-1.5">
             {[
-              "Ofsted-registered childminders",
+              "Nach § 43 SGB VIII zugelassen",
               "Flexible hours to fit your timetable",
               "Available across the UK",
-              "DBS-checked professionals",
+              "Erweitertes Führungszeugnis geprüft",
               "Support with funding applications",
             ].map((item) => (
               <div key={item} className="flex items-center gap-2">
@@ -90,7 +90,7 @@ const FlyerPage = () => {
               {[
                 { q: "Who can apply?", a: "Full-time students in higher education (university, college) with dependent children." },
                 { q: "How much can I get?", a: "Up to 85% of childcare costs, max £188.90/week (1 child) or £323.85/week (2+ children)." },
-                { q: "Do I need Ofsted-registered care?", a: "Yes — all KinderStars childminders are Ofsted-registered and DBS-checked." },
+                { q: "Sind alle Betreuungspersonen geprüft?", a: "Ja – alle KinderStars-Betreuungspersonen sind nach § 43 SGB VIII zugelassen und legen ein erweitertes Führungszeugnis vor." },
               ].map((faq) => (
                 <div key={faq.q}>
                   <p className="text-[10px] font-bold text-foreground">{faq.q}</p>
