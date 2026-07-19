@@ -37,7 +37,7 @@ interface AvailabilitySlot {
   is_available: boolean;
 }
 
-const DAY_NAMES = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+const DAY_NAMES = ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"];
 
 const FindChildminder = () => {
   const { user } = useAuth();
@@ -203,9 +203,9 @@ const FindChildminder = () => {
       notes: bookingForm.notes || null,
     });
     if (error) {
-      toast({ title: "Error", description: error.message, variant: "destructive" });
+      toast({ title: "Fehler", description: error.message, variant: "destructive" });
     } else {
-      toast({ title: "Booking requested!", description: "The childminder will review your request." });
+      toast({ title: "Buchungsanfrage gesendet!", description: "Die Betreuungsperson prüft Ihre Anfrage." });
       supabase.functions.invoke("send-notification", {
         body: { type: "booking_request", booking_childminder_id: selectedMinder.user_id, parent_name: user.email },
       }).catch(() => {});
@@ -226,25 +226,25 @@ const FindChildminder = () => {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold tracking-tight">Find a Childminder</h1>
-        <p className="text-muted-foreground text-sm">Search verified childminders. Names are only revealed after arrival for your safety.</p>
+        <h1 className="text-2xl font-bold tracking-tight">Betreuungsperson finden</h1>
+        <p className="text-muted-foreground text-sm">Suchen Sie verifizierte Kindertagespflegepersonen. Namen werden zu Ihrer Sicherheit erst bei Ankunft angezeigt.</p>
       </div>
 
       {/* Filters */}
       <div className="ks-card p-4">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           <div className="ks-field">
-            <label>Postcode Area</label>
+            <label>PLZ-Bereich</label>
             <input
-              placeholder="e.g. LU1"
+              placeholder="z. B. 10115"
               value={filters.postcode}
               onChange={(e) => setFilters({ ...filters, postcode: e.target.value })}
             />
           </div>
           <div className="ks-field">
-            <label>Age Group</label>
+            <label>Altersgruppe</label>
             <select value={filters.ageGroup} onChange={(e) => setFilters({ ...filters, ageGroup: e.target.value })}>
-              <option value="">Any</option>
+              <option value="">Alle</option>
               <option value="0-1">0-1</option>
               <option value="2-4">2-4</option>
               <option value="5-8">5-8</option>
@@ -252,9 +252,9 @@ const FindChildminder = () => {
             </select>
           </div>
           <div className="ks-field">
-            <label>Language</label>
+            <label>Sprache</label>
             <input
-              placeholder="e.g. English"
+              placeholder="z. B. Deutsch"
               value={filters.language}
               onChange={(e) => setFilters({ ...filters, language: e.target.value })}
             />
@@ -262,14 +262,14 @@ const FindChildminder = () => {
         </div>
         <Button variant="hero" onClick={handleSearch} disabled={loading} className="mt-3 gap-2">
           <Search className="w-4 h-4" />
-          {loading ? "Searching…" : "Search"}
+          {loading ? "Suche läuft…" : "Suchen"}
         </Button>
       </div>
 
       {/* Results */}
       {searched && results.length === 0 && !loading && (
         <div className="ks-card p-8 text-center text-muted-foreground text-sm">
-          No verified childminders found matching your criteria.
+          Keine verifizierten Betreuungspersonen zu Ihren Kriterien gefunden.
         </div>
       )}
 
@@ -282,14 +282,14 @@ const FindChildminder = () => {
                   {m.has_arrived && m.first_name ? (
                     <>{m.first_name}</>
                   ) : m.has_booking ? (
-                    <span className="text-primary">Booking Confirmed — Name revealed on arrival</span>
+                    <span className="text-primary">Buchung bestätigt — Name wird bei Ankunft angezeigt</span>
                   ) : (
-                    <span className="text-muted-foreground">Verified Childminder</span>
+                    <span className="text-muted-foreground">Verifizierte Betreuungsperson</span>
                   )}
                 </h3>
                 {m.town && (
                   <p className="text-xs text-muted-foreground flex items-center gap-1 mt-0.5">
-                    <MapPin className="w-3 h-3" /> {m.town} area {m.postcode_district && `(${m.postcode_district})`}
+                    <MapPin className="w-3 h-3" /> Region {m.town} {m.postcode_district && `(${m.postcode_district})`}
                   </p>
                 )}
                 {m.avg_rating != null && m.review_count ? (
@@ -307,12 +307,12 @@ const FindChildminder = () => {
               <div className="flex gap-1.5 shrink-0">
                 {m.dbs_number && (
                   <span className="ks-tag !bg-success/15 !border-success/30 !text-success text-[10px] flex items-center gap-1">
-                    <Shield className="w-3 h-3" /> DBS ✓
+                    <Shield className="w-3 h-3" /> Führungszeugnis ✓
                   </span>
                 )}
                 {m.ofsted_urn && (
                   <span className="ks-tag !bg-primary/15 !border-primary/30 !text-primary text-[10px] flex items-center gap-1">
-                    <Award className="w-3 h-3" /> Ofsted ✓
+                    <Award className="w-3 h-3" /> Jugendamt ✓
                   </span>
                 )}
               </div>
@@ -321,7 +321,7 @@ const FindChildminder = () => {
             <div className="grid grid-cols-2 gap-2 text-xs">
               {m.experience_years != null && (
                 <div className="flex items-center gap-1.5 text-muted-foreground">
-                  <Star className="w-3.5 h-3.5" /> {m.experience_years} years experience
+                  <Star className="w-3.5 h-3.5" /> {m.experience_years} Jahre Erfahrung
                 </div>
               )}
               {m.languages && m.languages.length > 0 && (
@@ -331,7 +331,7 @@ const FindChildminder = () => {
               )}
               {m.age_groups && m.age_groups.length > 0 && (
                 <div className="flex items-center gap-1.5 text-muted-foreground">
-                  <Baby className="w-3.5 h-3.5" /> Ages: {m.age_groups.join(", ")}
+                  <Baby className="w-3.5 h-3.5" /> Alter: {m.age_groups.join(", ")}
                 </div>
               )}
               {m.hours && (
@@ -343,7 +343,7 @@ const FindChildminder = () => {
 
             {m.ofsted_rating && (
               <p className="text-xs text-muted-foreground mt-2">
-                Ofsted: <span className="font-medium text-foreground">{m.ofsted_rating}</span>
+                Jugendamt-Bewertung: <span className="font-medium text-foreground">{m.ofsted_rating}</span>
               </p>
             )}
 
@@ -366,7 +366,7 @@ const FindChildminder = () => {
               className="mt-3 gap-1.5"
               onClick={() => handleSelectMinder(m)}
             >
-              <CalendarDays className="w-4 h-4" /> View Availability & Book
+              <CalendarDays className="w-4 h-4" /> Verfügbarkeit ansehen & buchen
             </Button>
           </div>
         ))}
@@ -379,11 +379,11 @@ const FindChildminder = () => {
             <h3 className="font-bold text-sm flex items-center gap-2">
               <CalendarDays className="w-4 h-4" />
               {selectedMinder.has_arrived && selectedMinder.first_name
-                ? `Book ${selectedMinder.first_name}`
-                : "Book Childminder"}
+                ? `${selectedMinder.first_name} buchen`
+                : "Betreuungsperson buchen"}
               {selectedMinder.town && <span className="text-xs text-muted-foreground font-normal">— {selectedMinder.town}</span>}
             </h3>
-            <Button variant="ghost" size="sm" onClick={() => setSelectedMinder(null)}>Close</Button>
+            <Button variant="ghost" size="sm" onClick={() => setSelectedMinder(null)}>Schließen</Button>
           </div>
 
           {/* Weekly availability summary */}
@@ -411,7 +411,7 @@ const FindChildminder = () => {
               <Button variant="ghost" size="sm" onClick={() => setCalMonth(addMonths(calMonth, 1))}><ChevronRight className="w-4 h-4" /></Button>
             </div>
             <div className="grid grid-cols-7 gap-px">
-              {["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map((d) => (
+              {["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"].map((d) => (
                 <div key={d} className="text-center text-[10px] text-muted-foreground font-medium py-1">{d}</div>
               ))}
               {calDays.map((day) => {
@@ -439,35 +439,35 @@ const FindChildminder = () => {
               })}
             </div>
             <div className="flex gap-3 mt-2 text-[10px] text-muted-foreground">
-              <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-success/30" /> Available</span>
-              <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-primary/30" /> Booked</span>
+              <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-success/30" /> Verfügbar</span>
+              <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-primary/30" /> Gebucht</span>
             </div>
           </div>
 
           {/* Booking form */}
           {selectedDate && (
             <div className="pt-3 border-t border-border space-y-3">
-              <h4 className="text-sm font-bold">{format(selectedDate, "EEEE, d MMMM yyyy")}</h4>
+              <h4 className="text-sm font-bold">{format(selectedDate, "dd.MM.yyyy")}</h4>
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="text-xs text-muted-foreground block mb-1">Start Time</label>
+                  <label className="text-xs text-muted-foreground block mb-1">Startzeit</label>
                   <input type="time" className="w-full rounded-xl border border-border bg-card px-3 py-2 text-sm"
                     value={bookingForm.start_time} onChange={(e) => setBookingForm({ ...bookingForm, start_time: e.target.value })} />
                 </div>
                 <div>
-                  <label className="text-xs text-muted-foreground block mb-1">End Time</label>
+                  <label className="text-xs text-muted-foreground block mb-1">Endzeit</label>
                   <input type="time" className="w-full rounded-xl border border-border bg-card px-3 py-2 text-sm"
                     value={bookingForm.end_time} onChange={(e) => setBookingForm({ ...bookingForm, end_time: e.target.value })} />
                 </div>
               </div>
               <div>
-                <label className="text-xs text-muted-foreground block mb-1">Notes (optional)</label>
+                <label className="text-xs text-muted-foreground block mb-1">Notizen (optional)</label>
                 <textarea className="w-full rounded-xl border border-border bg-card px-3 py-2 text-sm" rows={2}
-                  value={bookingForm.notes} onChange={(e) => setBookingForm({ ...bookingForm, notes: e.target.value })} placeholder="Any special requirements…" />
+                  value={bookingForm.notes} onChange={(e) => setBookingForm({ ...bookingForm, notes: e.target.value })} placeholder="Besondere Hinweise…" />
               </div>
               <Button variant="hero" size="sm" onClick={handleBook} disabled={bookingLoading} className="gap-1.5">
                 {bookingLoading ? <Clock className="w-4 h-4 animate-spin" /> : <Plus className="w-4 h-4" />}
-                Request Booking
+                Buchung anfragen
               </Button>
             </div>
           )}
