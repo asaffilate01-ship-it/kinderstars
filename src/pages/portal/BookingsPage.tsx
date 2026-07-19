@@ -141,10 +141,10 @@ const BookingsPage = () => {
       booking_id: bookingId,
       actor_id: user.id,
       event_type,
-      from_status: from_status as any,
+      from_status: (from_status ?? null) as any,
       to_status: to_status as any,
-      payload,
-    });
+      payload: payload as any,
+    } as any);
   };
 
   const handleResponse = async (bookingId: string, status: "accepted" | "declined", reason?: string) => {
