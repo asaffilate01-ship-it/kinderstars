@@ -19,7 +19,7 @@ const becomeSteps = [
   {
     icon: ClipboardList,
     title: "1. Interesse bekunden",
-    desc: "Füllen Sie unser Kontaktformular aus (Option „Kindertagespflegeperson werden") oder schreiben Sie an info@kinderstars.de. Wir vereinbaren ein persönliches Gespräch.",
+    desc: "Füllen Sie unser Kontaktformular aus (Option: Kindertagespflegeperson werden) oder schreiben Sie an info@kinderstars.de. Wir vereinbaren ein persönliches Gespräch.",
   },
   {
     icon: ShieldCheck,
