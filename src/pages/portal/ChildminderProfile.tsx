@@ -172,22 +172,22 @@ const ChildminderProfile = () => {
 
     setSaving(false);
     if (error) {
-      toast({ title: "Error", description: error.message, variant: "destructive" });
+      toast({ title: "Fehler", description: error.message, variant: "destructive" });
     } else {
-      toast({ title: "Profile saved" });
+      toast({ title: "Profil gespeichert" });
     }
   };
 
   const toggleArr = (arr: string[], val: string) =>
     arr.includes(val) ? arr.filter((v) => v !== val) : [...arr, val];
 
-  if (loadingProfile) return <div className="text-muted-foreground">Loading profile…</div>;
+  if (loadingProfile) return <div className="text-muted-foreground">Profil wird geladen…</div>;
 
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold tracking-tight">My Profile</h1>
-        <p className="text-muted-foreground text-sm">Manage your childminder profile, qualifications, and details.</p>
+        <h1 className="text-2xl font-bold tracking-tight">Mein Profil</h1>
+        <p className="text-muted-foreground text-sm">Verwalten Sie Ihr Kindertagespflege‑Profil, Qualifikationen und Angaben.</p>
       </div>
 
       {/* Avatar */}
@@ -210,45 +210,45 @@ const ChildminderProfile = () => {
           </button>
         </div>
         <div>
-          <p className="font-bold text-sm">Profile Photo</p>
-          <p className="text-muted-foreground text-xs">JPG, PNG up to 5MB</p>
+          <p className="font-bold text-sm">Profilbild</p>
+          <p className="text-muted-foreground text-xs">JPG, PNG bis 5 MB</p>
         </div>
       </div>
 
       {/* Location & Preferences */}
       <div className="ks-card p-5">
-        <h2 className="font-bold mb-3">Location & Preferences</h2>
+        <h2 className="font-bold mb-3">Standort & Präferenzen</h2>
         <div className="grid grid-cols-2 gap-3">
           <div className="ks-field">
-            <label>Town/City</label>
+            <label>Ort/Stadt</label>
             <input value={form.town} onChange={(e) => setForm({ ...form, town: e.target.value })} />
           </div>
           <div className="ks-field">
-            <label>Postcode District</label>
-            <input placeholder="e.g. LU1" value={form.postcode_district} onChange={(e) => setForm({ ...form, postcode_district: e.target.value })} />
+            <label>PLZ‑Bereich</label>
+            <input placeholder="z. B. 10115" value={form.postcode_district} onChange={(e) => setForm({ ...form, postcode_district: e.target.value })} />
           </div>
           <div className="ks-field">
-            <label>Max Distance (miles)</label>
+            <label>Max. Entfernung (km)</label>
             <input type="number" min={1} max={100} value={form.max_distance_miles} onChange={(e) => setForm({ ...form, max_distance_miles: Number(e.target.value) })} />
           </div>
           <div className="ks-field">
-            <label>Max Children at Once</label>
+            <label>Max. Kinder gleichzeitig</label>
             <input type="number" min={1} max={20} value={form.max_children} onChange={(e) => setForm({ ...form, max_children: Number(e.target.value) })} />
           </div>
           <div className="ks-field">
-            <label>Working Hours</label>
-            <input placeholder="e.g. 08:00–18:00" value={form.hours} onChange={(e) => setForm({ ...form, hours: e.target.value })} />
+            <label>Arbeitszeiten</label>
+            <input placeholder="z. B. 08:00–18:00" value={form.hours} onChange={(e) => setForm({ ...form, hours: e.target.value })} />
           </div>
           <div className="ks-field">
-            <label>Experience (years)</label>
+            <label>Erfahrung (Jahre)</label>
             <input type="number" min={0} value={form.experience_years ?? ""} onChange={(e) => setForm({ ...form, experience_years: e.target.value ? Number(e.target.value) : null })} />
           </div>
           <div className="ks-field col-span-2">
-            <label>Languages (comma separated)</label>
+            <label>Sprachen (Komma getrennt)</label>
             <input value={form.languages.join(", ")} onChange={(e) => setForm({ ...form, languages: e.target.value.split(",").map((s) => s.trim()).filter(Boolean) })} />
           </div>
           <div className="col-span-2">
-            <label className="block text-xs text-muted-foreground mb-1.5">Age Groups</label>
+            <label className="block text-xs text-muted-foreground mb-1.5">Altersgruppen</label>
             <div className="flex gap-2 flex-wrap">
               {AGE_GROUPS.map((ag) => (
                 <button key={ag} type="button" onClick={() => setForm({ ...form, age_groups: toggleArr(form.age_groups, ag) })}
@@ -259,7 +259,7 @@ const ChildminderProfile = () => {
             </div>
           </div>
           <div className="col-span-2">
-            <label className="block text-xs text-muted-foreground mb-1.5">Days Available</label>
+            <label className="block text-xs text-muted-foreground mb-1.5">Verfügbare Tage</label>
             <div className="flex gap-2 flex-wrap">
               {DAYS.map((d) => (
                 <button key={d} type="button" onClick={() => setForm({ ...form, days: toggleArr(form.days, d) })}
@@ -270,11 +270,11 @@ const ChildminderProfile = () => {
             </div>
           </div>
           <div className="ks-field col-span-2">
-            <label>Bio</label>
-            <textarea value={form.bio} onChange={(e) => setForm({ ...form, bio: e.target.value })} placeholder="Tell parents about your childcare approach…" />
+            <label>Kurzprofil</label>
+            <textarea value={form.bio} onChange={(e) => setForm({ ...form, bio: e.target.value })} placeholder="Beschreiben Sie Eltern Ihren pädagogischen Ansatz…" />
           </div>
           <div className="col-span-2 flex items-center gap-3">
-            <label className="text-xs text-muted-foreground">Available for work</label>
+            <label className="text-xs text-muted-foreground">Für Vermittlungen verfügbar</label>
             <button
               type="button"
               onClick={() => setForm({ ...form, is_available: !form.is_available })}
@@ -286,74 +286,73 @@ const ChildminderProfile = () => {
         </div>
       </div>
 
-      {/* Ofsted Details */}
+      {/* Jugendamt Details */}
       <div className="ks-card p-5">
-        <h2 className="font-bold mb-3">Ofsted Details</h2>
+        <h2 className="font-bold mb-3">Pflegeerlaubnis & Jugendamt</h2>
         <div className="grid grid-cols-2 gap-3">
           <div className="ks-field">
-            <label>Ofsted URN</label>
+            <label>Aktenzeichen (Jugendamt)</label>
             <input value={form.ofsted_urn} onChange={(e) => setForm({ ...form, ofsted_urn: e.target.value })} />
           </div>
           <div className="ks-field">
-            <label>Ofsted Rating</label>
+            <label>Status der Pflegeerlaubnis</label>
             <select value={form.ofsted_rating} onChange={(e) => setForm({ ...form, ofsted_rating: e.target.value })}>
-              <option value="">Select…</option>
-              <option value="Outstanding">Outstanding</option>
-              <option value="Good">Good</option>
-              <option value="Requires Improvement">Requires Improvement</option>
-              <option value="Inadequate">Inadequate</option>
-              <option value="Not Yet Inspected">Not Yet Inspected</option>
+              <option value="">Bitte auswählen…</option>
+              <option value="Erteilt">Pflegeerlaubnis erteilt (§ 43 SGB VIII)</option>
+              <option value="In Prüfung">In Prüfung</option>
+              <option value="Ausstehend">Antrag ausstehend</option>
+              <option value="Nicht erforderlich">Nicht erforderlich (Betreuung im Haushalt der Eltern)</option>
             </select>
           </div>
           <div className="ks-field">
-            <label>Last Inspection Date</label>
+            <label>Letzter Ortstermin</label>
             <input type="date" value={form.ofsted_last_inspection} onChange={(e) => setForm({ ...form, ofsted_last_inspection: e.target.value })} />
           </div>
         </div>
       </div>
 
-      {/* DBS & Insurance */}
+      {/* Führungszeugnis & Versicherung */}
       <div className="ks-card p-5">
-        <h2 className="font-bold mb-3">DBS & Insurance</h2>
+        <h2 className="font-bold mb-3">Führungszeugnis & Versicherung</h2>
         <div className="grid grid-cols-2 gap-3">
           <div className="ks-field">
-            <label>DBS Certificate Number</label>
+            <label>Führungszeugnis‑Nr. (§ 30a BZRG)</label>
             <input value={form.dbs_number} onChange={(e) => setForm({ ...form, dbs_number: e.target.value })} />
           </div>
           <div className="ks-field">
-            <label>DBS Issue Date</label>
+            <label>Ausstellungsdatum</label>
             <input type="date" value={form.dbs_issue_date} onChange={(e) => setForm({ ...form, dbs_issue_date: e.target.value })} />
           </div>
           <div className="ks-field">
-            <label>Insurance Provider</label>
+            <label>Versicherungsanbieter</label>
             <input value={form.insurance_provider} onChange={(e) => setForm({ ...form, insurance_provider: e.target.value })} />
           </div>
           <div className="ks-field">
-            <label>Insurance Expiry</label>
+            <label>Versicherung gültig bis</label>
             <input type="date" value={form.insurance_expiry} onChange={(e) => setForm({ ...form, insurance_expiry: e.target.value })} />
           </div>
           <div className="ks-field">
-            <label>First Aid Expiry</label>
+            <label>Erste‑Hilfe‑Zertifikat gültig bis</label>
             <input type="date" value={form.first_aid_expiry} onChange={(e) => setForm({ ...form, first_aid_expiry: e.target.value })} />
           </div>
         </div>
       </div>
 
-      {/* Next of Kin */}
+      {/* Notfallkontakt */}
       <div className="ks-card p-5">
-        <h2 className="font-bold mb-3">Next of Kin</h2>
+        <h2 className="font-bold mb-3">Notfallkontakt</h2>
         <div className="grid grid-cols-2 gap-3">
           <div className="ks-field">
-            <label>Full Name</label>
+            <label>Vollständiger Name</label>
             <input value={form.next_of_kin_name} onChange={(e) => setForm({ ...form, next_of_kin_name: e.target.value })} />
           </div>
           <div className="ks-field">
-            <label>Phone Number</label>
+            <label>Telefonnummer</label>
             <input type="tel" value={form.next_of_kin_phone} onChange={(e) => setForm({ ...form, next_of_kin_phone: e.target.value })} />
           </div>
           <div className="ks-field">
-            <label>Relationship</label>
-            <input placeholder="e.g. Spouse, Parent" value={form.next_of_kin_relation} onChange={(e) => setForm({ ...form, next_of_kin_relation: e.target.value })} />
+            <label>Verwandtschaft</label>
+            <input placeholder="z. B. Ehepartner, Elternteil" value={form.next_of_kin_relation} onChange={(e) => setForm({ ...form, next_of_kin_relation: e.target.value })} />
           </div>
         </div>
       </div>
@@ -361,7 +360,7 @@ const ChildminderProfile = () => {
       <div className="flex gap-3">
         <Button variant="hero" onClick={handleSave} disabled={saving} className="gap-2">
           {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
-          {saving ? "Saving…" : "Save Profile"}
+          {saving ? "Wird gespeichert…" : "Profil speichern"}
         </Button>
       </div>
     </div>
