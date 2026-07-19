@@ -110,6 +110,31 @@ const FindChildminder = () => {
           m.first_name = nameMap[m.user_id];
         }
       });
+
+      // Aggregate parent ratings from completed bookings
+      const { data: ratings } = await supabase
+        .from("bookings")
+        .select("childminder_id, parent_rating")
+        .in("childminder_id", cmIds)
+        .not("parent_rating", "is", null);
+      const ratingMap: Record<string, { sum: number; count: number }> = {};
+      (ratings || []).forEach((r: any) => {
+        if (r.parent_rating == null) return;
+        const key = r.childminder_id as string;
+        if (!ratingMap[key]) ratingMap[key] = { sum: 0, count: 0 };
+        ratingMap[key].sum += Number(r.parent_rating);
+        ratingMap[key].count += 1;
+      });
+      minders.forEach((m) => {
+        const r = ratingMap[m.user_id];
+        if (r && r.count > 0) {
+          m.avg_rating = r.sum / r.count;
+          m.review_count = r.count;
+        } else {
+          m.avg_rating = null;
+          m.review_count = 0;
+        }
+      });
     }
 
     setResults(minders);
