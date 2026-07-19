@@ -88,8 +88,8 @@ const FlyerPage = () => {
             </div>
             <div className="space-y-1.5">
               {[
-                { q: "Who can apply?", a: "Full-time students in higher education (university, college) with dependent children." },
-                { q: "How much can I get?", a: "Up to 85% of childcare costs, max £188.90/week (1 child) or £323.85/week (2+ children)." },
+                { q: "Wer kann Zuschüsse beantragen?", a: "Eltern über das Jugendamt (§ 23 SGB VIII), Studierende mit BAföG-KiZ und Beschäftigte mit Arbeitgeberzuschuss (§ 3 Nr. 33 EStG)." },
+                { q: "Wie viel wird übernommen?", a: "Je nach Einkommen und Bundesland – teilweise oder vollständige Übernahme der Kindertagespflege-Kosten durch das Jugendamt." },
                 { q: "Sind alle Betreuungspersonen geprüft?", a: "Ja – alle KinderStars-Betreuungspersonen sind nach § 43 SGB VIII zugelassen und legen ein erweitertes Führungszeugnis vor." },
               ].map((faq) => (
                 <div key={faq.q}>
@@ -102,9 +102,9 @@ const FlyerPage = () => {
 
           {/* Services */}
           <div className="pt-2 border-t" style={{ borderColor: "hsl(44, 93%, 57%, 0.3)" }}>
-            <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-1">Our Services</p>
+            <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-1">Unsere Leistungen</p>
             <div className="flex flex-wrap gap-1">
-              {["Wraparound Care", "School Pick-up", "Holiday Care", "Emergency Cover", "SEN Support", "Before & After School"].map((s) => (
+              {["Randzeitenbetreuung", "Schul-/Kita-Abholung", "Ferienbetreuung", "Notfallbetreuung", "Inklusion & Förderbedarf", "Früh- & Spätdienst"].map((s) => (
                 <span key={s} className="text-[9px] px-2 py-0.5 rounded-full font-medium" style={{ background: "hsl(200, 93%, 23%, 0.1)", color: "hsl(200, 93%, 23%)" }}>{s}</span>
               ))}
             </div>
