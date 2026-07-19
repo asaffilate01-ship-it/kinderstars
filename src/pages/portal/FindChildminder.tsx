@@ -292,6 +292,17 @@ const FindChildminder = () => {
                     <MapPin className="w-3 h-3" /> {m.town} area {m.postcode_district && `(${m.postcode_district})`}
                   </p>
                 )}
+                {m.avg_rating != null && m.review_count ? (
+                  <p className="text-xs flex items-center gap-1 mt-1 text-amber-600 font-medium">
+                    <Star className="w-3.5 h-3.5 fill-amber-500 text-amber-500" />
+                    {m.avg_rating.toFixed(1)}
+                    <span className="text-muted-foreground font-normal">
+                      ({m.review_count} {m.review_count === 1 ? "Bewertung" : "Bewertungen"})
+                    </span>
+                  </p>
+                ) : (
+                  <p className="text-xs text-muted-foreground mt-1">Noch keine Bewertungen</p>
+                )}
               </div>
               <div className="flex gap-1.5 shrink-0">
                 {m.dbs_number && (
