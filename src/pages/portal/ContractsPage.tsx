@@ -49,18 +49,18 @@ interface UserOption {
 }
 
 const STATUS_CONFIG: Record<string, { label: string; variant: "default" | "secondary" | "destructive" | "outline"; icon: React.ElementType }> = {
-  draft: { label: "Draft", variant: "secondary", icon: PenLine },
-  signed: { label: "Signed", variant: "default", icon: CheckCircle },
-  active: { label: "Active", variant: "default", icon: CheckCircle },
-  expired: { label: "Expired", variant: "destructive", icon: XCircle },
-  cancelled: { label: "Cancelled", variant: "destructive", icon: XCircle },
+  draft: { label: "Entwurf", variant: "secondary", icon: PenLine },
+  signed: { label: "Unterschrieben", variant: "default", icon: CheckCircle },
+  active: { label: "Aktiv", variant: "default", icon: CheckCircle },
+  expired: { label: "Abgelaufen", variant: "destructive", icon: XCircle },
+  cancelled: { label: "Storniert", variant: "destructive", icon: XCircle },
 };
 
 const PAYMENT_SOURCES = [
-  { value: "sfe_ccg", label: "Student Finance / CCG" },
-  { value: "local_authority", label: "Local Authority Funded" },
-  { value: "employer", label: "Employer Scheme" },
-  { value: "self_funded", label: "Self-Funded / Private" },
+  { value: "sfe_ccg", label: "§ 23 SGB VIII (Jugendamt-Förderung)" },
+  { value: "local_authority", label: "Jugendamt-finanziert" },
+  { value: "employer", label: "Arbeitgeber-Zuschuss (§ 3 Nr. 33 EStG)" },
+  { value: "self_funded", label: "Selbstzahler / Privat" },
 ];
 
 const ContractsPage = () => {
@@ -90,9 +90,9 @@ const ContractsPage = () => {
   const [frozenClauses, setFrozenClauses] = useState<{ title: string; body: string }[] | null>(null);
 
   const set = (field: keyof ContractData, value: string) => setData((d) => ({ ...d, [field]: value }));
-  const today = new Date().toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+  const today = new Date().toLocaleDateString("de-DE", { day: "numeric", month: "long", year: "numeric" });
   const isChildminder = contractType === "childminder";
-  const personLabel = isChildminder ? "Childminder" : "Parent/Guardian";
+  const personLabel = isChildminder ? "Kindertagespflegeperson" : "Eltern / Sorgeberechtigte(r)";
 
   // Fetch users for assignment (admin only)
   useEffect(() => {
@@ -234,29 +234,29 @@ const ContractsPage = () => {
       if (editingId) {
         const { error } = await supabase.from("contracts").update(payload as any).eq("id", editingId);
         if (error) throw error;
-        toast({ title: "Contract updated" });
+        toast({ title: "Vertrag aktualisiert" });
       } else {
         const { error } = await supabase.from("contracts").insert(payload as any);
         if (error) throw error;
-        toast({ title: "Contract saved" });
+        toast({ title: "Vertrag gespeichert" });
       }
 
       await refreshContracts();
     } catch (err: any) {
-      toast({ title: "Save error", description: err.message, variant: "destructive" });
+      toast({ title: "Fehler beim Speichern", description: err.message, variant: "destructive" });
     }
     setSaving(false);
   };
 
   const handleDeleteContract = async (id: string) => {
-    if (!confirm("Delete this contract?")) return;
+    if (!confirm("Diesen Vertrag löschen?")) return;
     const { error } = await supabase.from("contracts").delete().eq("id", id);
     if (error) {
-      toast({ title: "Delete error", description: error.message, variant: "destructive" });
+      toast({ title: "Fehler beim Löschen", description: error.message, variant: "destructive" });
       return;
     }
     setSavedContracts((c) => c.filter((x) => x.id !== id));
-    toast({ title: "Contract deleted" });
+    toast({ title: "Vertrag gelöscht" });
   };
 
   const handleUpdateStatus = async (id: string, newStatus: string) => {
@@ -264,11 +264,11 @@ const ContractsPage = () => {
     if (newStatus === "signed") updatePayload.signed_at = new Date().toISOString();
     const { error } = await supabase.from("contracts").update(updatePayload).eq("id", id);
     if (error) {
-      toast({ title: "Update error", description: error.message, variant: "destructive" });
+      toast({ title: "Fehler bei der Aktualisierung", description: error.message, variant: "destructive" });
       return;
     }
     setSavedContracts((c) => c.map((x) => x.id === id ? { ...x, status: newStatus } : x));
-    toast({ title: `Status updated to ${newStatus}` });
+    toast({ title: `Status aktualisiert: ${newStatus}` });
   };
 
   const handleViewContract = async (contract: SavedContract) => {
@@ -335,38 +335,38 @@ const ContractsPage = () => {
   };
 
   const handleEmailContract = async () => {
-    const recipientEmail = prompt("Enter recipient email address:");
+    const recipientEmail = prompt("E-Mail-Adresse des Empfängers eingeben:");
     if (!recipientEmail) return;
     setEmailing(true);
     try {
-      const contractTitle = CONTRACT_TYPES.find(c => c.value === contractType)?.label || "Contract";
+      const contractTitle = CONTRACT_TYPES.find(c => c.value === contractType)?.label || "Vertrag";
       const clauses = contractType ? getContractClauses(contractType, data) : [];
       const clausesHtml = clauses.map((c, i) => `<p><strong>${i+1}. ${escapeHtml(c.title)}</strong></p><p>${escapeHtml(c.body)}</p>`).join("");
       const { data: result, error } = await supabase.functions.invoke("send-email", {
         body: {
           to: recipientEmail,
-          subject: `KinderStars ${escapeHtml(contractTitle)} Contract`,
+          subject: `KinderStars ${escapeHtml(contractTitle)} Vertrag`,
           html: `
             <div style="font-family: Georgia, serif; max-width: 600px; margin: 0 auto;">
-              <h1 style="color: hsl(222, 95%, 13%);">KINDERSTARS LTD</h1>
-              <p style="font-size:12px; color:#999;">Victory House, Luton LU1 3BS • hello@kinderstars.co.uk</p>
-              <h2 style="color: hsl(44, 93%, 40%);">${escapeHtml(contractTitle)} Contract</h2>
-              <p><strong>Party:</strong> ${escapeHtml(data.parentName || "N/A")}</p>
-              <p><strong>Email:</strong> ${escapeHtml(data.parentEmail || "N/A")}</p>
-              <p><strong>Start Date:</strong> ${data.startDate ? new Date(data.startDate).toLocaleDateString("en-GB") : "TBC"}</p>
-              ${!isChildminder && data.childName ? `<p><strong>Child:</strong> ${escapeHtml(data.childName)}</p>` : ""}
+              <h1 style="color: hsl(222, 95%, 13%);">KINDERSTARS DE</h1>
+              <p style="font-size:12px; color:#999;">hallo@kinderstars.de</p>
+              <h2 style="color: hsl(44, 93%, 40%);">${escapeHtml(contractTitle)} Vertrag</h2>
+              <p><strong>Vertragspartei:</strong> ${escapeHtml(data.parentName || "—")}</p>
+              <p><strong>E-Mail:</strong> ${escapeHtml(data.parentEmail || "—")}</p>
+              <p><strong>Beginn:</strong> ${data.startDate ? new Date(data.startDate).toLocaleDateString("de-DE") : "offen"}</p>
+              ${!isChildminder && data.childName ? `<p><strong>Kind:</strong> ${escapeHtml(data.childName)}</p>` : ""}
               <hr/>
               ${clausesHtml}
               <hr/>
-              <p style="font-size:11px; color:#999;">This contract was generated by KinderStars Ltd. Please sign digitally via your portal.</p>
+              <p style="font-size:11px; color:#999;">Dieser Vertrag wurde von KinderStars erstellt. Bitte digital über Ihr Portal unterzeichnen.</p>
             </div>
           `,
         },
       });
       if (error) throw error;
-      toast({ title: result?.simulated ? "Email simulated (logged)" : "Contract emailed successfully" });
+      toast({ title: result?.simulated ? "E-Mail simuliert (protokolliert)" : "Vertrag erfolgreich per E-Mail gesendet" });
     } catch (err: any) {
-      toast({ title: "Email error", description: err.message, variant: "destructive" });
+      toast({ title: "E-Mail-Fehler", description: err.message, variant: "destructive" });
     }
     setEmailing(false);
   };
@@ -414,27 +414,27 @@ const ContractsPage = () => {
       )}
 
       <div>
-        <h2 className="text-lg font-semibold mb-2">{isAdmin ? "All Contracts" : "My Contracts"}</h2>
+        <h2 className="text-lg font-semibold mb-2">{isAdmin ? "Alle Verträge" : "Meine Verträge"}</h2>
         {loading ? (
           <div className="flex items-center gap-2 text-muted-foreground py-8 justify-center">
-            <Loader2 className="w-4 h-4 animate-spin" /> Loading…
+            <Loader2 className="w-4 h-4 animate-spin" /> Lädt…
           </div>
         ) : savedContracts.length === 0 ? (
           <p className="text-sm text-muted-foreground py-4 text-center">
-            {isAdmin ? "No contracts yet. Create one above." : "No contracts assigned to you yet."}
+            {isAdmin ? "Noch keine Verträge. Oben einen anlegen." : "Ihnen ist noch kein Vertrag zugewiesen."}
           </p>
         ) : (
           <div className="rounded-lg border">
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>Type</TableHead>
-                  <TableHead>Party</TableHead>
+                  <TableHead>Typ</TableHead>
+                  <TableHead>Vertragspartei</TableHead>
                   <TableHead>Status</TableHead>
-                  <TableHead>Signatures</TableHead>
-                  <TableHead>Start Date</TableHead>
-                  <TableHead>Created</TableHead>
-                  <TableHead className="text-right">Actions</TableHead>
+                  <TableHead>Unterschriften</TableHead>
+                  <TableHead>Beginn</TableHead>
+                  <TableHead>Erstellt</TableHead>
+                  <TableHead className="text-right">Aktionen</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -455,36 +455,36 @@ const ContractsPage = () => {
                       <TableCell>
                         <div className="flex gap-1">
                           <span className={`text-[10px] px-1.5 py-0.5 rounded ${c.signed_by_parent ? "bg-success/15 text-success" : "bg-muted text-muted-foreground"}`}>
-                            {c.contract_type === "childminder" ? "CM" : "Parent"} {c.signed_by_parent ? "✓" : "—"}
+                            {c.contract_type === "childminder" ? "KTPP" : "Eltern"} {c.signed_by_parent ? "✓" : "—"}
                           </span>
                           <span className={`text-[10px] px-1.5 py-0.5 rounded ${c.signed_by_agency ? "bg-success/15 text-success" : "bg-muted text-muted-foreground"}`}>
-                            Agency {c.signed_by_agency ? "✓" : "—"}
+                            KinderStars {c.signed_by_agency ? "✓" : "—"}
                           </span>
                         </div>
                       </TableCell>
                       <TableCell className="text-sm">
-                        {c.start_date ? new Date(c.start_date).toLocaleDateString("en-GB") : "—"}
+                        {c.start_date ? new Date(c.start_date).toLocaleDateString("de-DE") : "—"}
                       </TableCell>
                       <TableCell className="text-sm text-muted-foreground">
-                        {new Date(c.created_at).toLocaleDateString("en-GB")}
+                        {new Date(c.created_at).toLocaleDateString("de-DE")}
                       </TableCell>
                       <TableCell className="text-right">
                         <div className="flex gap-1 justify-end">
-                          <Button variant="ghost" size="sm" onClick={() => handleViewContract(c)} title="View">
+                          <Button variant="ghost" size="sm" onClick={() => handleViewContract(c)} title="Ansehen">
                             <Eye className="w-4 h-4" />
                           </Button>
                           {isAdmin && c.status === "draft" && (
-                            <Button variant="ghost" size="sm" onClick={() => handleUpdateStatus(c.id, "active")} title="Mark Active">
+                            <Button variant="ghost" size="sm" onClick={() => handleUpdateStatus(c.id, "active")} title="Als aktiv markieren">
                               <CheckCircle className="w-4 h-4 text-green-600" />
                             </Button>
                           )}
                           {isAdmin && c.status === "active" && (
-                            <Button variant="ghost" size="sm" onClick={() => handleUpdateStatus(c.id, "expired")} title="Mark Expired">
+                            <Button variant="ghost" size="sm" onClick={() => handleUpdateStatus(c.id, "expired")} title="Als abgelaufen markieren">
                               <Clock className="w-4 h-4 text-orange-500" />
                             </Button>
                           )}
                           {isAdmin && (
-                            <Button variant="ghost" size="sm" onClick={() => handleDeleteContract(c.id)} title="Delete">
+                            <Button variant="ghost" size="sm" onClick={() => handleDeleteContract(c.id)} title="Löschen">
                               <Trash2 className="w-4 h-4 text-destructive" />
                             </Button>
                           )}
@@ -505,10 +505,10 @@ const ContractsPage = () => {
   const renderFormFields = () => (
     <div className="space-y-4">
       <Button variant="ghost" size="sm" onClick={goBack} className="gap-1.5 mb-2">
-        <ArrowLeft className="w-4 h-4" /> Back
+        <ArrowLeft className="w-4 h-4" /> Zurück
       </Button>
       <h2 className="text-lg font-semibold">
-        {CONTRACT_TYPES.find((c) => c.value === contractType)?.label} Contract
+        {CONTRACT_TYPES.find((c) => c.value === contractType)?.label} Vertrag
       </h2>
 
       {/* Assign to user with auto-fill */}
@@ -516,24 +516,24 @@ const ContractsPage = () => {
         <div className="ks-card p-4 space-y-2 bg-muted/30">
           <div className="flex items-center gap-2">
             <UserCheck className="w-4 h-4 text-primary" />
-            <label className="text-sm font-bold">Assign to User (auto-fills details)</label>
+            <label className="text-sm font-bold">Nutzer zuweisen (füllt Daten automatisch aus)</label>
           </div>
           <select value={assignedTo} onChange={(e) => handleAssignUser(e.target.value)}
             className="w-full rounded-lg border border-border bg-card px-3 py-2 text-sm">
-            <option value="">— Select a user —</option>
+            <option value="">— Nutzer auswählen —</option>
             {users.filter(u => isChildminder ? u.role === "childminder" : true).map((u) => (
               <option key={u.user_id} value={u.user_id}>
                 {u.first_name} {u.last_name} ({u.email}) — {u.role}
               </option>
             ))}
           </select>
-          <p className="text-xs text-muted-foreground">Selecting a user auto-fills their name, email, address, children, and funding details from their profile.</p>
+          <p className="text-xs text-muted-foreground">Bei Auswahl werden Name, E-Mail, Adresse, Kinder und Förderdaten aus dem Profil übernommen.</p>
         </div>
       )}
 
       {/* Payment source */}
       <div className="ks-card p-4 space-y-2">
-        <label className="text-sm font-bold">Payment Source</label>
+        <label className="text-sm font-bold">Zahlungsquelle</label>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
           {PAYMENT_SOURCES.map(ps => (
             <button key={ps.value} onClick={() => setPaymentSource(ps.value)}
@@ -545,15 +545,15 @@ const ContractsPage = () => {
         {(paymentSource === "sfe_ccg" || paymentSource === "local_authority") && (
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2">
             <div className="ks-field">
-              <label>{paymentSource === "sfe_ccg" ? "SFE / CCG Reference" : "Eligibility Code"}</label>
+              <label>{paymentSource === "sfe_ccg" ? "Bewilligungsbescheid-Nr. (§ 23 SGB VIII)" : "Berechtigungsnachweis"}</label>
               <Input value={eligibilityCode} onChange={(e) => setEligibilityCode(e.target.value)}
-                placeholder={paymentSource === "sfe_ccg" ? "SFE reference number" : "Eligibility code"} />
+                placeholder={paymentSource === "sfe_ccg" ? "z. B. Bescheid-Nr. 2026/…" : "Nachweisnummer"} />
             </div>
             {paymentSource === "local_authority" && (
               <div className="ks-field">
-                <label>Local Authority</label>
+                <label>Zuständiges Jugendamt</label>
                 <Input value={data.localAuthority} onChange={(e) => set("localAuthority", e.target.value)}
-                  placeholder="e.g. Luton Borough Council" />
+                  placeholder="z. B. Jugendamt Berlin-Mitte" />
               </div>
             )}
           </div>
@@ -561,50 +561,50 @@ const ContractsPage = () => {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-        <div className="ks-field"><label>{personLabel} Full Name</label><input value={data.parentName} onChange={(e) => set("parentName", e.target.value)} placeholder="Full name" /></div>
-        <div className="ks-field"><label>Email</label><input value={data.parentEmail} onChange={(e) => set("parentEmail", e.target.value)} placeholder="Email" /></div>
-        <div className="ks-field"><label>Phone</label><input value={data.parentPhone} onChange={(e) => set("parentPhone", e.target.value)} placeholder="Phone" /></div>
-        <div className="ks-field"><label>Address</label><input value={data.parentAddress} onChange={(e) => set("parentAddress", e.target.value)} placeholder="Address" /></div>
-        <div className="ks-field"><label>Postcode</label><input value={data.parentPostcode} onChange={(e) => set("parentPostcode", e.target.value)} placeholder="Postcode" /></div>
-        <div className="ks-field"><label>Start Date</label><input type="date" value={data.startDate} onChange={(e) => set("startDate", e.target.value)} /></div>
+        <div className="ks-field"><label>{personLabel} — Vollständiger Name</label><input value={data.parentName} onChange={(e) => set("parentName", e.target.value)} placeholder="Vor- und Nachname" /></div>
+        <div className="ks-field"><label>E-Mail</label><input value={data.parentEmail} onChange={(e) => set("parentEmail", e.target.value)} placeholder="E-Mail" /></div>
+        <div className="ks-field"><label>Telefon</label><input value={data.parentPhone} onChange={(e) => set("parentPhone", e.target.value)} placeholder="Telefon" /></div>
+        <div className="ks-field"><label>Anschrift</label><input value={data.parentAddress} onChange={(e) => set("parentAddress", e.target.value)} placeholder="Straße, Hausnr., Ort" /></div>
+        <div className="ks-field"><label>PLZ</label><input value={data.parentPostcode} onChange={(e) => set("parentPostcode", e.target.value)} placeholder="z. B. 10115" /></div>
+        <div className="ks-field"><label>Betreuungsbeginn</label><input type="date" value={data.startDate} onChange={(e) => set("startDate", e.target.value)} /></div>
       </div>
 
       {!isChildminder && (
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <div className="ks-field"><label>Child's Full Name</label><input value={data.childName} onChange={(e) => set("childName", e.target.value)} placeholder="Child name" /></div>
-          <div className="ks-field"><label>Child's Date of Birth</label><input type="date" value={data.childDob} onChange={(e) => set("childDob", e.target.value)} /></div>
-          <div className="ks-field"><label>Assigned Childminder</label><input value={data.childminderName} onChange={(e) => set("childminderName", e.target.value)} placeholder="Childminder name" /></div>
-          <div className="ks-field"><label>Hours Per Week</label><input value={data.hoursPerWeek} onChange={(e) => set("hoursPerWeek", e.target.value)} placeholder="e.g. 30" /></div>
-          <div className="ks-field"><label>Rate Per Hour (£)</label><input value={data.ratePerHour} onChange={(e) => set("ratePerHour", e.target.value)} placeholder="e.g. 7.50" /></div>
+          <div className="ks-field"><label>Name des Kindes</label><input value={data.childName} onChange={(e) => set("childName", e.target.value)} placeholder="Vor- und Nachname" /></div>
+          <div className="ks-field"><label>Geburtsdatum des Kindes</label><input type="date" value={data.childDob} onChange={(e) => set("childDob", e.target.value)} /></div>
+          <div className="ks-field"><label>Zugewiesene Kindertagespflegeperson</label><input value={data.childminderName} onChange={(e) => set("childminderName", e.target.value)} placeholder="Name der Betreuungsperson" /></div>
+          <div className="ks-field"><label>Stunden pro Woche</label><input value={data.hoursPerWeek} onChange={(e) => set("hoursPerWeek", e.target.value)} placeholder="z. B. 30" /></div>
+          <div className="ks-field"><label>Stundensatz (€)</label><input value={data.ratePerHour} onChange={(e) => set("ratePerHour", e.target.value)} placeholder="z. B. 8,50" /></div>
         </div>
       )}
 
       {contractType === "sfe_ccg" && !eligibilityCode && (
-        <div className="ks-field"><label>SFE / CCG Reference Number</label><input value={data.fundingRef} onChange={(e) => set("fundingRef", e.target.value)} placeholder="SFE reference" /></div>
+        <div className="ks-field"><label>Bewilligungsbescheid-Nr. (§ 23 SGB VIII)</label><input value={data.fundingRef} onChange={(e) => set("fundingRef", e.target.value)} placeholder="Bescheid-Nr." /></div>
       )}
       {contractType === "la_funded" && !data.localAuthority && (
-        <div className="ks-field"><label>Local Authority</label><input value={data.localAuthority} onChange={(e) => set("localAuthority", e.target.value)} placeholder="e.g. Luton Borough Council" /></div>
+        <div className="ks-field"><label>Zuständiges Jugendamt</label><input value={data.localAuthority} onChange={(e) => set("localAuthority", e.target.value)} placeholder="z. B. Jugendamt München" /></div>
       )}
       {contractType === "employer" && (
-        <div className="ks-field"><label>Employer Name</label><input value={data.employerName} onChange={(e) => set("employerName", e.target.value)} placeholder="Employer name" /></div>
+        <div className="ks-field"><label>Arbeitgeber</label><input value={data.employerName} onChange={(e) => set("employerName", e.target.value)} placeholder="Name des Arbeitgebers" /></div>
       )}
       {isChildminder && (
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <div className="ks-field"><label>Hours Per Week</label><input value={data.hoursPerWeek} onChange={(e) => set("hoursPerWeek", e.target.value)} placeholder="e.g. 40" /></div>
-          <div className="ks-field"><label>Rate Per Hour (£)</label><input value={data.ratePerHour} onChange={(e) => set("ratePerHour", e.target.value)} placeholder="e.g. 12.00" /></div>
-          <div className="ks-field"><label>Ofsted URN</label><input value={ofstedUrn} onChange={(e) => setOfstedUrn(e.target.value)} placeholder="Ofsted URN" /></div>
+          <div className="ks-field"><label>Stunden pro Woche</label><input value={data.hoursPerWeek} onChange={(e) => set("hoursPerWeek", e.target.value)} placeholder="z. B. 40" /></div>
+          <div className="ks-field"><label>Stundensatz (€)</label><input value={data.ratePerHour} onChange={(e) => set("ratePerHour", e.target.value)} placeholder="z. B. 12,00" /></div>
+          <div className="ks-field"><label>Pflegeerlaubnis-Nr. (§ 43 SGB VIII)</label><input value={ofstedUrn} onChange={(e) => setOfstedUrn(e.target.value)} placeholder="Aktenzeichen des Jugendamts" /></div>
         </div>
       )}
 
       {/* Expiry date & notes */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         <div className="ks-field">
-          <label>Contract Expiry Date</label>
+          <label>Vertragsende</label>
           <Popover>
             <PopoverTrigger asChild>
               <Button variant="outline" className={cn("w-full justify-start text-left font-normal", !data.expiresAt && "text-muted-foreground")}>
                 <CalendarIcon className="mr-2 h-4 w-4" />
-                {data.expiresAt ? format(new Date(data.expiresAt), "PPP") : <span>Pick expiry date</span>}
+                {data.expiresAt ? format(new Date(data.expiresAt), "dd.MM.yyyy") : <span>Datum wählen</span>}
               </Button>
             </PopoverTrigger>
             <PopoverContent className="w-auto p-0" align="start">
@@ -615,26 +615,26 @@ const ContractsPage = () => {
           </Popover>
         </div>
         <div className="ks-field">
-          <label>Notes</label>
+          <label>Anmerkungen</label>
           <textarea value={data.notes} onChange={(e) => set("notes", e.target.value)}
-            placeholder="Additional notes or terms…"
+            placeholder="Zusätzliche Hinweise oder Vereinbarungen…"
             className="w-full min-h-[38px] rounded-lg border border-border bg-card px-3 py-2 text-sm" rows={2} />
         </div>
       </div>
 
       {/* E-Signatures */}
       <div className="ks-card p-4 space-y-4">
-        <h3 className="text-sm font-bold flex items-center gap-2"><PenLine className="w-4 h-4" /> E-Signatures</h3>
+        <h3 className="text-sm font-bold flex items-center gap-2"><PenLine className="w-4 h-4" /> Digitale Unterschriften</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <SignaturePad
-            label={`${personLabel} Signature`}
+            label={`Unterschrift ${personLabel}`}
             value={parentSigData}
             type={parentSigType}
             onChange={(d, t) => { setParentSigData(d); setParentSigType(t); }}
           />
           {isAdmin && (
             <SignaturePad
-              label="KinderStars Agency Signature"
+              label="Unterschrift KinderStars"
               value={agencySigData}
               type={agencySigType}
               onChange={(d, t) => { setAgencySigData(d); setAgencySigType(t); }}
@@ -646,14 +646,14 @@ const ContractsPage = () => {
       <div className="flex gap-2 flex-wrap">
         <Button variant="hero" onClick={() => { handleSaveContract("draft"); setView("preview"); }} disabled={saving} className="gap-1.5">
           {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <FileText className="w-4 h-4" />}
-          Save & Preview
+          Speichern & Vorschau
         </Button>
         {parentSigData && agencySigData && (
           <Button variant="warm" onClick={() => { handleSaveContract("signed"); setView("preview"); }} disabled={saving} className="gap-1.5">
-            <CheckCircle className="w-4 h-4" /> Save as Signed
+            <CheckCircle className="w-4 h-4" /> Als unterschrieben speichern
           </Button>
         )}
-        <Button variant="outline" onClick={goBack}>Cancel</Button>
+        <Button variant="outline" onClick={goBack}>Abbrechen</Button>
       </div>
     </div>
   );
@@ -666,31 +666,31 @@ const ContractsPage = () => {
       <div className="space-y-4">
         <div className="flex gap-2 print:hidden flex-wrap">
           <Button variant="ghost" size="sm" onClick={goBack} className="gap-1.5">
-            <ArrowLeft className="w-4 h-4" /> Back
+            <ArrowLeft className="w-4 h-4" /> Zurück
           </Button>
-          <Button variant="hero" size="sm" onClick={handleDownloadPNG} className="gap-1.5"><Download className="w-4 h-4" /> Download PNG</Button>
-          <Button variant="outline" size="sm" onClick={handlePrint} className="gap-1.5"><Printer className="w-4 h-4" /> Print / PDF</Button>
+          <Button variant="hero" size="sm" onClick={handleDownloadPNG} className="gap-1.5"><Download className="w-4 h-4" /> PNG herunterladen</Button>
+          <Button variant="outline" size="sm" onClick={handlePrint} className="gap-1.5"><Printer className="w-4 h-4" /> Drucken / PDF</Button>
           {isAdmin && (
             <>
               <Button variant="outline" size="sm" onClick={handleEmailContract} disabled={emailing} className="gap-1.5">
-                {emailing ? <Loader2 className="w-4 h-4 animate-spin" /> : <Mail className="w-4 h-4" />} Email
+                {emailing ? <Loader2 className="w-4 h-4 animate-spin" /> : <Mail className="w-4 h-4" />} E-Mail
               </Button>
               <Button variant="outline" size="sm" onClick={() => setView("form")} className="gap-1.5">
-                <PenLine className="w-4 h-4" /> Edit
+                <PenLine className="w-4 h-4" /> Bearbeiten
               </Button>
               {editingId && (
                 <>
                   {!parentSigData || !agencySigData ? (
                     <Button variant="warm" size="sm" onClick={() => setView("form")} className="gap-1.5">
-                      <PenLine className="w-4 h-4" /> Add Signatures
+                      <PenLine className="w-4 h-4" /> Unterschriften hinzufügen
                     </Button>
                   ) : (
                     <Button variant="outline" size="sm" onClick={() => handleUpdateStatus(editingId, "signed")} className="gap-1.5">
-                      <CheckCircle className="w-4 h-4" /> Mark Signed
+                      <CheckCircle className="w-4 h-4" /> Als unterschrieben markieren
                     </Button>
                   )}
                   <Button variant="outline" size="sm" onClick={() => { handleSaveContract("active"); }} disabled={saving} className="gap-1.5">
-                    Mark Active
+                    Als aktiv markieren
                   </Button>
                 </>
               )}
@@ -699,7 +699,7 @@ const ContractsPage = () => {
           {/* Non-admin can sign their contract */}
           {!isAdmin && editingId && !parentSigData && (
             <Button variant="hero" size="sm" onClick={() => setView("form")} className="gap-1.5">
-              <PenLine className="w-4 h-4" /> Sign Contract
+              <PenLine className="w-4 h-4" /> Vertrag unterschreiben
             </Button>
           )}
         </div>
@@ -707,17 +707,17 @@ const ContractsPage = () => {
         {/* Assigned to info */}
         {assignedTo && isAdmin && (
           <div className="text-xs text-muted-foreground bg-muted/50 rounded-lg px-3 py-2">
-            Assigned to: <strong>{getUserLabel(assignedTo)}</strong>
-            {paymentSource && <> • Payment: <strong>{PAYMENT_SOURCES.find(p => p.value === paymentSource)?.label || paymentSource}</strong></>}
+            Zugewiesen an: <strong>{getUserLabel(assignedTo)}</strong>
+            {paymentSource && <> • Zahlung: <strong>{PAYMENT_SOURCES.find(p => p.value === paymentSource)?.label || paymentSource}</strong></>}
           </div>
         )}
 
         <div ref={contractRef} className="bg-white text-black p-8 rounded-xl border max-w-[800px] mx-auto print:border-none print:shadow-none" style={{ fontFamily: "Georgia, serif" }}>
           <div className="text-center border-b-2 border-black pb-4 mb-6">
-            <h1 className="text-2xl font-bold tracking-tight" style={{ color: "hsl(222, 95%, 13%)" }}>KINDERSTARS LTD</h1>
-            <p className="text-xs text-gray-500 mt-1">Victory House, Luton LU1 3BS • hello@kinderstars.co.uk • 07585 803505</p>
+            <h1 className="text-2xl font-bold tracking-tight" style={{ color: "hsl(222, 95%, 13%)" }}>KINDERSTARS DE</h1>
+            <p className="text-xs text-gray-500 mt-1">hallo@kinderstars.de • kinderstars.de</p>
             <p className="text-sm font-bold mt-3 uppercase tracking-widest" style={{ color: "hsl(44, 93%, 40%)" }}>
-              {CONTRACT_TYPES.find((c) => c.value === contractType)?.label} Contract
+              {CONTRACT_TYPES.find((c) => c.value === contractType)?.label} Vertrag
             </p>
           </div>
 
@@ -731,39 +731,37 @@ const ContractsPage = () => {
               <p>{data.parentPhone || "_______________"}</p>
             </div>
             <div>
-              <p className="font-bold text-xs uppercase text-gray-500 mb-1">Service Provider</p>
-              <p className="font-semibold">KinderStars Ltd</p>
-              <p>Victory House</p>
-              <p>Luton LU1 3BS</p>
-              <p>hello@kinderstars.co.uk</p>
-              <p>07585 803505</p>
+              <p className="font-bold text-xs uppercase text-gray-500 mb-1">Dienstleister</p>
+              <p className="font-semibold">KinderStars DE</p>
+              <p>hallo@kinderstars.de</p>
+              <p>kinderstars.de</p>
             </div>
           </div>
 
           {/* Payment source & codes */}
           {paymentSource && (
             <div className="text-sm mb-4 p-3 bg-gray-50 rounded">
-              <p className="font-bold text-xs uppercase text-gray-500 mb-1">Payment & Funding</p>
-              <p><strong>Source:</strong> {PAYMENT_SOURCES.find(p => p.value === paymentSource)?.label || paymentSource}</p>
-              {eligibilityCode && <p><strong>{paymentSource === "sfe_ccg" ? "SFE/CCG Reference" : "Eligibility Code"}:</strong> {eligibilityCode}</p>}
-              {data.localAuthority && <p><strong>Local Authority:</strong> {data.localAuthority}</p>}
-              {data.fundingRef && !eligibilityCode && <p><strong>Funding Reference:</strong> {data.fundingRef}</p>}
+              <p className="font-bold text-xs uppercase text-gray-500 mb-1">Zahlung & Förderung</p>
+              <p><strong>Quelle:</strong> {PAYMENT_SOURCES.find(p => p.value === paymentSource)?.label || paymentSource}</p>
+              {eligibilityCode && <p><strong>{paymentSource === "sfe_ccg" ? "Bescheid-Nr." : "Nachweis"}:</strong> {eligibilityCode}</p>}
+              {data.localAuthority && <p><strong>Jugendamt:</strong> {data.localAuthority}</p>}
+              {data.fundingRef && !eligibilityCode && <p><strong>Förder-Referenz:</strong> {data.fundingRef}</p>}
             </div>
           )}
 
           {!isChildminder && data.childName && (
             <div className="text-sm mb-6 p-3 bg-gray-50 rounded">
-              <p className="font-bold text-xs uppercase text-gray-500 mb-1">Child Details</p>
+              <p className="font-bold text-xs uppercase text-gray-500 mb-1">Angaben zum Kind</p>
               <p><strong>Name:</strong> {data.childName}</p>
-              {data.childDob && <p><strong>Date of Birth:</strong> {new Date(data.childDob).toLocaleDateString("en-GB")}</p>}
-              {data.childminderName && <p><strong>Assigned Childminder:</strong> {data.childminderName}</p>}
+              {data.childDob && <p><strong>Geburtsdatum:</strong> {new Date(data.childDob).toLocaleDateString("de-DE")}</p>}
+              {data.childminderName && <p><strong>Zugewiesene Kindertagespflegeperson:</strong> {data.childminderName}</p>}
             </div>
           )}
 
           {isChildminder && ofstedUrn && (
             <div className="text-sm mb-4 p-3 bg-gray-50 rounded">
-              <p className="font-bold text-xs uppercase text-gray-500 mb-1">Regulatory</p>
-              <p><strong>Ofsted URN:</strong> {ofstedUrn}</p>
+              <p className="font-bold text-xs uppercase text-gray-500 mb-1">Aufsicht & Erlaubnis</p>
+              <p><strong>Pflegeerlaubnis-Nr. (§ 43 SGB VIII):</strong> {ofstedUrn}</p>
             </div>
           )}
 
@@ -779,39 +777,39 @@ const ContractsPage = () => {
           {/* E-Signature display */}
           <div className="grid grid-cols-2 gap-8 mt-12 text-sm">
             <div>
-              <p className="font-bold text-xs uppercase text-gray-500 mb-2">Signed by {personLabel}</p>
+              <p className="font-bold text-xs uppercase text-gray-500 mb-2">Unterschrift {personLabel}</p>
               {parentSigData ? (
                 parentSigType === "drawn" ? (
-                  <img src={parentSigData} alt="Signature" className="h-16 object-contain" />
+                  <img src={parentSigData} alt="Unterschrift" className="h-16 object-contain" />
                 ) : (
                   <p className="text-2xl italic" style={{ fontFamily: "'Brush Script MT', 'Segoe Script', cursive" }}>{parentSigData}</p>
                 )
               ) : (
                 <div className="border-b border-black mb-1 h-8" />
               )}
-              <p className="text-xs text-gray-500 mt-1">{parentSigData ? "Digitally signed" : "Signature"}</p>
+              <p className="text-xs text-gray-500 mt-1">{parentSigData ? "Digital unterschrieben" : "Unterschrift"}</p>
               <p className="mt-2 font-medium">{data.parentName || "_______________"}</p>
-              <p className="text-xs text-gray-500 mt-1">Date: {today}</p>
+              <p className="text-xs text-gray-500 mt-1">Datum: {today}</p>
             </div>
             <div>
-              <p className="font-bold text-xs uppercase text-gray-500 mb-2">Signed for KinderStars Ltd</p>
+              <p className="font-bold text-xs uppercase text-gray-500 mb-2">Für KinderStars DE unterzeichnet</p>
               {agencySigData ? (
                 agencySigType === "drawn" ? (
-                  <img src={agencySigData} alt="Agency Signature" className="h-16 object-contain" />
+                  <img src={agencySigData} alt="Unterschrift KinderStars" className="h-16 object-contain" />
                 ) : (
                   <p className="text-2xl italic" style={{ fontFamily: "'Brush Script MT', 'Segoe Script', cursive" }}>{agencySigData}</p>
                 )
               ) : (
                 <div className="border-b border-black mb-1 h-8" />
               )}
-              <p className="text-xs text-gray-500 mt-1">{agencySigData ? "Digitally signed" : "Signature"}</p>
-              <p className="mt-2 font-medium">Authorised Representative</p>
-              <p className="text-xs text-gray-500 mt-1">Date: {today}</p>
+              <p className="text-xs text-gray-500 mt-1">{agencySigData ? "Digital unterschrieben" : "Unterschrift"}</p>
+              <p className="mt-2 font-medium">Bevollmächtigte(r)</p>
+              <p className="text-xs text-gray-500 mt-1">Datum: {today}</p>
             </div>
           </div>
 
           <p className="text-[10px] text-gray-400 text-center mt-8">
-            KinderStars Ltd • Registered in England & Wales • hello@kinderstars.co.uk
+            KinderStars DE • hallo@kinderstars.de • kinderstars.de
           </p>
         </div>
       </div>
@@ -821,9 +819,9 @@ const ContractsPage = () => {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold tracking-tight">Contracts</h1>
+        <h1 className="text-2xl font-bold tracking-tight">Verträge</h1>
         <p className="text-muted-foreground text-sm">
-          {isAdmin ? "Create, assign, and manage care contracts with e-signatures" : "View and sign contracts assigned to you"}
+          {isAdmin ? "Betreuungsverträge erstellen, zuweisen und mit digitaler Unterschrift verwalten" : "Ihre Verträge einsehen und digital unterschreiben"}
         </p>
       </div>
       {view === "list" && renderContractsList()}
