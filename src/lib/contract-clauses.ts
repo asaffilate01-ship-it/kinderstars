@@ -20,11 +20,11 @@ export interface ContractData {
 }
 
 export const CONTRACT_TYPES: { value: ContractType; label: string; desc: string }[] = [
-  { value: "sfe_ccg", label: "SFE / Childcare Grant (CCG)", desc: "For full-time students eligible for Student Finance England funding" },
-  { value: "la_funded", label: "Local Authority 15/30 Hours", desc: "Government-funded early years entitlement" },
-  { value: "employer", label: "Employer Childcare Scheme", desc: "Employer-sponsored childcare vouchers or schemes" },
-  { value: "private", label: "Private / Self-Funded", desc: "Direct private payment arrangements" },
-  { value: "childminder", label: "Childminder Employment", desc: "KinderStars ↔ Childminder agreement" },
+  { value: "sfe_ccg", label: "§ 23 SGB VIII — Jugendamt-Förderung", desc: "Kindertagespflege gefördert nach § 23 SGB VIII (Bewilligungsbescheid des Jugendamts)" },
+  { value: "la_funded", label: "Jugendamt-Kostenübernahme", desc: "Vollständige oder teilweise Kostenübernahme durch das Jugendamt" },
+  { value: "employer", label: "Arbeitgeberzuschuss (§ 3 Nr. 33 EStG)", desc: "Steuerfreier Kinderbetreuungszuschuss des Arbeitgebers" },
+  { value: "private", label: "Selbstzahler / Privat", desc: "Private Zahlungsvereinbarung zwischen Eltern und KinderStars" },
+  { value: "childminder", label: "Vertrag mit Kindertagespflegeperson", desc: "Vereinbarung zwischen KinderStars und der Kindertagespflegeperson" },
 ];
 
 export const defaultContractData: ContractData = {
@@ -34,43 +34,43 @@ export const defaultContractData: ContractData = {
 };
 
 export function getContractClauses(type: ContractType, data: ContractData) {
-  const hoursText = data.hoursPerWeek ? `${data.hoursPerWeek} hours per week` : "hours as agreed";
-  const rateText = data.ratePerHour ? `£${data.ratePerHour} per hour` : "the agreed rate";
-  const startText = data.startDate ? new Date(data.startDate).toLocaleDateString("en-GB") : "the agreed date";
+  const hoursText = data.hoursPerWeek ? `${data.hoursPerWeek} Stunden pro Woche` : "die vereinbarten Betreuungsstunden";
+  const rateText = data.ratePerHour ? `${data.ratePerHour} € pro Stunde` : "den vereinbarten Stundensatz";
+  const startText = data.startDate ? new Date(data.startDate).toLocaleDateString("de-DE") : "dem vereinbarten Datum";
 
   const common = [
-    { title: "Parties", body: `This agreement is between KinderStars Ltd ("the Agency") and ${data.parentName || "the named party"} ("the ${type === "childminder" ? "Childminder" : "Parent/Guardian"}").` },
-    { title: "Commencement", body: `This contract shall commence on ${startText} and continue until terminated by either party with 4 weeks' written notice.` },
+    { title: "Vertragsparteien", body: `Dieser Vertrag wird geschlossen zwischen KinderStars DE („die Plattform") und ${data.parentName || "der genannten Vertragspartei"} („${type === "childminder" ? "die Kindertagespflegeperson" : "die Eltern / Sorgeberechtigten"}").` },
+    { title: "Vertragsbeginn", body: `Der Vertrag beginnt am ${startText} und läuft bis zur Kündigung durch eine der Parteien mit einer Frist von 4 Wochen in Textform.` },
   ];
 
   if (type === "childminder") {
     return [
       ...common,
-      { title: "Employment", body: `The Childminder is engaged by KinderStars Ltd to provide childcare services to families placed by the Agency. The Childminder is paid directly by KinderStars Ltd at ${rateText} for ${hoursText}.` },
-      { title: "Duties", body: "The Childminder shall provide safe, nurturing childcare in accordance with Ofsted requirements, maintain valid DBS clearance, first aid certification, public liability insurance, and adhere to all KinderStars policies." },
-      { title: "Payment", body: "KinderStars Ltd shall pay the Childminder via BACS on a monthly basis, based on approved timesheets. Payment terms are 14 days from invoice approval." },
-      { title: "Compliance", body: "The Childminder must maintain current Ofsted registration, DBS clearance, paediatric first aid certification, and public liability insurance at all times." },
-      { title: "Confidentiality", body: "The Childminder agrees to maintain strict confidentiality regarding all family, child, and business information obtained through KinderStars." },
-      { title: "Termination", body: "Either party may terminate this agreement with 4 weeks' written notice. KinderStars reserves the right to terminate immediately for gross misconduct or safeguarding concerns." },
+      { title: "Selbstständige Tätigkeit", body: `Die Kindertagespflegeperson erbringt ihre Leistungen als selbstständige Kindertagespflegeperson im Sinne von § 22 SGB VIII. KinderStars DE tritt ausschließlich als Vermittlungs- und Verwaltungsplattform auf; es entsteht kein Arbeits- oder Beschäftigungsverhältnis (§ 296 SGB III). Die Vergütung beträgt ${rateText} für ${hoursText}.` },
+      { title: "Pflichten", body: "Die Kindertagespflegeperson erbringt die Betreuung eigenverantwortlich unter Beachtung des SGB VIII, hält eine gültige Pflegeerlaubnis nach § 43 SGB VIII, ein aktuelles erweitertes Führungszeugnis (§ 30a BZRG), Erste-Hilfe-Ausbildung am Kind, Belehrung nach § 43 IfSG sowie eine Berufshaftpflichtversicherung vor." },
+      { title: "Zahlung", body: "Die Auszahlung erfolgt monatlich per SEPA-Überweisung auf Grundlage der freigegebenen Leistungsnachweise. Zahlungsziel: 14 Tage nach Freigabe." },
+      { title: "Compliance", body: "Die Kindertagespflegeperson gewährleistet durchgängig die Gültigkeit von Pflegeerlaubnis, erweitertem Führungszeugnis, Erste-Hilfe-Nachweis und Haftpflichtversicherung und legt diese auf Verlangen vor." },
+      { title: "Vertraulichkeit & Datenschutz", body: "Die Kindertagespflegeperson wahrt strikte Vertraulichkeit über alle Familien-, Kinder- und Geschäftsdaten und verarbeitet personenbezogene Daten nach DSGVO." },
+      { title: "Kündigung", body: "Beide Parteien können mit einer Frist von 4 Wochen in Textform kündigen. KinderStars behält sich die außerordentliche Kündigung bei groben Pflichtverletzungen oder Kinderschutz­bedenken (§ 8a SGB VIII) vor." },
     ];
   }
 
   const paymentClause = type === "sfe_ccg"
-    ? `Childcare costs are funded via Student Finance England Childcare Grant (CCG)${data.fundingRef ? ` (Ref: ${data.fundingRef})` : ""}. All invoices are issued by and payable to KinderStars Ltd. The Parent is responsible for ensuring their CCG application is maintained and funding continues. Note: The CCG is only available to those eligible for Student Finance England funding.`
+    ? `Die Betreuungskosten werden nach § 23 SGB VIII durch das zuständige Jugendamt gefördert${data.fundingRef ? ` (Bewilligungsbescheid: ${data.fundingRef})` : ""}. Rechnungen werden über KinderStars DE ausgestellt. Die Eltern verpflichten sich, die Fördervoraussetzungen aufrechtzuerhalten und Änderungen unverzüglich mitzuteilen.`
     : type === "la_funded"
-    ? `Childcare is delivered under the ${data.localAuthority || "Local Authority"} funded early years entitlement scheme. KinderStars Ltd invoices the Local Authority directly for funded hours. Any additional hours beyond the funded entitlement will be invoiced to the Parent at ${rateText}.`
+    ? `Die Betreuung erfolgt im Rahmen der Kostenübernahme durch das ${data.localAuthority || "zuständige Jugendamt"} nach § 23 SGB VIII. KinderStars DE rechnet die geförderten Stunden direkt mit dem Jugendamt ab. Über den Förderumfang hinausgehende Stunden werden den Eltern mit ${rateText} in Rechnung gestellt.`
     : type === "employer"
-    ? `Childcare costs are partially or fully covered by the Parent's employer${data.employerName ? ` (${data.employerName})` : ""} childcare scheme. KinderStars Ltd invoices the employer directly. Any shortfall is invoiced to the Parent.`
-    : `The Parent agrees to pay KinderStars Ltd at ${rateText} for ${hoursText}. Invoices are issued monthly and payable within 14 days.`;
+    ? `Die Betreuungskosten werden ganz oder teilweise durch den Arbeitgeber der Eltern${data.employerName ? ` (${data.employerName})` : ""} als steuerfreier Zuschuss nach § 3 Nr. 33 EStG übernommen. KinderStars DE rechnet direkt mit dem Arbeitgeber ab; verbleibende Restbeträge werden den Eltern in Rechnung gestellt.`
+    : `Die Eltern verpflichten sich zur Zahlung von ${rateText} für ${hoursText} an KinderStars DE. Rechnungen werden monatlich ausgestellt und sind innerhalb von 14 Tagen fällig. 20 % der Kinderbetreuungskosten (max. 4.000 € pro Jahr und Kind) können als Sonderausgabe steuerlich geltend gemacht werden (§ 10 Abs. 1 Nr. 5 EStG).`;
 
   return [
     ...common,
-    { title: "Child", body: `This contract covers childcare for ${data.childName || "the named child"}${data.childDob ? `, born ${new Date(data.childDob).toLocaleDateString("en-GB")}` : ""}.` },
-    { title: "Services", body: `KinderStars Ltd shall provide ${hoursText} of Ofsted-registered childcare via an assigned childminder${data.childminderName ? ` (${data.childminderName})` : ""}. Care includes wraparound, school pick-up, holiday, and emergency cover as agreed.` },
-    { title: "Payment & Invoicing", body: paymentClause },
-    { title: "Agency Relationship", body: "The assigned childminder is engaged by and works for KinderStars Ltd. All payments for childcare services are made to KinderStars Ltd. The Parent's contractual relationship is with KinderStars Ltd, not the individual childminder." },
-    { title: "Safeguarding", body: "All KinderStars childminders are Ofsted-registered, DBS-checked, hold valid paediatric first aid certificates, and are covered by public liability insurance." },
-    { title: "Notice & Cancellation", body: "Either party may terminate with 4 weeks' written notice. Cancellation of booked sessions requires 48 hours' notice; late cancellations may be charged at full rate." },
-    { title: "GDPR", body: "KinderStars Ltd processes personal data in accordance with UK GDPR. Data is used solely for the provision of childcare services and statutory obligations." },
+    { title: "Kind", body: `Dieser Vertrag umfasst die Betreuung von ${data.childName || "dem/der genannten Kind(ern)"}${data.childDob ? `, geboren am ${new Date(data.childDob).toLocaleDateString("de-DE")}` : ""}.` },
+    { title: "Leistungen", body: `KinderStars DE vermittelt ${hoursText} Kindertagespflege durch eine geeignete Kindertagespflegeperson${data.childminderName ? ` (${data.childminderName})` : ""} mit gültiger Pflegeerlaubnis nach § 43 SGB VIII. Die Betreuung erfolgt gemäß der individuellen Vereinbarung (regulär, Rand- und Ferienzeiten).` },
+    { title: "Zahlung & Rechnung", body: paymentClause },
+    { title: "Rolle der Plattform", body: "KinderStars DE ist eine Vermittlungs- und Verwaltungsplattform im Sinne des § 296 SGB III. Der Betreuungsvertrag im engeren Sinne kommt zwischen Eltern und der selbstständigen Kindertagespflegeperson zustande; KinderStars DE übernimmt Abwicklung, Zahlungsverwaltung und Compliance-Unterstützung." },
+    { title: "Kinderschutz", body: "Alle über KinderStars vermittelten Kindertagespflegepersonen verfügen über gültige Pflegeerlaubnis (§ 43 SGB VIII), erweitertes Führungszeugnis (§ 30a BZRG), Erste-Hilfe-Ausbildung am Kind, Belehrung nach § 43 IfSG, Fortbildung Kinderschutz (§ 8a SGB VIII) sowie Berufshaftpflichtversicherung." },
+    { title: "Kündigung & Absagen", body: "Beide Parteien können mit einer Frist von 4 Wochen in Textform kündigen. Kurzfristige Absagen einzelner Termine müssen mindestens 48 Stunden vorher erfolgen; verspätete Absagen können in voller Höhe berechnet werden." },
+    { title: "Datenschutz (DSGVO)", body: "KinderStars DE verarbeitet personenbezogene Daten nach DSGVO und BDSG ausschließlich zur Erbringung der Betreuungsleistungen und zur Erfüllung gesetzlicher Pflichten. Rechtsgrundlage: Art. 6 Abs. 1 lit. b und c DSGVO." },
   ];
 }
