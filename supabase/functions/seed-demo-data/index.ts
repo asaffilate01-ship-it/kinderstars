@@ -269,10 +269,10 @@ Deno.serve(async (req) => {
           });
           parentBatch.push({
             user_id: userId,
-            address_line1: `${randInt(1,200)} ${pick(["Oak","Elm","High","Church","Station","Park"])} ${pick(["Street","Road","Lane","Avenue"])}`,
-            city: loc.town, postcode: `${pick(loc.districts)} ${randInt(1,9)}${pick("ABCDEFGHJKLMNPRSTUVWXYZ".split(""))}${pick("ABCDEFGHJKLMNPRSTUVWXYZ".split(""))}`,
+            address_line1: `${pick(["Haupt","Bahnhof","Garten","Kirch","Berg","Wald","Schul","Linden","Markt","Mühlen"])}${pick(["straße","weg","allee","platz"])} ${randInt(1,200)}`,
+            city: loc.town, postcode: `${pick(loc.districts)}${randInt(10,99)}`,
             property_type: pick(["Detached","Reihenhaus","Terraced","Flat/Apartment"]),
-            funding_type: pick(["self_funded","local_authority","tax_free_childcare"]),
+            funding_type: pick(["self_funded","jugendamt","employer"]),
           });
           childBatch.push({
             parent_id: userId,
@@ -450,9 +450,9 @@ Deno.serve(async (req) => {
             age_groups: pickN(AGE_GROUPS, 1, 3),
             days: pickN(DAYS, 3, 7),
             hours: pick(["07:00–18:00","08:00–17:00","07:30–18:30","06:00–19:00","08:00–16:00"]),
-            languages: ["English", ...pickN(LANGUAGES.filter(l => l !== "English"), 0, 2)],
+            languages: ["Deutsch", ...pickN(LANGUAGES.filter(l => l !== "Deutsch"), 0, 2)],
             experience_years: randInt(1, 25),
-            bio: pick(["Warm, nurturing environment with creative play.","Ofsted Outstanding. SEND-trained.","Fun, structured care with healthy meals.","Flexible hours, safe home setting.","Forest school practitioner.",null]),
+            bio: pick(["Herzliche Umgebung mit kreativem Spiel.","Jugendamt-anerkannt, inklusiv arbeitend.","Strukturierte Betreuung mit gesunden Mahlzeiten.","Flexible Zeiten, sicheres Zuhause.","Naturpädagogin mit Waldgruppen-Erfahrung.",null]),
           });
         }
         const { error } = await admin.from("childminders").insert(batch);
@@ -483,18 +483,18 @@ Deno.serve(async (req) => {
           profileBatch.push({
             user_id: userId, first_name: firstName, last_name: lastName,
             email: `${firstName.toLowerCase()}.${lastName.toLowerCase()}${randInt(1,9999)}@demo.kinderstars.de`,
-            role: "parent", phone: `07${randInt(100,999)}${randInt(100,999)}${randInt(100,999)}`,
+            role: "parent", phone: `+4930${randInt(1000000,9999999)}`,
           });
 
           parentBatch.push({
             user_id: userId,
-            address_line1: `${randInt(1,200)} ${pick(["Oak","Elm","High","Church","Station","Park","Victoria","Mill","Bridge","Green"])} ${pick(["Street","Road","Lane","Avenue","Close","Way","Drive"])}`,
-            city: loc.town, postcode: `${pick(loc.districts)} ${randInt(1,9)}${pick("ABCDEFGHJKLMNPRSTUVWXYZ".split(""))}${pick("ABCDEFGHJKLMNPRSTUVWXYZ".split(""))}`,
+            address_line1: `${pick(["Haupt","Bahnhof","Garten","Kirch","Berg","Wald","Schul","Linden","Markt","Mühlen","Rosen","Eichen","Ahorn","Birken"])}${pick(["straße","weg","allee","platz","ring"])} ${randInt(1,200)}`,
+            city: loc.town, postcode: `${pick(loc.districts)}${randInt(10,99)}`,
             property_type: pick(["Detached","Reihenhaus","Terraced","Flat/Apartment","Bungalow"]),
             has_pets: Math.random() > 0.65,
-            pet_details: Math.random() > 0.65 ? pick(["Friendly cat","Small dog","Guinea pigs","Rabbit","Fish"]) : null,
+            pet_details: Math.random() > 0.65 ? pick(["Freundliche Katze","Kleiner Hund","Meerschweinchen","Kaninchen","Fische"]) : null,
             parking_available: Math.random() > 0.3,
-            funding_type: pick(["self_funded","self_funded","local_authority","tax_free_childcare","sfe","employer"]),
+            funding_type: pick(["self_funded","self_funded","jugendamt","bafoeg","employer"]),
             payment_method: pick(["Direct Debit","SEPA-Überweisung","Credit/Debit Card","Childcare Vouchers"]),
           });
 
@@ -506,12 +506,12 @@ Deno.serve(async (req) => {
               parent_id: userId,
               first_name: pick(g === "female" ? FIRST_NAMES_F : FIRST_NAMES_M),
               last_name: lastName, date_of_birth: dob.toISOString().split("T")[0], gender: g,
-              allergies: Math.random() > 0.8 ? pick(["Peanuts","Dairy","Eggs","Gluten"]) : null,
-              dietary_requirements: Math.random() > 0.85 ? pick(["Vegetarian","Halal","Vegan"]) : null,
-              health_issues: Math.random() > 0.9 ? pick(["Asthma","Eczema","Epilepsy"]) : null,
-              special_needs: Math.random() > 0.92 ? pick(["ASD","ADHD","Speech delay"]) : null,
+              allergies: Math.random() > 0.8 ? pick(["Erdnüsse","Milch","Eier","Gluten"]) : null,
+              dietary_requirements: Math.random() > 0.85 ? pick(["Vegetarisch","Halal","Vegan"]) : null,
+              health_issues: Math.random() > 0.9 ? pick(["Asthma","Neurodermitis","Epilepsie"]) : null,
+              special_needs: Math.random() > 0.92 ? pick(["Autismus","ADHS","Sprachentwicklungsverzögerung"]) : null,
               emergency_contact_name: `${pick([...FIRST_NAMES_F,...FIRST_NAMES_M])} ${lastName}`,
-              emergency_contact_phone: `07${randInt(100,999)}${randInt(100,999)}${randInt(100,999)}`,
+              emergency_contact_phone: `+4930${randInt(1000000,9999999)}`,
             });
           }
           totalChildren += numChildren;
@@ -547,12 +547,12 @@ Deno.serve(async (req) => {
           });
           cmProfBatch.push({
             user_id: userId, town: loc.town, postcode_district: pick(loc.districts),
-            languages: ["English",...pickN(LANGUAGES.filter(l=>l!=="English"),0,1)],
+            languages: ["Deutsch",...pickN(LANGUAGES.filter(l=>l!=="Deutsch"),0,2)],
             age_groups: pickN(AGE_GROUPS,1,3), days: pickN(DAYS,3,6),
             hours: pick(["07:00–18:00","08:00–17:00"]),
             experience_years: randInt(1,20),
-            dbs_number: Math.random()>0.3 ? `DBS${randInt(100000,999999)}` : null,
-            ofsted_urn: Math.random()>0.35 ? `EY${randInt(100000,999999)}` : null,
+            dbs_number: Math.random()>0.3 ? `FZ-${randInt(100000,999999)}` : null,
+            ofsted_urn: Math.random()>0.35 ? `PE-${randInt(100000,999999)}` : null,
             onboarding_status: pick(["pending","submitted","interview_scheduled","verified","verified","verified"]),
             is_live: Math.random()>0.4, is_available: Math.random()>0.2, max_children: randInt(2,6),
           });
