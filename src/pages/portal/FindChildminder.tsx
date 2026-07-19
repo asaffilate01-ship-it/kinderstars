@@ -26,6 +26,8 @@ interface MinderResult {
   has_booking?: boolean;
   has_arrived?: boolean;
   first_name?: string;
+  avg_rating?: number | null;
+  review_count?: number;
 }
 
 interface AvailabilitySlot {
