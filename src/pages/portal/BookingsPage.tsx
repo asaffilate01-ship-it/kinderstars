@@ -3,7 +3,7 @@ import { useAuth } from "@/hooks/use-auth";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { toast } from "@/hooks/use-toast";
-import { Calendar, Check, X, Clock, CalendarDays, ChevronLeft, ChevronRight, Plus, MessageSquare, CreditCard, LogIn, LogOut, Euro, ShieldCheck } from "lucide-react";
+import { Calendar, Check, X, Clock, CalendarDays, ChevronLeft, ChevronRight, Plus, MessageSquare, CreditCard, LogIn, LogOut, Euro, ShieldCheck, Star } from "lucide-react";
 import { format, startOfMonth, endOfMonth, eachDayOfInterval, isSameDay, isSameMonth, addMonths, subMonths, startOfWeek, endOfWeek, parseISO, isToday } from "date-fns";
 import { useTranslation } from "react-i18next";
 
@@ -32,6 +32,8 @@ interface Booking {
   check_out_at: string | null;
   actual_hours: number | null;
   stripe_payment_intent_id: string | null;
+  parent_rating: number | null;
+  parent_review: string | null;
 }
 
 interface Profile {
@@ -252,6 +254,13 @@ const BookingsPage = () => {
     fetchBookings();
   };
 
+  const handleReview = async (b: Booking, rating: number, review: string) => {
+    await supabase.from("bookings").update({ parent_rating: rating, parent_review: review || null }).eq("id", b.id);
+    await logEvent(b.id, "review_submitted", b.flow_status, b.flow_status as any, { rating });
+    toast({ title: "Bewertung gespeichert", description: "Danke für dein Feedback!" });
+    fetchBookings();
+  };
+
   const handleCancel = async (bookingId: string) => {
     await supabase.from("bookings").update({ status: "cancelled", flow_status: "cancelled" }).eq("id", bookingId);
     await logEvent(bookingId, "cancelled", null, "cancelled", {});
@@ -385,7 +394,7 @@ const BookingsPage = () => {
               ) : getBookingsForDate(selectedDate).map((b) => (
                 <BookingCard key={b.id} booking={b} getName={getName} isChildminder={isChildminder}
                   onRespond={handleResponse} onCancel={handleCancel}
-                  onAuthorize={handleAuthorize} onCheckIn={handleCheckIn} onCheckOut={handleCheckOut} onRelease={handleRelease} />
+                  onAuthorize={handleAuthorize} onCheckIn={handleCheckIn} onCheckOut={handleCheckOut} onRelease={handleRelease} onReview={handleReview} />
               ))}
             </div>
           )}
@@ -403,7 +412,7 @@ const BookingsPage = () => {
           ) : bookings.map((b) => (
             <BookingCard key={b.id} booking={b} getName={getName} isChildminder={isChildminder}
               onRespond={handleResponse} onCancel={handleCancel}
-              onAuthorize={handleAuthorize} onCheckIn={handleCheckIn} onCheckOut={handleCheckOut} onRelease={handleRelease} />
+              onAuthorize={handleAuthorize} onCheckIn={handleCheckIn} onCheckOut={handleCheckOut} onRelease={handleRelease} onReview={handleReview} />
           ))}
         </div>
       )}
@@ -431,7 +440,7 @@ const FLOW_LABEL: Record<string, string> = {
   disputed: "In Klärung",
 };
 
-const BookingCard = ({ booking, getName, isChildminder, onRespond, onCancel, onAuthorize, onCheckIn, onCheckOut, onRelease }: {
+const BookingCard = ({ booking, getName, isChildminder, onRespond, onCancel, onAuthorize, onCheckIn, onCheckOut, onRelease, onReview }: {
   booking: Booking; getName: (id: string) => string; isChildminder: boolean;
   onRespond: (id: string, status: "accepted" | "declined", reason?: string) => void;
   onCancel: (id: string) => void;
@@ -439,8 +448,13 @@ const BookingCard = ({ booking, getName, isChildminder, onRespond, onCancel, onA
   onCheckIn: (b: Booking) => void;
   onCheckOut: (b: Booking) => void;
   onRelease: (b: Booking) => void;
+  onReview: (b: Booking, rating: number, review: string) => void;
 }) => {
   const fs = booking.flow_status || "requested";
+  const [showReview, setShowReview] = useState(false);
+  const [rating, setRating] = useState(booking.parent_rating ?? 0);
+  const [reviewText, setReviewText] = useState(booking.parent_review ?? "");
+  const canReview = !isChildminder && (fs === "captured" || fs === "paid_out");
   return (
     <div className={`ks-card p-3 border-l-4 ${STATUS_COLORS[booking.status] || "border-border"}`}>
       <div className="flex items-start justify-between gap-2">
@@ -474,6 +488,30 @@ const BookingCard = ({ booking, getName, isChildminder, onRespond, onCancel, onA
           )}
           {booking.notes && <p className="text-xs text-muted-foreground mt-1 flex items-center gap-1"><MessageSquare className="w-3 h-3" /> {booking.notes}</p>}
           {booking.decline_reason && <p className="text-xs text-destructive mt-1">Reason: {booking.decline_reason}</p>}
+          {booking.parent_rating != null && (
+            <div className="mt-2 flex items-center gap-1">
+              {[1,2,3,4,5].map((n) => (
+                <Star key={n} className={`w-3.5 h-3.5 ${n <= (booking.parent_rating ?? 0) ? "fill-warning text-warning" : "text-muted-foreground/40"}`} />
+              ))}
+              {booking.parent_review && <span className="text-xs text-muted-foreground ml-1 italic">„{booking.parent_review}"</span>}
+            </div>
+          )}
+          {canReview && showReview && (
+            <div className="mt-2 p-2 rounded-lg bg-muted/40 space-y-2">
+              <div className="flex items-center gap-1">
+                {[1,2,3,4,5].map((n) => (
+                  <button key={n} type="button" onClick={() => setRating(n)}>
+                    <Star className={`w-5 h-5 ${n <= rating ? "fill-warning text-warning" : "text-muted-foreground/40"}`} />
+                  </button>
+                ))}
+              </div>
+              <textarea rows={2} className="w-full rounded-lg border border-border bg-card px-2 py-1 text-xs" placeholder="Optional: Erfahrung teilen…" value={reviewText} onChange={(e) => setReviewText(e.target.value)} />
+              <div className="flex gap-2">
+                <Button size="sm" variant="warm" disabled={!rating} onClick={() => { onReview(booking, rating, reviewText); setShowReview(false); }}>Speichern</Button>
+                <Button size="sm" variant="ghost" onClick={() => setShowReview(false)}>Abbrechen</Button>
+              </div>
+            </div>
+          )}
         </div>
         <div className="flex gap-1 shrink-0 flex-wrap justify-end max-w-[240px]">
           {isChildminder && booking.status === "pending" && (
@@ -516,6 +554,13 @@ const BookingCard = ({ booking, getName, isChildminder, onRespond, onCancel, onA
           {!isChildminder && fs === "completed" && (
             <Button variant="success" size="sm" className="gap-1 h-8" onClick={() => onRelease(booking)}>
               <ShieldCheck className="w-3.5 h-3.5" /> Zahlung freigeben
+            </Button>
+          )}
+
+          {/* Parent: leave a review after capture */}
+          {canReview && booking.parent_rating == null && !showReview && (
+            <Button variant="warm" size="sm" className="gap-1 h-8" onClick={() => setShowReview(true)}>
+              <Star className="w-3.5 h-3.5" /> Bewerten
             </Button>
           )}
         </div>
