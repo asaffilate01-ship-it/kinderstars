@@ -32,6 +32,8 @@ interface Booking {
   check_out_at: string | null;
   actual_hours: number | null;
   stripe_payment_intent_id: string | null;
+  parent_rating: number | null;
+  parent_review: string | null;
 }
 
 interface Profile {
