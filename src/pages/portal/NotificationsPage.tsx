@@ -4,6 +4,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { Bell, Check, Clock, AlertTriangle, FileText, MessageSquare, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { formatDistanceToNow } from "date-fns";
+import { de } from "date-fns/locale";
 import { toast } from "@/hooks/use-toast";
 import { useTranslation } from "react-i18next";
 
@@ -75,7 +76,7 @@ const NotificationsPage = () => {
     e.stopPropagation();
     const { error } = await supabase.from("notifications").delete().eq("id", id);
     if (error) {
-      toast({ title: "Error", description: error.message, variant: "destructive" });
+      toast({ title: "Fehler", description: error.message, variant: "destructive" });
     } else {
       setNotifications((prev) => prev.filter((n) => n.id !== id));
     }
@@ -87,10 +88,10 @@ const NotificationsPage = () => {
     if (readIds.length === 0) return;
     const { error } = await supabase.from("notifications").delete().in("id", readIds);
     if (error) {
-      toast({ title: "Error", description: error.message, variant: "destructive" });
+      toast({ title: "Fehler", description: error.message, variant: "destructive" });
     } else {
       setNotifications((prev) => prev.filter((n) => !n.read));
-      toast({ title: "Cleared read notifications" });
+      toast({ title: "Gelesene Benachrichtigungen entfernt" });
     }
   };
 
@@ -145,7 +146,7 @@ const NotificationsPage = () => {
                   </div>
                   {n.body && <p className="text-xs text-muted-foreground mt-0.5 line-clamp-2">{n.body}</p>}
                   <p className="text-[10px] text-muted-foreground mt-1">
-                    {formatDistanceToNow(new Date(n.created_at), { addSuffix: true })}
+                    {formatDistanceToNow(new Date(n.created_at), { addSuffix: true, locale: de })}
                   </p>
                 </div>
                 <button
