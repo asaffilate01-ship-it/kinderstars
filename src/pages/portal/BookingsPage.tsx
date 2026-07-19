@@ -254,6 +254,13 @@ const BookingsPage = () => {
     fetchBookings();
   };
 
+  const handleReview = async (b: Booking, rating: number, review: string) => {
+    await supabase.from("bookings").update({ parent_rating: rating, parent_review: review || null }).eq("id", b.id);
+    await logEvent(b.id, "review_submitted", b.flow_status, b.flow_status as any, { rating });
+    toast({ title: "Bewertung gespeichert", description: "Danke für dein Feedback!" });
+    fetchBookings();
+  };
+
   const handleCancel = async (bookingId: string) => {
     await supabase.from("bookings").update({ status: "cancelled", flow_status: "cancelled" }).eq("id", bookingId);
     await logEvent(bookingId, "cancelled", null, "cancelled", {});
