@@ -5,9 +5,9 @@ const TestimonialsSection = () => {
   const { t } = useTranslation();
 
   const testimonials = [
-    { quote: t("testimonials.quote1"), name: "Priya K.", location: "Luton, LU2", role: t("testimonials.quote1Role") },
-    { quote: t("testimonials.quote2"), name: "James R.", location: "Milton Keynes, MK9", role: t("testimonials.quote2Role") },
-    { quote: t("testimonials.quote3"), name: "Aisha K.", location: "Luton, LU2", role: t("testimonials.quote3Role") },
+    { quote: t("testimonials.quote1"), name: "Priya K.", location: "Berlin, 10115", role: t("testimonials.quote1Role") },
+    { quote: t("testimonials.quote2"), name: "Jonas R.", location: "Köln, 50667", role: t("testimonials.quote2Role") },
+    { quote: t("testimonials.quote3"), name: "Aisha K.", location: "München, 80331", role: t("testimonials.quote3Role") },
   ];
 
   return (
