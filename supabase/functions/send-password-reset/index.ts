@@ -53,7 +53,7 @@ Deno.serve(async (req) => {
       type: "recovery",
       email,
       options: {
-        redirectTo: redirectTo || "https://kinderstars.lovable.app/reset-password",
+        redirectTo: redirectTo || "https://kinderstars.de/reset-password",
       },
     });
 
@@ -99,7 +99,7 @@ Deno.serve(async (req) => {
         <a href="${recoveryLink}" style="color: #F97316; word-break: break-all;">${recoveryLink}</a></p>
       </div>
       <div style="background: #F5F0EB; padding: 16px; text-align: center; font-size: 12px; color: #999;">
-        KinderStars Ltd · Quality Childminding Agency<br/>info@kinderstars.co.uk
+        KinderStars GmbH · Quality Childminding Agency<br/>info@kinderstars.de
       </div>
     </div>`;
 
@@ -116,7 +116,7 @@ Deno.serve(async (req) => {
       method: "POST",
       headers: { "Content-Type": "application/json", Authorization: `Bearer ${RESEND_API_KEY}` },
       body: JSON.stringify({
-        from: "KinderStars <info@kinderstars.co.uk>",
+        from: "KinderStars <info@kinderstars.de>",
         to: [email],
         subject: "Reset your KinderStars password",
         html: emailHtml,

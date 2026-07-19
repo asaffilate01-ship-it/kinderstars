@@ -68,10 +68,10 @@ function randInt(min: number, max: number) { return min + Math.floor(Math.random
 
 // Test user credentials for quick setup
 const TEST_USERS = [
-  { email: "owner@kinderstars.co.uk", password: "KinderStars2024!", first_name: "Sarah", last_name: "Owner", role: "owner" },
-  { email: "admin@kinderstars.co.uk", password: "KinderStars2024!", first_name: "James", last_name: "Admin", role: "admin" },
-  { email: "childminder@kinderstars.co.uk", password: "KinderStars2024!", first_name: "Emma", last_name: "Childminder", role: "childminder" },
-  { email: "parent@kinderstars.co.uk", password: "KinderStars2024!", first_name: "Michael", last_name: "Parent", role: "parent" },
+  { email: "owner@kinderstars.de", password: "KinderStars2024!", first_name: "Sarah", last_name: "Owner", role: "owner" },
+  { email: "admin@kinderstars.de", password: "KinderStars2024!", first_name: "James", last_name: "Admin", role: "admin" },
+  { email: "childminder@kinderstars.de", password: "KinderStars2024!", first_name: "Emma", last_name: "Childminder", role: "childminder" },
+  { email: "parent@kinderstars.de", password: "KinderStars2024!", first_name: "Michael", last_name: "Parent", role: "parent" },
 ];
 
 Deno.serve(async (req) => {
@@ -143,10 +143,10 @@ Deno.serve(async (req) => {
     try {
       // Get test user IDs
       const { data: allAuthUsers } = await admin.auth.admin.listUsers();
-      const cmUser = allAuthUsers?.users?.find((u: any) => u.email === "childminder@kinderstars.co.uk");
-      const parentUser = allAuthUsers?.users?.find((u: any) => u.email === "parent@kinderstars.co.uk");
-      const adminUser = allAuthUsers?.users?.find((u: any) => u.email === "admin@kinderstars.co.uk");
-      const ownerUser = allAuthUsers?.users?.find((u: any) => u.email === "amersaleem@gmail.com") || allAuthUsers?.users?.find((u: any) => u.email === "owner@kinderstars.co.uk");
+      const cmUser = allAuthUsers?.users?.find((u: any) => u.email === "childminder@kinderstars.de");
+      const parentUser = allAuthUsers?.users?.find((u: any) => u.email === "parent@kinderstars.de");
+      const adminUser = allAuthUsers?.users?.find((u: any) => u.email === "admin@kinderstars.de");
+      const ownerUser = allAuthUsers?.users?.find((u: any) => u.email === "amersaleem@gmail.com") || allAuthUsers?.users?.find((u: any) => u.email === "owner@kinderstars.de");
 
       // Ensure childminder profile exists
       if (cmUser) {

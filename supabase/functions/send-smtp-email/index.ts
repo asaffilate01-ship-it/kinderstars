@@ -59,7 +59,7 @@ Deno.serve(async (req) => {
       });
     }
 
-    const senderEmail = from || "KinderStars <info@kinderstars.co.uk>";
+    const senderEmail = from || "KinderStars <info@kinderstars.de>";
     const recipients = Array.isArray(to) ? to : [to];
 
     const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");

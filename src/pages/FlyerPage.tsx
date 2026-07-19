@@ -114,9 +114,9 @@ const FlyerPage = () => {
         {/* Footer Contact Bar */}
         <div className="px-6 py-3 flex items-center justify-between gap-3" style={{ background: "hsl(222, 95%, 13%)" }}>
           <div className="flex items-center gap-4">
-            <a href="mailto:hello@kinderstars.co.uk" className="flex items-center gap-1.5 text-white/90 hover:text-white transition-colors">
+            <a href="mailto:hello@kinderstars.de" className="flex items-center gap-1.5 text-white/90 hover:text-white transition-colors">
               <Mail className="w-3.5 h-3.5 text-primary" />
-              <span className="text-[10px] font-medium">hello@kinderstars.co.uk</span>
+              <span className="text-[10px] font-medium">hello@kinderstars.de</span>
             </a>
             <a href="tel:07585803505" className="flex items-center gap-1.5 text-white/90 hover:text-white transition-colors">
               <Phone className="w-3.5 h-3.5 text-primary" />

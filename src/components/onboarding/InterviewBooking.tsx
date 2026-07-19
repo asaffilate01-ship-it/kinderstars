@@ -88,7 +88,7 @@ const InterviewBooking = ({ userId, roleTarget, disabled }: InterviewBookingProp
       supabase.functions.invoke("send-contact-email", {
         body: {
           name: "Interview System",
-          email: "system@kinderstars.co.uk",
+          email: "system@kinderstars.de",
           message: `INTERVIEW BOOKED\n\nUser ID: ${userId}\nRole: ${roleTarget}\nSlot: ${slots.find(s => s.id === slotId)?.slot_date} ${slots.find(s => s.id === slotId)?.start_time}\n\nPlease check the admin dashboard.`,
         },
       }).catch(() => {});

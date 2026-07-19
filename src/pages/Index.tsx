@@ -18,7 +18,7 @@ import AnimatedSection from "@/components/AnimatedSection";
 import SEOHead from "@/components/SEOHead";
 import { useTranslation } from "react-i18next";
 
-const SITE_URL = "https://www.kinderstars.co.uk";
+const SITE_URL = "https://www.kinderstars.de";
 
 const Index = () => {
   const { t } = useTranslation();
@@ -36,7 +36,7 @@ const Index = () => {
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "KinderStars Ltd",
+    name: "KinderStars GmbH",
     url: SITE_URL,
     logo: `${SITE_URL}/favicon.png`,
     description: "KinderStars is a nationwide Childminder Agency helping UK parents find DBS-checked, quality-assured childminders.",
@@ -49,8 +49,8 @@ const Index = () => {
     },
     contactPoint: {
       "@type": "ContactPoint",
-      telephone: "+44-7585-803505",
-      email: "info@kinderstars.co.uk",
+      telephone: "+49-30-12345678",
+      email: "info@kinderstars.de",
       contactType: "customer service",
     },
     sameAs: [],

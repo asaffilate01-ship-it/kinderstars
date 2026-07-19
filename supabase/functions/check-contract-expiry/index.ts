@@ -84,16 +84,16 @@ serve(async (req) => {
                 <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
                   <h1 style="color: hsl(222, 95%, 13%); font-size: 20px;">Contract Renewal Reminder</h1>
                   <p>Dear ${contract.parent_name || "Valued Client"},</p>
-                  <p>This is a friendly reminder that your <strong>${typeName}</strong> contract with KinderStars Ltd is due to expire on <strong>${expiryDate}</strong> — that's <strong>${daysLeft} day${daysLeft !== 1 ? "s" : ""}</strong> from now.</p>
+                  <p>This is a friendly reminder that your <strong>${typeName}</strong> contract with KinderStars GmbH is due to expire on <strong>${expiryDate}</strong> — that's <strong>${daysLeft} day${daysLeft !== 1 ? "s" : ""}</strong> from now.</p>
                   <p>To ensure continuity of your childcare arrangements, please contact us to discuss renewal options.</p>
                   <div style="margin: 24px 0; padding: 16px; background: #f8f9fa; border-radius: 8px; border-left: 4px solid hsl(44, 93%, 40%);">
                     <p style="margin: 0; font-size: 14px;"><strong>Contract ID:</strong> ${contract.id.slice(0, 8)}…</p>
                     <p style="margin: 4px 0 0; font-size: 14px;"><strong>Type:</strong> ${typeName}</p>
                     <p style="margin: 4px 0 0; font-size: 14px;"><strong>Expires:</strong> ${expiryDate}</p>
                   </div>
-                  <p>You can also review and sign renewal contracts directly through your <a href="https://kinderstars.lovable.app/portal/contracts" style="color: hsl(222, 95%, 40%);">KinderStars Portal</a>.</p>
+                  <p>You can also review and sign renewal contracts directly through your <a href="https://kinderstars.de/portal/contracts" style="color: hsl(222, 95%, 40%);">KinderStars Portal</a>.</p>
                   <hr style="border: none; border-top: 1px solid #eee; margin: 24px 0;" />
-                  <p style="font-size: 12px; color: #999;">KinderStars Ltd • Victory House, Luton LU1 3BS • hello@kinderstars.co.uk</p>
+                  <p style="font-size: 12px; color: #999;">KinderStars GmbH • Victory House, Luton LU1 3BS • hello@kinderstars.de</p>
                 </div>
               `,
             }),

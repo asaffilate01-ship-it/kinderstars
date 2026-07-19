@@ -39,7 +39,7 @@ const ContactSection = () => {
       setEnquiryType("");
       setMessage("");
     } catch {
-      setStatus("Failed to send message. Please email us directly at info@kinderstars.co.uk");
+      setStatus("Failed to send message. Please email us directly at info@kinderstars.de");
     } finally {
       setSending(false);
     }
@@ -57,12 +57,12 @@ const ContactSection = () => {
           <div className="ks-contact-card h-full">
             <strong>{t("contact.companyName")}</strong>
             <ul className="list-none p-0 mt-2.5 space-y-1.5 text-muted-foreground text-[13.5px]">
-              <li><strong>{t("contact.email")}</strong> <a href="mailto:info@kinderstars.co.uk" className="underline">info@kinderstars.co.uk</a></li>
+              <li><strong>{t("contact.email")}</strong> <a href="mailto:info@kinderstars.de" className="underline">info@kinderstars.de</a></li>
               <li><strong>{t("contact.address")}</strong> {t("contact.addressValue")}</li>
             </ul>
             <div className="mt-3 flex gap-2.5 flex-wrap">
               <Button variant="hero" asChild>
-                <a href="mailto:info@kinderstars.co.uk?subject=Enquiry%20-%20KinderStars">{t("contact.emailUs")}</a>
+                <a href="mailto:info@kinderstars.de?subject=Enquiry%20-%20KinderStars">{t("contact.emailUs")}</a>
               </Button>
             </div>
           </div>

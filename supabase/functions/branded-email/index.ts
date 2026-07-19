@@ -29,11 +29,11 @@ const bookingConfirmationHtml = (
       </table>
     </div>
     <div style="text-align: center; margin-top: 20px;">
-      <a href="https://kinderstars.lovable.app/parent/bookings" style="display: inline-block; background: #F97316; color: white; padding: 12px 28px; border-radius: 12px; text-decoration: none; font-weight: bold;">View Bookings →</a>
+      <a href="https://kinderstars.de/parent/bookings" style="display: inline-block; background: #F97316; color: white; padding: 12px 28px; border-radius: 12px; text-decoration: none; font-weight: bold;">View Bookings →</a>
     </div>
   </div>
   <div style="background: #F5F0EB; padding: 14px; text-align: center; font-size: 12px; color: #999;">
-    KinderStars Ltd · hello@kinderstars.co.uk
+    KinderStars GmbH · hello@kinderstars.de
   </div>
 </div>`;
 
@@ -51,7 +51,7 @@ const passwordResetHtml = (firstName: string, resetLink: string) => `
     <p style="color: #666; font-size: 13px;">If you didn't request this, you can safely ignore this email. This link expires in 1 hour.</p>
   </div>
   <div style="background: #F5F0EB; padding: 14px; text-align: center; font-size: 12px; color: #999;">
-    KinderStars Ltd · hello@kinderstars.co.uk
+    KinderStars GmbH · hello@kinderstars.de
   </div>
 </div>`;
 
@@ -69,7 +69,7 @@ const verificationHtml = (firstName: string, confirmLink: string) => `
     <p style="color: #666; font-size: 13px;">If you didn't create this account, please ignore this email.</p>
   </div>
   <div style="background: #F5F0EB; padding: 14px; text-align: center; font-size: 12px; color: #999;">
-    KinderStars Ltd · hello@kinderstars.co.uk
+    KinderStars GmbH · hello@kinderstars.de
   </div>
 </div>`;
 

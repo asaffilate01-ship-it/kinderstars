@@ -36,7 +36,7 @@ const Screensaver = () => {
             Trusted childcare, nationwide.
           </p>
           <p className="mt-4 text-xl md:text-2xl text-[hsl(215_42%_25%)]/80 animate-fade-in">
-            kinderstars.co.uk
+            kinderstars.de
           </p>
         </div>
       ),
@@ -173,10 +173,10 @@ const Screensaver = () => {
             Find your childminder.
           </h2>
           <p className="mt-8 text-2xl md:text-4xl text-[hsl(215_42%_25%)]/85 animate-fade-in">
-            Visit <span className="font-bold text-[hsl(200_93%_23%)]">kinderstars.co.uk</span>
+            Visit <span className="font-bold text-[hsl(200_93%_23%)]">kinderstars.de</span>
           </p>
           <p className="mt-4 text-xl md:text-2xl text-[hsl(215_42%_25%)]/70 animate-fade-in">
-            hello@kinderstars.co.uk · WhatsApp +44 7585 803505
+            hello@kinderstars.de · WhatsApp +49 30 12345678
           </p>
         </div>
       ),
@@ -230,7 +230,7 @@ const Screensaver = () => {
       <SEOHead
         title="KinderStars Screensaver"
         description="Auto-playing slideshow about KinderStars — for display screens."
-        canonical="https://www.kinderstars.co.uk/screensaver"
+        canonical="https://www.kinderstars.de/screensaver"
       />
       <div
         ref={containerRef}

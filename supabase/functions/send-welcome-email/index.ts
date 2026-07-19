@@ -27,13 +27,13 @@ const parentHtml = (firstName: string) => `
         <li><strong>Manage bookings</strong> — Track sessions, view invoices, and communicate with your childminder</li>
       </ol>
     </div>
-    <p style="color: #666; font-size: 14px;">Need help? Reply to this email or contact us at <a href="mailto:hello@kinderstars.co.uk" style="color: #F97316;">hello@kinderstars.co.uk</a></p>
+    <p style="color: #666; font-size: 14px;">Need help? Reply to this email or contact us at <a href="mailto:hello@kinderstars.de" style="color: #F97316;">hello@kinderstars.de</a></p>
     <div style="text-align: center; margin-top: 24px;">
-      <a href="https://kinderstars.lovable.app/parent" style="display: inline-block; background: #F97316; color: white; padding: 12px 32px; border-radius: 12px; text-decoration: none; font-weight: bold;">Go to Your Dashboard →</a>
+      <a href="https://kinderstars.de/parent" style="display: inline-block; background: #F97316; color: white; padding: 12px 32px; border-radius: 12px; text-decoration: none; font-weight: bold;">Go to Your Dashboard →</a>
     </div>
   </div>
   <div style="background: #F5F0EB; padding: 16px; text-align: center; font-size: 12px; color: #999;">
-    KinderStars Ltd · Quality Childminding Agency<br/>hello@kinderstars.co.uk
+    KinderStars GmbH · Quality Childminding Agency<br/>hello@kinderstars.de
   </div>
 </div>`;
 
@@ -60,13 +60,13 @@ const childminderHtml = (firstName: string) => `
     <div style="background: #FEF3C7; border-radius: 12px; padding: 16px; margin: 20px 0;">
       <p style="margin: 0; font-size: 14px;"><strong>⏱ Typical timeline:</strong> Most childminders are verified within 5–10 working days after submitting all documents.</p>
     </div>
-    <p style="color: #666; font-size: 14px;">Questions? Email us at <a href="mailto:hello@kinderstars.co.uk" style="color: #059669;">hello@kinderstars.co.uk</a></p>
+    <p style="color: #666; font-size: 14px;">Questions? Email us at <a href="mailto:hello@kinderstars.de" style="color: #059669;">hello@kinderstars.de</a></p>
     <div style="text-align: center; margin-top: 24px;">
-      <a href="https://kinderstars.lovable.app/childminder/onboarding" style="display: inline-block; background: #059669; color: white; padding: 12px 32px; border-radius: 12px; text-decoration: none; font-weight: bold;">Start Onboarding →</a>
+      <a href="https://kinderstars.de/childminder/onboarding" style="display: inline-block; background: #059669; color: white; padding: 12px 32px; border-radius: 12px; text-decoration: none; font-weight: bold;">Start Onboarding →</a>
     </div>
   </div>
   <div style="background: #F5F0EB; padding: 16px; text-align: center; font-size: 12px; color: #999;">
-    KinderStars Ltd · Quality Childminding Agency<br/>hello@kinderstars.co.uk
+    KinderStars GmbH · Quality Childminding Agency<br/>hello@kinderstars.de
   </div>
 </div>`;
 

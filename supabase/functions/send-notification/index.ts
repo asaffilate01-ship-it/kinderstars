@@ -225,11 +225,11 @@ Deno.serve(async (req) => {
                 <h2 style="color: #F97316; margin: 16px 0 8px;">${notification.title}</h2>
                 <p>${notification.body}</p>
                 <div style="text-align: center; margin-top: 24px;">
-                  <a href="https://kinderstars.lovable.app/portal" style="display: inline-block; background: #F97316; color: white; padding: 12px 32px; border-radius: 12px; text-decoration: none; font-weight: bold;">View in Portal →</a>
+                  <a href="https://kinderstars.de/portal" style="display: inline-block; background: #F97316; color: white; padding: 12px 32px; border-radius: 12px; text-decoration: none; font-weight: bold;">View in Portal →</a>
                 </div>
               </div>
               <div style="background: #F5F0EB; padding: 16px; text-align: center; font-size: 12px; color: #999;">
-                KinderStars Ltd · Quality Childminding Agency<br/>info@kinderstars.co.uk
+                KinderStars GmbH · Quality Childminding Agency<br/>info@kinderstars.de
               </div>
             </div>`;
 
@@ -238,7 +238,7 @@ Deno.serve(async (req) => {
               method: "POST",
               headers: { "Content-Type": "application/json", Authorization: `Bearer ${RESEND_API_KEY}` },
               body: JSON.stringify({
-                from: "KinderStars <info@kinderstars.co.uk>",
+                from: "KinderStars <info@kinderstars.de>",
                 to: [profile.email],
                 subject: notification.title,
                 html: emailHtml,
