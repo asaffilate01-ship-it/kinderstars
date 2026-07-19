@@ -367,9 +367,9 @@ Deno.serve(async (req) => {
   try {
     // ── 1. CREATE DEMO AUTH USERS ──
     const demoUsers = [
-      { email: "admin@kinderstars.demo", password: "Demo1234!", first_name: "Admin", last_name: "User", role: "admin" },
-      { email: "childminder@kinderstars.demo", password: "Demo1234!", first_name: "Sarah", last_name: "Williams", role: "childminder" },
-      { email: "parent@kinderstars.demo", password: "Demo1234!", first_name: "James", last_name: "Thompson", role: "parent" },
+      { email: "admin@kinderstars.de", password: "Demo1234!", first_name: "Admin", last_name: "User", role: "admin" },
+      { email: "childminder@kinderstars.de", password: "Demo1234!", first_name: "Sarah", last_name: "Williams", role: "childminder" },
+      { email: "parent@kinderstars.de", password: "Demo1234!", first_name: "James", last_name: "Thompson", role: "parent" },
     ];
 
     for (const u of demoUsers) {
@@ -388,9 +388,9 @@ Deno.serve(async (req) => {
 
     // Get actual user IDs for demo users
     const { data: allAuthUsers } = await admin.auth.admin.listUsers();
-    const adminUser = allAuthUsers?.users?.find((u: any) => u.email === "admin@kinderstars.demo");
-    const cmUser = allAuthUsers?.users?.find((u: any) => u.email === "childminder@kinderstars.demo");
-    const parentUser = allAuthUsers?.users?.find((u: any) => u.email === "parent@kinderstars.demo");
+    const adminUser = allAuthUsers?.users?.find((u: any) => u.email === "admin@kinderstars.de");
+    const cmUser = allAuthUsers?.users?.find((u: any) => u.email === "childminder@kinderstars.de");
+    const parentUser = allAuthUsers?.users?.find((u: any) => u.email === "parent@kinderstars.de");
 
     // Ensure childminder profile exists for demo user
     if (cmUser) {
@@ -578,7 +578,7 @@ Deno.serve(async (req) => {
       }
     }
 
-    return new Response(JSON.stringify({ success: true, results, note: "Demo logins: admin/childminder/parent@kinderstars.demo / Demo1234!" }), {
+    return new Response(JSON.stringify({ success: true, results, note: "Demo logins: admin/childminder/parent@kinderstars.de / Demo1234!" }), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
   } catch (err) {
