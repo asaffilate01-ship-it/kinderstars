@@ -1,0 +1,1 @@
+ALTER VIEW public.recurring_engagement_flags SET (security_invoker = true);
