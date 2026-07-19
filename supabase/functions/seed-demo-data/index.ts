@@ -157,7 +157,7 @@ Deno.serve(async (req) => {
             bio: "Herzliche Kindertagespflegeperson mit 8 Jahren Erfahrung.",
             experience_years: 8, age_groups: ["0-1","2-4","5-8"],
             days: ["Mon","Tue","Wed","Thu","Fri"], hours: "07:30–18:00",
-            languages: ["English","Polish"], max_children: 4,
+            languages: ["Deutsch","Türkisch"], max_children: 4,
             ofsted_urn: "PE-B-2024-001", ofsted_rating: "verified",
             dbs_number: "FZ-2024-001234", is_available: true, is_live: true,
             onboarding_status: "verified",
@@ -174,7 +174,7 @@ Deno.serve(async (req) => {
             user_id: parentUser.id, address_line1: "Musterstraße 42", city: "Berlin",
             postcode: "10115", property_type: "Reihenhaus",
             has_pets: true, pet_details: "Ein freundlicher Labrador", parking_available: true,
-            funding_type: "local_authority", local_authority: "Jugendamt Berlin-Mitte",
+            funding_type: "jugendamt", local_authority: "Jugendamt Berlin-Mitte",
             payment_method: "SEPA-Überweisung",
           });
           results.push("Created parent profile for test user");
@@ -305,7 +305,7 @@ Deno.serve(async (req) => {
           });
           cmProfBatch.push({
             user_id: userId, town: loc.town, postcode_district: pick(loc.districts),
-            languages: ["English"], age_groups: pickN(AGE_GROUPS,1,3), days: pickN(DAYS,3,6),
+            languages: ["Deutsch"], age_groups: pickN(AGE_GROUPS,1,3), days: pickN(DAYS,3,6),
             hours: pick(["07:00–18:00","08:00–17:00"]),
             experience_years: randInt(1,20),
             onboarding_status: pick(["pending","submitted","verified","verified"]),
@@ -401,7 +401,7 @@ Deno.serve(async (req) => {
           bio: "Herzliche Kindertagespflegeperson mit 8 Jahren Erfahrung.",
           experience_years: 8, age_groups: ["0-1","2-4","5-8"],
           days: ["Mon","Tue","Wed","Thu","Fri"], hours: "07:30–18:00",
-          languages: ["English","Polish"], max_children: 4,
+          languages: ["Deutsch","Türkisch"], max_children: 4,
           ofsted_urn: "PE-B-2024-001", ofsted_rating: "verified",
           dbs_number: "FZ-2024-001234", is_available: true, is_live: true,
           onboarding_status: "verified",
@@ -417,7 +417,7 @@ Deno.serve(async (req) => {
           user_id: parentUser.id, address_line1: "Musterstraße 42", city: "Berlin",
           postcode: "10115", property_type: "Reihenhaus",
           has_pets: true, pet_details: "Ein freundlicher Labrador", parking_available: true,
-          funding_type: "local_authority", local_authority: "Jugendamt Berlin-Mitte",
+          funding_type: "jugendamt", local_authority: "Jugendamt Berlin-Mitte",
           payment_method: "SEPA-Überweisung",
         });
       }
@@ -495,7 +495,7 @@ Deno.serve(async (req) => {
             pet_details: Math.random() > 0.65 ? pick(["Freundliche Katze","Kleiner Hund","Meerschweinchen","Kaninchen","Fische"]) : null,
             parking_available: Math.random() > 0.3,
             funding_type: pick(["self_funded","self_funded","jugendamt","bafoeg","employer"]),
-            payment_method: pick(["Direct Debit","SEPA-Überweisung","Credit/Debit Card","Childcare Vouchers"]),
+            payment_method: pick(["SEPA-Lastschrift","SEPA-Überweisung","Kredit-/Debitkarte","Arbeitgeberzuschuss"]),
           });
 
           const numChildren = Math.random() > 0.55 ? 2 : 1;
