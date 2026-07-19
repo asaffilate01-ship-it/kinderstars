@@ -72,8 +72,8 @@ Deno.serve(async (req) => {
         }
         notification = {
           user_id: body.booking_childminder_id,
-          title: "New Booking Request",
-          body: `A parent has requested a booking. Please review and respond.`,
+          title: "Neue Buchungsanfrage",
+          body: `Eine Familie hat eine Buchung angefragt. Bitte prüfen und antworten.`,
           type: "booking",
         };
         break;
@@ -100,10 +100,10 @@ Deno.serve(async (req) => {
         }
         notification = {
           user_id: body.booking_parent_id,
-          title: type === "booking_accepted" ? "Booking Accepted ✅" : "Booking Declined",
+          title: type === "booking_accepted" ? "Buchung bestätigt ✅" : "Buchung abgelehnt",
           body: type === "booking_accepted"
-            ? `Your booking has been accepted by the childminder.`
-            : `Your booking request was declined. Please try another childminder.`,
+            ? `Ihre Buchung wurde von der Betreuungsperson bestätigt.`
+            : `Ihre Buchungsanfrage wurde abgelehnt. Bitte wählen Sie eine andere Betreuungsperson.`,
           type: "booking",
         };
         break;
@@ -126,8 +126,8 @@ Deno.serve(async (req) => {
         }
         notification = {
           user_id: body.childminder_id,
-          title: "New Shift Offer 🕐",
-          body: `You have a new shift offer. Check your shifts page for details.`,
+          title: "Neues Einsatzangebot 🕐",
+          body: `Sie haben ein neues Einsatzangebot. Details finden Sie in Ihrem Einsatzbereich.`,
           type: "shift_offer",
         };
         break;
@@ -151,10 +151,10 @@ Deno.serve(async (req) => {
         }
         notification = {
           user_id: body.childminder_id,
-          title: type === "timesheet_approved" ? "Timesheet Approved ✅" : "Timesheet Rejected ❌",
+          title: type === "timesheet_approved" ? "Stundenzettel genehmigt ✅" : "Stundenzettel abgelehnt ❌",
           body: type === "timesheet_approved"
-            ? `Your timesheet has been approved.`
-            : `Your timesheet was rejected. Please review and resubmit.`,
+            ? `Ihr Stundenzettel wurde genehmigt.`
+            : `Ihr Stundenzettel wurde abgelehnt. Bitte prüfen und erneut einreichen.`,
           type: type,
         };
         break;
@@ -218,18 +218,18 @@ Deno.serve(async (req) => {
           const emailHtml = `
             <div style="font-family: 'Segoe UI', Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #FFFBF5; border-radius: 16px; overflow: hidden;">
               <div style="background: linear-gradient(135deg, #F97316, #FB923C); padding: 24px; text-align: center;">
-                <h1 style="color: white; margin: 0; font-size: 22px;">KinderStars Notification</h1>
+                <h1 style="color: white; margin: 0; font-size: 22px;">KinderStars Benachrichtigung</h1>
               </div>
               <div style="padding: 24px;">
-                <p style="font-size: 16px;">Hi ${profile.first_name || "there"},</p>
+                <p style="font-size: 16px;">Hallo ${profile.first_name || "zusammen"},</p>
                 <h2 style="color: #F97316; margin: 16px 0 8px;">${notification.title}</h2>
                 <p>${notification.body}</p>
                 <div style="text-align: center; margin-top: 24px;">
-                  <a href="https://kinderstars.de/portal" style="display: inline-block; background: #F97316; color: white; padding: 12px 32px; border-radius: 12px; text-decoration: none; font-weight: bold;">View in Portal →</a>
+                  <a href="https://kinderstars.de/portal" style="display: inline-block; background: #F97316; color: white; padding: 12px 32px; border-radius: 12px; text-decoration: none; font-weight: bold;">Im Portal ansehen →</a>
                 </div>
               </div>
               <div style="background: #F5F0EB; padding: 16px; text-align: center; font-size: 12px; color: #999;">
-                KinderStars GmbH · Quality Childminding Agency<br/>info@kinderstars.de
+                KinderStars GmbH · Vermittlung qualifizierter Kinderbetreuung<br/>info@kinderstars.de
               </div>
             </div>`;
 
