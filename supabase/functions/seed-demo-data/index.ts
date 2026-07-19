@@ -5,58 +5,58 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
 };
 
-// UK towns with realistic postcode districts
+// Deutsche Städte mit realistischen PLZ-Präfixen (erste 3 Stellen)
 const UK_LOCATIONS = [
-  { town: "London", districts: ["E1","E2","N1","N4","SE1","SE5","SW1","SW4","W1","W2","NW1","NW3","EC1","WC1"] },
-  { town: "Birmingham", districts: ["B1","B2","B5","B11","B14","B16","B23","B29","B31","B33"] },
-  { town: "Manchester", districts: ["M1","M2","M4","M8","M11","M14","M16","M20","M21","M23"] },
-  { town: "Leeds", districts: ["LS1","LS2","LS4","LS6","LS7","LS8","LS11","LS15","LS17"] },
-  { town: "Liverpool", districts: ["L1","L2","L3","L4","L7","L8","L11","L15","L17","L18"] },
-  { town: "Bristol", districts: ["BS1","BS2","BS3","BS5","BS6","BS7","BS8","BS9","BS10"] },
-  { town: "Sheffield", districts: ["S1","S2","S3","S5","S7","S8","S10","S11","S12"] },
-  { town: "Newcastle", districts: ["NE1","NE2","NE3","NE4","NE5","NE6","NE7","NE12"] },
-  { town: "Nottingham", districts: ["NG1","NG2","NG3","NG5","NG7","NG8","NG9","NG11"] },
-  { town: "Leicester", districts: ["LE1","LE2","LE3","LE4","LE5","LE7","LE8"] },
-  { town: "Coventry", districts: ["CV1","CV2","CV3","CV4","CV5","CV6"] },
-  { town: "Southampton", districts: ["SO14","SO15","SO16","SO17","SO18","SO19"] },
-  { town: "Brighton", districts: ["BN1","BN2","BN3"] },
-  { town: "Plymouth", districts: ["PL1","PL2","PL3","PL4","PL5","PL6"] },
-  { town: "Reading", districts: ["RG1","RG2","RG4","RG6","RG30"] },
-  { town: "Derby", districts: ["DE1","DE3","DE21","DE22","DE23","DE24"] },
-  { town: "Luton", districts: ["LU1","LU2","LU3","LU4"] },
-  { town: "Milton Keynes", districts: ["MK1","MK2","MK3","MK5","MK9","MK10"] },
-  { town: "Northampton", districts: ["NN1","NN2","NN3","NN4","NN5"] },
-  { town: "Oxford", districts: ["OX1","OX2","OX3","OX4"] },
-  { town: "Cambridge", districts: ["CB1","CB2","CB3","CB4","CB5"] },
-  { town: "Norwich", districts: ["NR1","NR2","NR3","NR4","NR5","NR6"] },
-  { town: "York", districts: ["YO1","YO10","YO23","YO24","YO26","YO30"] },
-  { town: "Bath", districts: ["BA1","BA2"] },
-  { town: "Exeter", districts: ["EX1","EX2","EX4"] },
-  { town: "Cardiff", districts: ["CF10","CF11","CF14","CF24"] },
-  { town: "Edinburgh", districts: ["EH1","EH3","EH4","EH6","EH7","EH10"] },
-  { town: "Glasgow", districts: ["G1","G2","G3","G4","G11","G12","G20","G41"] },
-  { town: "Aberdeen", districts: ["AB10","AB11","AB15","AB24","AB25"] },
-  { town: "Swindon", districts: ["SN1","SN2","SN3","SN5","SN25"] },
-  { town: "Peterborough", districts: ["PE1","PE2","PE3","PE4"] },
-  { town: "Ipswich", districts: ["IP1","IP2","IP3","IP4"] },
-  { town: "Stoke-on-Trent", districts: ["ST1","ST2","ST3","ST4","ST6"] },
-  { town: "Wolverhampton", districts: ["WV1","WV2","WV3","WV4","WV6","WV10"] },
-  { town: "Sunderland", districts: ["SR1","SR2","SR3","SR4","SR5"] },
-  { town: "Bournemouth", districts: ["BH1","BH2","BH5","BH8","BH9"] },
-  { town: "Cheltenham", districts: ["GL50","GL51","GL52","GL53"] },
-  { town: "Colchester", districts: ["CO1","CO2","CO3","CO4"] },
-  { town: "Blackpool", districts: ["FY1","FY2","FY3","FY4"] },
-  { town: "Swansea", districts: ["SA1","SA2","SA3","SA4","SA5"] },
+  { town: "Berlin", districts: ["101","104","109","121","122","123"] },
+  { town: "Hamburg", districts: ["201","202","203","221","224"] },
+  { town: "München", districts: ["803","804","805","806","807","808"] },
+  { town: "Köln", districts: ["506","507","509","510","511"] },
+  { town: "Frankfurt am Main", districts: ["603","604","605","606"] },
+  { town: "Stuttgart", districts: ["701","702","703","704"] },
+  { town: "Düsseldorf", districts: ["402","403","404","405"] },
+  { town: "Leipzig", districts: ["041","041","043","044"] },
+  { town: "Dortmund", districts: ["441","442","443","444"] },
+  { town: "Essen", districts: ["451","452","453","454"] },
+  { town: "Bremen", districts: ["281","282","283"] },
+  { town: "Dresden", districts: ["011","012","013"] },
+  { town: "Hannover", districts: ["301","302","303"] },
+  { town: "Nürnberg", districts: ["904","905","906"] },
+  { town: "Duisburg", districts: ["470","471","472"] },
+  { town: "Bochum", districts: ["447","448"] },
+  { town: "Wuppertal", districts: ["421","422","423"] },
+  { town: "Bielefeld", districts: ["336","337","338"] },
+  { town: "Bonn", districts: ["531","532","533"] },
+  { town: "Münster", districts: ["481","482","483"] },
+  { town: "Karlsruhe", districts: ["761","762","763"] },
+  { town: "Mannheim", districts: ["681","682","683"] },
+  { town: "Augsburg", districts: ["861","862"] },
+  { town: "Wiesbaden", districts: ["651","652","653"] },
+  { town: "Mönchengladbach", districts: ["410","411","412"] },
+  { town: "Gelsenkirchen", districts: ["458","459"] },
+  { town: "Braunschweig", districts: ["381","382"] },
+  { town: "Kiel", districts: ["241","242"] },
+  { town: "Aachen", districts: ["520","521"] },
+  { town: "Chemnitz", districts: ["091","092"] },
+  { town: "Halle (Saale)", districts: ["061","062"] },
+  { town: "Magdeburg", districts: ["391","392"] },
+  { town: "Freiburg", districts: ["791","790"] },
+  { town: "Krefeld", districts: ["474","475"] },
+  { town: "Mainz", districts: ["550","551"] },
+  { town: "Lübeck", districts: ["235","236"] },
+  { town: "Erfurt", districts: ["990","991"] },
+  { town: "Rostock", districts: ["180","181"] },
+  { town: "Kassel", districts: ["341","342"] },
+  { town: "Potsdam", districts: ["144","145"] },
 ];
 
-const FIRST_NAMES_F = ["Emma","Olivia","Sophie","Amelia","Isla","Ava","Mia","Isabella","Evie","Ella","Grace","Lily","Charlotte","Hannah","Freya","Jessica","Ruby","Emily","Daisy","Phoebe","Alice","Lucy","Chloe","Poppy","Florence","Sienna","Matilda","Rosie","Layla","Maisie","Willow","Ivy","Harper","Aria","Scarlett","Eva","Elsie","Millie","Georgia","Eliza","Bella","Lola","Molly","Jasmine","Imogen","Zara","Thea","Iris","Holly","Clara"];
-const FIRST_NAMES_M = ["Oliver","George","Harry","Noah","Jack","Leo","Arthur","Charlie","Oscar","James","Jacob","Henry","Thomas","William","Alfie","Teddy","Freddie","Archie","Joshua","Alexander","Lucas","Theo","Edward","Isaac","Max","Ethan","Logan","Joseph","Samuel","Daniel","Sebastian","Adam","Liam","Benjamin","Ryan","Dylan","Nathan","Matthew","Luke","Finley"];
-const LAST_INITIALS = "ABCDEFGHJKLMNOPRSTUVW";
-const LANGUAGES = ["English","Welsh","Polish","Urdu","Arabic","Romanian","Czech","Slovak","Gujarati","Punjabi","Bengali","Hindi","Mandarin","French","Spanish","Portuguese","Italian","German","Turkish","Somali"];
+const FIRST_NAMES_F = ["Emma","Mia","Hannah","Emilia","Sofia","Lina","Marie","Anna","Lea","Leonie","Klara","Laura","Julia","Sarah","Nele","Amelie","Charlotte","Johanna","Ella","Frieda","Ida","Lena","Luisa","Melina","Nora","Paula","Pia","Ronja","Selina","Theresa","Aylin","Ayşe","Elif","Zeynep","Fatma","Hafsa","Amira","Yasmin","Aisha","Maryam","Nadiya","Kateryna","Olena","Anastasiia","Iryna","Daria","Sofiya","Anastasia","Polina","Katya"];
+const FIRST_NAMES_M = ["Ben","Paul","Jonas","Leon","Elias","Finn","Noah","Luis","Lukas","Felix","Maximilian","Henry","Julian","David","Jakob","Anton","Emil","Oskar","Theo","Karl","Mats","Moritz","Nils","Tim","Tom","Yusuf","Mehmet","Ahmet","Emir","Ali","Omar","Ibrahim","Amir","Hassan","Karim","Danylo","Andriy","Oleh","Mykhailo","Ivan","Nikita","Aleksandr","Maksim","Artem","Yaroslav"];
+const LAST_INITIALS = "ABCDEFGHJKLMNOPRSTUVWZ";
+const LANGUAGES = ["Deutsch","Englisch","Türkisch","Arabisch","Russisch","Ukrainisch","Urdu","Polnisch","Französisch","Spanisch","Italienisch","Kurdisch","Farsi","Rumänisch","Vietnamesisch"];
 const AGE_GROUPS = ["0-1","2-4","5-8"];
-const DAYS = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
+const DAYS = ["Mo","Di","Mi","Do","Fr","Sa","So"];
 const GENDERS = ["male","female"];
-const LAST_NAMES = ["Smith","Jones","Williams","Taylor","Brown","Davies","Wilson","Evans","Johnson","Roberts","Walker","Wright","Thompson","White","Robinson","Hall","Green","Lewis","Clarke","Jackson","Harris","Wood","Turner","Martin","Cooper","Hill","Ward","Hughes","Moore","King","Baker","Harrison","Morgan","Allen","James","Scott","Phillips","Watson","Davis","Parker","Price","Bennett","Young","Griffiths","Mitchell","Kelly","Cook","Carter","Richardson","Bailey","Collins","Shaw","Murphy","Miller","Cox","Richards","Khan","Marshall","Anderson","Simpson"];
+const LAST_NAMES = ["Müller","Schmidt","Schneider","Fischer","Weber","Meyer","Wagner","Becker","Schulz","Hoffmann","Schäfer","Koch","Bauer","Richter","Klein","Wolf","Schröder","Neumann","Schwarz","Zimmermann","Braun","Krüger","Hofmann","Hartmann","Lange","Schmitt","Werner","Krause","Meier","Lehmann","Yilmaz","Kaya","Demir","Şahin","Çelik","Öztürk","Aydın","Yıldız","Özdemir","Arslan","Kowalski","Nowak","Ivanov","Petrov","Sokolov","Popov","Volkov","Kuznetsov","Shevchenko","Bondarenko","Kovalenko","Melnyk","Khan","Ahmed","Ali","Hussain","Malik","Sheikh"];
 
 function pick<T>(arr: T[]): T { return arr[Math.floor(Math.random() * arr.length)]; }
 function pickN<T>(arr: T[], min: number, max: number): T[] {
@@ -153,13 +153,13 @@ Deno.serve(async (req) => {
         const { data: existing } = await admin.from("childminder_profiles").select("id").eq("user_id", cmUser.id).maybeSingle();
         if (!existing) {
           await admin.from("childminder_profiles").insert({
-            user_id: cmUser.id, town: "Luton", postcode_district: "LU1",
-            bio: "Warm, nurturing childminder with 8 years of experience.",
+            user_id: cmUser.id, town: "Berlin", postcode_district: "101",
+            bio: "Herzliche Kindertagespflegeperson mit 8 Jahren Erfahrung.",
             experience_years: 8, age_groups: ["0-1","2-4","5-8"],
             days: ["Mon","Tue","Wed","Thu","Fri"], hours: "07:30–18:00",
-            languages: ["English","Polish"], max_children: 4,
-            ofsted_urn: "EY123456", ofsted_rating: "Good",
-            dbs_number: "001234567890", is_available: true, is_live: true,
+            languages: ["Deutsch","Türkisch"], max_children: 4,
+            ofsted_urn: "PE-B-2024-001", ofsted_rating: "verified",
+            dbs_number: "FZ-2024-001234", is_available: true, is_live: true,
             onboarding_status: "verified",
           });
           results.push("Created childminder profile for test user");
@@ -171,19 +171,19 @@ Deno.serve(async (req) => {
         const { data: existing } = await admin.from("parent_profiles").select("id").eq("user_id", parentUser.id).maybeSingle();
         if (!existing) {
           await admin.from("parent_profiles").insert({
-            user_id: parentUser.id, address_line1: "42 Oak Avenue", city: "Luton",
-            postcode: "LU1 3PE", property_type: "Semi-detached",
-            has_pets: true, pet_details: "One friendly Labrador", parking_available: true,
-            funding_type: "local_authority", local_authority: "Luton Borough Council",
-            payment_method: "Bank Transfer",
+            user_id: parentUser.id, address_line1: "Musterstraße 42", city: "Berlin",
+            postcode: "10115", property_type: "Reihenhaus",
+            has_pets: true, pet_details: "Ein freundlicher Labrador", parking_available: true,
+            funding_type: "jugendamt", local_authority: "Jugendamt Berlin-Mitte",
+            payment_method: "SEPA-Überweisung",
           });
           results.push("Created parent profile for test user");
         }
         const { data: kids } = await admin.from("children").select("id").eq("parent_id", parentUser.id).limit(1);
         if (!kids?.length) {
           await admin.from("children").insert([
-            { parent_id: parentUser.id, first_name: "Olivia", last_name: "Parent", date_of_birth: "2023-03-15", gender: "female", allergies: "Peanuts", emergency_contact_name: "Sarah Parent", emergency_contact_phone: "07700900456" },
-            { parent_id: parentUser.id, first_name: "Noah", last_name: "Parent", date_of_birth: "2021-08-22", gender: "male", health_issues: "Mild asthma", emergency_contact_name: "Sarah Parent", emergency_contact_phone: "07700900456" },
+            { parent_id: parentUser.id, first_name: "Olivia", last_name: "Parent", date_of_birth: "2023-03-15", gender: "female", allergies: "Peanuts", emergency_contact_name: "Sarah Parent", emergency_contact_phone: "+49 30 12345678" },
+            { parent_id: parentUser.id, first_name: "Noah", last_name: "Parent", date_of_birth: "2021-08-22", gender: "male", health_issues: "Mild asthma", emergency_contact_name: "Sarah Parent", emergency_contact_phone: "+49 30 12345678" },
           ]);
           results.push("Created children for test parent");
         }
@@ -195,9 +195,9 @@ Deno.serve(async (req) => {
           .or(`sender_id.eq.${adminUser.id},recipient_id.eq.${adminUser.id}`).limit(1);
         if (!existingMsgs?.length) {
           await admin.from("messages").insert([
-            { sender_id: adminUser.id, recipient_id: cmUser.id, content: "Hi Emma, welcome to KinderStars! Please complete your profile." },
-            { sender_id: cmUser.id, recipient_id: adminUser.id, content: "Thank you! I've filled in my Ofsted and DBS details." },
-            { sender_id: adminUser.id, recipient_id: cmUser.id, content: "Great. I've assigned you shifts for next week." },
+            { sender_id: adminUser.id, recipient_id: cmUser.id, content: "Hallo Emma, willkommen bei KinderStars! Bitte vervollständige dein Profil." },
+            { sender_id: cmUser.id, recipient_id: adminUser.id, content: "Danke! Ich habe meine Pflegeerlaubnis- und Führungszeugnis-Angaben eingetragen." },
+            { sender_id: adminUser.id, recipient_id: cmUser.id, content: "Super. Ich habe dir Einsätze für nächste Woche zugewiesen." },
           ]);
           results.push("Seeded messages");
         }
@@ -208,9 +208,9 @@ Deno.serve(async (req) => {
           .eq("sender_id", parentUser.id).limit(1);
         if (!existingMsgs?.length) {
           await admin.from("messages").insert([
-            { sender_id: parentUser.id, recipient_id: cmUser.id, content: "Hi Emma, I'd like to book you for next Monday if available?" },
-            { sender_id: cmUser.id, recipient_id: parentUser.id, content: "Hi Michael, yes I'm available! Mon 8am-5pm works for me." },
-            { sender_id: parentUser.id, recipient_id: cmUser.id, content: "Perfect, I'll submit the booking now. Thanks!" },
+            { sender_id: parentUser.id, recipient_id: cmUser.id, content: "Hallo Emma, ich würde dich gerne für nächsten Montag buchen, wenn du verfügbar bist." },
+            { sender_id: cmUser.id, recipient_id: parentUser.id, content: "Hallo Michael, ja, ich bin verfügbar! Mo 8:00–17:00 passt mir." },
+            { sender_id: parentUser.id, recipient_id: cmUser.id, content: "Perfekt, ich sende die Buchungsanfrage jetzt ab. Danke!" },
           ]);
           results.push("Seeded parent-childminder messages");
         }
@@ -264,15 +264,15 @@ Deno.serve(async (req) => {
           const lastName = pick(LAST_NAMES);
           profileBatch.push({
             user_id: userId, first_name: firstName, last_name: lastName,
-            email: `${firstName.toLowerCase()}.${lastName.toLowerCase()}${randInt(1,9999)}@demo.kinderstars.uk`,
+            email: `${firstName.toLowerCase()}.${lastName.toLowerCase()}${randInt(1,9999)}@demo.kinderstars.de`,
             role: "parent",
           });
           parentBatch.push({
             user_id: userId,
-            address_line1: `${randInt(1,200)} ${pick(["Oak","Elm","High","Church","Station","Park"])} ${pick(["Street","Road","Lane","Avenue"])}`,
-            city: loc.town, postcode: `${pick(loc.districts)} ${randInt(1,9)}${pick("ABCDEFGHJKLMNPRSTUVWXYZ".split(""))}${pick("ABCDEFGHJKLMNPRSTUVWXYZ".split(""))}`,
-            property_type: pick(["Detached","Semi-detached","Terraced","Flat/Apartment"]),
-            funding_type: pick(["self_funded","local_authority","tax_free_childcare"]),
+            address_line1: `${pick(["Haupt","Bahnhof","Garten","Kirch","Berg","Wald","Schul","Linden","Markt","Mühlen"])}${pick(["straße","weg","allee","platz"])} ${randInt(1,200)}`,
+            city: loc.town, postcode: `${pick(loc.districts)}${randInt(10,99)}`,
+            property_type: pick(["Detached","Reihenhaus","Terraced","Flat/Apartment"]),
+            funding_type: pick(["self_funded","jugendamt","employer"]),
           });
           childBatch.push({
             parent_id: userId,
@@ -300,12 +300,12 @@ Deno.serve(async (req) => {
           const lastName = pick(LAST_NAMES);
           profBatch.push({
             user_id: userId, first_name: firstName, last_name: lastName,
-            email: `${firstName.toLowerCase()}.${lastName.toLowerCase()}.cm${randInt(1,9999)}@demo.kinderstars.uk`,
+            email: `${firstName.toLowerCase()}.${lastName.toLowerCase()}.cm${randInt(1,9999)}@demo.kinderstars.de`,
             role: "childminder",
           });
           cmProfBatch.push({
             user_id: userId, town: loc.town, postcode_district: pick(loc.districts),
-            languages: ["English"], age_groups: pickN(AGE_GROUPS,1,3), days: pickN(DAYS,3,6),
+            languages: ["Deutsch"], age_groups: pickN(AGE_GROUPS,1,3), days: pickN(DAYS,3,6),
             hours: pick(["07:00–18:00","08:00–17:00"]),
             experience_years: randInt(1,20),
             onboarding_status: pick(["pending","submitted","verified","verified"]),
@@ -367,9 +367,9 @@ Deno.serve(async (req) => {
   try {
     // ── 1. CREATE DEMO AUTH USERS ──
     const demoUsers = [
-      { email: "admin@kinderstars.demo", password: "Demo1234!", first_name: "Admin", last_name: "User", role: "admin" },
-      { email: "childminder@kinderstars.demo", password: "Demo1234!", first_name: "Sarah", last_name: "Williams", role: "childminder" },
-      { email: "parent@kinderstars.demo", password: "Demo1234!", first_name: "James", last_name: "Thompson", role: "parent" },
+      { email: "admin@kinderstars.de", password: "Demo1234!", first_name: "Admin", last_name: "User", role: "admin" },
+      { email: "childminder@kinderstars.de", password: "Demo1234!", first_name: "Sarah", last_name: "Williams", role: "childminder" },
+      { email: "parent@kinderstars.de", password: "Demo1234!", first_name: "James", last_name: "Thompson", role: "parent" },
     ];
 
     for (const u of demoUsers) {
@@ -388,22 +388,22 @@ Deno.serve(async (req) => {
 
     // Get actual user IDs for demo users
     const { data: allAuthUsers } = await admin.auth.admin.listUsers();
-    const adminUser = allAuthUsers?.users?.find((u: any) => u.email === "admin@kinderstars.demo");
-    const cmUser = allAuthUsers?.users?.find((u: any) => u.email === "childminder@kinderstars.demo");
-    const parentUser = allAuthUsers?.users?.find((u: any) => u.email === "parent@kinderstars.demo");
+    const adminUser = allAuthUsers?.users?.find((u: any) => u.email === "admin@kinderstars.de");
+    const cmUser = allAuthUsers?.users?.find((u: any) => u.email === "childminder@kinderstars.de");
+    const parentUser = allAuthUsers?.users?.find((u: any) => u.email === "parent@kinderstars.de");
 
     // Ensure childminder profile exists for demo user
     if (cmUser) {
       const { data: existing } = await admin.from("childminder_profiles").select("id").eq("user_id", cmUser.id).maybeSingle();
       if (!existing) {
         await admin.from("childminder_profiles").insert({
-          user_id: cmUser.id, town: "Luton", postcode_district: "LU1",
-          bio: "Warm, nurturing childminder with 8 years of experience.",
+          user_id: cmUser.id, town: "Berlin", postcode_district: "101",
+          bio: "Herzliche Kindertagespflegeperson mit 8 Jahren Erfahrung.",
           experience_years: 8, age_groups: ["0-1","2-4","5-8"],
           days: ["Mon","Tue","Wed","Thu","Fri"], hours: "07:30–18:00",
-          languages: ["English","Polish"], max_children: 4,
-          ofsted_urn: "EY123456", ofsted_rating: "Good",
-          dbs_number: "001234567890", is_available: true, is_live: true,
+          languages: ["Deutsch","Türkisch"], max_children: 4,
+          ofsted_urn: "PE-B-2024-001", ofsted_rating: "verified",
+          dbs_number: "FZ-2024-001234", is_available: true, is_live: true,
           onboarding_status: "verified",
         });
       }
@@ -414,19 +414,19 @@ Deno.serve(async (req) => {
       const { data: existing } = await admin.from("parent_profiles").select("id").eq("user_id", parentUser.id).maybeSingle();
       if (!existing) {
         await admin.from("parent_profiles").insert({
-          user_id: parentUser.id, address_line1: "42 Oak Avenue", city: "Luton",
-          postcode: "LU1 3PE", property_type: "Semi-detached",
-          has_pets: true, pet_details: "One friendly Labrador", parking_available: true,
-          funding_type: "local_authority", local_authority: "Luton Borough Council",
-          payment_method: "Bank Transfer",
+          user_id: parentUser.id, address_line1: "Musterstraße 42", city: "Berlin",
+          postcode: "10115", property_type: "Reihenhaus",
+          has_pets: true, pet_details: "Ein freundlicher Labrador", parking_available: true,
+          funding_type: "jugendamt", local_authority: "Jugendamt Berlin-Mitte",
+          payment_method: "SEPA-Überweisung",
         });
       }
       // Seed children for demo parent
       const { data: kids } = await admin.from("children").select("id").eq("parent_id", parentUser.id).limit(1);
       if (!kids?.length) {
         await admin.from("children").insert([
-          { parent_id: parentUser.id, first_name: "Olivia", last_name: "Thompson", date_of_birth: "2023-03-15", gender: "female", allergies: "Peanuts", emergency_contact_name: "Emma Thompson", emergency_contact_phone: "07700900456" },
-          { parent_id: parentUser.id, first_name: "Noah", last_name: "Thompson", date_of_birth: "2021-08-22", gender: "male", health_issues: "Mild asthma", emergency_contact_name: "Emma Thompson", emergency_contact_phone: "07700900456" },
+          { parent_id: parentUser.id, first_name: "Olivia", last_name: "Thompson", date_of_birth: "2023-03-15", gender: "female", allergies: "Peanuts", emergency_contact_name: "Emma Thompson", emergency_contact_phone: "+49 30 12345678" },
+          { parent_id: parentUser.id, first_name: "Noah", last_name: "Thompson", date_of_birth: "2021-08-22", gender: "male", health_issues: "Mild asthma", emergency_contact_name: "Emma Thompson", emergency_contact_phone: "+49 30 12345678" },
         ]);
       }
     }
@@ -450,9 +450,9 @@ Deno.serve(async (req) => {
             age_groups: pickN(AGE_GROUPS, 1, 3),
             days: pickN(DAYS, 3, 7),
             hours: pick(["07:00–18:00","08:00–17:00","07:30–18:30","06:00–19:00","08:00–16:00"]),
-            languages: ["English", ...pickN(LANGUAGES.filter(l => l !== "English"), 0, 2)],
+            languages: ["Deutsch", ...pickN(LANGUAGES.filter(l => l !== "Deutsch"), 0, 2)],
             experience_years: randInt(1, 25),
-            bio: pick(["Warm, nurturing environment with creative play.","Ofsted Outstanding. SEND-trained.","Fun, structured care with healthy meals.","Flexible hours, safe home setting.","Forest school practitioner.",null]),
+            bio: pick(["Herzliche Umgebung mit kreativem Spiel.","Jugendamt-anerkannt, inklusiv arbeitend.","Strukturierte Betreuung mit gesunden Mahlzeiten.","Flexible Zeiten, sicheres Zuhause.","Naturpädagogin mit Waldgruppen-Erfahrung.",null]),
           });
         }
         const { error } = await admin.from("childminders").insert(batch);
@@ -482,20 +482,20 @@ Deno.serve(async (req) => {
 
           profileBatch.push({
             user_id: userId, first_name: firstName, last_name: lastName,
-            email: `${firstName.toLowerCase()}.${lastName.toLowerCase()}${randInt(1,9999)}@demo.kinderstars.uk`,
-            role: "parent", phone: `07${randInt(100,999)}${randInt(100,999)}${randInt(100,999)}`,
+            email: `${firstName.toLowerCase()}.${lastName.toLowerCase()}${randInt(1,9999)}@demo.kinderstars.de`,
+            role: "parent", phone: `+4930${randInt(1000000,9999999)}`,
           });
 
           parentBatch.push({
             user_id: userId,
-            address_line1: `${randInt(1,200)} ${pick(["Oak","Elm","High","Church","Station","Park","Victoria","Mill","Bridge","Green"])} ${pick(["Street","Road","Lane","Avenue","Close","Way","Drive"])}`,
-            city: loc.town, postcode: `${pick(loc.districts)} ${randInt(1,9)}${pick("ABCDEFGHJKLMNPRSTUVWXYZ".split(""))}${pick("ABCDEFGHJKLMNPRSTUVWXYZ".split(""))}`,
-            property_type: pick(["Detached","Semi-detached","Terraced","Flat/Apartment","Bungalow"]),
+            address_line1: `${pick(["Haupt","Bahnhof","Garten","Kirch","Berg","Wald","Schul","Linden","Markt","Mühlen","Rosen","Eichen","Ahorn","Birken"])}${pick(["straße","weg","allee","platz","ring"])} ${randInt(1,200)}`,
+            city: loc.town, postcode: `${pick(loc.districts)}${randInt(10,99)}`,
+            property_type: pick(["Detached","Reihenhaus","Terraced","Flat/Apartment","Bungalow"]),
             has_pets: Math.random() > 0.65,
-            pet_details: Math.random() > 0.65 ? pick(["Friendly cat","Small dog","Guinea pigs","Rabbit","Fish"]) : null,
+            pet_details: Math.random() > 0.65 ? pick(["Freundliche Katze","Kleiner Hund","Meerschweinchen","Kaninchen","Fische"]) : null,
             parking_available: Math.random() > 0.3,
-            funding_type: pick(["self_funded","self_funded","local_authority","tax_free_childcare","sfe","employer"]),
-            payment_method: pick(["Direct Debit","Bank Transfer","Credit/Debit Card","Childcare Vouchers"]),
+            funding_type: pick(["self_funded","self_funded","jugendamt","bafoeg","employer"]),
+            payment_method: pick(["SEPA-Lastschrift","SEPA-Überweisung","Kredit-/Debitkarte","Arbeitgeberzuschuss"]),
           });
 
           const numChildren = Math.random() > 0.55 ? 2 : 1;
@@ -506,12 +506,12 @@ Deno.serve(async (req) => {
               parent_id: userId,
               first_name: pick(g === "female" ? FIRST_NAMES_F : FIRST_NAMES_M),
               last_name: lastName, date_of_birth: dob.toISOString().split("T")[0], gender: g,
-              allergies: Math.random() > 0.8 ? pick(["Peanuts","Dairy","Eggs","Gluten"]) : null,
-              dietary_requirements: Math.random() > 0.85 ? pick(["Vegetarian","Halal","Vegan"]) : null,
-              health_issues: Math.random() > 0.9 ? pick(["Asthma","Eczema","Epilepsy"]) : null,
-              special_needs: Math.random() > 0.92 ? pick(["ASD","ADHD","Speech delay"]) : null,
+              allergies: Math.random() > 0.8 ? pick(["Erdnüsse","Milch","Eier","Gluten"]) : null,
+              dietary_requirements: Math.random() > 0.85 ? pick(["Vegetarisch","Halal","Vegan"]) : null,
+              health_issues: Math.random() > 0.9 ? pick(["Asthma","Neurodermitis","Epilepsie"]) : null,
+              special_needs: Math.random() > 0.92 ? pick(["Autismus","ADHS","Sprachentwicklungsverzögerung"]) : null,
               emergency_contact_name: `${pick([...FIRST_NAMES_F,...FIRST_NAMES_M])} ${lastName}`,
-              emergency_contact_phone: `07${randInt(100,999)}${randInt(100,999)}${randInt(100,999)}`,
+              emergency_contact_phone: `+4930${randInt(1000000,9999999)}`,
             });
           }
           totalChildren += numChildren;
@@ -542,17 +542,17 @@ Deno.serve(async (req) => {
           const lastName = pick(LAST_NAMES);
           profBatch.push({
             user_id: userId, first_name: firstName, last_name: lastName,
-            email: `${firstName.toLowerCase()}.${lastName.toLowerCase()}.cm${randInt(1,9999)}@demo.kinderstars.uk`,
+            email: `${firstName.toLowerCase()}.${lastName.toLowerCase()}.cm${randInt(1,9999)}@demo.kinderstars.de`,
             role: "childminder",
           });
           cmProfBatch.push({
             user_id: userId, town: loc.town, postcode_district: pick(loc.districts),
-            languages: ["English",...pickN(LANGUAGES.filter(l=>l!=="English"),0,1)],
+            languages: ["Deutsch",...pickN(LANGUAGES.filter(l=>l!=="Deutsch"),0,2)],
             age_groups: pickN(AGE_GROUPS,1,3), days: pickN(DAYS,3,6),
             hours: pick(["07:00–18:00","08:00–17:00"]),
             experience_years: randInt(1,20),
-            dbs_number: Math.random()>0.3 ? `DBS${randInt(100000,999999)}` : null,
-            ofsted_urn: Math.random()>0.35 ? `EY${randInt(100000,999999)}` : null,
+            dbs_number: Math.random()>0.3 ? `FZ-${randInt(100000,999999)}` : null,
+            ofsted_urn: Math.random()>0.35 ? `PE-${randInt(100000,999999)}` : null,
             onboarding_status: pick(["pending","submitted","interview_scheduled","verified","verified","verified"]),
             is_live: Math.random()>0.4, is_available: Math.random()>0.2, max_children: randInt(2,6),
           });
@@ -571,14 +571,14 @@ Deno.serve(async (req) => {
         .or(`sender_id.eq.${adminUser.id},recipient_id.eq.${adminUser.id}`).limit(1);
       if (!existingMsgs?.length) {
         await admin.from("messages").insert([
-          { sender_id: adminUser.id, recipient_id: cmUser.id, content: "Hi Sarah, welcome to KinderStars! Please complete your profile." },
-          { sender_id: cmUser.id, recipient_id: adminUser.id, content: "Thank you! I've filled in my Ofsted and DBS details." },
-          { sender_id: adminUser.id, recipient_id: cmUser.id, content: "Great. I've assigned you shifts for next week." },
+          { sender_id: adminUser.id, recipient_id: cmUser.id, content: "Hallo Sarah, willkommen bei KinderStars! Bitte vervollständige dein Profil." },
+          { sender_id: cmUser.id, recipient_id: adminUser.id, content: "Danke! Ich habe meine Pflegeerlaubnis- und Führungszeugnis-Angaben eingetragen." },
+          { sender_id: adminUser.id, recipient_id: cmUser.id, content: "Super. Ich habe dir Einsätze für nächste Woche zugewiesen." },
         ]);
       }
     }
 
-    return new Response(JSON.stringify({ success: true, results, note: "Demo logins: admin/childminder/parent@kinderstars.demo / Demo1234!" }), {
+    return new Response(JSON.stringify({ success: true, results, note: "Demo logins: admin/childminder/parent@kinderstars.de / Demo1234!" }), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
   } catch (err) {

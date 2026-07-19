@@ -391,7 +391,7 @@
   "blog": {
     "title": "Blog",
     "heading": "Early Years & Childcare Insights",
-    "description": "Expert articles on childminding, Jugendamt, EYFS, funding, and everything early years.",
+    "description": "Expert articles on Kindertagespflege, Jugendamt, German early-years curricula (Bildungspläne), funding, and everything early years.",
     "readMore": "Read",
     "backToBlog": "Back to Blog",
     "relatedArticles": "Related Articles",
@@ -407,8 +407,8 @@
     },
     "posts": {
       "eyfs": {
-        "title": "Understanding the EYFS Framework in 2025: What Parents & Childminders Need to Know",
-        "excerpt": "The Early Years Foundation Stage (EYFS) sets standards for learning, development, and care for children from birth to 5."
+        "title": "Understanding Germany's Early-Years Curricula (Bildungspläne) in 2025: What Parents & Kindertagespflegepersonen Need to Know",
+        "excerpt": "Each federal state's Bildungsplan sets standards for learning, development, and care for children from birth to school age."
       },
       "ofstedInspection": {
         "title": "Your First Jugendamt Inspection: A Childminder's Complete Guide",
