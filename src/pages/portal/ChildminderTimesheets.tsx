@@ -32,10 +32,10 @@ interface ShiftOption {
 }
 
 const statusConfig: Record<string, { label: string; cls: string; icon: React.ReactNode }> = {
-  draft: { label: "Draft", cls: "bg-muted text-muted-foreground", icon: <Clock className="w-3.5 h-3.5" /> },
-  submitted: { label: "Submitted", cls: "bg-secondary/15 text-secondary border border-secondary/30", icon: <Send className="w-3.5 h-3.5" /> },
-  approved: { label: "Approved", cls: "bg-success/15 text-success border border-success/30", icon: <CheckCircle2 className="w-3.5 h-3.5" /> },
-  rejected: { label: "Rejected", cls: "bg-destructive/15 text-destructive border border-destructive/30", icon: <XCircle className="w-3.5 h-3.5" /> },
+  draft: { label: "Entwurf", cls: "bg-muted text-muted-foreground", icon: <Clock className="w-3.5 h-3.5" /> },
+  submitted: { label: "Eingereicht", cls: "bg-secondary/15 text-secondary border border-secondary/30", icon: <Send className="w-3.5 h-3.5" /> },
+  approved: { label: "Freigegeben", cls: "bg-success/15 text-success border border-success/30", icon: <CheckCircle2 className="w-3.5 h-3.5" /> },
+  rejected: { label: "Abgelehnt", cls: "bg-destructive/15 text-destructive border border-destructive/30", icon: <XCircle className="w-3.5 h-3.5" /> },
 };
 
 const ChildminderTimesheets = () => {
@@ -130,8 +130,8 @@ const ChildminderTimesheets = () => {
     if (!user) return;
     if (hasActiveJob) {
       toast({
-        title: "Already clocked in",
-        description: "You must clock out of your current job before clocking into a new one.",
+        title: "Bereits eingestempelt",
+        description: "Bitte stempeln Sie zuerst aus dem laufenden Einsatz aus, bevor Sie einen neuen starten.",
         variant: "destructive",
       });
       return;
@@ -146,7 +146,7 @@ const ChildminderTimesheets = () => {
       const shiftStart = parseISO(shiftForClockIn.start_time);
       if (isBefore(shiftStart, new Date(clockInTime))) {
         const mins = differenceInMinutes(new Date(clockInTime), shiftStart);
-        perfNote = `⚠️ Late arrival: ${mins} min after scheduled start`;
+        perfNote = `⚠️ Verspätung: ${mins} Min. nach geplantem Beginn`;
       }
     }
 
@@ -164,12 +164,12 @@ const ChildminderTimesheets = () => {
       .single();
     setSaving(false);
     if (error) {
-      toast({ title: "Error", description: error.message, variant: "destructive" });
+      toast({ title: "Fehler", description: error.message, variant: "destructive" });
     } else {
       const msg = perfNote
-        ? `Clocked in at ${format(new Date(clockInTime), "HH:mm")} — ${perfNote}`
-        : `Clocked in at ${format(new Date(clockInTime), "HH:mm:ss")}`;
-      toast({ title: "Clocked in", description: msg, variant: perfNote ? "destructive" : "default" });
+        ? `Eingestempelt um ${format(new Date(clockInTime), "HH:mm")} — ${perfNote}`
+        : `Eingestempelt um ${format(new Date(clockInTime), "HH:mm:ss")}`;
+      toast({ title: "Eingestempelt", description: msg, variant: perfNote ? "destructive" : "default" });
       setActiveTimer(data as Timesheet);
       setBreakMin(0);
       setNotes(perfNote);
@@ -195,9 +195,9 @@ const ChildminderTimesheets = () => {
       .eq("id", activeTimer.id);
     setSaving(false);
     if (error) {
-      toast({ title: "Error", description: error.message, variant: "destructive" });
+      toast({ title: "Fehler", description: error.message, variant: "destructive" });
     } else {
-      toast({ title: "Clocked out", description: `${totalHours}h logged` });
+      toast({ title: "Ausgestempelt", description: `${totalHours} Std. erfasst` });
       setActiveTimer(null);
       setSelectedShift("");
       fetchTimesheets();
@@ -207,9 +207,9 @@ const ChildminderTimesheets = () => {
   const submitForApproval = async (id: string) => {
     const { error } = await supabase.from("timesheets").update({ status: "submitted" }).eq("id", id);
     if (error) {
-      toast({ title: "Error", description: error.message, variant: "destructive" });
+      toast({ title: "Fehler", description: error.message, variant: "destructive" });
     } else {
-      toast({ title: "Submitted for approval" });
+      toast({ title: "Zur Freigabe eingereicht" });
       fetchTimesheets();
     }
   };
@@ -220,13 +220,13 @@ const ChildminderTimesheets = () => {
   const elapsedH = Math.floor(elapsed / 60);
   const elapsedM = elapsed % 60;
 
-  if (loading) return <div className="text-muted-foreground">Loading timesheets…</div>;
+  if (loading) return <div className="text-muted-foreground">Stundenzettel werden geladen…</div>;
 
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold tracking-tight">Timesheets</h1>
-        <p className="text-muted-foreground text-sm">Clock in/out, track breaks, and submit hours for approval.</p>
+        <h1 className="text-2xl font-bold tracking-tight">Stundenzettel</h1>
+        <p className="text-muted-foreground text-sm">Ein-/ausstempeln, Pausen erfassen und Stunden zur Freigabe einreichen.</p>
       </div>
 
       {/* Active timer / Clock in */}
@@ -235,14 +235,14 @@ const ChildminderTimesheets = () => {
           <div className="space-y-4">
             <div className="flex items-center gap-3">
               <div className="w-3 h-3 rounded-full bg-success animate-pulse" />
-              <h2 className="font-bold text-sm">Currently Clocked In</h2>
+              <h2 className="font-bold text-sm">Aktuell eingestempelt</h2>
             </div>
 
             {/* Late alert */}
             {isLateForShift && lateMinutes > 0 && (
               <div className="flex items-center gap-2 p-3 rounded-xl bg-destructive/10 border border-destructive/20 text-destructive text-sm">
                 <AlertTriangle className="w-4 h-4 shrink-0" />
-                <span className="font-medium">Late by {lateMinutes} minute{lateMinutes !== 1 ? "s" : ""}</span>
+                <span className="font-medium">Verspätung: {lateMinutes} Minute{lateMinutes !== 1 ? "n" : ""}</span>
               </div>
             )}
 
@@ -255,7 +255,7 @@ const ChildminderTimesheets = () => {
                 className="inline-flex items-center gap-2 px-3 py-2 rounded-xl text-sm font-medium bg-secondary/10 text-secondary border border-secondary/20 hover:bg-secondary/20 transition-colors"
               >
                 <Navigation className="w-4 h-4" />
-                Get Directions
+                Route
                 {linkedShift?.location_postcode && (
                   <span className="text-xs text-muted-foreground ml-1">({linkedShift.location_postcode})</span>
                 )}
@@ -264,11 +264,11 @@ const ChildminderTimesheets = () => {
 
             <div className="flex items-center gap-6 flex-wrap">
               <div>
-                <p className="text-xs text-muted-foreground">Clock in</p>
+                <p className="text-xs text-muted-foreground">Beginn</p>
                 <p className="font-mono font-bold">{format(new Date(activeTimer.clock_in!), "HH:mm:ss")}</p>
               </div>
               <div>
-                <p className="text-xs text-muted-foreground">Elapsed (excl. breaks)</p>
+                <p className="text-xs text-muted-foreground">Vergangen (ohne Pausen)</p>
                 <p className="font-mono font-bold text-2xl text-secondary">
                   {String(elapsedH).padStart(2, "0")}:{String(elapsedM).padStart(2, "0")}
                 </p>
@@ -276,7 +276,7 @@ const ChildminderTimesheets = () => {
             </div>
             <div className="flex items-center gap-3 flex-wrap">
               <div className="ks-field">
-                <label>Break (minutes)</label>
+                <label>Pause (Minuten)</label>
                 <input
                   type="number"
                   min={0}
@@ -287,22 +287,22 @@ const ChildminderTimesheets = () => {
                 />
               </div>
               <div className="ks-field flex-1 min-w-[200px]">
-                <label>Notes</label>
+                <label>Anmerkungen</label>
                 <input
                   value={notes}
                   onChange={(e) => setNotes(e.target.value)}
-                  placeholder="Optional notes…"
+                  placeholder="Optionale Anmerkungen…"
                 />
               </div>
             </div>
             <Button variant="destructive" className="gap-2" onClick={clockOut} disabled={saving}>
               {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Square className="w-4 h-4" />}
-              Clock Out
+              Ausstempeln
             </Button>
           </div>
         ) : (
           <div className="space-y-3">
-            <h2 className="font-bold text-sm">Clock In</h2>
+            <h2 className="font-bold text-sm">Einstempeln</h2>
 
             {/* Show next shift info with directions */}
             {selectedShift && linkedShift && (
@@ -324,13 +324,13 @@ const ChildminderTimesheets = () => {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 text-secondary text-xs font-medium hover:underline"
                   >
-                    <Navigation className="w-3.5 h-3.5" /> Get Directions
+                    <Navigation className="w-3.5 h-3.5" /> Route
                   </a>
                 )}
                 {isLateForShift && (
                   <div className="flex items-center gap-1.5 text-destructive text-xs font-medium">
                     <AlertTriangle className="w-3.5 h-3.5" />
-                    Shift started {lateMinutes} min ago — clock in now
+                    Einsatz begann vor {lateMinutes} Min. — jetzt einstempeln
                   </div>
                 )}
               </div>
@@ -338,9 +338,9 @@ const ChildminderTimesheets = () => {
 
             <div className="flex items-end gap-3 flex-wrap">
               <div className="ks-field">
-                <label>Link to Shift (optional)</label>
+                <label>Mit Einsatz verknüpfen (optional)</label>
                 <select value={selectedShift} onChange={(e) => setSelectedShift(e.target.value)}>
-                  <option value="">No shift</option>
+                  <option value="">Kein Einsatz</option>
                   {shifts.map((s) => (
                     <option key={s.id} value={s.id}>
                       {s.title} — {format(parseISO(s.start_time), "dd MMM HH:mm")}
@@ -350,7 +350,7 @@ const ChildminderTimesheets = () => {
               </div>
               <Button variant="hero" className="gap-2" onClick={clockIn} disabled={saving}>
                 {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Play className="w-4 h-4" />}
-                Clock In
+                Einstempeln
               </Button>
             </div>
           </div>
@@ -361,20 +361,20 @@ const ChildminderTimesheets = () => {
       {hasActiveJob && (
         <div className="flex items-center gap-2 p-3 rounded-xl bg-primary/10 border border-primary/20 text-sm">
           <AlertTriangle className="w-4 h-4 text-primary shrink-0" />
-          <span>You must <strong>clock out</strong> of your current job before you can clock in to another.</span>
+          <span>Sie müssen sich zuerst <strong>ausstempeln</strong>, bevor Sie einen neuen Einsatz beginnen können.</span>
         </div>
       )}
 
       {/* Timesheet history */}
       <div>
-        <h2 className="font-bold text-sm mb-3">Timesheet History</h2>
+        <h2 className="font-bold text-sm mb-3">Verlauf der Stundenzettel</h2>
         {timesheets.length === 0 ? (
-          <div className="ks-card p-8 text-center text-muted-foreground text-sm">No timesheets yet.</div>
+          <div className="ks-card p-8 text-center text-muted-foreground text-sm">Noch keine Stundenzettel.</div>
         ) : (
           <div className="space-y-2">
             {timesheets.map((ts) => {
               const cfg = statusConfig[ts.status] || statusConfig.draft;
-              const hasLateNote = ts.notes?.includes("⚠️ Late");
+              const hasLateNote = ts.notes?.includes("⚠️ Verspätung") || ts.notes?.includes("⚠️ Late");
               return (
                 <div key={ts.id} className="ks-card p-4 flex flex-col sm:flex-row sm:items-center gap-3">
                   <div className="flex-1 min-w-0">
@@ -387,26 +387,26 @@ const ChildminderTimesheets = () => {
                       )}
                       {hasLateNote && (
                         <span className="ks-tag text-[11px] flex items-center gap-1 bg-destructive/10 text-destructive border-destructive/20">
-                          <AlertTriangle className="w-3 h-3" /> Late
+                          <AlertTriangle className="w-3 h-3" /> Verspätet
                         </span>
                       )}
                     </div>
                     <div className="text-xs text-muted-foreground flex items-center gap-3 flex-wrap">
                       {ts.clock_in && (
-                        <span>In: {format(new Date(ts.clock_in), "dd MMM HH:mm")}</span>
+                        <span>Beginn: {format(new Date(ts.clock_in), "dd.MM. HH:mm")}</span>
                       )}
                       {ts.clock_out && (
-                        <span>Out: {format(new Date(ts.clock_out), "HH:mm")}</span>
+                        <span>Ende: {format(new Date(ts.clock_out), "HH:mm")}</span>
                       )}
                       {ts.break_minutes > 0 && (
-                        <span className="flex items-center gap-1"><Coffee className="w-3 h-3" /> {ts.break_minutes}min break</span>
+                        <span className="flex items-center gap-1"><Coffee className="w-3 h-3" /> {ts.break_minutes} Min. Pause</span>
                       )}
                     </div>
                     {ts.notes && <p className="text-xs text-muted-foreground mt-1">{ts.notes}</p>}
                   </div>
                   {ts.status === "draft" && ts.clock_out && (
                     <Button size="sm" variant="secondary" className="gap-1 shrink-0" onClick={() => submitForApproval(ts.id)}>
-                      <Send className="w-3.5 h-3.5" /> Submit
+                      <Send className="w-3.5 h-3.5" /> Einreichen
                     </Button>
                   )}
                 </div>
