@@ -10,9 +10,9 @@ interface SEOHeadProps {
   noIndex?: boolean;
 }
 
-const SITE_URL = "https://www.kinderstars.co.uk";
-const DEFAULT_TITLE = "KinderStars – Find Trusted Childminders Across the UK";
-const DEFAULT_DESC = "KinderStars is a nationwide Childminder Agency helping UK parents find DBS-checked, quality-assured childminders.";
+const SITE_URL = "https://www.kinderstars.de";
+const DEFAULT_TITLE = "KinderStars – Kindertagespflege in ganz Deutschland finden";
+const DEFAULT_DESC = "KinderStars vermittelt geprüfte Kindertagespflegepersonen mit erweitertem Führungszeugnis und Jugendamt‑Anerkennung – bundesweit in Deutschland.";
 const DEFAULT_IMAGE = `${SITE_URL}/favicon.png`;
 
 const SEOHead = ({

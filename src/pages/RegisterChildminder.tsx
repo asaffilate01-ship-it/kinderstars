@@ -7,14 +7,14 @@ import logo from "@/assets/kinderstars-logo.png";
 import { Loader2, CheckCircle2 } from "lucide-react";
 
 const registrationSchema = z.object({
-  firstName: z.string().trim().min(1, "First name is required").max(50),
-  lastName: z.string().trim().min(1, "Last name is required").max(50),
-  email: z.string().trim().email("Invalid email address").max(255),
-  phone: z.string().trim().min(7, "Phone number is required").max(20),
-  password: z.string().min(8, "Password must be at least 8 characters"),
-  address: z.string().trim().min(1, "Address is required").max(200),
-  postcode: z.string().trim().min(3, "Postcode is required").max(10),
-  rightToWork: z.literal(true, { errorMap: () => ({ message: "You must confirm right to work" }) }),
+  firstName: z.string().trim().min(1, "Vorname erforderlich").max(50),
+  lastName: z.string().trim().min(1, "Nachname erforderlich").max(50),
+  email: z.string().trim().email("Ungültige E‑Mail‑Adresse").max(255),
+  phone: z.string().trim().min(7, "Telefonnummer erforderlich").max(20),
+  password: z.string().min(8, "Passwort muss mindestens 8 Zeichen haben"),
+  address: z.string().trim().min(1, "Adresse erforderlich").max(200),
+  postcode: z.string().trim().min(3, "PLZ erforderlich").max(10),
+  rightToWork: z.literal(true, { errorMap: () => ({ message: "Bitte bestätigen Sie die Berechtigung zur Erwerbstätigkeit" }) }),
   hasDbs: z.boolean(),
   dbsNumber: z.string().max(50).optional(),
   experienceSummary: z.string().trim().max(1000).optional(),
@@ -113,13 +113,13 @@ const RegisterChildminder = () => {
           <a href="/"><img src={logo} alt="KinderStars" className="w-[160px] mx-auto mb-6" /></a>
           <div className="ks-card p-8">
             <CheckCircle2 className="w-12 h-12 text-success mx-auto mb-4" />
-            <h2 className="text-xl font-bold mb-2">Registration Submitted!</h2>
+            <h2 className="text-xl font-bold mb-2">Registrierung abgesendet!</h2>
             <p className="text-muted-foreground text-sm mb-4">
-              Check your email to verify your account, then log in. Our team will review your application
-              and guide you through the onboarding process.
+              Bitte prüfen Sie Ihr E‑Mail‑Postfach, um Ihr Konto zu bestätigen, und melden Sie sich anschließend an. Unser Team prüft Ihre Bewerbung
+              und begleitet Sie durch das Onboarding.
             </p>
             <Button variant="hero" onClick={() => navigate("/auth?role=childminder")}>
-              Go to Login
+              Zur Anmeldung
             </Button>
           </div>
         </div>
@@ -134,43 +134,43 @@ const RegisterChildminder = () => {
       <div className="w-full max-w-[560px] mx-auto">
         <div className="text-center mb-6">
           <a href="/"><img src={logo} alt="KinderStars" className="w-[160px] mx-auto mb-4" /></a>
-          <h1 className="text-xl font-bold tracking-tight">Join KinderStars as a Childminder</h1>
+          <h1 className="text-xl font-bold tracking-tight">Als Kindertagespflegeperson bei KinderStars mitmachen</h1>
           <p className="text-muted-foreground text-sm mt-1">
-            Register below and our team will guide you through onboarding, verification, and your first shifts.
+            Registrieren Sie sich unten – unser Team begleitet Sie durch Onboarding, Verifizierung und Ihre erste Vermittlung.
           </p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-5">
           {/* Personal Details */}
           <div className="ks-card p-5">
-            <h2 className="font-bold text-sm mb-3">Personal Details</h2>
+            <h2 className="font-bold text-sm mb-3">Persönliche Angaben</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div className="ks-field">
-                <label>First name *</label>
+                <label>Vorname *</label>
                 <input required value={form.firstName} onChange={(e) => update("firstName", e.target.value)} maxLength={50} />
               </div>
               <div className="ks-field">
-                <label>Last name *</label>
+                <label>Nachname *</label>
                 <input required value={form.lastName} onChange={(e) => update("lastName", e.target.value)} maxLength={50} />
               </div>
               <div className="ks-field">
-                <label>Email *</label>
+                <label>E‑Mail *</label>
                 <input type="email" required value={form.email} onChange={(e) => update("email", e.target.value)} maxLength={255} />
               </div>
               <div className="ks-field">
-                <label>Phone *</label>
+                <label>Telefon *</label>
                 <input type="tel" required value={form.phone} onChange={(e) => update("phone", e.target.value)} maxLength={20} />
               </div>
               <div className="ks-field col-span-full">
-                <label>Address *</label>
+                <label>Adresse *</label>
                 <input required value={form.address} onChange={(e) => update("address", e.target.value)} maxLength={200} />
               </div>
               <div className="ks-field">
-                <label>Postcode *</label>
+                <label>PLZ *</label>
                 <input required value={form.postcode} onChange={(e) => update("postcode", e.target.value)} maxLength={10} />
               </div>
               <div className="ks-field">
-                <label>Password * (min 8 chars)</label>
+                <label>Passwort * (mind. 8 Zeichen)</label>
                 <input type="password" required minLength={8} value={form.password} onChange={(e) => update("password", e.target.value)} />
               </div>
             </div>
@@ -178,7 +178,7 @@ const RegisterChildminder = () => {
 
           {/* Compliance */}
           <div className="ks-card p-5">
-            <h2 className="font-bold text-sm mb-3">Compliance & Eligibility</h2>
+            <h2 className="font-bold text-sm mb-3">Nachweise & Berechtigung</h2>
             <div className="space-y-3">
               <label className="flex items-start gap-3 cursor-pointer">
                 <input
@@ -188,7 +188,7 @@ const RegisterChildminder = () => {
                   className="mt-1 accent-primary"
                 />
                 <span className="text-sm">
-                  I confirm I have the <strong>right to work in the United Kingdom</strong> *
+                  Ich bestätige, dass ich zur <strong>selbstständigen Erwerbstätigkeit in Deutschland</strong> berechtigt bin *
                 </span>
               </label>
 
@@ -200,14 +200,14 @@ const RegisterChildminder = () => {
                   className="mt-1 accent-primary"
                 />
                 <span className="text-sm">
-                  I have a valid <strong>Enhanced DBS certificate</strong>
+                  Ich habe ein gültiges <strong>erweitertes Führungszeugnis</strong> (§ 30a BZRG)
                 </span>
               </label>
 
               {form.hasDbs && (
                 <div className="ks-field ml-7">
-                  <label>DBS certificate number</label>
-                  <input value={form.dbsNumber} onChange={(e) => update("dbsNumber", e.target.value)} placeholder="e.g. 001234567890" maxLength={50} />
+                  <label>Führungszeugnis‑Nr.</label>
+                  <input value={form.dbsNumber} onChange={(e) => update("dbsNumber", e.target.value)} placeholder="z. B. FZ‑2026/12345" maxLength={50} />
                 </div>
               )}
             </div>
@@ -215,18 +215,18 @@ const RegisterChildminder = () => {
 
           {/* Experience */}
           <div className="ks-card p-5">
-            <h2 className="font-bold text-sm mb-3">Experience & Availability</h2>
+            <h2 className="font-bold text-sm mb-3">Erfahrung & Verfügbarkeit</h2>
             <div className="space-y-3">
               <div className="ks-field">
-                <label>Experience summary</label>
+                <label>Kurzbeschreibung Ihrer Erfahrung</label>
                 <textarea value={form.experienceSummary} onChange={(e) => update("experienceSummary", e.target.value)}
-                  placeholder="Briefly describe your childcare experience, qualifications, and what age groups you prefer…"
+                  placeholder="Beschreiben Sie kurz Ihre Erfahrung, Qualifikationen und bevorzugte Altersgruppen…"
                   maxLength={1000} rows={3} />
               </div>
               <div className="ks-field">
-                <label>Availability preferences</label>
+                <label>Verfügbarkeit</label>
                 <textarea value={form.availabilityNotes} onChange={(e) => update("availabilityNotes", e.target.value)}
-                  placeholder="e.g. Mon–Fri 8am–6pm, flexible weekends…"
+                  placeholder="z. B. Mo–Fr 8:00–18:00 Uhr, flexible Wochenenden…"
                   maxLength={500} rows={2} />
               </div>
             </div>
@@ -235,9 +235,7 @@ const RegisterChildminder = () => {
           {/* Safeguarding notice */}
           <div className="ks-card p-4 bg-primary/5 border-primary/20">
             <p className="text-xs text-muted-foreground leading-relaxed">
-              <strong className="text-foreground">🛡️ Safeguarding:</strong> All childminders must complete our onboarding process including DBS verification,
-              references check, right to work confirmation, and an interview before being approved to accept work.
-              KinderStars is committed to protecting children and vulnerable adults.
+              <strong className="text-foreground">🛡️ Kinderschutz:</strong> Alle Kindertagespflegepersonen durchlaufen unser Onboarding – erweitertes Führungszeugnis, Referenzen, Nachweis der Erwerbsberechtigung und ein persönliches Gespräch. KinderStars verpflichtet sich dem Schutzauftrag nach § 8a SGB VIII.
             </p>
           </div>
 
@@ -245,7 +243,7 @@ const RegisterChildminder = () => {
 
           <Button variant="hero" type="submit" disabled={submitting} className="w-full gap-2">
             {submitting && <Loader2 className="w-4 h-4 animate-spin" />}
-            {submitting ? "Submitting…" : "Register as Childminder"}
+            {submitting ? "Wird gesendet…" : "Als Kindertagespflegeperson registrieren"}
           </Button>
 
           <p className="text-center text-xs text-muted-foreground">

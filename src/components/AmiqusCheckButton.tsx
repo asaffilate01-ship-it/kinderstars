@@ -15,17 +15,17 @@ interface AmiqusCheckButtonProps {
 }
 
 const CHECK_META: Record<string, { icon: typeof Shield; label: string; description: string }> = {
-  dbs: { icon: Shield, label: "DBS Check", description: "Enhanced DBS / PVG / AccessNI criminal record check" },
-  identity: { icon: Fingerprint, label: "ID Verification", description: "Photo ID and liveness verification" },
-  right_to_work: { icon: FileCheck, label: "Right to Work", description: "Verify eligibility to work in the UK" },
-  full: { icon: Shield, label: "Full Background Check", description: "DBS + ID verification + right to work" },
+  dbs: { icon: Shield, label: "Erw. Führungszeugnis", description: "Erweitertes Führungszeugnis nach § 30a BZRG" },
+  identity: { icon: Fingerprint, label: "Identitätsprüfung", description: "Foto‑Ausweis und Liveness‑Prüfung" },
+  right_to_work: { icon: FileCheck, label: "Arbeitserlaubnis", description: "Nachweis der Berechtigung zur Erwerbstätigkeit in Deutschland" },
+  full: { icon: Shield, label: "Vollständige Prüfung", description: "Führungszeugnis + Ausweisprüfung + Arbeitserlaubnis" },
 };
 
 const STATUS_DISPLAY: Record<string, { label: string; className: string }> = {
-  pending: { label: "Processing…", className: "text-primary" },
-  in_review: { label: "In Progress", className: "text-primary" },
-  approved: { label: "Approved ✅", className: "text-success" },
-  rejected: { label: "Requires Review", className: "text-destructive" },
+  pending: { label: "Wird bearbeitet…", className: "text-primary" },
+  in_review: { label: "In Prüfung", className: "text-primary" },
+  approved: { label: "Bestätigt ✅", className: "text-success" },
+  rejected: { label: "Nachprüfung nötig", className: "text-destructive" },
 };
 
 const AmiqusCheckButton = ({
@@ -45,7 +45,7 @@ const AmiqusCheckButton = ({
 
   const handleInitiate = async () => {
     if (!firstName || !lastName || !email) {
-      toast({ title: "Missing details", description: "Please complete your profile first.", variant: "destructive" });
+      toast({ title: "Fehlende Angaben", description: "Bitte vervollständigen Sie zuerst Ihr Profil.", variant: "destructive" });
       return;
     }
 
@@ -60,8 +60,8 @@ const AmiqusCheckButton = ({
       if (data?.error) {
         if (data.error.includes("not configured")) {
           toast({
-            title: "Amiqus not configured",
-            description: "The verification service is being set up. Please try again later or contact KinderStars.",
+            title: "Prüfdienst nicht konfiguriert",
+            description: "Der Verifizierungsdienst wird eingerichtet. Bitte später erneut versuchen oder KinderStars kontaktieren.",
             variant: "destructive",
           });
         } else {
@@ -71,12 +71,12 @@ const AmiqusCheckButton = ({
       }
 
       toast({
-        title: "Check initiated! 🎉",
-        description: "You'll receive an email from Amiqus with instructions to complete the verification.",
+        title: "Prüfung gestartet! 🎉",
+        description: "Sie erhalten eine E‑Mail mit Anweisungen zur Verifizierung.",
       });
     } catch (err: unknown) {
-      const msg = err instanceof Error ? err.message : "Failed to initiate check";
-      toast({ title: "Error", description: msg, variant: "destructive" });
+      const msg = err instanceof Error ? err.message : "Prüfung konnte nicht gestartet werden";
+      toast({ title: "Fehler", description: msg, variant: "destructive" });
     } finally {
       setLoading(false);
     }
@@ -87,7 +87,7 @@ const AmiqusCheckButton = ({
     return (
       <div className={`flex items-center gap-2 text-sm ${className}`}>
         <CheckCircle2 className="w-4 h-4 text-success" />
-        <span className="text-success font-medium">{meta.label} — Approved</span>
+        <span className="text-success font-medium">{meta.label} — Bestätigt</span>
       </div>
     );
   }
@@ -97,7 +97,7 @@ const AmiqusCheckButton = ({
     return (
       <div className={`flex items-center gap-2 text-sm ${className}`}>
         <Loader2 className="w-4 h-4 animate-spin text-primary" />
-        <span className="text-primary font-medium">{meta.label} — {statusInfo?.label || "Processing"}</span>
+        <span className="text-primary font-medium">{meta.label} — {statusInfo?.label || "In Bearbeitung"}</span>
       </div>
     );
   }
@@ -108,11 +108,11 @@ const AmiqusCheckButton = ({
       <div className={`space-y-2 ${className}`}>
         <div className="flex items-center gap-2 text-sm text-destructive">
           <AlertCircle className="w-4 h-4" />
-          <span className="font-medium">{meta.label} — Requires Review</span>
+          <span className="font-medium">{meta.label} — Nachprüfung nötig</span>
         </div>
         <Button size="sm" variant="outline" onClick={handleInitiate} disabled={loading} className="gap-1.5">
           {loading ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <ExternalLink className="w-3.5 h-3.5" />}
-          Retry Check
+          Erneut versuchen
         </Button>
       </div>
     );
@@ -132,7 +132,7 @@ const AmiqusCheckButton = ({
       ) : (
         <Icon className="w-3.5 h-3.5" />
       )}
-      {label || `Start ${meta.label}`}
+      {label || `${meta.label} starten`}
     </Button>
   );
 };

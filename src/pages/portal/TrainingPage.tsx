@@ -208,12 +208,12 @@ const TrainingPage = () => {
           {courses.length === 0 ? (
             <div className="ks-card p-10 text-center text-muted-foreground text-sm">
               <BookOpen className="w-8 h-8 mx-auto mb-2 opacity-40" />
-              No courses available yet — check back soon.
+              Noch keine Kurse verfügbar – schauen Sie bald wieder vorbei.
             </div>
           ) : courses.map(course => {
             const isBooked = bookedCourseIds.has(course.id);
             const isFree = course.price_pence === 0;
-            const price = isFree ? "Free" : `£${(course.price_pence / 100).toFixed(2)}`;
+            const price = isFree ? "Kostenlos" : `€${(course.price_pence / 100).toFixed(2)}`;
             return (
               <div key={course.id} className={`ks-card p-4 ${isBooked ? "border-success/30 bg-success/5" : ""}`}>
                 <div className="flex items-start gap-3">
@@ -307,7 +307,7 @@ const TrainingPage = () => {
                       className="w-full h-10 rounded-md border border-input bg-background px-3 text-sm"
                       value={cpdForm.title}
                       onChange={e => setCpdForm(f => ({ ...f, title: e.target.value }))}
-                      placeholder="e.g. Safeguarding Refresher"
+                      placeholder="z. B. Kinderschutz‑Auffrischung"
                     />
                   </div>
                   <div>
@@ -350,7 +350,7 @@ const TrainingPage = () => {
                       className="w-full h-10 rounded-md border border-input bg-background px-3 text-sm"
                       value={cpdForm.provider}
                       onChange={e => setCpdForm(f => ({ ...f, provider: e.target.value }))}
-                      placeholder="e.g. CACHE, Coursera"
+                      placeholder="z. B. IHK, DRK, Caritas"
                     />
                   </div>
                   <div>

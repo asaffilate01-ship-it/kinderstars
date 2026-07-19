@@ -8,9 +8,9 @@ import { supabase } from "@/integrations/supabase/client";
 
 const STEP_TASK_MAPPINGS: Record<number, string[]> = {
   0: [], // Express interest — no matching task, always manual
-  1: ["dbs_applied", "dbs_received"],
-  2: ["first_aid_enrolled", "first_aid_completed", "safeguarding_level2", "food_hygiene", "prevent_training", "eyfs_training"],
-  3: ["ofsted_application", "ciw_application", "ci_application", "rqia_application", "ofsted_urn_received", "ciw_registered", "ci_registered", "rqia_registered"],
+  1: ["fz_applied", "fz_received"],
+  2: ["first_aid_enrolled", "first_aid_completed", "kinderschutz_8a", "belehrung_43_ifsg", "dsgvo_training", "qualifikation_160h"],
+  3: ["jugendamt_application", "eignungspruefung", "pflegeerlaubnis_43", "landesjugendamt_check"],
   4: [], // KinderStars onboarding — internal
   5: [], // Go live — internal
 };
@@ -18,33 +18,33 @@ const STEP_TASK_MAPPINGS: Record<number, string[]> = {
 const becomeSteps = [
   {
     icon: ClipboardList,
-    title: "1. Express your interest",
-    desc: "Fill in our contact form selecting 'Become a Childminder' or email info@kinderstars.co.uk. We'll arrange an informal chat to understand your goals.",
+    title: "1. Interesse bekunden",
+    desc: "Füllen Sie unser Kontaktformular aus (Option: Kindertagespflegeperson werden) oder schreiben Sie an info@kinderstars.de. Wir vereinbaren ein persönliches Gespräch.",
   },
   {
     icon: ShieldCheck,
-    title: "2. Enhanced DBS check",
-    desc: "We'll guide you through obtaining an enhanced Disclosure & Barring Service check (or PVG in Scotland). This is essential before you can care for children.",
+    title: "2. Erweitertes Führungszeugnis",
+    desc: "Wir begleiten Sie bei der Beantragung des erweiterten Führungszeugnisses nach § 30a BZRG. Voraussetzung, bevor Sie Kinder betreuen dürfen.",
   },
   {
     icon: GraduationCap,
-    title: "3. Complete required training",
-    desc: "Paediatric first aid, safeguarding & child protection, and an introduction to the EYFS (or equivalent for your nation). KinderStars provides a personalised checklist.",
+    title: "3. Qualifizierung abschließen",
+    desc: "Erste‑Hilfe am Kind, Kinderschutz nach § 8a SGB VIII, Belehrung nach § 43 IfSG und der 160‑Stunden‑Grundkurs Kindertagespflege. KinderStars stellt eine persönliche Checkliste bereit.",
   },
   {
     icon: FileText,
-    title: "4. Register with your regulator",
-    desc: "Apply to Ofsted (England), CIW (Wales), Care Inspectorate (Scotland), or RQIA (Northern Ireland). We support you with the paperwork and requirements.",
+    title: "4. Pflegeerlaubnis beim Jugendamt",
+    desc: "Antrag auf Pflegeerlaubnis nach § 43 SGB VIII beim örtlichen Jugendamt, inkl. Eignungsprüfung und Raumbegehung. Wir begleiten Sie bei den Unterlagen.",
   },
   {
     icon: UserCheck,
-    title: "5. KinderStars onboarding",
-    desc: "Complete our quality-assurance review, set up your profile, and prepare your home setting. We'll verify your credentials and get you listed.",
+    title: "5. KinderStars Onboarding",
+    desc: "Qualitätsprüfung, Profil einrichten und Räumlichkeiten vorbereiten. Wir prüfen Ihre Nachweise und schalten Sie im Verzeichnis frei.",
   },
   {
     icon: Rocket,
-    title: "6. Go live & start caring",
-    desc: "You're listed in our directory and ready to receive parent enquiries. KinderStars continues to support you with mentoring, training, and compliance.",
+    title: "6. Live gehen & betreuen",
+    desc: "Sie sind im Verzeichnis sichtbar und empfangen Elternanfragen. KinderStars unterstützt Sie weiterhin mit Mentoring, Fortbildung und Compliance.",
   },
 ];
 
@@ -113,14 +113,14 @@ const ForChildmindersSection = () => {
       <AnimatedSection delay={0.3}>
         <div className="mt-4 flex gap-2.5 flex-wrap">
           <Button variant="hero" asChild>
-            <a href="/auth?role=childminder">Register as Childminder</a>
+            <a href="/auth?role=childminder">Als Kindertagespflegeperson registrieren</a>
           </Button>
           <Button
             variant="outline"
             onClick={() => setShowGuide((v) => !v)}
             className="gap-1.5"
           >
-            Become a Childminder
+            Kindertagespflegeperson werden
             {showGuide ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
           </Button>
           <Button variant="ghost" asChild><a href="#faq">{t("childminders.readFaq")}</a></Button>
@@ -131,23 +131,23 @@ const ForChildmindersSection = () => {
       {showGuide && (
         <AnimatedSection delay={0.05}>
           <div className="mt-5 rounded-2xl border border-border bg-muted/30 p-5">
-            <h3 className="text-lg font-bold mb-1">How to become a childminder</h3>
+            <h3 className="text-lg font-bold mb-1">Wie werde ich Kindertagespflegeperson?</h3>
             <p className="text-muted-foreground text-sm mb-4 max-w-[56ch]">
-              Follow these steps to start your childminding career. KinderStars supports you at every stage — from your first enquiry to going live.
+              Diese Schritte begleiten Sie auf dem Weg zur anerkannten Kindertagespflegeperson. KinderStars unterstützt Sie in jeder Phase – von der ersten Anfrage bis zum Start.
             </p>
 
             {/* Progress summary for logged-in prospects */}
             {isLoggedIn && loaded && (
               <div className="mb-4 flex items-center gap-2 text-xs text-muted-foreground">
                 <CheckCircle2 className="w-4 h-4 text-primary" />
-                <span>Your training progress from the Trainee Dashboard is shown below.</span>
+                <span>Ihr Fortschritt aus dem Anwärter‑Dashboard wird unten angezeigt.</span>
               </div>
             )}
             {!isLoggedIn && (
               <div className="mb-4 flex items-center gap-2 text-xs text-muted-foreground">
                 <LogIn className="w-4 h-4" />
                 <span>
-                  <a href="/auth?role=childminder" className="underline text-primary hover:text-primary/80">Sign in</a> to see your personal progress on each step.
+                  <a href="/auth?role=childminder" className="underline text-primary hover:text-primary/80">Anmelden</a>, um Ihren persönlichen Fortschritt zu sehen.
                 </span>
               </div>
             )}
@@ -175,10 +175,10 @@ const ForChildmindersSection = () => {
                       </div>
                       <h4 className="font-semibold text-sm flex-1">{step.title}</h4>
                       {status === "partial" && (
-                        <span className="text-[10px] font-medium text-primary bg-primary/10 px-1.5 py-0.5 rounded-full">In progress</span>
+                        <span className="text-[10px] font-medium text-primary bg-primary/10 px-1.5 py-0.5 rounded-full">In Bearbeitung</span>
                       )}
                       {status === "complete" && (
-                        <span className="text-[10px] font-medium text-primary bg-primary/10 px-1.5 py-0.5 rounded-full">Done</span>
+                        <span className="text-[10px] font-medium text-primary bg-primary/10 px-1.5 py-0.5 rounded-full">Erledigt</span>
                       )}
                     </div>
                     <p className="text-muted-foreground text-[13px] leading-relaxed">{step.desc}</p>
@@ -188,10 +188,10 @@ const ForChildmindersSection = () => {
             </div>
             <div className="mt-4 flex gap-2.5 flex-wrap">
               <Button variant="hero" size="sm" asChild>
-                <a href="#contact">Get started — contact us</a>
+                <a href="#contact">Jetzt starten – Kontakt aufnehmen</a>
               </Button>
               <Button variant="ghost" size="sm" asChild>
-                <a href="#faq">Read the FAQ</a>
+                <a href="#faq">Zum FAQ</a>
               </Button>
             </div>
           </div>

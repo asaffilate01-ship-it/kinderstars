@@ -17,7 +17,7 @@ const childminderSchema = z.object({
   firstName: z.string().trim().min(1, "First name is required").max(50, "First name too long").regex(/^[a-zA-ZÀ-ÿ\s'-]+$/, "Invalid characters in name"),
   lastInitial: z.string().trim().min(1, "Last initial is required").max(2, "Max 2 characters").regex(/^[a-zA-ZÀ-ÿ]+$/, "Must be letters only"),
   town: z.string().trim().min(1, "Town is required").max(100, "Town name too long"),
-  postcodeDistrict: z.string().trim().min(2, "Postcode district required").max(5, "Postcode district too long").regex(/^[A-Za-z]{1,2}\d{1,2}[A-Za-z]?$/, "Invalid UK postcode district (e.g. LU1, MK9)"),
+  postcodeDistrict: z.string().trim().min(2, "PLZ‑Bereich erforderlich").max(5, "PLZ zu lang").regex(/^\d{2,5}$/, "Ungültige PLZ (z. B. 10115 oder 101)"),
   verified: z.boolean(),
   ageGroups: z.array(z.enum(AGE_GROUPS)),
   days: z.array(z.enum(DAYS)),
@@ -139,7 +139,7 @@ const AdminPanel = () => {
             <div className="grid grid-cols-2 gap-2.5">
               <div className="ks-field">
                 <label>Reference ID</label>
-                <input placeholder="e.g., KS-LU1-005" value={form.id} onChange={e => setForm({ ...form, id: e.target.value })} />
+                <input placeholder="z. B. KS-10115-005" value={form.id} onChange={e => setForm({ ...form, id: e.target.value })} />
               </div>
               <div className="ks-field">
                 <label>Verified</label>
@@ -162,11 +162,11 @@ const AdminPanel = () => {
               </div>
               <div className="ks-field">
                 <label>Postcode district</label>
-                <input placeholder="e.g., LU1" value={form.postcodeDistrict} onChange={e => setForm({ ...form, postcodeDistrict: e.target.value })} />
+                <input placeholder="z. B. 10115" value={form.postcodeDistrict} onChange={e => setForm({ ...form, postcodeDistrict: e.target.value })} />
               </div>
               <div className="ks-field">
                 <label>Hours</label>
-                <input placeholder="e.g., 08:00–18:00" value={form.hours} onChange={e => setForm({ ...form, hours: e.target.value })} />
+                <input placeholder="z. B. 08:00–18:00" value={form.hours} onChange={e => setForm({ ...form, hours: e.target.value })} />
               </div>
               <div className="ks-field">
                 <label>Experience (years)</label>
@@ -203,7 +203,7 @@ const AdminPanel = () => {
 
               <div className="ks-field col-span-2">
                 <label>Short bio</label>
-                <textarea value={form.bio} onChange={e => setForm({ ...form, bio: e.target.value })} placeholder="Warm, play-based childcare…" />
+                <textarea value={form.bio} onChange={e => setForm({ ...form, bio: e.target.value })} placeholder="Herzliche, spielorientierte Kindertagespflege…" />
               </div>
             </div>
 
