@@ -7,28 +7,29 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
 };
 
-// KinderStars price mapping
-const PRICES = {
-  // KinderStars DE — TODO: replace placeholders when Stripe payments are enabled
-  compliance_plus_monthly:         "price_TODO_compliance_plus_monthly",       // €14.99/mo
-  compliance_plus_annual:          "price_TODO_compliance_plus_annual",        // €149/yr
-  professional_compliance_monthly: "price_TODO_professional_compliance_monthly", // €29.99/mo
-  professional_compliance_annual:  "price_TODO_professional_compliance_annual",  // €299/yr
-  jugendamt_ready_monitor_basic:   "price_TODO_jugendamt_ready_monitor_basic", // €19.99/mo
-  jugendamt_ready_monitor_pro:     "price_TODO_jugendamt_ready_monitor_pro",   // €29.99/mo
-  verification_fee:                "price_TODO_verification_79",               // €79 one-off
-  jugendamt_ready_assessment:      "price_TODO_jugendamt_ready_149",           // €149 one-off
-  // Legacy UK keys (retain for existing customers)
-  basic_monthly:          "price_1T8rvyFFogsDQVs4CE1cn0Pz",  // £4.99/mo
-  basic_annual:           "price_1T8rw6FFogsDQVs4aIIMtR2n",  // £49.90/yr
-  training_monthly:       "price_1T8rwBFFogsDQVs4q39R4nqm",  // £19.99/mo
-  training_annual:        "price_1T8rwCFFogsDQVs4F0WvS9oV",  // £199.00/yr
-  dbs_standard:           "price_1T8rwFFFogsDQVs49fEa38CA",  // £38.00 one-off
-  dbs_enhanced:           "price_1T8rwIFFogsDQVs41Bot1jm5",  // £45.00 one-off
-  bpss:                   "price_1T8rwHFFogsDQVs4JqLKNkWH",  // £220.00 one-off
-} as const;
+// KinderStars DE — inline EUR price catalogue.
+// Amounts in cents. Stripe products/prices are created on-the-fly via
+// `price_data`, so no hardcoded price IDs are required. The user can enable
+// Lovable-managed Stripe at any time and this checkout will work immediately.
+type PriceDef = {
+  name: string;
+  amountCents: number;
+  currency: "eur";
+  interval?: "month" | "year"; // omitted = one-off
+};
+const CATALOGUE: Record<string, PriceDef> = {
+  compliance_plus_monthly:         { name: "KinderStars Compliance Plus (Monat)",           amountCents: 1499,  currency: "eur", interval: "month" },
+  compliance_plus_annual:          { name: "KinderStars Compliance Plus (Jahr)",            amountCents: 14900, currency: "eur", interval: "year"  },
+  professional_compliance_monthly: { name: "KinderStars Professional Compliance (Monat)",   amountCents: 2999,  currency: "eur", interval: "month" },
+  professional_compliance_annual:  { name: "KinderStars Professional Compliance (Jahr)",    amountCents: 29900, currency: "eur", interval: "year"  },
+  jugendamt_ready_monitor_basic:   { name: "Jugendamt Ready Monitoring Basic",              amountCents: 1999,  currency: "eur", interval: "month" },
+  jugendamt_ready_monitor_pro:     { name: "Jugendamt Ready Monitoring Pro",                amountCents: 2999,  currency: "eur", interval: "month" },
+  verification_fee:                { name: "KinderStars Verified (12 Monate)",              amountCents: 7900,  currency: "eur" },
+  jugendamt_ready_assessment:      { name: "Jugendamt Ready Assessment",                    amountCents: 14900, currency: "eur" },
+  first_aid_seat:                  { name: "Erste Hilfe am Kind — Platz",                   amountCents: 6900,  currency: "eur" },
+};
 
-type PriceKey = keyof typeof PRICES;
+type PriceKey = keyof typeof CATALOGUE;
 
 serve(async (req) => {
   if (req.method === "OPTIONS") {
@@ -47,37 +48,53 @@ serve(async (req) => {
     const { data: { user }, error: userError } = await supabaseClient.auth.getUser(token);
     if (userError || !user?.email) throw new Error("User not authenticated");
 
-    const body = await req.json() as { price_key?: PriceKey; price_id?: string; mode?: string };
-    // Support both price_key (named key) and direct price_id
-    const priceId = body.price_key ? PRICES[body.price_key] : body.price_id;
-    if (!priceId) throw new Error(`Invalid price: ${JSON.stringify(body)}`);
-    const isRecurringOverride = body.mode === "payment" ? false : undefined;
+    const body = await req.json() as {
+      price_key?: PriceKey;
+      price_id?: string;
+      mode?: string;
+      quantity?: number;
+    };
     const price_key = body.price_key;
+    const qty = Math.max(1, Math.min(50, body.quantity ?? 1));
+    let lineItem: Stripe.Checkout.SessionCreateParams.LineItem;
+    let isRecurring = false;
+    if (price_key) {
+      const def = CATALOGUE[price_key];
+      if (!def) throw new Error(`Unknown price_key: ${price_key}`);
+      isRecurring = !!def.interval;
+      lineItem = {
+        quantity: qty,
+        price_data: {
+          currency: def.currency,
+          unit_amount: def.amountCents,
+          product_data: { name: def.name, metadata: { price_key } },
+          ...(def.interval ? { recurring: { interval: def.interval } } : {}),
+        },
+      };
+    } else if (body.price_id) {
+      lineItem = { price: body.price_id, quantity: qty };
+      isRecurring = body.mode !== "payment";
+    } else {
+      throw new Error("Provide price_key or price_id");
+    }
 
     const stripe = new Stripe(Deno.env.get("STRIPE_SECRET_KEY") || "", { apiVersion: "2025-08-27.basil" });
 
     // Find or note existing customer
     const customers = await stripe.customers.list({ email: user.email, limit: 1 });
     const customerId = customers.data.length > 0 ? customers.data[0].id : undefined;
-
-    const RECURRING_KEYS = [
-      "compliance_plus_monthly", "compliance_plus_annual",
-      "professional_compliance_monthly", "professional_compliance_annual",
-      "jugendamt_ready_monitor_basic", "jugendamt_ready_monitor_pro",
-      "basic_monthly", "basic_annual", "training_monthly", "training_annual",
-    ];
-    const isRecurring = isRecurringOverride !== undefined ? false :
-      RECURRING_KEYS.includes(price_key ?? "");
-    const origin = req.headers.get("origin") || "https://kinderstars.lovable.app";
+    if (body.mode === "payment") isRecurring = false;
+    const origin = req.headers.get("origin") || "https://kinderstars.de";
 
     const session = await stripe.checkout.sessions.create({
       customer: customerId,
       customer_email: customerId ? undefined : user.email,
-      line_items: [{ price: priceId, quantity: 1 }],
+      line_items: [lineItem],
       mode: isRecurring ? "subscription" : "payment",
+      locale: "de",
       success_url: `${origin}/childminder/subscription?success=true`,
       cancel_url: `${origin}/childminder/subscription?canceled=true`,
-      metadata: { user_id: user.id, price_key },
+      metadata: { user_id: user.id, price_key: price_key ?? "" },
     });
 
     return new Response(JSON.stringify({ url: session.url }), {

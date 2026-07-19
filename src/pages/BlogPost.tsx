@@ -10,7 +10,7 @@ import SocialShare from "@/components/SocialShare";
 import { getPostBySlug, blogPosts } from "@/lib/blog-data";
 import { Badge } from "@/components/ui/badge";
 
-const SITE_URL = "https://www.kinderstars.co.uk";
+const SITE_URL = "https://www.kinderstars.de";
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();

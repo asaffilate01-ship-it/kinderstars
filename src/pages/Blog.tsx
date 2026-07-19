@@ -11,18 +11,18 @@ import { blogPosts, blogCategories, getPostsByCategory } from "@/lib/blog-data";
 import { Badge } from "@/components/ui/badge";
 
 const categoryI18nMap: Record<string, string> = {
-  "All": "all",
-  "Early Years": "earlyYears",
-  "Ofsted": "ofsted",
-  "Childminding": "childminding",
-  "Parenting": "parenting",
-  "Funding": "funding",
-  "Health & Safety": "healthSafety",
+  "Alle": "all",
+  "Kindertagespflege": "kindertagespflege",
+  "Recht & Regulierung": "recht",
+  "Für Eltern": "eltern",
+  "Für Betreuungspersonen": "betreuung",
+  "Förderung & Steuer": "foerderung",
+  "Gesundheit & Sicherheit": "gesundheit",
 };
 
 const Blog = () => {
   const { t } = useTranslation();
-  const [activeCategory, setActiveCategory] = useState("All");
+  const [activeCategory, setActiveCategory] = useState("Alle");
   const filtered = getPostsByCategory(activeCategory);
 
   return (

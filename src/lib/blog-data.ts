@@ -13,477 +13,289 @@ export interface BlogPost {
 }
 
 export const blogCategories = [
-  "All",
-  "Early Years",
-  "Ofsted",
-  "Childminding",
-  "Parenting",
-  "Funding",
-  "Health & Safety",
+  "Alle",
+  "Kindertagespflege",
+  "Recht & Regulierung",
+  "Für Eltern",
+  "Für Betreuungspersonen",
+  "Förderung & Steuer",
+  "Gesundheit & Sicherheit",
 ];
 
 export const blogPosts: BlogPost[] = [
   {
-    slug: "understanding-eyfs-framework-2025",
-    title: "Understanding the EYFS Framework in 2025: What Parents & Childminders Need to Know",
-    excerpt: "The Early Years Foundation Stage (EYFS) sets standards for learning, development, and care for children from birth to 5. Here's everything you need to know about the latest updates.",
-    category: "Early Years",
-    categoryKey: "earlyYears",
-    i18nKey: "eyfs",
-    date: "2026-02-15",
-    readTime: "6 min read",
-    author: "KinderStars Team",
+    slug: "kindertagespflege-in-deutschland-2026",
+    title: "Kindertagespflege in Deutschland 2026: Der komplette Überblick für Eltern",
+    excerpt: "Kindertagespflege nach § 22 SGB VIII ist eine gleichwertige Alternative zur Kita. Wir erklären Voraussetzungen, Kosten, Förderung und wie Sie eine geeignete Kindertagespflegeperson finden.",
+    category: "Kindertagespflege",
+    categoryKey: "kindertagespflege",
+    i18nKey: "kindertagespflege2026",
+    date: "2026-03-01",
+    readTime: "7 Min. Lesezeit",
+    author: "KinderStars Redaktion",
     image: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800&q=80",
-    content: `## What Is the EYFS?
+    content: `## Was ist Kindertagespflege?
 
-The **Early Years Foundation Stage (EYFS)** is the UK government's framework that sets the standards for the learning, development, and care of children from birth to 5 years old. All registered childminders, nurseries, and schools must follow it.
+**Kindertagespflege** ist eine im Sozialgesetzbuch (§ 22 SGB VIII) verankerte Form der frühkindlichen Betreuung — gleichwertig zur Kita, aber in kleineren Gruppen und familiärer Atmosphäre.
 
-### The Seven Areas of Learning
+### Wer darf betreuen?
+Eine **Kindertagespflegeperson** benötigt in der Regel:
+- Eine **Pflegeerlaubnis** des zuständigen Jugendamts (§ 43 SGB VIII)
+- Ein aktuelles **erweitertes Führungszeugnis**
+- Eine Qualifizierung nach dem **Bundesbildungsrahmenplan (QHB)** — meist 160–300 UE
+- **Erste Hilfe am Kind** (regelmäßig aufgefrischt, i. d. R. alle 2 Jahre)
+- Eine **Belehrung nach § 43 IfSG** (Gesundheitsamt)
 
-The EYFS covers seven key areas of learning and development:
+### Was kostet Kindertagespflege?
+Die Kosten hängen vom Bundesland, dem Umfang und Ihrem Einkommen ab. Über **§ 23 SGB VIII** kann das Jugendamt einen Großteil der Kosten übernehmen — bei anerkannten Pflegepersonen.
 
-**Prime Areas:**
-1. **Communication and Language** — listening, understanding, and speaking
-2. **Physical Development** — moving, handling objects, health and self-care
-3. **Personal, Social and Emotional Development** — self-confidence, managing feelings, making relationships
+### KinderStars und Kindertagespflege
+KinderStars ist eine **private Vermittlungsplattform**. Wir prüfen Führungszeugnisse, Qualifikationen und Referenzen. Die staatliche Anerkennung erteilt ausschließlich das Jugendamt.
 
-**Specific Areas:**
-4. **Literacy** — reading and writing
-5. **Mathematics** — numbers, shape, space and measures
-6. **Understanding the World** — people, communities, technology, the natural world
-7. **Expressive Arts and Design** — exploring media/materials, being imaginative
-
-### 2025 Updates
-
-The government has continued to streamline the EYFS to reduce paperwork for practitioners while maintaining high standards. Key changes include:
-
-- **Simplified assessment** — less bureaucratic observation requirements
-- **Focus on communication** — additional emphasis on early language development
-- **Wellbeing focus** — greater recognition of children's emotional and mental health
-- **Outdoor learning** — encouraged integration of outdoor experiences
-
-### What This Means for Parents
-
-As a parent, the EYFS gives you confidence that your child is receiving a consistent, high-quality early education wherever they are cared for. Ask your childminder about how they deliver the EYFS in their setting.
-
-### What This Means for Childminders
-
-Childminders must demonstrate they meet EYFS requirements during Ofsted inspections. KinderStars provides templates and tools to help you evidence children's progress across all seven areas.
-
-> **Top Tip:** Use the KinderStars portal to track developmental milestones and share progress with parents seamlessly.`,
+> **Tipp:** Nutzen Sie unseren Jugendamt-Ready-Check, um zu sehen, welche Unterlagen für eine öffentliche Förderung noch fehlen.`,
   },
   {
-    slug: "ofsted-inspection-what-to-expect",
-    title: "Your First Ofsted Inspection: A Childminder's Complete Guide",
-    excerpt: "Preparing for your first Ofsted inspection can feel daunting. This guide breaks down exactly what inspectors look for and how to prepare with confidence.",
-    category: "Ofsted",
-    categoryKey: "ofsted",
-    i18nKey: "ofstedInspection",
-    date: "2026-02-10",
-    readTime: "8 min read",
-    author: "KinderStars Team",
-    image: "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=800&q=80",
-    content: `## What Happens During an Ofsted Inspection?
+    slug: "erweitertes-fuehrungszeugnis-fuer-kinderbetreuung",
+    title: "Erweitertes Führungszeugnis (§ 30a BZRG): Was Betreuungspersonen wissen müssen",
+    excerpt: "Ohne aktuelles erweitertes Führungszeugnis keine Kinderbetreuung. So beantragen Sie es, was es kostet und warum KinderStars es zwingend voraussetzt.",
+    category: "Recht & Regulierung",
+    categoryKey: "recht",
+    i18nKey: "fuehrungszeugnis",
+    date: "2026-02-24",
+    readTime: "5 Min. Lesezeit",
+    author: "KinderStars Compliance",
+    image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&q=80",
+    content: `## Warum ein erweitertes Führungszeugnis?
 
-Ofsted inspections for childminders are designed to assess the quality and standards of your childminding provision. Here's what to expect.
+Für alle Tätigkeiten mit Kindern verlangt § 72a SGB VIII ein **erweitertes Führungszeugnis** — es weist zusätzlich einschlägige Sexual- und Gewaltdelikte aus.
 
-### Before the Inspection
+### Beantragung
+- **Wo:** beim Einwohnermeldeamt oder online über das Bundesamt für Justiz.
+- **Kosten:** rund **13 €** (bei Ehrenamt oft gebührenfrei).
+- **Dauer:** i. d. R. 2–3 Wochen Postlaufzeit.
 
-Ofsted will usually give you a **short notice call** — typically on the morning of the inspection or the day before. During this call they'll:
+### Wichtig für Betreuungspersonen auf KinderStars
+- Führungszeugnis darf **nicht älter als 3 Monate** bei Einreichung sein.
+- Erneuerung mindestens **alle 3–5 Jahre**, je nach Anforderung des Trägers/Jugendamts.
+- KinderStars markiert abgelaufene Zeugnisse automatisch und pausiert die Buchbarkeit.
 
-- Confirm your registration details
-- Ask about your current minded children
-- Discuss any changes since your last inspection
-
-### During the Visit
-
-The inspector will spend approximately **3-4 hours** in your setting. They will:
-
-1. **Observe your practice** — how you interact with children, manage routines, and deliver learning
-2. **Talk to children** — age-appropriate conversations about what they enjoy
-3. **Review documentation** — policies, risk assessments, attendance records, DBS checks
-4. **Discuss your self-evaluation** — how you reflect on and improve your practice
-5. **Check safeguarding** — your knowledge of procedures and local contacts
-
-### The Ofsted Grading Scale
-
-Inspectors will grade your provision as:
-
-- **Outstanding** — exceptionally high quality
-- **Good** — meeting all requirements effectively
-- **Requires Improvement** — some areas need attention
-- **Inadequate** — significant concerns identified
-
-### Top Tips for Success
-
-- ✅ Keep your **policies and procedures** up to date
-- ✅ Maintain clear **learning journals** for each child
-- ✅ Know your **Local Safeguarding Children Board** contacts
-- ✅ Have your **first aid certificate** and DBS visible
-- ✅ Prepare a **self-evaluation form** showing continuous improvement
-- ✅ Be yourself — inspectors want to see authentic practice
-
-### How KinderStars Helps
-
-Our portal provides Ofsted-ready templates for self-evaluation, risk assessments, and daily registers. Your compliance dashboard tracks all your certification expiry dates so nothing catches you off guard.`,
+> **Hinweis:** KinderStars **Verified** ersetzt keine staatliche Prüfung — ist aber eine transparente Grundlage für Eltern und Jugendämter.`,
   },
   {
-    slug: "becoming-a-childminder-uk",
-    title: "How to Become a Registered Childminder in the UK: Step-by-Step",
-    excerpt: "Thinking about becoming a childminder? Here's your complete roadmap from initial training to welcoming your first families.",
-    category: "Childminding",
-    categoryKey: "childminding",
-    i18nKey: "becomingChildminder",
-    date: "2026-02-05",
-    readTime: "7 min read",
-    author: "KinderStars Team",
-    image: "https://images.unsplash.com/photo-1544776193-352d25ca82cd?w=800&q=80",
-    content: `## Your Journey to Becoming a Childminder
-
-Childminding is one of the most rewarding careers — you get to shape young lives while running your own business from home. Here's how to get started.
-
-### Step 1: Research & Self-Assessment
-
-Before committing, ask yourself:
-- Do I enjoy working with young children for extended periods?
-- Is my home suitable (or adaptable) for childcare?
-- Am I comfortable with the business side — invoicing, tax returns, record-keeping?
-- Does my family support this career change?
-
-### Step 2: Complete Required Training
-
-You'll need to complete:
-
-1. **Childminding pre-registration course** — covers EYFS, safeguarding, business skills
-2. **Paediatric first aid** — 12-hour course (must be renewed every 3 years)
-3. **Safeguarding/child protection training** — Level 2 minimum
-4. **Food hygiene certificate** — if providing meals
-
-### Step 3: DBS & Health Checks
-
-- Apply for an **Enhanced DBS check** for yourself and all adults in your household
-- Complete a **health declaration** via your GP
-
-### Step 4: Register with Ofsted
-
-Submit your application to Ofsted (England), Care Inspectorate Wales, or your relevant regulator. The process includes:
-
-- Completing the online application form
-- Paying the registration fee
-- Receiving a registration visit
-- Getting your unique Ofsted URN
-
-### Step 5: Insurance & Policies
-
-Before taking children, ensure you have:
-- **Public liability insurance** (childminder-specific)
-- **Written policies** — safeguarding, equal opportunities, complaints, GDPR
-- **Risk assessments** — home, garden, outings
-
-### Step 6: Set Your Rates & Contracts
-
-Research local rates and set competitive pricing. Use KinderStars contract templates to create professional parent-childminder agreements.
-
-### Timeline
-
-The entire process typically takes **3-6 months** from start to registration.
-
-> **KinderStars Prospect Dashboard** guides you through every step with checklists tailored to your regulator — Ofsted, CIW, or Care Inspectorate.`,
-  },
-  {
-    slug: "funded-childcare-hours-explained",
-    title: "Free Childcare Hours: Understanding Your Entitlement in 2026",
-    excerpt: "Navigating government-funded childcare can be confusing. We break down the 15-hour, 30-hour, and Tax-Free Childcare schemes so you know exactly what you're entitled to.",
-    category: "Funding",
-    categoryKey: "funding",
-    i18nKey: "fundedHours",
-    date: "2026-01-28",
-    readTime: "5 min read",
-    author: "KinderStars Team",
+    slug: "paragraph-23-sgb-viii-oeffentliche-foerderung",
+    title: "§ 23 SGB VIII: So funktioniert die öffentliche Förderung der Kindertagespflege",
+    excerpt: "Laufende Geldleistung, Sachaufwand, Krankenversicherungs- und Rentenzuschüsse — was das Jugendamt übernimmt und wie Eltern die Förderung beantragen.",
+    category: "Förderung & Steuer",
+    categoryKey: "foerderung",
+    i18nKey: "paragraph23",
+    date: "2026-02-18",
+    readTime: "8 Min. Lesezeit",
+    author: "KinderStars Redaktion",
     image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80",
-    content: `## Government-Funded Childcare Explained
+    content: `## Was regelt § 23 SGB VIII?
 
-The UK government provides several funded childcare schemes. Here's what's available.
+§ 23 SGB VIII regelt die **laufende Geldleistung** an Kindertagespflegepersonen, die vom **Jugendamt** anerkannt sind. Sie umfasst:
 
-### Universal 15 Hours (All 3-4 Year Olds)
+1. **Sachaufwand** (Essen, Verbrauchsmaterial)
+2. **Anerkennung der Förderungsleistung** (Honorar-Anteil)
+3. **Zuschuss zur Unfallversicherung**
+4. **Hälftige Erstattung** von angemessener Alters- und Krankenversicherung
 
-**Every** 3 and 4-year-old in England is entitled to **15 hours per week** of free early education for 38 weeks a year. This is available regardless of your income or employment status.
+### Wer bekommt was?
+- **Eltern:** stellen Antrag beim Jugendamt am Wohnort.
+- **Kindertagespflegeperson:** rechnet direkt mit dem Jugendamt ab.
 
-### Extended 30 Hours (Working Parents)
-
-If both parents (or a single parent) are working and each earns at least the **National Minimum Wage for 16 hours per week**, you may be eligible for **30 hours** of free childcare.
-
-**Eligibility criteria:**
-- Each parent earns less than £100,000 per year
-- Each parent works at least 16 hours at minimum wage
-- Apply via the Childcare Choices website
-- Receive a **30-hour eligibility code** to give your provider
-
-### 15 Hours for Disadvantaged 2-Year-Olds
-
-Some 2-year-olds qualify for **15 free hours** if the family receives:
-- Income Support or JSA
-- Universal Credit (with household income under £15,400)
-- Child is looked after by the local authority
-- Family receives Disability Living Allowance
-
-### Tax-Free Childcare
-
-For every £8 you pay into your Tax-Free Childcare account, the government adds £2 — up to **£2,000 per child per year** (£4,000 for disabled children).
-
-### How Childminders Deliver Funded Hours
-
-Registered childminders can offer funded places. They'll need to:
-- Register with their local authority as a funded provider
-- Follow the EYFS framework
-- Complete termly headcount forms
-
-### How KinderStars Helps
-
-Our **Funding & Payments** section helps parents track eligibility codes and childminders manage funded vs. private hours seamlessly.`,
+### Warum das für KinderStars-Nutzer relevant ist
+Nur **Jugendamt-anerkannte** Personen erhalten § 23-Förderung. Unser Tarif **Professional Compliance** enthält die **Jugendamt-Ready**-Vorbereitung, damit Sie den Antrag erfolgreich stellen können.`,
   },
   {
-    slug: "childproofing-your-home-childminder",
-    title: "Childproofing Your Home: The Essential Safety Checklist for Childminders",
-    excerpt: "A safe environment is non-negotiable. Use this comprehensive checklist to ensure your home meets all safety requirements for childminding.",
-    category: "Health & Safety",
-    categoryKey: "healthSafety",
-    i18nKey: "childproofing",
+    slug: "erste-hilfe-am-kind-kurs",
+    title: "Erste Hilfe am Kind: Pflichtkurs für jede Betreuungsperson",
+    excerpt: "9 Unterrichtseinheiten, alle 2 Jahre wiederholen — hier finden Sie zertifizierte Anbieter (DRK, Malteser, Johanniter) und was der Kurs abdeckt.",
+    category: "Gesundheit & Sicherheit",
+    categoryKey: "gesundheit",
+    i18nKey: "ersteHilfe",
+    date: "2026-02-10",
+    readTime: "4 Min. Lesezeit",
+    author: "KinderStars Akademie",
+    image: "https://images.unsplash.com/photo-1584515933487-779824d29309?w=800&q=80",
+    content: `## Warum ist Erste Hilfe am Kind Pflicht?
+
+Kinder verunglücken anders als Erwachsene. Der Kurs **Erste Hilfe am Kind** (9 UE) deckt u. a. ab:
+- Reanimation bei Säuglingen und Kleinkindern
+- Verschlucken/Bolusgeschehen (Heimlich-Manöver)
+- Fieberkrampf, Vergiftungen, Verbrennungen
+- Wundversorgung und Schockbekämpfung
+
+### Zertifizierte Anbieter
+- Deutsches Rotes Kreuz (DRK)
+- Malteser Hilfsdienst
+- Johanniter-Unfall-Hilfe
+- Arbeiter-Samariter-Bund (ASB)
+
+### Auffrischung
+Der Nachweis darf i. d. R. **nicht älter als 2 Jahre** sein. KinderStars erinnert Sie automatisch 60 Tage vor Ablauf.
+
+> **Angebot:** Über [KinderStars Erste Hilfe](/erste-hilfe) buchen Sie Präsenz-Gruppenkurse ab **69 € pro Platz**.`,
+  },
+  {
+    slug: "dsgvo-fuer-kinderbetreuung",
+    title: "DSGVO in der Kinderbetreuung: Was Betreuungspersonen wirklich beachten müssen",
+    excerpt: "Fotos, Entwicklungsberichte, Elternchats — sensible Kinderdaten unterliegen strengen Regeln. Ein praktischer Leitfaden.",
+    category: "Recht & Regulierung",
+    categoryKey: "recht",
+    i18nKey: "dsgvo",
+    date: "2026-02-04",
+    readTime: "6 Min. Lesezeit",
+    author: "KinderStars Datenschutz",
+    image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&q=80",
+    content: `## Warum DSGVO in der Kinderbetreuung besonders wichtig ist
+
+Daten über Kinder gehören zu den **besonders schutzwürdigen Kategorien** (Art. 8 DSGVO). Fehler können teuer werden.
+
+### Die 5 wichtigsten Regeln
+1. **Einwilligung schriftlich** einholen — separat für Fotos, Videos, Weitergabe an Dritte.
+2. **Datenminimierung** — nur erfassen, was nötig ist.
+3. **Sichere Kommunikation** — keine sensiblen Daten per WhatsApp/E-Mail unverschlüsselt.
+4. **Löschfristen** einhalten (i. d. R. 3 Jahre nach Betreuungsende).
+5. **Dokumentation** — Verzeichnis von Verarbeitungstätigkeiten (Art. 30 DSGVO).
+
+### KinderStars-Vorteil
+Alle Nachrichten, Verträge und Dokumente laufen DSGVO-konform in unserem Portal — Hosting in der EU, TLS-verschlüsselt, Zugriffsprotokoll.`,
+  },
+  {
+    slug: "steuerfreie-arbeitgeberzuschuesse-kinderbetreuung",
+    title: "§ 3 Nr. 33 EStG: Steuerfreier Arbeitgeberzuschuss für Kinderbetreuung",
+    excerpt: "Arbeitgeber können Kinderbetreuung für Kinder unter 6 Jahren steuer- und sozialabgabenfrei bezuschussen. So funktioniert es.",
+    category: "Förderung & Steuer",
+    categoryKey: "foerderung",
+    i18nKey: "arbeitgeberzuschuss",
+    date: "2026-01-28",
+    readTime: "5 Min. Lesezeit",
+    author: "KinderStars Redaktion",
+    image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80",
+    content: `## § 3 Nr. 33 EStG in der Praxis
+
+Arbeitgeber dürfen **unbegrenzt** die Kosten für die Unterbringung und Betreuung **nicht schulpflichtiger Kinder** in Kindergärten, Kitas **oder bei einer Kindertagespflegeperson** übernehmen — **steuer- und sozialabgabenfrei**.
+
+### Voraussetzungen
+- Kind ist **nicht schulpflichtig**.
+- Betreuung erfolgt **außerhalb der Wohnung** (bei Kindertagespflege ausdrücklich zulässig, auch im Haushalt der Pflegeperson bzw. der Eltern nach BFH-Rechtsprechung — Einzelfall prüfen).
+- **Zusätzlich zum ohnehin geschuldeten Arbeitslohn** — keine Gehaltsumwandlung.
+- **Belegnachweis** (Rechnung + Zahlungsnachweis) für die Lohnbuchhaltung.
+
+### Für Arbeitgeber via KinderStars
+Wir stellen [B2B-Rechnungen](/fuer-arbeitgeber) direkt an die Firma aus — komplettes Belegpaket inklusive. Mitarbeiterbindung, steuerlich sauber, DSGVO-konform.`,
+  },
+  {
+    slug: "kinderschutz-paragraph-8a-sgb-viii",
+    title: "Kinderschutz nach § 8a SGB VIII: Handlungspflichten für Betreuungspersonen",
+    excerpt: "Was tun bei Verdacht auf Kindeswohlgefährdung? Meldewege, insoweit erfahrene Fachkraft (InsoFa) und die KinderStars-Meldeplattform.",
+    category: "Recht & Regulierung",
+    categoryKey: "recht",
+    i18nKey: "kinderschutz",
     date: "2026-01-20",
-    readTime: "5 min read",
-    author: "KinderStars Team",
-    image: "https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=800&q=80",
-    content: `## The Complete Home Safety Checklist
+    readTime: "7 Min. Lesezeit",
+    author: "KinderStars Kinderschutz",
+    image: "https://images.unsplash.com/photo-1490131784822-46706e37d3ec?w=800&q=80",
+    content: `## Ihre Verantwortung nach § 8a SGB VIII
 
-Creating a safe environment is the foundation of good childminding practice. Use this checklist for every area of your home.
+Alle Personen, die beruflich mit Kindern arbeiten, unterliegen bei **gewichtigen Anhaltspunkten für Kindeswohlgefährdung** einer Handlungspflicht.
 
-### Kitchen
+### Handlungsschritte
+1. **Wahrnehmung dokumentieren** — sachlich, mit Datum, Uhrzeit, Beobachtung.
+2. **Kollegiale Beratung** — anonymisiert.
+3. **Insoweit erfahrene Fachkraft (InsoFa)** hinzuziehen.
+4. **Erziehungsberechtigte einbeziehen**, sofern der Schutz des Kindes dadurch nicht gefährdet wird.
+5. **Jugendamt informieren**, wenn Gefährdung nicht abgewendet werden kann.
+6. **Notruf 110** bei akuter Gefahr.
 
-- ☑️ Cleaning products locked away or stored high
-- ☑️ Stair gates at kitchen entrance (if needed)
-- ☑️ Oven and hob guards fitted
-- ☑️ Sharp items stored out of reach
-- ☑️ Hot drinks policy in place
-- ☑️ Fridge temperature checked regularly (below 5°C)
+### KinderStars-Meldeplattform
+Über [/childminder/kinderschutz](/childminder/kinderschutz) dokumentieren Sie Beobachtungen strukturiert, DSGVO-konform, mit Zeitstempel und Zugriffsprotokoll — die formale Meldung an das Jugendamt bleibt Ihre Verantwortung.
 
-### Living/Play Areas
-
-- ☑️ Socket covers on unused outlets
-- ☑️ Furniture anchored to walls (anti-tip)
-- ☑️ Window restrictors fitted on upper floors
-- ☑️ Blind cord safety devices installed
-- ☑️ Fireguards secured around radiators/fires
-- ☑️ Small objects and choking hazards removed
-- ☑️ Age-appropriate toys checked regularly for damage
-
-### Garden/Outdoor Space
-
-- ☑️ Fencing secure with childproof gates
-- ☑️ Ponds/water features covered or fenced
-- ☑️ Toxic plants identified and removed
-- ☑️ Outdoor equipment checked for stability
-- ☑️ Animal faeces cleared daily
-- ☑️ Shed/garage locked
-
-### Bathroom
-
-- ☑️ Medicines and toiletries locked away
-- ☑️ Non-slip mats in bath/shower
-- ☑️ Hot water thermostat set to max 48°C
-- ☑️ Toilet lock fitted (for toddlers)
-
-### General
-
-- ☑️ Smoke alarms on every floor (tested monthly)
-- ☑️ Carbon monoxide detector fitted
-- ☑️ Fire blanket accessible
-- ☑️ First aid kit stocked and in date
-- ☑️ Emergency evacuation plan practised regularly
-- ☑️ Pet risk assessment completed (if applicable)
-
-### Documentation
-
-Keep written **risk assessments** for:
-- Each room used for childminding
-- The garden/outdoor area
-- Any regular outing locations
-- Your vehicle (if used for school runs)
-
-> **Tip:** KinderStars' compliance dashboard lets you upload and track all your risk assessments with expiry reminders.`,
+> **Notrufe:** Polizei **110** · Rettungsdienst **112** · Nummer gegen Kummer **116 111**`,
   },
   {
-    slug: "supporting-child-speech-development",
-    title: "10 Simple Ways to Support Your Child's Speech and Language Development",
-    excerpt: "Early language skills are crucial for later learning. Discover practical, everyday strategies that parents and childminders can use to boost communication.",
-    category: "Early Years",
-    categoryKey: "earlyYears",
-    i18nKey: "speechDevelopment",
-    date: "2026-01-15",
-    readTime: "4 min read",
-    author: "KinderStars Team",
-    image: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800&q=80&crop=entropy&cs=tinysrgb&fit=crop&h=500",
-    content: `## Boosting Speech & Language from Day One
+    slug: "babysitter-nanny-kindertagespflege-unterschiede",
+    title: "Babysitter, Nanny oder Kindertagespflege? Die Unterschiede einfach erklärt",
+    excerpt: "Drei Betreuungsformen, drei Rechtsrahmen. Wir zeigen, welche Option zu Ihrer Familie passt — und was steuerlich absetzbar ist.",
+    category: "Für Eltern",
+    categoryKey: "eltern",
+    i18nKey: "unterschiede",
+    date: "2026-01-14",
+    readTime: "6 Min. Lesezeit",
+    author: "KinderStars Redaktion",
+    image: "https://images.unsplash.com/photo-1607453998774-d533f65dac99?w=800&q=80",
+    content: `## Drei Modelle im Vergleich
 
-Communication and language is a **prime area** of the EYFS — and for good reason. Strong early language skills predict later success in reading, writing, and social relationships.
+| Merkmal | **Babysitter** | **Nanny / Kinderfrau** | **Kindertagespflege** |
+|---|---|---|---|
+| Rechtsgrundlage | Minijob/Privatverh. | Arbeitsvertrag i. d. R. | § 22 SGB VIII |
+| Anerkennung | keine | keine | Jugendamt (§ 43) |
+| Ort | Haushalt Eltern | Haushalt Eltern | Kinderfrau-Haushalt oder Eltern |
+| Öffentliche Förderung | nein | nein | ja (§ 23 SGB VIII) |
+| Steuerlich (§ 35a) | 20 % haushaltsn. DL | 20 % haushaltsn. DL | 2/3 als Sonderausgabe (§ 10 EStG) |
 
-### 1. Talk, Talk, Talk
+### Welche Form passt?
+- **Flexible Stunden abends:** Babysitter.
+- **Feste Betreuung 30+ h/Woche im eigenen Haushalt:** Nanny.
+- **Regelmäßige Ganztagsbetreuung mit öffentlicher Förderung:** Kindertagespflege.
 
-Narrate your day: "Now we're putting on your coat. It's the blue one with the zip." This running commentary builds vocabulary naturally.
-
-### 2. Follow the Child's Lead
-
-If a toddler points at a dog, talk about dogs. Interest-led conversation keeps children engaged and motivated to communicate.
-
-### 3. Read Together Every Day
-
-Even 10 minutes of shared reading makes a huge difference. Ask open questions: "What do you think will happen next?"
-
-### 4. Sing Songs and Nursery Rhymes
-
-Rhyme and rhythm develop **phonological awareness** — a key building block for reading. Old favourites like "Twinkle Twinkle" are perfect.
-
-### 5. Reduce Screen Time
-
-Under-2s benefit most from **face-to-face interaction**. If screens are used, watch together and talk about what you see.
-
-### 6. Expand Their Sentences
-
-If a child says "big truck," you might respond: "Yes! It's a big, red truck carrying logs." This models richer language without correcting.
-
-### 7. Give Them Time
-
-Some children need extra processing time. Count to 10 in your head before jumping in — it shows you value their communication.
-
-### 8. Play Imaginatively
-
-Role play, small world play, and dressing up all encourage children to use language creatively and practise social scripts.
-
-### 9. Use Makaton or Visual Supports
-
-Signs and symbols support **all** children's communication, not just those with additional needs. It bridges the gap before speech develops fully.
-
-### 10. Know When to Seek Help
-
-If you're concerned about a child's speech development, the earlier you seek support the better. Talk to your health visitor or ask your childminder to monitor progress.
-
-> **Remember:** Every child develops at their own pace. These strategies create a rich language environment that benefits everyone.`,
+KinderStars vermittelt alle drei Modelle — inklusive rechtssicherer Vertragsvorlagen.`,
   },
   {
-    slug: "choosing-right-childminder",
-    title: "How to Choose the Right Childminder: A Parent's Checklist",
-    excerpt: "Finding the perfect childminder for your family is one of the biggest decisions you'll make. Here's what to look for and the questions to ask.",
-    category: "Parenting",
-    categoryKey: "parenting",
-    i18nKey: "choosingChildminder",
-    date: "2026-01-10",
-    readTime: "5 min read",
-    author: "KinderStars Team",
-    image: "https://images.unsplash.com/photo-1491013516836-7db643ee125a?w=800&q=80",
-    content: `## Finding the Perfect Childminder
+    slug: "scheinselbststaendigkeit-vermeiden",
+    title: "Scheinselbständigkeit vermeiden: Wann Ihre Betreuungsperson ins Arbeitsverhältnis rutscht",
+    excerpt: "Regelmäßige Betreuung im Haushalt der Eltern kann sozialversicherungsrechtlich als Anstellung gelten. So schützen sich Familien.",
+    category: "Recht & Regulierung",
+    categoryKey: "recht",
+    i18nKey: "scheinselbststaendigkeit",
+    date: "2026-01-08",
+    readTime: "6 Min. Lesezeit",
+    author: "KinderStars Compliance",
+    image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&q=80",
+    content: `## Wann liegt Scheinselbständigkeit vor?
 
-A childminder provides a **home-from-home** environment with small group sizes and personalised care. But how do you find the right one?
+Die Deutsche Rentenversicherung prüft u. a.:
+- **Weisungsgebundenheit** (Ort, Zeit, Ausführung)
+- **Eingliederung** in fremden Betrieb/Haushalt
+- **Nur ein Auftraggeber** (> 5/6 Umsatz)
+- **Kein unternehmerisches Risiko**
 
-### Before You Visit
+Trifft mehreres zu, liegt oft ein **abhängiges Beschäftigungsverhältnis** vor — mit Nachzahlungen und Bußgeldern für den Haushalt als Arbeitgeber.
 
-- ✅ Check their **Ofsted registration** and latest report online
-- ✅ Verify their **insurance** is current
-- ✅ Ask about **availability** for your required days/hours
-- ✅ Confirm they cover your child's **age group**
-- ✅ Check their **location** and proximity to your home or work
+### So bleiben Sie sauber
+- Für **regelmäßige Betreuung > 15 h/Woche** im eigenen Haushalt: **Minijob oder sozialversicherungspflichtige Anstellung** über die Minijob-Zentrale.
+- Für **projektartige, wechselnde** Einsätze: freiberuflicher Vertrag ok.
+- Bei Unsicherheit: **Statusfeststellungsverfahren** (§ 7a SGB IV).
 
-### Questions to Ask During Your Visit
-
-**About Their Practice:**
-- How do you deliver the EYFS? Can I see learning journals?
-- What does a typical day look like?
-- How do you handle behaviour management?
-- What meals and snacks do you provide?
-
-**About Safety:**
-- Can I see your risk assessments?
-- What's your safeguarding policy?
-- When does your first aid certificate expire?
-- Do you have pets? What's the pet policy?
-
-**About Practicalities:**
-- What are your rates? Are you a funded provider?
-- What's your holiday and sickness policy?
-- What notice period do you require?
-- Do you do school runs?
-
-### Red Flags to Watch For
-
-- 🚩 Reluctance to show registration or DBS
-- 🚩 No written policies or contracts
-- 🚩 Unclean or cluttered environment
-- 🚩 Disengaged interaction with children during your visit
-- 🚩 Unwilling to provide parent references
-
-### Green Flags
-
-- 🟢 Warm, responsive interaction with children
-- 🟢 Well-organised, stimulating environment
-- 🟢 Clear communication and professional documentation
-- 🟢 Positive Ofsted report
-- 🟢 Happy, engaged children
-
-### Trust Your Instincts
-
-Beyond the checklists, pay attention to how you **feel** in their home. Your child will spend significant time there — comfort and trust matter enormously.
-
-> **KinderStars' Find a Childminder** feature lets you search verified childminders in your area, view their profiles, and book directly.`,
+### KinderStars-Schutz
+Unser System erkennt **Wiederholungsmuster** und schlägt automatisch den passenden Vertragstyp (Minijob / Anstellung) vor — inklusive Rechnungs- und Steuerpaket.`,
   },
   {
-    slug: "ofsted-ratings-explained",
-    title: "Ofsted Ratings Explained: What Do They Really Mean for Your Child?",
-    excerpt: "Outstanding, Good, Requires Improvement, Inadequate — we decode what each Ofsted rating means and how much weight parents should give them.",
-    category: "Ofsted",
-    categoryKey: "ofsted",
-    i18nKey: "ofstedRatings",
-    date: "2026-01-05",
-    readTime: "4 min read",
-    author: "KinderStars Team",
-    image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&q=80",
-    content: `## Decoding Ofsted Ratings
+    slug: "kinderstars-verified-badge-erklaert",
+    title: "KinderStars Verified: Was das Prüfsiegel bedeutet — und was nicht",
+    excerpt: "3 Verifizierungsstufen, transparente Kriterien, klare Grenzen. Warum unser Siegel keine staatliche Anerkennung ersetzt.",
+    category: "Für Eltern",
+    categoryKey: "eltern",
+    i18nKey: "verifiedBadge",
+    date: "2026-01-02",
+    readTime: "5 Min. Lesezeit",
+    author: "KinderStars Trust & Safety",
+    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80",
+    content: `## Unsere drei Stufen
 
-When choosing childcare, many parents look straight at the Ofsted rating. But what do the grades actually mean?
+1. **Registered** — E-Mail bestätigt, Grundprofil vollständig.
+2. **Verified (79 €)** — Identität geprüft, erweitertes Führungszeugnis eingesehen, Erste Hilfe am Kind gültig, 2 Referenzen kontaktiert, Video-Interview absolviert. Gültigkeit **12 Monate**.
+3. **Jugendamt Approved** — zusätzlich staatliche **Pflegeerlaubnis** nach § 43 SGB VIII nachgewiesen.
 
-### Outstanding
+### Was Verified NICHT ist
+- Keine staatliche Aufsicht oder Anerkennung.
+- Kein Ersatz für Ihre eigene Einschätzung im Kennenlerngespräch.
+- Kein Freibrief — Eltern bleiben verantwortlich für die Auswahl.
 
-The highest grade. It means the provision **exceeds expectations** across all areas. Children make excellent progress, safeguarding is robust, and the provider continuously improves.
-
-**Key fact:** Only about **15% of childminders** receive Outstanding.
-
-### Good
-
-This means the provision is **effective** and meets all requirements. Children are safe, happy, and making good progress. Most parents should feel very confident with a Good-rated setting.
-
-**Key fact:** Approximately **70% of childminders** are rated Good.
-
-### Requires Improvement
-
-The provision has **some weaknesses** that need addressing but children are safe. The provider will receive another inspection within 12 months.
-
-### Inadequate
-
-There are **serious concerns** about quality or safety. The provider must make significant changes and may face enforcement action.
-
-### Beyond the Rating
-
-While ratings are useful, they don't tell the whole story:
-
-- **Timing matters** — a rating from 3 years ago may not reflect current practice
-- **Context counts** — a childminder who moved from RI to Good shows strong improvement
-- **Visit in person** — the best indicator is seeing the setting yourself
-- **Ask questions** — a Good childminder who communicates well may suit your family better than an Outstanding one who doesn't
-
-### How to Check Ratings
-
-1. Visit the [Ofsted reports website](https://reports.ofsted.gov.uk)
-2. Search by the provider's name or URN
-3. Read the full report — not just the headline grade
-
-> **On KinderStars**, every listed childminder's Ofsted rating and URN is displayed on their profile, with a direct link to their latest report.`,
+### Was Verified sehr wohl ist
+Eine transparente, **dokumentierte** Grundprüfung, an der sich auch Jugendämter über [unser Behörden-Portal](/jugendamt) orientieren können.`,
   },
 ];
 
@@ -491,4 +303,4 @@ export const getPostBySlug = (slug: string): BlogPost | undefined =>
   blogPosts.find((p) => p.slug === slug);
 
 export const getPostsByCategory = (category: string): BlogPost[] =>
-  category === "All" ? blogPosts : blogPosts.filter((p) => p.category === category);
+  category === "Alle" ? blogPosts : blogPosts.filter((p) => p.category === category);
