@@ -38,7 +38,7 @@ const DOC_TASKS = [
   { key: "first_aid", label: "Erste-Hilfe-Kurs am Kind (max. 2 Jahre alt) hochladen", icon: Heart, requiresDoc: true },
 ];
 
-// Stage 3: References & right to work (now mandatory uploads)
+// Stufe 3: Referenzen & Arbeitsberechtigung (Pflicht-Uploads)
 const VERIFICATION_TASKS = [
   { key: "references", label: "Zwei berufliche Referenzen hochladen", icon: ClipboardList, requiresDoc: true },
   { key: "right_to_work", label: "Aufenthalts-/Arbeitserlaubnis­nachweis hochladen (falls kein EU-Pass)", icon: FileText, requiresDoc: true },
@@ -367,7 +367,7 @@ const ChildminderOnboarding = () => {
         )}
       </OnboardingStage>
 
-      {/* Stage 3: References & Right to Work */}
+      {/* Stufe 3: Referenzen & Arbeitsberechtigung */}
       <OnboardingStage
         title="Referenzen & Arbeitsberechtigung"
         description={verificationComplete ? "Referenzen und Berechtigung bestätigt" : "Referenzen und Nachweis der Arbeitsberechtigung hochladen"}
@@ -391,7 +391,7 @@ const ChildminderOnboarding = () => {
           ))}
         </div>
 
-        {/* Amiqus Right to Work check */}
+        {/* Amiqus – Prüfung der Arbeitsberechtigung */}
         {user && !isVerified && (
           <div className="mt-3">
             <AmiqusCheckButton
@@ -406,7 +406,7 @@ const ChildminderOnboarding = () => {
 
         {verificationAllUploaded && !verificationComplete && !verificationAnyRejected && (
           <p className="text-xs text-muted-foreground mt-3">
-            ⏳ Your documents are being reviewed by KinderStars. You'll be notified in real-time once approved.
+            ⏳ Ihre Dokumente werden vom KinderStars-Team geprüft. Sie werden in Echtzeit benachrichtigt, sobald sie freigegeben sind.
           </p>
         )}
         {verificationAnyRejected && (
