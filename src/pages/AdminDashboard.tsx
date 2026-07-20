@@ -583,7 +583,7 @@ const AdminDashboard = () => {
     const { error } = await supabase.from("shifts").update({ childminder_id: targetCmId, status: "offered" }).eq("id", shiftId);
     ganttDragRef.current = null;
     if (error) toast({ title: "Error", description: error.message, variant: "destructive" });
-    else { toast({ title: "Shift reassigned" }); fetchAllShifts(); }
+    else { toast({ title: "Einsatz neu zugewiesen" }); fetchAllShifts(); }
   };
 
   const navigateGantt = (dir: 1 | -1) => {
@@ -640,7 +640,7 @@ const AdminDashboard = () => {
 
   const handleAddExpense = async () => {
     if (!expenseForm.amount || !expenseForm.category) {
-      toast({ title: "Please fill category and amount", variant: "destructive" });
+      toast({ title: "Bitte Kategorie und Betrag ausfüllen", variant: "destructive" });
       return;
     }
     setExpenseSaving(true);
@@ -659,7 +659,7 @@ const AdminDashboard = () => {
     });
     if (error) toast({ title: "Error", description: error.message, variant: "destructive" });
     else {
-      toast({ title: "Expense added!" });
+      toast({ title: "Ausgabe hinzugefügt!" });
       setExpenseForm({ category: "Fuel", description: "", amount: "", expense_date: format(new Date(), "yyyy-MM-dd"), allocated_to: "", notes: "", paid_to: "", is_paid: false, paid_by: "", reimbursed: false });
       fetchExpenses();
     }
@@ -668,17 +668,17 @@ const AdminDashboard = () => {
 
   const deleteExpense = async (id: string) => {
     await supabase.from("expenses").delete().eq("id", id);
-    toast({ title: "Expense deleted" });
+    toast({ title: "Ausgabe gelöscht" });
     fetchExpenses();
   };
 
   const toggleExpensePaid = async (id: string, current: boolean) => {
     if (!isOwner) {
-      toast({ title: "Only the Owner can approve expenses", variant: "destructive" });
+      toast({ title: "Nur der Inhaber kann Ausgaben genehmigen", variant: "destructive" });
       return;
     }
     await supabase.from("expenses").update({ is_paid: !current }).eq("id", id);
-    toast({ title: !current ? "Expense approved ✅" : "Expense unapproved" });
+    toast({ title: !current ? "Ausgabe genehmigt ✅" : "Genehmigung zurückgenommen" });
     fetchExpenses();
   };
 
@@ -695,8 +695,8 @@ const AdminDashboard = () => {
       { type: "ofsted_registration", label: "Pflegeerlaubnis § 43 SGB VIII" },
     ],
     parent: [
-      { type: "other", label: "Proof of Identity (Passport or Driving Licence)" },
-      { type: "proof_of_address", label: "Proof of Address (Utility Bill or Bank Statement)" },
+      { type: "other", label: "Identitätsnachweis (Personalausweis oder Reisepass)" },
+      { type: "proof_of_address", label: "Adressnachweis (Meldebescheinigung oder Kontoauszug)" },
     ],
   };
 
@@ -714,7 +714,7 @@ const AdminDashboard = () => {
       .map(req => req.label);
 
     const allApproved = total > 0 && approved === total && missingRequired.length === 0;
-    return { total, approved, pending, rejected, allApproved, missingRequired };
+    return { total, approved, ausstehend, rejected, allApproved, missingRequired };
   };
 
   const updateOnboardingStatus = async (userId: string, status: string) => {
@@ -722,15 +722,15 @@ const AdminDashboard = () => {
     if (status === "verified" || status === "interview_passed") {
       const docCheck = await checkUserDocuments(userId, "childminder");
       if (docCheck.missingRequired.length > 0) {
-        toast({ title: "Missing required documents", description: `The following must be uploaded and approved: ${docCheck.missingRequired.join(", ")}`, variant: "destructive" });
+        toast({ title: "Pflichtdokumente fehlen", description: `Folgende Unterlagen müssen hochgeladen und freigegeben sein: ${docCheck.missingRequired.join(", ")}`, variant: "destructive" });
         return;
       }
       if (docCheck.total === 0) {
-        toast({ title: "Cannot proceed", description: "No documents uploaded. The user must upload required documents first.", variant: "destructive" });
+        toast({ title: "Weiter nicht möglich", description: "Keine Dokumente hochgeladen. Der Nutzer muss zuerst die Pflichtdokumente hochladen.", variant: "destructive" });
         return;
       }
       if (!docCheck.allApproved) {
-        toast({ title: "Cannot proceed", description: `${docCheck.pending} pending, ${docCheck.rejected} rejected document(s). All documents must be approved before ${status === "verified" ? "verification" : "passing interview"}.`, variant: "destructive" });
+        toast({ title: "Weiter nicht möglich", description: `${docCheck.pending} ausstehend, ${docCheck.rejected} abgelehnt. Alle Dokumente müssen freigegeben sein vor ${status === "verified" ? "der Verifizierung" : "dem Interviewbestehen"}.`, variant: "destructive" });
         return;
       }
     }
@@ -749,16 +749,16 @@ const AdminDashboard = () => {
     if (!current) {
       const docCheck = await checkUserDocuments(userId, "childminder");
       if (docCheck.missingRequired.length > 0) {
-        toast({ title: "Missing required documents", description: `The following must be uploaded and approved: ${docCheck.missingRequired.join(", ")}`, variant: "destructive" });
+        toast({ title: "Pflichtdokumente fehlen", description: `Folgende Unterlagen müssen hochgeladen und freigegeben sein: ${docCheck.missingRequired.join(", ")}`, variant: "destructive" });
         return;
       }
       if (!docCheck.allApproved) {
-        toast({ title: "Cannot go live", description: `${docCheck.total === 0 ? "No documents uploaded" : `${docCheck.pending} pending, ${docCheck.rejected} rejected document(s)`}. All documents must be approved first.`, variant: "destructive" });
+        toast({ title: "Freischaltung nicht möglich", description: `${docCheck.total === 0 ? "Keine Dokumente hochgeladen" : `${docCheck.pending} ausstehend, ${docCheck.rejected} rejected document(s)`}. All documents must be approved first.`, variant: "destructive" });
         return;
       }
     }
     await supabase.from("childminder_profiles").update({ is_live: !current }).eq("user_id", userId);
-    toast({ title: !current ? "Now live" : "Set offline" });
+    toast({ title: !current ? "Jetzt aktiv" : "Offline gesetzt" });
     fetchMinders(minderPage);
   };
 
@@ -785,36 +785,36 @@ const AdminDashboard = () => {
     // Check parent documents are all approved
     const docCheck = await checkUserDocuments(userId, "parent");
     if (docCheck.missingRequired.length > 0) {
-      toast({ title: "Missing required documents", description: `The following must be uploaded and approved: ${docCheck.missingRequired.join(", ")}`, variant: "destructive" });
+      toast({ title: "Pflichtdokumente fehlen", description: `Folgende Unterlagen müssen hochgeladen und freigegeben sein: ${docCheck.missingRequired.join(", ")}`, variant: "destructive" });
       return;
     }
     if (docCheck.total > 0 && !docCheck.allApproved) {
-      toast({ title: "Cannot verify", description: `${docCheck.pending} pending, ${docCheck.rejected} rejected document(s). All documents must be approved before verification.`, variant: "destructive" });
+      toast({ title: "Verifizierung nicht möglich", description: `${docCheck.pending} ausstehend, ${docCheck.rejected} abgelehnt. Alle Dokumente müssen freigegeben sein vor verification.`, variant: "destructive" });
       return;
     }
 
     await supabase.from("onboarding_tasks").upsert(
-      { user_id: userId, task_key: "parent_verified", task_label: "Parent verified by admin", completed: true, completed_at: new Date().toISOString() },
+      { user_id: userId, task_key: "parent_verified", task_label: "Familie durch Admin verifiziert", completed: true, completed_at: new Date().toISOString() },
       { onConflict: "user_id,task_key" }
     );
     await supabase.from("onboarding_tasks").upsert(
-      { user_id: userId, task_key: "parent_rejected", task_label: "Parent rejected", completed: false, completed_at: null },
+      { user_id: userId, task_key: "parent_rejected", task_label: "Familie abgelehnt", completed: false, completed_at: null },
       { onConflict: "user_id,task_key" }
     );
-    toast({ title: "Parent verified ✅" });
+    toast({ title: "Familie verifiziert ✅" });
     fetchParentOnboarding();
   };
 
   const rejectParent = async (userId: string) => {
     await supabase.from("onboarding_tasks").upsert(
-      { user_id: userId, task_key: "parent_rejected", task_label: "Parent rejected by admin", completed: true, completed_at: new Date().toISOString() },
+      { user_id: userId, task_key: "parent_rejected", task_label: "Familie durch Admin abgelehnt", completed: true, completed_at: new Date().toISOString() },
       { onConflict: "user_id,task_key" }
     );
     await supabase.from("onboarding_tasks").upsert(
-      { user_id: userId, task_key: "parent_verified", task_label: "Parent verified by admin", completed: false, completed_at: null },
+      { user_id: userId, task_key: "parent_verified", task_label: "Familie durch Admin verifiziert", completed: false, completed_at: null },
       { onConflict: "user_id,task_key" }
     );
-    toast({ title: "Parent rejected", variant: "destructive" });
+    toast({ title: "Familie abgelehnt", variant: "destructive" });
     fetchParentOnboarding();
   };
 
@@ -2426,7 +2426,7 @@ const AdminDashboard = () => {
                               <td className="p-3">
                                 <button onClick={() => toggleExpensePaid(e.id, e.is_paid)}
                                   className={`text-[11px] px-2 py-1 rounded-full font-bold ${isOwner ? "cursor-pointer" : "cursor-not-allowed opacity-70"} ${e.is_paid ? "bg-success/15 text-success" : "bg-destructive/15 text-destructive"}`}
-                                  title={isOwner ? (e.is_paid ? "Click to unapprove" : "Click to approve") : "Only the Owner can approve expenses"}>
+                                  title={isOwner ? (e.is_paid ? "Click to unapprove" : "Click to approve") : "Nur der Inhaber kann Ausgaben genehmigen"}>
                                   {e.is_paid ? "Approved" : "Pending"}
                                 </button>
                               </td>
