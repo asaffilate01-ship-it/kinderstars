@@ -282,7 +282,7 @@ const AdminRoster = () => {
 
   const handleCreateShift = async () => {
     if (!newShift.title || !newShift.start_time || !newShift.end_time) {
-      toast({ title: "Missing fields", description: "Title, start and end time required", variant: "destructive" });
+      toast({ title: "Pflichtfelder fehlen", description: "Titel, Start- und Endzeit erforderlich", variant: "destructive" });
       return;
     }
     setSaving(true);
@@ -293,9 +293,9 @@ const AdminRoster = () => {
       notes: newShift.notes || null, status: newShift.childminder_id ? "offered" : "pending", created_by: user?.id,
     });
     setSaving(false);
-    if (error) toast({ title: "Error", description: error.message, variant: "destructive" });
+    if (error) toast({ title: "Fehler", description: error.message, variant: "destructive" });
     else {
-      toast({ title: "Shift created" });
+      toast({ title: "Einsatz erstellt" });
       setShowForm(false);
       setNewShift({ title: "", childminder_id: "", start_time: "", end_time: "", location_address: "", location_postcode: "", notes: "" });
       fetchData();
@@ -315,14 +315,14 @@ const AdminRoster = () => {
     if (drag.type === "shift") {
       // Check subscription before assigning
       if (!cmSubscriptions[targetCmId]) {
-        toast({ title: "No active subscription", description: "This childminder must subscribe before receiving jobs.", variant: "destructive" });
+        toast({ title: "Kein aktives Abonnement", description: "Diese Betreuungsperson benötigt ein Abonnement, bevor sie Einsätze erhalten kann.", variant: "destructive" });
         return;
       }
       const { error } = await supabase.from("shifts").update({ childminder_id: targetCmId, status: "offered" }).eq("id", drag.id);
-      if (error) toast({ title: "Error", description: error.message, variant: "destructive" });
-      else { toast({ title: "Shift assigned" }); fetchData(); }
+      if (error) toast({ title: "Fehler", description: error.message, variant: "destructive" });
+      else { toast({ title: "Einsatz zugewiesen" }); fetchData(); }
     } else if (drag.type === "childminder") {
-      toast({ title: "Drag a childminder onto a specific shift card, or drag a shift onto a childminder row", variant: "destructive" });
+      toast({ title: "Ziehen Sie eine Betreuungsperson auf eine bestimmte Einsatzkarte oder einen Einsatz auf eine Betreuungspersonen-Zeile", variant: "destructive" });
     }
   };
 
@@ -334,8 +334,8 @@ const AdminRoster = () => {
 
     if (drag.type === "shift") {
       const { error } = await supabase.from("shifts").update({ childminder_id: null, status: "pending" }).eq("id", drag.id);
-      if (error) toast({ title: "Error", description: error.message, variant: "destructive" });
-      else { toast({ title: "Shift unassigned" }); fetchData(); }
+      if (error) toast({ title: "Fehler", description: error.message, variant: "destructive" });
+      else { toast({ title: "Zuweisung entfernt" }); fetchData(); }
     }
   };
 
@@ -348,16 +348,16 @@ const AdminRoster = () => {
     if (drag.type === "childminder") {
       // Check subscription before assigning
       if (!cmSubscriptions[drag.id]) {
-        toast({ title: "No active subscription", description: "This childminder must subscribe before receiving jobs.", variant: "destructive" });
+        toast({ title: "Kein aktives Abonnement", description: "Diese Betreuungsperson benötigt ein Abonnement, bevor sie Einsätze erhalten kann.", variant: "destructive" });
         return;
       }
       const { error } = await supabase.from("shifts").update({ childminder_id: drag.id, status: "offered" }).eq("id", shiftId);
-      if (error) toast({ title: "Error", description: error.message, variant: "destructive" });
-      else { toast({ title: "Childminder assigned to shift" }); fetchData(); }
+      if (error) toast({ title: "Fehler", description: error.message, variant: "destructive" });
+      else { toast({ title: "Betreuungsperson zugewiesen" }); fetchData(); }
     } else if (drag.type === "parent") {
       const { error } = await supabase.from("shifts").update({ parent_id: drag.id }).eq("id", shiftId);
-      if (error) toast({ title: "Error", description: error.message, variant: "destructive" });
-      else { toast({ title: "Parent assigned to shift" }); fetchData(); }
+      if (error) toast({ title: "Fehler", description: error.message, variant: "destructive" });
+      else { toast({ title: "Familie zugewiesen" }); fetchData(); }
     }
   };
 
@@ -400,8 +400,8 @@ const AdminRoster = () => {
       });
       if (rows.length > 0) {
         const { error } = await supabase.from("shifts").insert(rows);
-        if (error) toast({ title: "Import error", description: error.message, variant: "destructive" });
-        else { toast({ title: `${rows.length} shifts imported` }); fetchData(); }
+        if (error) toast({ title: "Import-Fehler", description: error.message, variant: "destructive" });
+        else { toast({ title: `${rows.length} Einsätze importiert` }); fetchData(); }
       }
     };
     reader.readAsText(file); e.target.value = "";
@@ -585,7 +585,7 @@ const AdminRoster = () => {
                 </select>
               </div>
               <div>
-                <label className="text-xs text-muted-foreground mb-1 block">Area / Postcode</label>
+                <label className="text-xs text-muted-foreground mb-1 block">Gebiet / PLZ</label>
                 <Input className="h-9 text-xs w-32" placeholder="e.g. LU1" value={filterArea} onChange={(e) => setFilterArea(e.target.value)} />
               </div>
               <Button variant="ghost" size="sm" onClick={() => { setFilterMinder(""); setFilterParent(""); setFilterStatus(""); setFilterArea(""); }}>
@@ -618,7 +618,7 @@ const AdminRoster = () => {
                 <div className="ks-field"><label>Start</label><input type="datetime-local" value={newShift.start_time} onChange={(e) => setNewShift({ ...newShift, start_time: e.target.value })} /></div>
                 <div className="ks-field"><label>End</label><input type="datetime-local" value={newShift.end_time} onChange={(e) => setNewShift({ ...newShift, end_time: e.target.value })} /></div>
                 <div className="ks-field"><label>Location</label><input value={newShift.location_address} onChange={(e) => setNewShift({ ...newShift, location_address: e.target.value })} /></div>
-                <div className="ks-field"><label>Postcode</label><input value={newShift.location_postcode} onChange={(e) => setNewShift({ ...newShift, location_postcode: e.target.value })} /></div>
+                <div className="ks-field"><label>PLZ</label><input value={newShift.location_postcode} onChange={(e) => setNewShift({ ...newShift, location_postcode: e.target.value })} /></div>
                 <div className="ks-field col-span-2"><label>Notes</label><input value={newShift.notes} onChange={(e) => setNewShift({ ...newShift, notes: e.target.value })} /></div>
               </div>
               <div className="flex gap-2 mt-3">

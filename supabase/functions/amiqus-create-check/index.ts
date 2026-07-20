@@ -129,10 +129,17 @@ serve(async (req) => {
     });
 
     // Step 4: Create a notification for the user
+    const checkLabelDE = check_type === "dbs"
+      ? "Führungszeugnis-Prüfung (§ 30a BZRG)"
+      : check_type === "identity"
+      ? "Identitätsprüfung"
+      : check_type === "right_to_work"
+      ? "Prüfung der Arbeitserlaubnis"
+      : "Hintergrundprüfung";
     await adminClient.from("notifications").insert({
       user_id: userId,
-      title: "Verification check initiated",
-      body: `Your ${check_type === "dbs" ? "DBS" : check_type === "identity" ? "ID verification" : check_type === "right_to_work" ? "right to work" : "background"} check has been started. You'll receive an email from Amiqus with next steps.`,
+      title: "Verifizierungsprüfung gestartet",
+      body: `Ihre ${checkLabelDE} wurde gestartet. Sie erhalten in Kürze eine E-Mail von Amiqus mit den nächsten Schritten.`,
       type: "info",
       link: "/childminder/onboarding",
     });
@@ -141,7 +148,7 @@ serve(async (req) => {
       success: true,
       record_id: recordId,
       client_id: clientId,
-      message: "Check initiated — the applicant will receive an email from Amiqus to complete the process.",
+      message: "Prüfung gestartet — die Bewerberin/der Bewerber erhält eine E-Mail von Amiqus, um den Vorgang abzuschließen.",
     }), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });

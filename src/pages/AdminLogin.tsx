@@ -56,8 +56,8 @@ const AdminLogin = () => {
     return authWrapper(
       <div className="space-y-4">
         <div className="text-center">
-          <h2 className="font-bold text-lg">Set Up Two-Factor Authentication</h2>
-          <p className="text-muted-foreground text-sm mt-1">MFA is required. Set up your authenticator app to continue.</p>
+          <h2 className="font-bold text-lg">Zwei-Faktor-Authentifizierung einrichten</h2>
+          <p className="text-muted-foreground text-sm mt-1">MFA ist erforderlich. Richten Sie Ihre Authenticator-App ein, um fortzufahren.</p>
         </div>
         <MFASetup onComplete={() => navigate("/admin/dashboard")} inline />
       </div>
@@ -77,23 +77,23 @@ const AdminLogin = () => {
       <div className="w-full max-w-[400px]">
         <div className="text-center mb-6">
           <a href="/"><img src={logo} alt="KinderStars" className="w-[160px] mx-auto mb-4" /></a>
-          <h1 className="text-xl font-bold tracking-tight">Admin login</h1>
-          <p className="text-muted-foreground text-sm mt-1">Sign in to manage the childminder directory.</p>
+          <h1 className="text-xl font-bold tracking-tight">Admin-Login</h1>
+          <p className="text-muted-foreground text-sm mt-1">Melden Sie sich an, um das Verzeichnis zu verwalten.</p>
         </div>
 
         <div className="ks-card p-6">
           <form onSubmit={handleSubmit} className="space-y-3">
             <div className="ks-field">
-              <label htmlFor="admin-email">Email</label>
+              <label htmlFor="admin-email">E-Mail</label>
               <input id="admin-email" type="email" required value={email} onChange={e => setEmail(e.target.value)} />
             </div>
             <div className="ks-field">
-              <label htmlFor="admin-password">Password</label>
+              <label htmlFor="admin-password">Passwort</label>
               <input id="admin-password" type="password" required value={password} onChange={e => setPassword(e.target.value)} />
             </div>
             {error && <p className="text-destructive text-xs">{error}</p>}
             <Button variant="hero" className="w-full" type="submit" disabled={submitting || loading}>
-              {submitting ? "Signing in…" : "Sign in"}
+              {submitting ? "Anmeldung läuft…" : "Anmelden"}
             </Button>
           </form>
         </div>

@@ -13,18 +13,18 @@ const DAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"] as const;
 const AGE_GROUPS = ["0-1", "2-4", "5-8"] as const;
 
 const childminderSchema = z.object({
-  id: z.string().trim().min(1, "Reference ID is required").max(30, "ID too long"),
-  firstName: z.string().trim().min(1, "First name is required").max(50, "First name too long").regex(/^[a-zA-ZÀ-ÿ\s'-]+$/, "Invalid characters in name"),
-  lastInitial: z.string().trim().min(1, "Last initial is required").max(2, "Max 2 characters").regex(/^[a-zA-ZÀ-ÿ]+$/, "Must be letters only"),
-  town: z.string().trim().min(1, "Town is required").max(100, "Town name too long"),
+  id: z.string().trim().min(1, "Referenz-ID erforderlich").max(30, "ID zu lang"),
+  firstName: z.string().trim().min(1, "Vorname erforderlich").max(50, "Vorname zu lang").regex(/^[a-zA-ZÀ-ÿ\s'-]+$/, "Ungültige Zeichen im Namen"),
+  lastInitial: z.string().trim().min(1, "Anfangsbuchstabe des Nachnamens erforderlich").max(2, "Max. 2 Zeichen").regex(/^[a-zA-ZÀ-ÿ]+$/, "Nur Buchstaben erlaubt"),
+  town: z.string().trim().min(1, "Stadt erforderlich").max(100, "Stadtname zu lang"),
   postcodeDistrict: z.string().trim().min(2, "PLZ‑Bereich erforderlich").max(5, "PLZ zu lang").regex(/^\d{2,5}$/, "Ungültige PLZ (z. B. 10115 oder 101)"),
   verified: z.boolean(),
   ageGroups: z.array(z.enum(AGE_GROUPS)),
   days: z.array(z.enum(DAYS)),
-  hours: z.string().max(50, "Hours too long").optional().or(z.literal("")),
-  languages: z.array(z.string().trim().max(30)).max(10, "Too many languages"),
+  hours: z.string().max(50, "Stundenangabe zu lang").optional().or(z.literal("")),
+  languages: z.array(z.string().trim().max(30)).max(10, "Zu viele Sprachen"),
   experienceYears: z.number().int().min(0).max(50).nullable(),
-  bio: z.string().max(500, "Bio must be under 500 characters").optional().or(z.literal("")),
+  bio: z.string().max(500, "Kurzprofil darf max. 500 Zeichen haben").optional().or(z.literal("")),
 });
 
 const emptyForm: Childminder = {
@@ -65,7 +65,7 @@ const AdminPanel = () => {
     const result = childminderSchema.safeParse(form);
     if (!result.success) {
       const firstError = result.error.errors[0];
-      toast({ title: "Validation error", description: firstError.message, variant: "destructive" });
+      toast({ title: "Validierungsfehler", description: firstError.message, variant: "destructive" });
       return;
     }
     setSaving(true);
