@@ -143,51 +143,51 @@ const sidebarItems: { key: Tab; icon: any; label: string; group: string }[] = [
 
 const PAGE_SIZE = 50;
 
-// ─── OFSTED CHECKLIST DATA ───
+// ─── JUGENDAMT / § 43 SGB VIII COMPLIANCE-RAHMEN ───
 const OFSTED_AREAS = [
   {
-    area: "Leadership & Management",
+    area: "Trägerqualität & Kinderschutz",
     weight: 25,
     items: [
-      { key: "safeguarding_policy", label: "Safeguarding policy up to date" },
-      { key: "staff_dbs", label: "Alle Mitarbeiter mit erweitertem Führungszeugnis" },
-      { key: "staff_training", label: "Staff training records current" },
-      { key: "complaints_log", label: "Complaints log maintained" },
-      { key: "risk_assessments", label: "Risk assessments completed" },
-      { key: "supervision_records", label: "Staff supervision records" },
+      { key: "safeguarding_policy", label: "Kinderschutzkonzept (§ 8a SGB VIII) aktuell" },
+      { key: "staff_dbs", label: "Erweitertes Führungszeugnis (§ 30a BZRG) für alle Betreuungspersonen" },
+      { key: "staff_training", label: "Fortbildungsnachweise vollständig (jährlich)" },
+      { key: "complaints_log", label: "Beschwerdemanagement dokumentiert" },
+      { key: "risk_assessments", label: "Gefährdungsbeurteilung Wohnraum vorhanden" },
+      { key: "supervision_records", label: "Fachberatung / kollegiale Beratung dokumentiert" },
     ],
   },
   {
-    area: "Quality of Teaching, Learning & Assessment",
+    area: "Pädagogische Qualität & Bildungsplan",
     weight: 25,
     items: [
-      { key: "learning_plans", label: "Individual learning plans in place" },
-      { key: "observations", label: "Regular child observations recorded" },
-      { key: "parent_engagement", label: "Parent engagement documented" },
-      { key: "eyfs_tracking", label: "Bildungsdokumentation & Portfolios" },
-      { key: "activity_planning", label: "Activity planning documented" },
+      { key: "learning_plans", label: "Individuelle Förderplanung je Kind" },
+      { key: "observations", label: "Regelmäßige Bildungs- und Entwicklungsbeobachtungen" },
+      { key: "parent_engagement", label: "Elterngespräche und Erziehungspartnerschaft dokumentiert" },
+      { key: "eyfs_tracking", label: "Bildungsdokumentation & Portfolios (Bildungsplan des Landes)" },
+      { key: "activity_planning", label: "Wochen- und Angebotsplanung dokumentiert" },
     ],
   },
   {
-    area: "Personal Development, Behaviour & Welfare",
+    area: "Gesundheit, Hygiene & Sicherheit",
     weight: 25,
     items: [
-      { key: "first_aid", label: "First aid certificates valid" },
-      { key: "food_hygiene", label: "Food hygiene standards met" },
-      { key: "accident_records", label: "Accident/incident records maintained" },
-      { key: "medication_records", label: "Medication records up to date" },
-      { key: "behaviour_policy", label: "Behaviour management policy" },
-      { key: "inclusion_policy", label: "Inclusion & equality policy" },
+      { key: "first_aid", label: "Erste-Hilfe-am-Kind-Zertifikat gültig (max. 2 Jahre)" },
+      { key: "food_hygiene", label: "Belehrung nach § 43 IfSG vorhanden" },
+      { key: "accident_records", label: "Unfall- und Vorkommnisbuch geführt" },
+      { key: "medication_records", label: "Medikamentengabe protokolliert (mit Einwilligung)" },
+      { key: "behaviour_policy", label: "Konzept zum Umgang mit Konflikten & Grenzsituationen" },
+      { key: "inclusion_policy", label: "Inklusions- und Teilhabekonzept (Diversität, § 22a SGB VIII)" },
     ],
   },
   {
-    area: "Outcomes for Children",
+    area: "Entwicklung & Ergebnisse für Kinder",
     weight: 25,
     items: [
-      { key: "progress_reports", label: "Progress reports generated" },
-      { key: "school_readiness", label: "School readiness tracking" },
-      { key: "sen_support", label: "SEN support documented" },
-      { key: "parent_feedback", label: "Parent feedback collected" },
+      { key: "progress_reports", label: "Entwicklungsberichte erstellt" },
+      { key: "school_readiness", label: "Übergang Kita/Schule vorbereitet" },
+      { key: "sen_support", label: "Förderbedarf & Eingliederungshilfe (§ 35a SGB VIII) dokumentiert" },
+      { key: "parent_feedback", label: "Elternfeedback erhoben und ausgewertet" },
     ],
   },
 ];
