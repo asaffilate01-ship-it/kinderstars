@@ -714,7 +714,7 @@ const AdminDashboard = () => {
       .map(req => req.label);
 
     const allApproved = total > 0 && approved === total && missingRequired.length === 0;
-    return { total, approved, ausstehend, rejected, allApproved, missingRequired };
+    return { total, approved, pending, rejected, allApproved, missingRequired };
   };
 
   const updateOnboardingStatus = async (userId: string, status: string) => {
