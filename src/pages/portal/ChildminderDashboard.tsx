@@ -6,6 +6,7 @@ import { Calendar, Clock, FileText, Bell, TrendingUp, GraduationCap, ClipboardLi
 import { Link } from "react-router-dom";
 import { format } from "date-fns";
 import WelcomeTour, { TourStep } from "@/components/WelcomeTour";
+import InsuranceStatusBanner from "@/components/InsuranceStatusBanner";
 
 const ChildminderDashboard = () => {
   const { t } = useTranslation();
@@ -114,6 +115,12 @@ const ChildminderDashboard = () => {
         {firstName ? `${firstName}` : user?.email}
         {isProspect && ` — ${t("portal.childminder.completePath")}`}
       </p>
+
+      {!isProspect && (
+        <div className="mb-4">
+          <InsuranceStatusBanner />
+        </div>
+      )}
 
       {!isProspect && (
         <div data-tour="cm-stats" className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">

@@ -373,8 +373,12 @@ export type Database = {
           first_aid_expiry: string | null
           hours: string | null
           id: string
+          insurance_document_url: string | null
           insurance_expiry: string | null
+          insurance_policy_number: string | null
           insurance_provider: string | null
+          insurance_verified_at: string | null
+          insurance_verified_by: string | null
           is_available: boolean | null
           is_live: boolean | null
           languages: string[] | null
@@ -405,8 +409,12 @@ export type Database = {
           first_aid_expiry?: string | null
           hours?: string | null
           id?: string
+          insurance_document_url?: string | null
           insurance_expiry?: string | null
+          insurance_policy_number?: string | null
           insurance_provider?: string | null
+          insurance_verified_at?: string | null
+          insurance_verified_by?: string | null
           is_available?: boolean | null
           is_live?: boolean | null
           languages?: string[] | null
@@ -437,8 +445,12 @@ export type Database = {
           first_aid_expiry?: string | null
           hours?: string | null
           id?: string
+          insurance_document_url?: string | null
           insurance_expiry?: string | null
+          insurance_policy_number?: string | null
           insurance_provider?: string | null
+          insurance_verified_at?: string | null
+          insurance_verified_by?: string | null
           is_available?: boolean | null
           is_live?: boolean | null
           languages?: string[] | null
@@ -1342,6 +1354,119 @@ export type Database = {
         }
         Relationships: []
       }
+      kita_partners: {
+        Row: {
+          address: string | null
+          commission_rate_pct: number
+          contact_email: string | null
+          contact_name: string | null
+          contact_phone: string | null
+          contract_signed_at: string | null
+          created_at: string
+          id: string
+          name: string
+          notes: string | null
+          owner_user_id: string | null
+          plz: string | null
+          referral_code: string | null
+          region: string | null
+          status: string
+          town: string | null
+          updated_at: string
+        }
+        Insert: {
+          address?: string | null
+          commission_rate_pct?: number
+          contact_email?: string | null
+          contact_name?: string | null
+          contact_phone?: string | null
+          contract_signed_at?: string | null
+          created_at?: string
+          id?: string
+          name: string
+          notes?: string | null
+          owner_user_id?: string | null
+          plz?: string | null
+          referral_code?: string | null
+          region?: string | null
+          status?: string
+          town?: string | null
+          updated_at?: string
+        }
+        Update: {
+          address?: string | null
+          commission_rate_pct?: number
+          contact_email?: string | null
+          contact_name?: string | null
+          contact_phone?: string | null
+          contract_signed_at?: string | null
+          created_at?: string
+          id?: string
+          name?: string
+          notes?: string | null
+          owner_user_id?: string | null
+          plz?: string | null
+          referral_code?: string | null
+          region?: string | null
+          status?: string
+          town?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      kita_referrals: {
+        Row: {
+          booked_at: string | null
+          commission_cents: number
+          created_at: string
+          family_notes: string | null
+          id: string
+          kita_partner_id: string
+          matched_at: string | null
+          paid_at: string | null
+          parent_email: string | null
+          parent_user_id: string | null
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          booked_at?: string | null
+          commission_cents?: number
+          created_at?: string
+          family_notes?: string | null
+          id?: string
+          kita_partner_id: string
+          matched_at?: string | null
+          paid_at?: string | null
+          parent_email?: string | null
+          parent_user_id?: string | null
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          booked_at?: string | null
+          commission_cents?: number
+          created_at?: string
+          family_notes?: string | null
+          id?: string
+          kita_partner_id?: string
+          matched_at?: string | null
+          paid_at?: string | null
+          parent_email?: string | null
+          parent_user_id?: string | null
+          status?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "kita_referrals_kita_partner_id_fkey"
+            columns: ["kita_partner_id"]
+            isOneToOne: false
+            referencedRelation: "kita_partners"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       meetings: {
         Row: {
           attendee_ids: string[]
@@ -1689,8 +1814,10 @@ export type Database = {
       }
       partner_courses: {
         Row: {
+          api_enabled: boolean
           category: string
           commission_label: string | null
+          cpd_hours: number | null
           created_at: string
           description: string | null
           duration_label: string | null
@@ -1706,10 +1833,13 @@ export type Database = {
           sort_order: number
           title: string
           updated_at: string
+          webhook_secret_hint: string | null
         }
         Insert: {
+          api_enabled?: boolean
           category?: string
           commission_label?: string | null
+          cpd_hours?: number | null
           created_at?: string
           description?: string | null
           duration_label?: string | null
@@ -1725,10 +1855,13 @@ export type Database = {
           sort_order?: number
           title: string
           updated_at?: string
+          webhook_secret_hint?: string | null
         }
         Update: {
+          api_enabled?: boolean
           category?: string
           commission_label?: string | null
+          cpd_hours?: number | null
           created_at?: string
           description?: string | null
           duration_label?: string | null
@@ -1744,6 +1877,7 @@ export type Database = {
           sort_order?: number
           title?: string
           updated_at?: string
+          webhook_secret_hint?: string | null
         }
         Relationships: []
       }
@@ -1787,6 +1921,59 @@ export type Database = {
         Relationships: [
           {
             foreignKeyName: "partner_referrals_partner_course_id_fkey"
+            columns: ["partner_course_id"]
+            isOneToOne: false
+            referencedRelation: "partner_courses"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      partner_training_enrollments: {
+        Row: {
+          certificate_url: string | null
+          completed_at: string | null
+          cpd_hours: number | null
+          created_at: string
+          enrolled_at: string
+          external_ref: string | null
+          id: string
+          partner_course_id: string | null
+          provider: string
+          status: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          certificate_url?: string | null
+          completed_at?: string | null
+          cpd_hours?: number | null
+          created_at?: string
+          enrolled_at?: string
+          external_ref?: string | null
+          id?: string
+          partner_course_id?: string | null
+          provider: string
+          status?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          certificate_url?: string | null
+          completed_at?: string | null
+          cpd_hours?: number | null
+          created_at?: string
+          enrolled_at?: string
+          external_ref?: string | null
+          id?: string
+          partner_course_id?: string | null
+          provider?: string
+          status?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "partner_training_enrollments_partner_course_id_fkey"
             columns: ["partner_course_id"]
             isOneToOne: false
             referencedRelation: "partner_courses"
@@ -1872,6 +2059,75 @@ export type Database = {
           task_label?: string
           updated_at?: string
           user_id?: string
+        }
+        Relationships: []
+      }
+      referral_codes: {
+        Row: {
+          code: string
+          created_at: string
+          id: string
+          user_id: string
+        }
+        Insert: {
+          code: string
+          created_at?: string
+          id?: string
+          user_id: string
+        }
+        Update: {
+          code?: string
+          created_at?: string
+          id?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      referrals: {
+        Row: {
+          bounty_cents: number
+          code: string
+          created_at: string
+          id: string
+          notes: string | null
+          paid_at: string | null
+          qualified_at: string | null
+          referred_email: string | null
+          referred_user_id: string | null
+          referrer_user_id: string
+          status: string
+          trigger_event: string
+          updated_at: string
+        }
+        Insert: {
+          bounty_cents?: number
+          code: string
+          created_at?: string
+          id?: string
+          notes?: string | null
+          paid_at?: string | null
+          qualified_at?: string | null
+          referred_email?: string | null
+          referred_user_id?: string | null
+          referrer_user_id: string
+          status?: string
+          trigger_event?: string
+          updated_at?: string
+        }
+        Update: {
+          bounty_cents?: number
+          code?: string
+          created_at?: string
+          id?: string
+          notes?: string | null
+          paid_at?: string | null
+          qualified_at?: string | null
+          referred_email?: string | null
+          referred_user_id?: string | null
+          referrer_user_id?: string
+          status?: string
+          trigger_event?: string
+          updated_at?: string
         }
         Relationships: []
       }
@@ -2363,6 +2619,33 @@ export type Database = {
           hours_last_30d: number | null
           last_date: string | null
           parent_id: string | null
+        }
+        Relationships: []
+      }
+      v_childminder_insurance_status: {
+        Row: {
+          grace_until: string | null
+          insurance_expiry: string | null
+          insurance_provider: string | null
+          insurance_verified_at: string | null
+          status: string | null
+          user_id: string | null
+        }
+        Insert: {
+          grace_until?: never
+          insurance_expiry?: string | null
+          insurance_provider?: string | null
+          insurance_verified_at?: string | null
+          status?: never
+          user_id?: string | null
+        }
+        Update: {
+          grace_until?: never
+          insurance_expiry?: string | null
+          insurance_provider?: string | null
+          insurance_verified_at?: string | null
+          status?: never
+          user_id?: string | null
         }
         Relationships: []
       }
