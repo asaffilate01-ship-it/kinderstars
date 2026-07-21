@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useAuth } from "@/hooks/use-auth";
 import { Button } from "@/components/ui/button";
 import { useNavigate, useSearchParams } from "react-router-dom";
@@ -7,6 +7,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { z } from "zod";
 import MFAVerify from "@/components/MFAVerify";
 import MFASetup from "@/pages/portal/MFASetup";
+import { captureReferralFromUrl } from "@/lib/referrals";
 
 type AuthMode = "login" | "signup" | "forgot";
 type UserRole = "childminder" | "parent";
@@ -26,6 +27,7 @@ const Auth = () => {
 
   const [mode, setMode] = useState<AuthMode>("login");
   const [role, setRole] = useState<UserRole>(roleParam === "parent" ? "parent" : "childminder");
+  useEffect(() => { captureReferralFromUrl(); }, []);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
