@@ -117,6 +117,12 @@ const ChildminderDashboard = () => {
       </p>
 
       {!isProspect && (
+        <div className="mb-4">
+          <InsuranceStatusBanner />
+        </div>
+      )}
+
+      {!isProspect && (
         <div data-tour="cm-stats" className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
           {stats.map((s) => (
             <div key={s.label} className="ks-card p-4 flex items-center gap-3">
