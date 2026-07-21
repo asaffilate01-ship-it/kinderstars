@@ -95,6 +95,7 @@ const App = () => (
             <Route path="/admin/umsatz" element={<AdminUmsatz />} />
             <Route path="/admin/oversight" element={<AdminOversight />} />
             <Route path="/admin/create-user" element={<AdminCreateUser />} />
+            <Route path="/admin/referrals" element={<AdminReferrals />} />
 
             {/* Childminder portal */}
             <Route path="/childminder" element={<ChildminderPortal />}>
@@ -120,6 +121,7 @@ const App = () => (
               <Route path="jugendamt-ready" element={<JugendamtReadyPage />} />
               <Route path="kinderschutz" element={<SafeguardingPage />} />
               <Route path="bookings" element={<BookingsPage />} />
+              <Route path="empfehlungen" element={<ReferralsPage />} />
               <Route path="settings" element={<MFASetup />} />
             </Route>
 
@@ -138,6 +140,7 @@ const App = () => (
               <Route path="kinderschutz" element={<SafeguardingPage />} />
               <Route path="messages" element={<MessagesPage />} />
               <Route path="notifications" element={<NotificationsPage />} />
+              <Route path="empfehlungen" element={<ReferralsPage />} />
               <Route path="settings" element={<MFASetup />} />
             </Route>
 
@@ -153,6 +156,7 @@ const App = () => (
             <Route path="/employer" element={<EmployerPortal />} />
             <Route path="/saas" element={<SaaS />} />
             <Route path="/jugendamt" element={<JugendamtPortal />} />
+            <Route path="/kita-partner" element={<KitaPartner />} />
             {/* German-friendly aliases */}
             <Route path="/agb" element={<TermsOfService />} />
             <Route path="/beschwerdeverfahren" element={<ComplaintsProcedure />} />
