@@ -9,7 +9,9 @@ const trackedFiles = new Set(execFileSync("git", ["ls-files"], { cwd: root, enco
 for (const deleted of execFileSync("git", ["diff", "--cached", "--name-only", "--diff-filter=D"], { cwd: root, encoding: "utf8" }).trim().split("\n")) {
   if (deleted) trackedFiles.delete(deleted);
 }
-for (const file of [".env", ".env.development", ".env.local", ".env.production"]) {
+// Note: the root `.env` is generated and required by Lovable Cloud builds and holds
+// only publishable client values, so it is intentionally excluded here.
+for (const file of [".env.development", ".env.local", ".env.production"]) {
   if (trackedFiles.has(file)) failures.push(`Environment-specific file must not be tracked: ${file}`);
 }
 
