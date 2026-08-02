@@ -1,1 +1,24 @@
 project_id = "hbexjmigssptnbwcloir"
+
+# Public entry points perform their own validation/rate limiting or verify a
+# signed provider webhook. All privileged functions retain JWT verification.
+[functions.send-contact-email]
+verify_jwt = false
+
+[functions.send-password-reset]
+verify_jwt = false
+
+[functions.amiqus-webhook]
+verify_jwt = false
+
+[functions.partner-training-webhook]
+verify_jwt = false
+
+[functions.seed-demo-data]
+verify_jwt = true
+
+[functions.create-user]
+verify_jwt = true
+
+[functions.manage-user]
+verify_jwt = true

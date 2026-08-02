@@ -37,7 +37,7 @@ export function captureReferralFromUrl() {
   const params = new URLSearchParams(window.location.search);
   const ref = params.get("ref");
   if (ref) {
-    try { localStorage.setItem("ks_ref", ref); } catch {}
+    try { localStorage.setItem("ks_ref", ref); } catch { return; }
   }
 }
 

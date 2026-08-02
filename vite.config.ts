@@ -21,16 +21,20 @@ export default defineConfig(({ mode }) => ({
       includeAssets: ["favicon.png", "pwa-icon-192.png", "pwa-icon-512.png"],
       workbox: {
         navigateFallbackDenylist: [/^\/~oauth/],
-        globPatterns: ["**/*.{js,css,html,ico,png,svg,jpg,webp,woff,woff2}"],
+        // Route chunks are cached only after use; precaching every admin and
+        // portal screen made first install download the whole private app.
+        globPatterns: ["**/*.{css,html,ico,png,svg,jpg,webp,woff,woff2}"],
         maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
         runtimeCaching: [
+          // Never cache authenticated Supabase REST responses in a shared
+          // service-worker cache. They may contain child, safeguarding or
+          // identity data and must always be fetched under the current session.
           {
-            urlPattern: /^https:\/\/.*\.supabase\.co\/rest\/v1\/.*/i,
-            handler: "NetworkFirst",
+            urlPattern: /\/assets\/.*\.js$/i,
+            handler: "StaleWhileRevalidate",
             options: {
-              cacheName: "supabase-api",
-              expiration: { maxEntries: 50, maxAgeSeconds: 300 },
-              networkTimeoutSeconds: 5,
+              cacheName: "route-chunks",
+              expiration: { maxEntries: 80, maxAgeSeconds: 60 * 60 * 24 * 30 },
             },
           },
           {
