@@ -1,0 +1,51 @@
+-- Phase 5: enforce compliance-document controls in the database and storage API.
+-- Client-side validation remains useful UX, but must never be the security boundary.
+
+UPDATE storage.buckets
+SET file_size_limit = 10485760,
+    allowed_mime_types = ARRAY['application/pdf', 'image/jpeg', 'image/png']::text[]
+WHERE id = 'compliance-docs';
+
+DROP POLICY IF EXISTS "Users manage own compliance docs" ON public.compliance_documents;
+DROP POLICY IF EXISTS "Users view own compliance docs" ON public.compliance_documents;
+DROP POLICY IF EXISTS "Users create pending compliance docs" ON public.compliance_documents;
+DROP POLICY IF EXISTS "Users delete own unapproved compliance docs" ON public.compliance_documents;
+
+CREATE POLICY "Users view own compliance docs"
+ON public.compliance_documents FOR SELECT TO authenticated
+USING (auth.uid() = user_id);
+
+-- A user may create only a pending, unreviewed record whose object is inside
+-- their own storage folder. Approval fields are reserved for admin/owner flows.
+CREATE POLICY "Users create pending compliance docs"
+ON public.compliance_documents FOR INSERT TO authenticated
+WITH CHECK (
+  auth.uid() = user_id
+  AND status = 'pending'
+  AND reviewed_by IS NULL
+  AND review_notes IS NULL
+  AND document_url LIKE auth.uid()::text || '/%'
+  AND document_url ~* '\.(pdf|jpe?g|png)$'
+);
+
+CREATE POLICY "Users delete own unapproved compliance docs"
+ON public.compliance_documents FOR DELETE TO authenticated
+USING (auth.uid() = user_id AND status IN ('pending', 'rejected', 'expired'));
+
+-- The earlier storage policy trusted only the folder name, allowing a caller
+-- to delete the file behind an approved database record. Bind deletion to the
+-- review state as well.
+DROP POLICY IF EXISTS "Users delete own docs" ON storage.objects;
+CREATE POLICY "Users delete own unapproved docs"
+ON storage.objects FOR DELETE TO authenticated
+USING (
+  bucket_id = 'compliance-docs'
+  AND auth.uid()::text = (storage.foldername(name))[1]
+  AND NOT EXISTS (
+    SELECT 1
+    FROM public.compliance_documents AS document
+    WHERE document.document_url = name
+      AND document.status = 'approved'
+  )
+);
+
