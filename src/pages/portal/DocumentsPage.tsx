@@ -110,6 +110,9 @@ const DocumentsPage = () => {
       expires_at: expiryDate || null,
     });
     if (error) {
+      // Do not leave an untracked identity/compliance file in private storage
+      // when its database record cannot be created.
+      await supabase.storage.from("compliance-docs").remove([path]);
       toast({ title: "Error saving record", description: error.message, variant: "destructive" });
     } else {
       toast({ title: "Document uploaded!", description: "It will be reviewed by an admin." });
