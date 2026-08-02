@@ -14,6 +14,12 @@ verify_jwt = false
 [functions.partner-training-webhook]
 verify_jwt = false
 
+[functions.stripe-webhook]
+verify_jwt = false
+
+[functions.health]
+verify_jwt = false
+
 [functions.seed-demo-data]
 verify_jwt = true
 

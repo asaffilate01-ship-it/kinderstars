@@ -98,7 +98,7 @@ const TrainingPage = () => {
       if (course.price_pence > 0 && course.stripe_price_id) {
         // Paid course — go to Stripe
         const { data, error } = await supabase.functions.invoke("create-checkout", {
-          body: { price_id: course.stripe_price_id, mode: "payment" },
+          body: { course_id: course.id },
         });
         if (error) throw error;
         if (data?.url) window.open(data.url, "_blank");

@@ -10,19 +10,14 @@ serve(async (req) => {
   if (req.method === "OPTIONS") return new Response(null, { headers: corsHeaders });
 
   try {
-    // Verify webhook signature if Amiqus provides one
     const webhookSecret = Deno.env.get("AMIQUS_WEBHOOK_SECRET");
-    if (webhookSecret) {
-      const signature = req.headers.get("x-amiqus-signature") || req.headers.get("x-webhook-signature");
-      // Amiqus may use different header names - check their docs for exact header
-      // For now, log if no signature is present
-      if (!signature) {
-        console.warn("No webhook signature found in request headers");
-      }
-      // TODO: Implement HMAC verification when Amiqus confirms their signature format
+    const signature = req.headers.get("x-aqid-signature");
+    const rawBody = await req.text();
+    if (!webhookSecret || !signature || !(await verifySignature(rawBody, webhookSecret, signature))) {
+      return new Response("Not found", { status: 404 });
     }
 
-    const payload = await req.json();
+    const payload = JSON.parse(rawBody);
     console.log("Amiqus webhook received:", JSON.stringify(payload).slice(0, 500));
 
     const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
@@ -30,7 +25,7 @@ serve(async (req) => {
     const supabase = createClient(supabaseUrl, serviceRoleKey);
 
     // Amiqus sends events like: record.completed, record.updated, step.completed, etc.
-    const eventType = payload.event || payload.type || "";
+    const eventType = payload.trigger?.alias || payload.event || payload.type || "";
     const recordData = payload.data?.record || payload.record || payload.data || {};
     const recordId = recordData.id || payload.record_id || "";
     const clientEmail = recordData.client?.email || payload.client?.email || "";
@@ -128,9 +123,28 @@ serve(async (req) => {
     });
   } catch (e) {
     console.error("amiqus-webhook error:", e);
-    // Always return 200 to Amiqus to prevent retries on our errors
-    return new Response(JSON.stringify({ received: true, error: e instanceof Error ? e.message : "Unknown" }), {
-      status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" },
+    return new Response(JSON.stringify({ received: false, error: "Webhook processing failed" }), {
+      status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
   }
 });
+
+async function verifySignature(payload: string, secret: string, signature: string): Promise<boolean> {
+  try {
+    const key = await crypto.subtle.importKey(
+      "raw",
+      new TextEncoder().encode(secret),
+      { name: "HMAC", hash: "SHA-256" },
+      false,
+      ["sign"],
+    );
+    const expected = new Uint8Array(await crypto.subtle.sign("HMAC", key, new TextEncoder().encode(payload)));
+    const received = Uint8Array.from(atob(signature), (character) => character.charCodeAt(0));
+    if (expected.length !== received.length) return false;
+    let mismatch = 0;
+    for (let index = 0; index < expected.length; index += 1) mismatch |= expected[index] ^ received[index];
+    return mismatch === 0;
+  } catch {
+    return false;
+  }
+}

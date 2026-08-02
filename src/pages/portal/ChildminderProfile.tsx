@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useAuth } from "@/hooks/use-auth";
 import { supabase } from "@/integrations/supabase/client";
+import { validateUpload } from "@/lib/upload-security";
 import { Button } from "@/components/ui/button";
 import { toast } from "@/hooks/use-toast";
 import { Camera, Save, Loader2 } from "lucide-react";
@@ -108,13 +109,17 @@ const ChildminderProfile = () => {
   const handleAvatarUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!user || !e.target.files?.[0]) return;
     const file = e.target.files[0];
-    if (file.size > 5 * 1024 * 1024) {
-      toast({ title: "File too large", description: "Max 5MB", variant: "destructive" });
+    const validation = validateUpload(file, "avatar");
+    if (!validation.ok) {
+      toast({ title: "Invalid file", description: validation.error, variant: "destructive" });
       return;
     }
     setUploading(true);
-    const path = `${user.id}/avatar.${file.name.split(".").pop()}`;
-    const { error } = await supabase.storage.from("avatars").upload(path, file, { upsert: true });
+    const path = `${user.id}/avatar.${validation.extension}`;
+    const { error } = await supabase.storage.from("avatars").upload(path, file, {
+      upsert: true,
+      contentType: file.type,
+    });
     if (error) {
       toast({ title: "Upload failed", description: error.message, variant: "destructive" });
       setUploading(false);
@@ -200,7 +205,7 @@ const ChildminderProfile = () => {
               <Camera className="w-8 h-8 text-muted-foreground" />
             )}
           </div>
-          <input ref={fileRef} type="file" accept="image/*" className="hidden" onChange={handleAvatarUpload} />
+          <input ref={fileRef} type="file" accept="image/jpeg,image/png,image/webp" className="hidden" onChange={handleAvatarUpload} />
           <button
             onClick={() => fileRef.current?.click()}
             disabled={uploading}
