@@ -19,7 +19,7 @@ jobs:
       name: production
       url: ${{ inputs.deployment_url }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Validate URL
         env:
           DEPLOYMENT_URL: ${{ inputs.deployment_url }}
