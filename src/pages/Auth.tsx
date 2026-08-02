@@ -47,7 +47,7 @@ const Auth = () => {
     setForgotSubmitting(true);
     try {
       await supabase.functions.invoke("send-password-reset", {
-        body: { email: forgotEmail, redirectTo: `${window.location.origin}/reset-password` },
+        body: { email: forgotEmail },
       });
       setForgotSent(true);
     } catch {

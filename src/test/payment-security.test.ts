@@ -5,6 +5,38 @@ import { resolve } from "node:path";
 const source = (path: string) => readFileSync(resolve(process.cwd(), path), "utf8");
 
 describe("payment and webhook security", () => {
+  it("routes booking capture, cancellation and refunds through authenticated Stripe operations", () => {
+    const payment = source("supabase/functions/manage-booking-payment/index.ts");
+    expect(payment).toContain("admin.auth.getUser(token)");
+    expect(payment).toContain("stripe.paymentIntents.capture");
+    expect(payment).toContain("stripe.paymentIntents.cancel");
+    expect(payment).toContain("stripe.refunds.create");
+    expect(payment).toContain("booking.parent_id === user.id");
+    expect(payment).toContain('intent.status === "succeeded"');
+
+    const bookings = source("src/pages/portal/BookingsPage.tsx");
+    expect(bookings).toContain('functions.invoke("manage-booking-payment"');
+    expect(bookings).not.toContain('flow_status: "captured"');
+  });
+
+  it("derives password reset destinations on the server", () => {
+    const auth = source("src/pages/Auth.tsx");
+    const reset = source("supabase/functions/send-password-reset/index.ts");
+    expect(auth).not.toContain("redirectTo:");
+    expect(reset).toContain('Deno.env.get("APP_URL")');
+    expect(reset).not.toContain("body.redirectTo");
+  });
+
+  it("binds identity checks to the authenticated profile and stable provider id", () => {
+    const createCheck = source("supabase/functions/amiqus-create-check/index.ts");
+    const webhook = source("supabase/functions/amiqus-webhook/index.ts");
+    expect(createCheck).toContain('.from("profiles")');
+    expect(createCheck).toContain("claimsEmail || profile.email");
+    expect(createCheck).toContain("external_provider_id: recordId");
+    expect(webhook).toContain('.eq("external_provider_id", recordId)');
+    expect(webhook).not.toContain('.ilike("review_notes"');
+  });
+
   it("does not accept arbitrary client Stripe price IDs", () => {
     const checkout = source("supabase/functions/create-checkout/index.ts");
     expect(checkout).not.toContain("body.price_id");

@@ -18,7 +18,7 @@ serve(async (req) => {
     }
 
     const payload = JSON.parse(rawBody);
-    console.log("Amiqus webhook received:", JSON.stringify(payload).slice(0, 500));
+    console.log("Amiqus webhook received", { event: payload.event || payload.type || "unknown" });
 
     const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
     const serviceRoleKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
@@ -42,7 +42,7 @@ serve(async (req) => {
     const { data: docs } = await supabase
       .from("compliance_documents")
       .select("*")
-      .like("review_notes", `%${recordId}%`);
+      .eq("external_provider_id", recordId);
 
     if (!docs || docs.length === 0) {
       console.log(`No compliance document found for Amiqus record: ${recordId}`);

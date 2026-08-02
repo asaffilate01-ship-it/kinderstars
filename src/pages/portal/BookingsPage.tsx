@@ -225,11 +225,16 @@ const BookingsPage = () => {
   };
 
   const handleRelease = async (b: Booking) => {
-    const now = new Date().toISOString();
-    await supabase.from("bookings").update({ flow_status: "captured", captured_at: now, status: "completed" }).eq("id", b.id);
-    await logEvent(b.id, "payment_captured", b.flow_status, "captured", { at: now });
-    toast({ title: "Zahlung freigegeben", description: `${eur(b.total_amount_cents)} wird ausgezahlt.` });
-    fetchBookings();
+    try {
+      const { data, error } = await supabase.functions.invoke("manage-booking-payment", {
+        body: { booking_id: b.id, action: "capture" },
+      });
+      if (error || !data?.success) throw new Error(data?.error || "Zahlung konnte nicht erfasst werden");
+      toast({ title: "Zahlung erfasst", description: `${eur(b.total_amount_cents)} wurde über Stripe eingezogen.` });
+      fetchBookings();
+    } catch (error) {
+      toast({ title: "Zahlung fehlgeschlagen", description: error instanceof Error ? error.message : "Bitte erneut versuchen.", variant: "destructive" });
+    }
   };
 
   const handleReview = async (b: Booking, rating: number, review: string) => {
@@ -240,10 +245,16 @@ const BookingsPage = () => {
   };
 
   const handleCancel = async (bookingId: string) => {
-    await supabase.from("bookings").update({ status: "cancelled", flow_status: "cancelled" }).eq("id", bookingId);
-    await logEvent(bookingId, "cancelled", null, "cancelled", {});
-    toast({ title: "Booking cancelled" });
-    fetchBookings();
+    try {
+      const { data, error } = await supabase.functions.invoke("manage-booking-payment", {
+        body: { booking_id: bookingId, action: "cancel" },
+      });
+      if (error || !data?.success) throw new Error(data?.error || "Buchung konnte nicht storniert werden");
+      toast({ title: "Buchung storniert" });
+      fetchBookings();
+    } catch (error) {
+      toast({ title: "Stornierung fehlgeschlagen", description: error instanceof Error ? error.message : "Bitte erneut versuchen.", variant: "destructive" });
+    }
   };
 
   // Calendar

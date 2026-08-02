@@ -583,6 +583,7 @@ export type Database = {
           document_type: string
           document_url: string | null
           expires_at: string | null
+          external_provider_id: string | null
           id: string
           malware_scan_status: string
           malware_scanned_at: string | null
@@ -598,6 +599,7 @@ export type Database = {
           document_type: string
           document_url?: string | null
           expires_at?: string | null
+          external_provider_id?: string | null
           id?: string
           malware_scan_status?: string
           malware_scanned_at?: string | null
@@ -613,6 +615,7 @@ export type Database = {
           document_type?: string
           document_url?: string | null
           expires_at?: string | null
+          external_provider_id?: string | null
           id?: string
           malware_scan_status?: string
           malware_scanned_at?: string | null

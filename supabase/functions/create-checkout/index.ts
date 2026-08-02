@@ -147,6 +147,7 @@ serve(async (req) => {
       success_url: `${origin}/childminder/subscription?success=true`,
       cancel_url: `${origin}/childminder/subscription?canceled=true`,
       metadata: { user_id: user.id, price_key: price_key ?? "", kind: checkoutKind, target_id: targetId },
+      ...(isRecurring ? { subscription_data: { metadata: { user_id: user.id, price_key: price_key ?? "" } } } : {}),
       ...(captureManually ? { payment_intent_data: { capture_method: "manual", metadata: { booking_id: targetId } } } : {}),
     }, { idempotencyKey });
 

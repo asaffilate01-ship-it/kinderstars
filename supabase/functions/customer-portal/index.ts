@@ -42,7 +42,7 @@ serve(async (req) => {
     const customerId = customers.data[0].id;
     logStep("Found customer", { customerId });
 
-    const origin = req.headers.get("origin") || "https://kinderstars.de";
+    const origin = new URL(Deno.env.get("APP_URL") || "https://kinderstars.de").origin;
     const portalSession = await stripe.billingPortal.sessions.create({
       customer: customerId,
       return_url: `${origin}/childminder/subscription`,
