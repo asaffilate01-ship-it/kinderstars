@@ -179,21 +179,19 @@ const BookingsPage = () => {
         body: { booking_id: b.id },
       });
       if (error) throw error;
-      if (data?.url) window.open(data.url, "_blank");
-      toast({ title: "Zahlung autorisiert", description: `Reserviert: ${eur(total)}` });
+      if (!data?.url) throw new Error("Keine Checkout-URL erhalten");
+      window.open(data.url, "_blank");
+      toast({
+        title: "Zahlung wird autorisiert",
+        description: "Schließen Sie die Zahlung im Stripe-Fenster ab. Die Buchung wird danach automatisch freigegeben.",
+      });
       fetchBookings();
     } catch (err: unknown) {
-      // If Stripe isn't wired yet, still authorize locally with a note
-      await supabase.from("bookings").update({
-        flow_status: "authorized",
-        authorized_at: new Date().toISOString(),
-        total_amount_cents: total,
-        platform_fee_cents: fee,
-        minder_payout_cents: payout,
-      }).eq("id", b.id);
-      await logEvent(b.id, "payment_authorized_offline", b.flow_status, "authorized", { total, fee, payout, note: "stripe_offline" });
-      toast({ title: "Zahlung vorgemerkt", description: `Reserviert: ${eur(total)} (Stripe offline)` });
-      fetchBookings();
+      toast({
+        title: "Zahlung fehlgeschlagen",
+        description: err instanceof Error ? err.message : "Checkout konnte nicht gestartet werden.",
+        variant: "destructive",
+      });
     }
   };
 
