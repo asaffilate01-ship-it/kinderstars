@@ -2175,6 +2175,7 @@ const AdminDashboard = () => {
                           {doc.expires_at && ` · Expires ${format(new Date(doc.expires_at), "dd MMM yyyy")}`}
                         </div>
                         {doc.review_notes && <div className="text-xs italic mt-1">"{doc.review_notes}"</div>}
+                        <div className="text-xs mt-1">Scan: <span className="font-medium">{doc.malware_scan_status || "pending"}</span></div>
                       </div>
                       <span className={`text-[11px] px-2 py-1 rounded-full font-bold shrink-0 ${
                         doc.status === "approved" ? "bg-success/15 text-success" :
@@ -2190,7 +2191,10 @@ const AdminDashboard = () => {
                         )}
                         {doc.status === "pending" && (
                           <>
-                            <Button variant="success" size="sm" onClick={() => reviewDocument(doc.id, "approved")}>
+                            <Button variant="success" size="sm"
+                              disabled={!['clean', 'legacy_accepted', 'not_required'].includes(doc.malware_scan_status || 'pending')}
+                              title={doc.malware_scan_status === 'pending' ? 'Waiting for malware scan' : undefined}
+                              onClick={() => reviewDocument(doc.id, "approved")}>
                               <CheckCircle2 className="w-3.5 h-3.5 mr-1" /> Approve
                             </Button>
                             <Button variant="destructive" size="sm" onClick={() => {

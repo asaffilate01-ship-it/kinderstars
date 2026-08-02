@@ -584,6 +584,9 @@ export type Database = {
           document_url: string | null
           expires_at: string | null
           id: string
+          malware_scan_status: string
+          malware_scanned_at: string | null
+          malware_scanner_ref: string | null
           review_notes: string | null
           reviewed_by: string | null
           status: string | null
@@ -596,6 +599,9 @@ export type Database = {
           document_url?: string | null
           expires_at?: string | null
           id?: string
+          malware_scan_status?: string
+          malware_scanned_at?: string | null
+          malware_scanner_ref?: string | null
           review_notes?: string | null
           reviewed_by?: string | null
           status?: string | null
@@ -608,6 +614,9 @@ export type Database = {
           document_url?: string | null
           expires_at?: string | null
           id?: string
+          malware_scan_status?: string
+          malware_scanned_at?: string | null
+          malware_scanner_ref?: string | null
           review_notes?: string | null
           reviewed_by?: string | null
           status?: string | null
@@ -1463,6 +1472,41 @@ export type Database = {
             columns: ["kita_partner_id"]
             isOneToOne: false
             referencedRelation: "kita_partners"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      malware_scan_events: {
+        Row: {
+          document_id: string
+          id: string
+          provider_event_id: string
+          received_at: string
+          result: string
+          scanner_ref: string | null
+        }
+        Insert: {
+          document_id: string
+          id?: string
+          provider_event_id: string
+          received_at?: string
+          result: string
+          scanner_ref?: string | null
+        }
+        Update: {
+          document_id?: string
+          id?: string
+          provider_event_id?: string
+          received_at?: string
+          result?: string
+          scanner_ref?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "malware_scan_events_document_id_fkey"
+            columns: ["document_id"]
+            isOneToOne: false
+            referencedRelation: "compliance_documents"
             referencedColumns: ["id"]
           },
         ]
@@ -2570,13 +2614,9 @@ export type Database = {
           is_live: boolean | null
           languages: string[] | null
           max_children: number | null
-          max_distance_miles: number | null
-          ofsted_last_inspection: string | null
           ofsted_rating: string | null
-          ofsted_urn: string | null
           onboarding_status: string | null
           postcode_district: string | null
-          prospect_stage: string | null
           regulator: string | null
           town: string | null
           updated_at: string | null
@@ -2594,13 +2634,9 @@ export type Database = {
           is_live?: boolean | null
           languages?: string[] | null
           max_children?: number | null
-          max_distance_miles?: number | null
-          ofsted_last_inspection?: string | null
           ofsted_rating?: string | null
-          ofsted_urn?: string | null
           onboarding_status?: string | null
           postcode_district?: string | null
-          prospect_stage?: string | null
           regulator?: string | null
           town?: string | null
           updated_at?: string | null
@@ -2618,13 +2654,9 @@ export type Database = {
           is_live?: boolean | null
           languages?: string[] | null
           max_children?: number | null
-          max_distance_miles?: number | null
-          ofsted_last_inspection?: string | null
           ofsted_rating?: string | null
-          ofsted_urn?: string | null
           onboarding_status?: string | null
           postcode_district?: string | null
-          prospect_stage?: string | null
           regulator?: string | null
           town?: string | null
           updated_at?: string | null
