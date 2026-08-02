@@ -15,7 +15,7 @@ test("public homepage exposes the primary childcare journeys", async ({ page }) 
   await page.goto("/");
   await expect(page).toHaveTitle(/KinderStars/i);
   await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
-  await expect(page.getByRole("link", { name: /anmelden|login/i }).first()).toBeVisible();
+  await expect(page.getByRole("link", { name: /register now|jetzt registrieren/i }).first()).toBeVisible();
 });
 
 test("legal routes render without a server-side 404", async ({ page }) => {

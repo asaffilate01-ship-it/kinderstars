@@ -5,6 +5,8 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
 };
 
+const jsonHeaders = { ...corsHeaders, "Content-Type": "application/json" };
+
 // Deutsche Städte mit realistischen PLZ-Präfixen (erste 3 Stellen)
 const UK_LOCATIONS = [
   { town: "Berlin", districts: ["101","104","109","121","122","123"] },
@@ -68,18 +70,33 @@ function randInt(min: number, max: number) { return min + Math.floor(Math.random
 
 // Test user credentials for quick setup
 const TEST_USERS = [
-  { email: "owner@kinderstars.de", password: "KinderStars2024!", first_name: "Sarah", last_name: "Owner", role: "owner" },
-  { email: "admin@kinderstars.de", password: "KinderStars2024!", first_name: "James", last_name: "Admin", role: "admin" },
-  { email: "childminder@kinderstars.de", password: "KinderStars2024!", first_name: "Emma", last_name: "Childminder", role: "childminder" },
-  { email: "parent@kinderstars.de", password: "KinderStars2024!", first_name: "Michael", last_name: "Parent", role: "parent" },
+  { email: "owner@kinderstars.de", first_name: "Sarah", last_name: "Owner", role: "owner" },
+  { email: "admin@kinderstars.de", first_name: "James", last_name: "Admin", role: "admin" },
+  { email: "childminder@kinderstars.de", first_name: "Emma", last_name: "Childminder", role: "childminder" },
+  { email: "parent@kinderstars.de", first_name: "Michael", last_name: "Parent", role: "parent" },
 ];
 
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response("ok", { headers: corsHeaders });
 
+  // This function must stay dark in production. Enabling it requires both an
+  // explicit environment flag and an authenticated owner account.
+  if (Deno.env.get("ENABLE_DEMO_SEEDING") !== "true") {
+    return new Response(JSON.stringify({ error: "Not found" }), { status: 404, headers: jsonHeaders });
+  }
+
   const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
   const serviceRoleKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
   const anonKey = Deno.env.get("SUPABASE_ANON_KEY")!;
+  const authHeader = req.headers.get("authorization");
+  if (!authHeader) return new Response(JSON.stringify({ error: "Not authenticated" }), { status: 401, headers: jsonHeaders });
+  const callerClient = createClient(supabaseUrl, anonKey, { global: { headers: { Authorization: authHeader } } });
+  const { data: { user: caller } } = await callerClient.auth.getUser();
+  if (!caller) return new Response(JSON.stringify({ error: "Not authenticated" }), { status: 401, headers: jsonHeaders });
+  const { data: callerRole } = await callerClient.from("user_roles").select("role").eq("user_id", caller.id).maybeSingle();
+  if (callerRole?.role !== "owner") {
+    return new Response(JSON.stringify({ error: "Owner access required" }), { status: 403, headers: jsonHeaders });
+  }
   const admin = createClient(supabaseUrl, serviceRoleKey, { auth: { autoRefreshToken: false, persistSession: false } });
 
   // Parse body
@@ -89,7 +106,11 @@ Deno.serve(async (req) => {
 
   // ── QUICK SETUP: Create test users (no auth required for this action) ──
   if (action === "setup_test_users") {
-    const results: { email: string; password: string; role: string; success: boolean; error?: string }[] = [];
+    const demoPassword = Deno.env.get("DEMO_USER_PASSWORD");
+    if (!demoPassword || demoPassword.length < 14) {
+      return new Response(JSON.stringify({ error: "DEMO_USER_PASSWORD must contain at least 14 characters" }), { status: 503, headers: jsonHeaders });
+    }
+    const results: { email: string; role: string; success: boolean; error?: string }[] = [];
     
     for (const u of TEST_USERS) {
       // Check if user exists and delete if so
@@ -101,14 +122,13 @@ Deno.serve(async (req) => {
       
       const { error } = await admin.auth.admin.createUser({
         email: u.email,
-        password: u.password,
+        password: demoPassword,
         email_confirm: true,
         user_metadata: { first_name: u.first_name, last_name: u.last_name, role: u.role },
       });
       
       results.push({
         email: u.email,
-        password: u.password,
         role: u.role,
         success: !error,
         error: error?.message,
@@ -366,10 +386,12 @@ Deno.serve(async (req) => {
 
   try {
     // ── 1. CREATE DEMO AUTH USERS ──
+    const demoPassword = Deno.env.get("DEMO_USER_PASSWORD");
+    if (!demoPassword || demoPassword.length < 14) throw new Error("DEMO_USER_PASSWORD must contain at least 14 characters");
     const demoUsers = [
-      { email: "admin@kinderstars.de", password: "Demo1234!", first_name: "Admin", last_name: "User", role: "admin" },
-      { email: "childminder@kinderstars.de", password: "Demo1234!", first_name: "Sarah", last_name: "Williams", role: "childminder" },
-      { email: "parent@kinderstars.de", password: "Demo1234!", first_name: "James", last_name: "Thompson", role: "parent" },
+      { email: "admin@kinderstars.de", first_name: "Admin", last_name: "User", role: "admin" },
+      { email: "childminder@kinderstars.de", first_name: "Sarah", last_name: "Williams", role: "childminder" },
+      { email: "parent@kinderstars.de", first_name: "James", last_name: "Thompson", role: "parent" },
     ];
 
     for (const u of demoUsers) {
@@ -379,7 +401,7 @@ Deno.serve(async (req) => {
         results.push(`${u.role}: exists (${u.email})`);
       } else {
         const { error } = await admin.auth.admin.createUser({
-          email: u.email, password: u.password, email_confirm: true,
+          email: u.email, password: demoPassword, email_confirm: true,
           user_metadata: { first_name: u.first_name, last_name: u.last_name, role: u.role },
         });
         results.push(error ? `${u.role}: ERROR ${error.message}` : `${u.role}: created`);
@@ -578,7 +600,7 @@ Deno.serve(async (req) => {
       }
     }
 
-    return new Response(JSON.stringify({ success: true, results, note: "Demo logins: admin/childminder/parent@kinderstars.de / Demo1234!" }), {
+    return new Response(JSON.stringify({ success: true, results, note: "Demo users created. Password is stored only in DEMO_USER_PASSWORD." }), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
   } catch (err) {

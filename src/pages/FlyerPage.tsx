@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import html2canvas from "html2canvas";
 import logo from "@/assets/kinderstars-logo.png";
-import { Star, Phone, Mail, CheckCircle2, HelpCircle, Download } from "lucide-react";
+import { Star, Mail, CheckCircle2, HelpCircle, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const FlyerPage = () => {
@@ -22,10 +22,10 @@ const FlyerPage = () => {
     <div className="min-h-screen bg-background flex flex-col items-center justify-center p-4 print:p-0">
       <div className="flex gap-3 mb-4 print:hidden">
         <Button variant="hero" size="sm" onClick={downloadPNG} className="gap-1.5">
-          <Download className="w-4 h-4" /> Download PNG
+          <Download className="w-4 h-4" /> PNG herunterladen
         </Button>
         <Button variant="outline" size="sm" onClick={downloadPDF} className="gap-1.5">
-          <Download className="w-4 h-4" /> Print / PDF
+          <Download className="w-4 h-4" /> Drucken / PDF
         </Button>
       </div>
       <div ref={flyerRef} className="w-full max-w-[500px] bg-card shadow-2xl rounded-2xl overflow-hidden print:shadow-none print:rounded-none" style={{ aspectRatio: "148/210" }}>
@@ -42,16 +42,16 @@ const FlyerPage = () => {
             ))}
           </div>
           <img src={logo} alt="KinderStars" className="w-[160px] mx-auto relative z-10 brightness-0 invert" />
-          <p className="text-primary text-[11px] font-bold tracking-widest mt-1 relative z-10">UK WIDE CHILDMINDER AGENCY</p>
+          <p className="text-primary text-[11px] font-bold tracking-widest mt-1 relative z-10">KINDERTAGESPFLEGE IN DEUTSCHLAND</p>
         </div>
 
         {/* Gold Headline Banner */}
         <div className="px-6 py-4 text-center" style={{ background: "linear-gradient(135deg, hsl(44, 93%, 57%), hsl(44, 93%, 65%))" }}>
           <h1 className="text-xl font-black tracking-tight" style={{ color: "hsl(222, 95%, 13%)" }}>
-            CHILDCARE GRANT
+            ZUSCHÜSSE ZUR KINDERTAGESPFLEGE
           </h1>
           <p className="text-xs font-bold mt-0.5" style={{ color: "hsl(222, 95%, 13%)" }}>
-            For Full-Time Students
+            Unterstützung für Familien und Studierende
           </p>
         </div>
 
@@ -60,7 +60,7 @@ const FlyerPage = () => {
           {/* Key Info Box */}
           <div className="rounded-xl p-3 border-2" style={{ borderColor: "hsl(44, 93%, 57%)", background: "hsl(44, 93%, 57%, 0.08)" }}>
             <p className="text-xs leading-relaxed font-medium text-foreground">
-              Full-time higher-education students <strong>eligible for Student Finance England funding</strong> can apply for a <strong>Childcare Grant (CCG)</strong> to help cover up to <strong className="text-lg" style={{ color: "hsl(222, 95%, 13%)" }}>85%</strong> of childcare costs.
+              Je nach Einkommen, Wohnort und persönlicher Situation kann das Jugendamt die Kosten der Kindertagespflege <strong>teilweise oder vollständig</strong> übernehmen. Wir helfen Ihnen, die zuständige Stelle und passende Betreuung zu finden.
             </p>
           </div>
 
@@ -68,10 +68,10 @@ const FlyerPage = () => {
           <div className="space-y-1.5">
             {[
               "Nach § 43 SGB VIII zugelassen",
-              "Flexible hours to fit your timetable",
-              "Available across the UK",
+              "Flexible Betreuungszeiten",
+              "Vermittlung in ganz Deutschland",
               "Erweitertes Führungszeugnis geprüft",
-              "Support with funding applications",
+              "Unterstützung bei Förderanträgen",
             ].map((item) => (
               <div key={item} className="flex items-center gap-2">
                 <CheckCircle2 className="w-3.5 h-3.5 shrink-0" style={{ color: "hsl(155, 87%, 24%)" }} />
@@ -84,7 +84,7 @@ const FlyerPage = () => {
           <div className="pt-2 border-t" style={{ borderColor: "hsl(44, 93%, 57%, 0.3)" }}>
             <div className="flex items-center gap-1 mb-1.5">
               <HelpCircle className="w-3.5 h-3.5 text-muted-foreground" />
-              <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">FAQs</span>
+              <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Häufige Fragen</span>
             </div>
             <div className="space-y-1.5">
               {[
@@ -117,10 +117,6 @@ const FlyerPage = () => {
             <a href="mailto:hello@kinderstars.de" className="flex items-center gap-1.5 text-white/90 hover:text-white transition-colors">
               <Mail className="w-3.5 h-3.5 text-primary" />
               <span className="text-[10px] font-medium">hello@kinderstars.de</span>
-            </a>
-            <a href="tel:07585803505" className="flex items-center gap-1.5 text-white/90 hover:text-white transition-colors">
-              <Phone className="w-3.5 h-3.5 text-primary" />
-              <span className="text-[10px] font-medium">07585 803505</span>
             </a>
           </div>
           <Star className="w-4 h-4 text-primary fill-primary" />

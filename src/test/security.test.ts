@@ -1,6 +1,8 @@
 import { describe, expect, it } from "vitest";
 import { normaliseEmail, safeInternalPath } from "@/lib/security";
 import { escapeHtml } from "@/lib/html-utils";
+import { readFileSync } from "node:fs";
+import { resolve } from "node:path";
 
 describe("security helpers", () => {
   it("rejects external and protocol-relative redirects", () => {
@@ -18,5 +20,19 @@ describe("security helpers", () => {
     expect(escapeHtml(`<img src=x onerror="alert(1)">`)).toBe(
       "&lt;img src=x onerror=&quot;alert(1)&quot;&gt;",
     );
+  });
+
+  it("does not persist private Supabase storage responses in the service worker", () => {
+    const viteConfig = readFileSync(resolve(process.cwd(), "vite.config.ts"), "utf8");
+    expect(viteConfig).not.toContain("supabase-storage");
+    expect(viteConfig).not.toMatch(/supabase.*storage.*CacheFirst/is);
+  });
+
+  it("keeps demo seeding disabled and owner-only", () => {
+    const seedFunction = readFileSync(resolve(process.cwd(), "supabase/functions/seed-demo-data/index.ts"), "utf8");
+    expect(seedFunction).toContain('ENABLE_DEMO_SEEDING") !== "true"');
+    expect(seedFunction).toContain('callerRole?.role !== "owner"');
+    expect(seedFunction).not.toContain("KinderStars2024!");
+    expect(seedFunction).not.toContain("Demo1234!");
   });
 });
