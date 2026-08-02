@@ -94,7 +94,7 @@ const FindChildminder = () => {
       const arrivedIds = new Set((bookings || []).filter((b) => b.status === "completed").map((b) => b.childminder_id));
 
       // Get names only for arrived bookings
-      let nameMap: Record<string, string> = {};
+      const nameMap: Record<string, string> = {};
       if (arrivedIds.size > 0) {
         const { data: profiles } = await supabase
           .from("profiles")

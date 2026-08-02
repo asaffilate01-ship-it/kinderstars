@@ -850,7 +850,7 @@ const AdminDashboard = () => {
 
       // Get profile names for childminders
       const cmIds = (cmData ?? []).map(c => c.user_id);
-      let names: Record<string, string> = {};
+      const names: Record<string, string> = {};
       if (cmIds.length) {
         const { data: pData } = await supabase.from("profiles").select("user_id, first_name, last_name").in("user_id", cmIds);
         (pData ?? []).forEach(p => { names[p.user_id] = `${p.first_name} ${p.last_name}`.trim(); });

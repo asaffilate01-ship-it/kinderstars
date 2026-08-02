@@ -4,70 +4,70 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "@/hooks/use-auth";
+import { lazy, Suspense } from "react";
 
-import Index from "./pages/Index";
-import Auth from "./pages/Auth";
-import Portal from "./pages/Portal";
-import AdminLogin from "./pages/AdminLogin";
-import AdminPanel from "./pages/AdminPanel";
-import AdminRoster from "./pages/AdminRoster";
-import AdminDashboard from "./pages/AdminDashboard";
-import AdminUmsatz from "./pages/AdminUmsatz";
-import AdminOversight from "./pages/AdminOversight";
-import ChildminderPortal from "./pages/ChildminderPortal";
-import ChildminderOnboarding from "./pages/portal/ChildminderOnboarding";
-import RegisterChildminder from "./pages/RegisterChildminder";
-import ParentPortal from "./pages/ParentPortal";
-import ChildminderDashboard from "./pages/portal/ChildminderDashboard";
-import ProspectDashboard from "./pages/portal/ProspectDashboard";
-import ChildminderProfile from "./pages/portal/ChildminderProfile";
-import ChildminderShifts from "./pages/portal/ChildminderShifts";
-import ChildminderAvailability from "./pages/portal/ChildminderAvailability";
-import ChildminderTimesheets from "./pages/portal/ChildminderTimesheets";
-import MessagesPage from "./pages/portal/MessagesPage";
-import NotificationsPage from "./pages/portal/NotificationsPage";
-import PerformanceDashboard from "./pages/portal/PerformanceDashboard";
-import FindChildminder from "./pages/portal/FindChildminder";
-import InvoicesPage from "./pages/portal/InvoicesPage";
-import ParentProfile from "./pages/portal/ParentProfile";
-import ChildrenManagement from "./pages/portal/ChildrenManagement";
-import FundingPage from "./pages/portal/FundingPage";
-import SubscriptionPage from "./pages/portal/SubscriptionPage";
-import VerifizierungBestellen from "./pages/portal/VerifizierungBestellen";
-import AkademiePage from "./pages/portal/AkademiePage";
-import ExterneKursePage from "./pages/portal/ExterneKursePage";
-import JugendamtReadyPage from "./pages/portal/JugendamtReadyPage";
-import SafeguardingPage from "./pages/portal/SafeguardingPage";
-import MFASetup from "./pages/portal/MFASetup";
-import ParentOnboarding from "./pages/portal/ParentOnboarding";
-import ParentDashboard from "./pages/portal/ParentDashboard";
-import PlaceholderPage from "./pages/portal/PlaceholderPage";
-import BookingsPage from "./pages/portal/BookingsPage";
-import ContractsPage from "./pages/portal/ContractsPage";
-import DocumentsPage from "./pages/portal/DocumentsPage";
-import AdminCreateUser from "./pages/portal/AdminCreateUser";
-import TrainingPage from "./pages/portal/TrainingPage";
-import GDPRPolicy from "./pages/GDPRPolicy";
-import TermsOfService from "./pages/TermsOfService";
-import ComplaintsProcedure from "./pages/ComplaintsProcedure";
-import Impressum from "./pages/Impressum";
-import Datenschutz from "./pages/Datenschutz";
-import Verifizierung from "./pages/Verifizierung";
-import ErsteHilfe from "./pages/ErsteHilfe";
-import Partner from "./pages/Partner";
-import FuerArbeitgeber from "./pages/FuerArbeitgeber";
-import EmployerPortal from "./pages/EmployerPortal";
-import SaaS from "./pages/SaaS";
-import JugendamtPortal from "./pages/JugendamtPortal";
-import KitaPartner from "./pages/KitaPartner";
-import AdminReferrals from "./pages/AdminReferrals";
-import ReferralsPage from "./pages/portal/ReferralsPage";
-import FlyerPage from "./pages/FlyerPage";
-import Blog from "./pages/Blog";
-import BlogPost from "./pages/BlogPost";
-import NotFound from "./pages/NotFound";
-import ResetPassword from "./pages/ResetPassword";
-import Screensaver from "./pages/Screensaver";
+const Index = lazy(() => import("./pages/Index"));
+const Auth = lazy(() => import("./pages/Auth"));
+const Portal = lazy(() => import("./pages/Portal"));
+const AdminLogin = lazy(() => import("./pages/AdminLogin"));
+const AdminPanel = lazy(() => import("./pages/AdminPanel"));
+const AdminRoster = lazy(() => import("./pages/AdminRoster"));
+const AdminDashboard = lazy(() => import("./pages/AdminDashboard"));
+const AdminUmsatz = lazy(() => import("./pages/AdminUmsatz"));
+const AdminOversight = lazy(() => import("./pages/AdminOversight"));
+const ChildminderPortal = lazy(() => import("./pages/ChildminderPortal"));
+const RegisterChildminder = lazy(() => import("./pages/RegisterChildminder"));
+const ParentPortal = lazy(() => import("./pages/ParentPortal"));
+const ChildminderOnboarding = lazy(() => import("./pages/portal/ChildminderOnboarding"));
+const ChildminderDashboard = lazy(() => import("./pages/portal/ChildminderDashboard"));
+const ProspectDashboard = lazy(() => import("./pages/portal/ProspectDashboard"));
+const ChildminderProfile = lazy(() => import("./pages/portal/ChildminderProfile"));
+const ChildminderShifts = lazy(() => import("./pages/portal/ChildminderShifts"));
+const ChildminderAvailability = lazy(() => import("./pages/portal/ChildminderAvailability"));
+const ChildminderTimesheets = lazy(() => import("./pages/portal/ChildminderTimesheets"));
+const MessagesPage = lazy(() => import("./pages/portal/MessagesPage"));
+const NotificationsPage = lazy(() => import("./pages/portal/NotificationsPage"));
+const PerformanceDashboard = lazy(() => import("./pages/portal/PerformanceDashboard"));
+const FindChildminder = lazy(() => import("./pages/portal/FindChildminder"));
+const InvoicesPage = lazy(() => import("./pages/portal/InvoicesPage"));
+const ParentProfile = lazy(() => import("./pages/portal/ParentProfile"));
+const ChildrenManagement = lazy(() => import("./pages/portal/ChildrenManagement"));
+const FundingPage = lazy(() => import("./pages/portal/FundingPage"));
+const SubscriptionPage = lazy(() => import("./pages/portal/SubscriptionPage"));
+const VerifizierungBestellen = lazy(() => import("./pages/portal/VerifizierungBestellen"));
+const AkademiePage = lazy(() => import("./pages/portal/AkademiePage"));
+const ExterneKursePage = lazy(() => import("./pages/portal/ExterneKursePage"));
+const JugendamtReadyPage = lazy(() => import("./pages/portal/JugendamtReadyPage"));
+const SafeguardingPage = lazy(() => import("./pages/portal/SafeguardingPage"));
+const MFASetup = lazy(() => import("./pages/portal/MFASetup"));
+const ParentOnboarding = lazy(() => import("./pages/portal/ParentOnboarding"));
+const ParentDashboard = lazy(() => import("./pages/portal/ParentDashboard"));
+const BookingsPage = lazy(() => import("./pages/portal/BookingsPage"));
+const ContractsPage = lazy(() => import("./pages/portal/ContractsPage"));
+const DocumentsPage = lazy(() => import("./pages/portal/DocumentsPage"));
+const AdminCreateUser = lazy(() => import("./pages/portal/AdminCreateUser"));
+const TrainingPage = lazy(() => import("./pages/portal/TrainingPage"));
+const ReferralsPage = lazy(() => import("./pages/portal/ReferralsPage"));
+const GDPRPolicy = lazy(() => import("./pages/GDPRPolicy"));
+const TermsOfService = lazy(() => import("./pages/TermsOfService"));
+const ComplaintsProcedure = lazy(() => import("./pages/ComplaintsProcedure"));
+const Impressum = lazy(() => import("./pages/Impressum"));
+const Datenschutz = lazy(() => import("./pages/Datenschutz"));
+const Verifizierung = lazy(() => import("./pages/Verifizierung"));
+const ErsteHilfe = lazy(() => import("./pages/ErsteHilfe"));
+const Partner = lazy(() => import("./pages/Partner"));
+const FuerArbeitgeber = lazy(() => import("./pages/FuerArbeitgeber"));
+const EmployerPortal = lazy(() => import("./pages/EmployerPortal"));
+const SaaS = lazy(() => import("./pages/SaaS"));
+const JugendamtPortal = lazy(() => import("./pages/JugendamtPortal"));
+const KitaPartner = lazy(() => import("./pages/KitaPartner"));
+const AdminReferrals = lazy(() => import("./pages/AdminReferrals"));
+const FlyerPage = lazy(() => import("./pages/FlyerPage"));
+const Blog = lazy(() => import("./pages/Blog"));
+const BlogPost = lazy(() => import("./pages/BlogPost"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+const ResetPassword = lazy(() => import("./pages/ResetPassword"));
+const Screensaver = lazy(() => import("./pages/Screensaver"));
 import LoadingScreen from "./components/LoadingScreen";
 import InstallPrompt from "./components/InstallPrompt";
 
@@ -82,6 +82,7 @@ const App = () => (
         <LoadingScreen />
         <InstallPrompt />
         <BrowserRouter>
+          <Suspense fallback={<div className="min-h-screen flex items-center justify-center" role="status">Seite wird geladen…</div>}>
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/auth" element={<Auth />} />
@@ -166,6 +167,7 @@ const App = () => (
             <Route path="/screensaver" element={<Screensaver />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
+          </Suspense>
         </BrowserRouter>
       </TooltipProvider>
     </AuthProvider>

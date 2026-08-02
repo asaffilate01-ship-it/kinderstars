@@ -79,7 +79,7 @@ export default function ReferralsPage() {
           text: "Registrieren Sie sich mit meinem Code und wir erhalten beide einen Vorteil.",
           url: link,
         });
-      } catch {}
+      } catch { return; }
     } else {
       copyLink();
     }

@@ -166,7 +166,7 @@ const AdminRoster = () => {
     const cmData = cmRes.data ?? [];
     const parentData = parentRes.data ?? [];
     const allIds = [...cmData.map(c => c.user_id), ...parentData.map(p => p.user_id)];
-    let profileNames: Record<string, string> = {};
+    const profileNames: Record<string, string> = {};
     if (allIds.length > 0) {
       const { data: pData } = await supabase.from("profiles").select("user_id, first_name, last_name").in("user_id", allIds);
       (pData ?? []).forEach(p => {

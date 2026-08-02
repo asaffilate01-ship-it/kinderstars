@@ -7,10 +7,15 @@
     "dev": "vite",
     "build": "vite build",
     "build:dev": "vite build --mode development",
-    "lint": "eslint .",
+    "lint": "eslint . --max-warnings 250",
+    "typecheck": "tsc --noEmit",
+    "ci": "npm run typecheck && npm run lint && npm test && npm run build",
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest"
+  },
+  "engines": {
+    "node": ">=20.19 <23"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

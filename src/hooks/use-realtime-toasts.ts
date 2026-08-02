@@ -26,7 +26,7 @@ export function useRealtimeToasts() {
     const notify = (title: string, description?: string) => {
       toast({ title, description });
       playNotificationSound();
-      showBrowserNotification(title.replace(/^[\p{Emoji}\u200d\ufe0f]+\s*/u, ""), description);
+      showBrowserNotification(title.replace(/^\p{Extended_Pictographic}+\s*/u, ""), description);
     };
 
     const channel = supabase
