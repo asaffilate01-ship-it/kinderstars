@@ -755,6 +755,7 @@ export type Database = {
           id: string
           notes: string | null
           provider: string | null
+          source_ref: string | null
           title: string
           training_booking_id: string | null
           updated_at: string
@@ -770,6 +771,7 @@ export type Database = {
           id?: string
           notes?: string | null
           provider?: string | null
+          source_ref?: string | null
           title: string
           training_booking_id?: string | null
           updated_at?: string
@@ -785,6 +787,7 @@ export type Database = {
           id?: string
           notes?: string | null
           provider?: string | null
+          source_ref?: string | null
           title?: string
           training_booking_id?: string | null
           updated_at?: string
@@ -1480,26 +1483,35 @@ export type Database = {
         Row: {
           document_id: string
           id: string
+          last_error: string | null
+          processed_at: string | null
           provider_event_id: string
           received_at: string
           result: string
           scanner_ref: string | null
+          status: string
         }
         Insert: {
           document_id: string
           id?: string
+          last_error?: string | null
+          processed_at?: string | null
           provider_event_id: string
           received_at?: string
           result: string
           scanner_ref?: string | null
+          status?: string
         }
         Update: {
           document_id?: string
           id?: string
+          last_error?: string | null
+          processed_at?: string | null
           provider_event_id?: string
           received_at?: string
           result?: string
           scanner_ref?: string | null
+          status?: string
         }
         Relationships: [
           {
@@ -2030,19 +2042,28 @@ export type Database = {
           created_at: string
           event_type: string
           id: string
+          last_error: string | null
+          processed_at: string | null
           provider_event_id: string
+          status: string
         }
         Insert: {
           created_at?: string
           event_type: string
           id?: string
+          last_error?: string | null
+          processed_at?: string | null
           provider_event_id: string
+          status?: string
         }
         Update: {
           created_at?: string
           event_type?: string
           id?: string
+          last_error?: string | null
+          processed_at?: string | null
           provider_event_id?: string
+          status?: string
         }
         Relationships: []
       }
