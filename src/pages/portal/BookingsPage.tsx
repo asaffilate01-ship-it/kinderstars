@@ -174,46 +174,24 @@ const BookingsPage = () => {
   };
 
   const handleAuthorize = async (b: Booking) => {
-    // Compute planned totals from planned window
-    const [sh, sm] = b.start_time.split(":").map(Number);
-    const [eh, em] = b.end_time.split(":").map(Number);
-    const plannedHours = Math.max(0, (eh + em / 60) - (sh + sm / 60));
-    const total = Math.round(plannedHours * (b.hourly_rate_cents ?? 0));
-    const fee = Math.round(total * PLATFORM_FEE_PCT);
-    const payout = total - fee;
     try {
       const { data, error } = await supabase.functions.invoke("create-checkout", {
-        body: {
-          price_key: undefined,
-          mode: "payment",
-          // Fallback: use inline verification-style booking price via a synthetic path
-        },
+        body: { booking_id: b.id },
       });
-      // Regardless of Stripe wiring, mark authorized locally (auth-only hold)
       if (error) throw error;
-      await supabase.from("bookings").update({
-        flow_status: "authorized",
-        authorized_at: new Date().toISOString(),
-        total_amount_cents: total,
-        platform_fee_cents: fee,
-        minder_payout_cents: payout,
-      }).eq("id", b.id);
-      await logEvent(b.id, "payment_authorized", b.flow_status, "authorized", { total, fee, payout });
-      if (data?.url) window.open(data.url, "_blank");
-      toast({ title: "Zahlung autorisiert", description: `Reserviert: ${eur(total)}` });
+      if (!data?.url) throw new Error("Keine Checkout-URL erhalten");
+      window.open(data.url, "_blank");
+      toast({
+        title: "Zahlung wird autorisiert",
+        description: "Schließen Sie die Zahlung im Stripe-Fenster ab. Die Buchung wird danach automatisch freigegeben.",
+      });
       fetchBookings();
     } catch (err: unknown) {
-      // If Stripe isn't wired yet, still authorize locally with a note
-      await supabase.from("bookings").update({
-        flow_status: "authorized",
-        authorized_at: new Date().toISOString(),
-        total_amount_cents: total,
-        platform_fee_cents: fee,
-        minder_payout_cents: payout,
-      }).eq("id", b.id);
-      await logEvent(b.id, "payment_authorized_offline", b.flow_status, "authorized", { total, fee, payout, note: "stripe_offline" });
-      toast({ title: "Zahlung vorgemerkt", description: `Reserviert: ${eur(total)} (Stripe offline)` });
-      fetchBookings();
+      toast({
+        title: "Zahlung fehlgeschlagen",
+        description: err instanceof Error ? err.message : "Checkout konnte nicht gestartet werden.",
+        variant: "destructive",
+      });
     }
   };
 

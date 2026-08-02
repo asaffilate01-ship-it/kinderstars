@@ -7,6 +7,7 @@ import { toast } from "@/hooks/use-toast";
 import { Upload, FileText, Loader2, Trash2, CheckCircle2, Clock, XCircle, Eye, Shield, CreditCard, ExternalLink } from "lucide-react";
 import { format } from "date-fns";
 import { useLocation } from "react-router-dom";
+import { validateUpload } from "@/lib/upload-security";
 
 const CHILDMINDER_DOC_TYPES = [
   { value: "dbs_certificate", label: "Erweitertes Führungszeugnis (§ 30a BZRG)" },
@@ -86,14 +87,16 @@ const DocumentsPage = () => {
   const handleUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!user || !e.target.files?.[0]) return;
     const file = e.target.files[0];
-    if (file.size > 10 * 1024 * 1024) {
-      toast({ title: "File too large", description: "Max 10MB", variant: "destructive" });
+    const validation = validateUpload(file, "compliance-document");
+    if (!validation.ok) {
+      toast({ title: "Invalid file", description: validation.error, variant: "destructive" });
       return;
     }
     setUploading(true);
-    const ext = file.name.split(".").pop();
-    const path = `${user.id}/${selectedType}-${Date.now()}.${ext}`;
-    const { error: uploadError } = await supabase.storage.from("compliance-docs").upload(path, file);
+    const path = `${user.id}/${selectedType}-${crypto.randomUUID()}.${validation.extension}`;
+    const { error: uploadError } = await supabase.storage.from("compliance-docs").upload(path, file, {
+      contentType: file.type,
+    });
     if (uploadError) {
       toast({ title: "Upload failed", description: uploadError.message, variant: "destructive" });
       setUploading(false);
@@ -249,7 +252,7 @@ const DocumentsPage = () => {
             <input
               ref={fileRef}
               type="file"
-              accept=".pdf,.jpg,.jpeg,.png,.doc,.docx"
+              accept="application/pdf,image/jpeg,image/png"
               onChange={handleUpload}
               disabled={uploading}
               className="w-full h-10 text-sm file:mr-3 file:rounded-md file:border-0 file:bg-secondary file:px-3 file:py-2 file:text-secondary-foreground file:text-xs"
