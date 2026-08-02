@@ -14,11 +14,15 @@
 
 ## Production deployment order
 
-1. Apply `20260802203000_harden_storage_uploads.sql`.
-2. Apply `20260802204500_add_payment_webhook_receipts.sql`.
+1. Storage bucket MIME/size limits (`avatars`: 5 MB, JPEG/PNG/WebP; `compliance-docs`:
+   10 MB, PDF/JPEG/PNG) must be set on the buckets themselves by the platform —
+   the SQL migration for `storage.buckets` is not applicable here. Browser-side
+   validation in `src/lib/upload-security.ts` is live; treat bucket limits as an
+   outstanding operational task.
+2. `20260802204500_add_payment_webhook_receipts.sql` is applied.
 3. Set `ALLOWED_ORIGINS`, `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`,
    `AMIQUS_WEBHOOK_SECRET`, `RESEND_API_KEY` and a random `HEALTH_CHECK_TOKEN`.
-4. Deploy `create-checkout`, `stripe-webhook`, `amiqus-webhook` and `health`.
+4. `create-checkout`, `stripe-webhook`, `amiqus-webhook` and `health` are deployed.
 5. Register Stripe endpoint `/functions/v1/stripe-webhook` for
    `checkout.session.completed` and copy its signing secret.
 6. Register Amiqus endpoint `/functions/v1/amiqus-webhook` and copy its shared secret.
