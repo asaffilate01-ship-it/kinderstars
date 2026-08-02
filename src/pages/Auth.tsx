@@ -7,7 +7,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { z } from "zod";
 import MFAVerify from "@/components/MFAVerify";
 import MFASetup from "@/pages/portal/MFASetup";
-import { captureReferralFromUrl } from "@/lib/referrals";
+import { captureReferralFromUrl, clearReferral, peekReferral } from "@/lib/referrals";
 
 type AuthMode = "login" | "signup" | "forgot";
 type UserRole = "childminder" | "parent";
@@ -65,6 +65,13 @@ const Auth = () => {
     if (error) {
       setError(error);
     } else {
+      // Attribution is completed server-side after authentication so a user
+      // cannot forge a referrer, bounty or referred account id from the client.
+      const referralCode = peekReferral();
+      if (referralCode) {
+        const { error: referralError } = await supabase.functions.invoke("claim-referral", { body: { code: referralCode } });
+        if (!referralError) clearReferral();
+      }
       // Check if user has MFA enrolled
       const { data: factors } = await supabase.auth.mfa.listFactors();
       const hasTotp = factors?.totp?.some((f) => f.status === "verified");

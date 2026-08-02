@@ -50,6 +50,16 @@ export function popReferral(): string | null {
   } catch { return null; }
 }
 
+export function peekReferral(): string | null {
+  if (typeof window === "undefined") return null;
+  try { return localStorage.getItem("ks_ref"); } catch { return null; }
+}
+
+export function clearReferral(): void {
+  if (typeof window === "undefined") return;
+  try { localStorage.removeItem("ks_ref"); } catch { return; }
+}
+
 export type InsuranceStatus = "valid" | "grace" | "expired" | "missing";
 
 export function describeInsuranceStatus(status: InsuranceStatus, graceUntil?: string | null): {
