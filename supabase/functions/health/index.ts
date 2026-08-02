@@ -13,6 +13,7 @@ serve(async (req) => {
     amiqus: Boolean(Deno.env.get("AMIQUS_WEBHOOK_SECRET")),
     email: Boolean(Deno.env.get("RESEND_API_KEY")),
     origins: Boolean(Deno.env.get("ALLOWED_ORIGINS")),
+    malwareScanning: Boolean(Deno.env.get("MALWARE_SCAN_WEBHOOK_SECRET")),
   };
   const supabase = createClient(
     Deno.env.get("SUPABASE_URL") ?? "",
@@ -35,4 +36,3 @@ function safeEqual(left: string, right: string): boolean {
   for (let index = 0; index < left.length; index += 1) mismatch |= left.charCodeAt(index) ^ right.charCodeAt(index);
   return mismatch === 0;
 }
-

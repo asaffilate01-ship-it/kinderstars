@@ -46,6 +46,7 @@ interface ComplianceDoc {
   expires_at: string | null;
   review_notes: string | null;
   created_at: string;
+  malware_scan_status?: string;
 }
 
 const STATUS_STYLES: Record<string, string> = {
@@ -287,6 +288,9 @@ const DocumentsPage = () => {
               </div>
               {doc.review_notes && (
                 <div className="text-xs text-muted-foreground mt-1 italic">"{doc.review_notes}"</div>
+              )}
+              {doc.malware_scan_status === "pending" && (
+                <div className="text-xs text-primary mt-1">Sicherheitsprüfung läuft…</div>
               )}
             </div>
             <span className={`text-[11px] px-2 py-1 rounded-full font-bold shrink-0 ${STATUS_STYLES[doc.status || "pending"]}`}>
