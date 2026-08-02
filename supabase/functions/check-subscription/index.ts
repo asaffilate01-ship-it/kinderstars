@@ -76,7 +76,7 @@ serve(async (req) => {
     let trainingSub = null;
     for (const sub of subscriptions.data) {
       const productId = sub.items.data[0].price.product as string;
-      const planName = PRODUCT_PLANS[productId];
+      const planName = sub.metadata.price_key || PRODUCT_PLANS[productId] || "unknown";
       if (planName?.startsWith("basic")) basicSub = { sub, planName };
       if (planName?.startsWith("training")) trainingSub = { sub, planName };
     }

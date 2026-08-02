@@ -34,3 +34,6 @@ verify_jwt = true
 
 [functions.claim-referral]
 verify_jwt = true
+
+[functions.manage-booking-payment]
+verify_jwt = true

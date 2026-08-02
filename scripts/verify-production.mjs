@@ -1,11 +1,16 @@
 import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { join, relative, resolve } from "node:path";
+import { execFileSync } from "node:child_process";
 
 const root = process.cwd();
 const failures = [];
 
-for (const file of [".env.development", ".env.local", ".env.production"]) {
-  if (existsSync(resolve(root, file))) failures.push(`Environment-specific file must not ship: ${file}`);
+const trackedFiles = new Set(execFileSync("git", ["ls-files"], { cwd: root, encoding: "utf8" }).trim().split("\n"));
+for (const deleted of execFileSync("git", ["diff", "--cached", "--name-only", "--diff-filter=D"], { cwd: root, encoding: "utf8" }).trim().split("\n")) {
+  if (deleted) trackedFiles.delete(deleted);
+}
+for (const file of [".env", ".env.development", ".env.local", ".env.production"]) {
+  if (trackedFiles.has(file)) failures.push(`Environment-specific file must not be tracked: ${file}`);
 }
 
 for (const file of ["public/_headers", "public/robots.txt", "public/sitemap.xml", "docs/GO_LIVE_CHECKLIST.md"]) {

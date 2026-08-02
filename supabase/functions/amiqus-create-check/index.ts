@@ -42,11 +42,32 @@ serve(async (req) => {
     }
 
     const userId = claimsData.claims.sub as string;
+    const claimsEmail = typeof claimsData.claims.email === "string" ? claimsData.claims.email : "";
 
-    const { check_type, first_name, last_name, email } = await req.json();
+    const { check_type } = await req.json();
 
-    if (!check_type || !first_name || !last_name || !email) {
-      return new Response(JSON.stringify({ error: "Missing required fields: check_type, first_name, last_name, email" }), {
+    const allowedCheckTypes = new Set(["dbs", "identity", "right_to_work", "full"]);
+    if (!allowedCheckTypes.has(check_type)) {
+      return new Response(JSON.stringify({ error: "Invalid check type" }), {
+        status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+
+    const { data: profile } = await supabase
+      .from("profiles")
+      .select("first_name,last_name,email,role")
+      .eq("user_id", userId)
+      .single();
+    if (!profile || !["childminder", "admin", "owner"].includes(profile.role)) {
+      return new Response(JSON.stringify({ error: "Childminder access required" }), {
+        status: 403, headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+    const first_name = profile.first_name.trim();
+    const last_name = profile.last_name.trim();
+    const email = (claimsEmail || profile.email).trim().toLowerCase();
+    if (!first_name || !last_name || !email) {
+      return new Response(JSON.stringify({ error: "Complete your verified profile before starting a check" }), {
         status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
     }
@@ -126,6 +147,7 @@ serve(async (req) => {
       document_type: docTypeMap[check_type] || check_type,
       status: "pending",
       review_notes: `Amiqus record ID: ${recordId}, client ID: ${clientId}`,
+      external_provider_id: recordId,
     });
 
     // Step 4: Create a notification for the user
@@ -154,7 +176,7 @@ serve(async (req) => {
     });
   } catch (e) {
     console.error("amiqus-create-check error:", e);
-    return new Response(JSON.stringify({ error: e instanceof Error ? e.message : "Unknown error" }), {
+    return new Response(JSON.stringify({ error: "Verification provider request failed" }), {
       status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
   }

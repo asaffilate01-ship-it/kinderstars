@@ -33,7 +33,7 @@ Deno.serve(async (req) => {
       });
     }
 
-    const { email, redirectTo } = await req.json();
+    const { email } = await req.json();
 
     if (!email) {
       return new Response(JSON.stringify({ error: "Email is required" }), {
@@ -53,7 +53,7 @@ Deno.serve(async (req) => {
       type: "recovery",
       email,
       options: {
-        redirectTo: redirectTo || "https://kinderstars.de/reset-password",
+        redirectTo: `${new URL(Deno.env.get("APP_URL") || "https://kinderstars.de").origin}/reset-password`,
       },
     });
 
