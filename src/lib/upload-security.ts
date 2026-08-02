@@ -13,9 +13,11 @@ const RULES = {
   },
 } as const;
 
-export type UploadValidation =
-  | { ok: true; extension: string }
-  | { ok: false; error: string };
+export type UploadValidation = {
+  ok: boolean;
+  extension?: string;
+  error?: string;
+};
 
 export const validateUpload = (file: Pick<File, "name" | "size" | "type">, kind: UploadKind): UploadValidation => {
   const rule = RULES[kind];
