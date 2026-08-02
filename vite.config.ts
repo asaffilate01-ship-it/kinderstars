@@ -38,14 +38,6 @@ export default defineConfig(({ mode }) => ({
             },
           },
           {
-            urlPattern: /^https:\/\/.*\.supabase\.co\/storage\/.*/i,
-            handler: "CacheFirst",
-            options: {
-              cacheName: "supabase-storage",
-              expiration: { maxEntries: 100, maxAgeSeconds: 60 * 60 * 24 * 7 },
-            },
-          },
-          {
             urlPattern: /^https:\/\/fonts\.(googleapis|gstatic)\.com\/.*/i,
             handler: "CacheFirst",
             options: {
@@ -58,7 +50,7 @@ export default defineConfig(({ mode }) => ({
       manifest: {
         name: "KinderStars",
         short_name: "KinderStars",
-        description: "Find trusted childminders across the UK",
+        description: "Geprüfte Kindertagespflege in ganz Deutschland",
         theme_color: "#1a5276",
         background_color: "#fffdf7",
         display: "standalone",

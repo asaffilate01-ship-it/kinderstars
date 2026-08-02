@@ -1,0 +1,60 @@
+name: Production smoke evidence
+
+on:
+  workflow_dispatch:
+    inputs:
+      deployment_url:
+        description: Exact HTTPS production URL to verify
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: production
+      url: ${{ inputs.deployment_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate URL
+        env:
+          DEPLOYMENT_URL: ${{ inputs.deployment_url }}
+        run: |
+          node -e 'const u=new URL(process.env.DEPLOYMENT_URL); if(u.protocol!=="https:") process.exit(1); if(u.username||u.password) process.exit(1)'
+      - name: Smoke public and legal routes
+        env:
+          DEPLOYMENT_URL: ${{ inputs.deployment_url }}
+        run: |
+          set -euo pipefail
+          for route in / /impressum /datenschutz /agb /beschwerdeverfahren; do
+            curl --fail --silent --show-error --location --max-time 20 "${DEPLOYMENT_URL%/}${route}" > /dev/null
+          done
+      - name: Verify security headers
+        env:
+          DEPLOYMENT_URL: ${{ inputs.deployment_url }}
+        run: |
+          set -euo pipefail
+          headers="$(curl --fail --silent --show-error --head --location --max-time 20 "$DEPLOYMENT_URL" | tr -d '\r' | tr '[:upper:]' '[:lower:]')"
+          grep -q '^x-content-type-options: nosniff' <<< "$headers"
+          grep -q '^referrer-policy:' <<< "$headers"
+          grep -q '^content-security-policy:' <<< "$headers"
+      - name: Record release evidence
+        env:
+          DEPLOYMENT_URL: ${{ inputs.deployment_url }}
+        run: |
+          {
+            echo "release_commit=${GITHUB_SHA}"
+            echo "deployment_url=${DEPLOYMENT_URL}"
+            echo "verified_at=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            echo "workflow_run=${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+          } > production-smoke-evidence.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: production-smoke-evidence
+          path: production-smoke-evidence.txt
+          retention-days: 90
+
