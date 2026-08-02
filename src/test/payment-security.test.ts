@@ -24,5 +24,25 @@ describe("payment and webhook security", () => {
     expect(migration).toContain("provider_event_id TEXT NOT NULL UNIQUE");
     expect(migration).toContain("REVOKE ALL");
   });
-});
 
+  it("allows failed payment and malware events to be retried safely", () => {
+    const payment = source("supabase/functions/stripe-webhook/index.ts");
+    const malware = source("supabase/functions/malware-scan-webhook/index.ts");
+    const migration = source("supabase/migrations/20260803010000_retry_safe_webhooks.sql");
+    expect(payment).toContain('.eq("status", "failed")');
+    expect(payment).toContain('status: "completed"');
+    expect(malware).toContain('.eq("status", "failed")');
+    expect(malware).toContain('status: "completed"');
+    expect(migration).toContain("payment_webhook_events_status_check");
+    expect(migration).toContain("malware_scan_events_status_check");
+  });
+
+  it("deduplicates partner CPD completion records", () => {
+    const webhook = source("supabase/functions/partner-training-webhook/index.ts");
+    const migration = source("supabase/migrations/20260803010000_retry_safe_webhooks.sql");
+    expect(webhook).toContain('source_ref: `${p.provider}:${p.external_ref}`');
+    expect(webhook).toContain('completed_date: now.split("T")[0]');
+    expect(webhook).toContain('onConflict: "source_ref"');
+    expect(migration).toContain("cpd_records_source_ref_key");
+  });
+});

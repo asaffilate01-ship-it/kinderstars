@@ -95,14 +95,15 @@ Deno.serve(async (req) => {
 
   // On completion, also record CPD hours if any
   if (p.event === "completed" && p.cpd_hours && p.cpd_hours > 0) {
-    await supabase.from("cpd_records").insert({
+    await supabase.from("cpd_records").upsert({
       user_id: prof.user_id,
       title: `${p.provider} — ${p.course_slug ?? p.external_ref}`,
       provider: p.provider,
       hours: p.cpd_hours,
-      completed_at: now,
+      completed_date: now.split("T")[0],
       certificate_url: p.certificate_url ?? null,
-    });
+      source_ref: `${p.provider}:${p.external_ref}`,
+    }, { onConflict: "source_ref", ignoreDuplicates: true });
   }
 
   return new Response(JSON.stringify({ ok: true }), {
